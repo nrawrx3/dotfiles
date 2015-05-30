@@ -1,0 +1,4 @@
+# i3 config file (v4)
+#
+font pango:creep 10
+

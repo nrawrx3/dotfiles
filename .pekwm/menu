@@ -1,0 +1,89 @@
+Rootmenu = "/" {
+	Submenu = "Development" {
+		Entry = "Qt Creator" { Actions = "Exec qtcreator -style=gtk &" }
+		Entry = "GDB" { Actions = "Exec urxvt -e gdb &" }
+		Entry = "Liteide" { Actions = "Exec liteide -style=gtk &" }
+	}
+	Submenu = "Editors" {
+		Entry = "Character map" { Actions = "Exec gucharmap &" }
+		Entry = "Sublime" { Actions = "Exec subl &" }
+		Entry = "Sublime3" { Actions = "Exec subl3 &" }
+		Entry = "Vim" { Actions = "Exec gvim &" }
+	}
+	Submenu = "Graphics" {
+		Entry = "The GIMP" { Actions = "Exec gimp &" }
+	}
+	Submenu = "Multimedia" {
+		Entry = "ALSA mixer" { Actions = "Exec urxvt -e alsamixer &" }
+		Entry = "DeadBeef" { Actions = "Exec deadbeef &"}
+	}
+	Submenu = "Network" {
+		Entry = "Firefox" { Actions = "Exec firefox &"}
+		Entry = "Weechat" { Actions = "Exec urxvt -e weechat &" }
+		Entry = "weechat-xfce4-terminal" { Actions = "Exec xfce4-terminal -e weechat &" }
+	}
+	Submenu = "Readers" {
+		Entry = "qpdfview" { Actions = "Exec qpdfview --style=gtk &" }
+		Entry = "zathura" { Actions = "Exec  zathura &" }
+		Entry = "mcomix" { Actions = "Exec  mcomix &" }
+	}
+	Submenu = "Shells" {
+		Entry = "urxvt" { Actions = "Exec urxvt &" }
+		Entry = "xfce4-terminal" { Actions = "Exec xfce4-terminal &" }
+		Entry = "Python" { Actions = "Exec urxvt -e python2 &" }
+	}
+	Submenu = "System" {
+		Entry = "Htop" { Actions = "Exec urxvt -e htop &" }
+		Entry = "Nitrogen" { Actions = "Exec nitrogen &" }
+		Entry = "lxappearance" { Actions = "Exec lxappearance  &" }
+	}
+	Submenu = "File Managers" {
+		Entry = "SpaceFM" {Actions = "Exec spacefm &"}
+		Entry = "Ranger" {Actions = "Exec urxvt -e ranger &"}
+	}
+	Separator {}
+	Submenu = "PekWM" {
+		Entry = "Reload" { Actions = "Reload" }
+		Entry = "Restart" { Actions = "Restart" }
+		Separator {}
+		Entry = "Exit" { Actions = "Exit" }
+		Entry = "Poweroff" { Actions = "Exec systemctl poweroff" }
+	}
+}
+
+WindowMenu = "Window Menu" {
+	Entry = "(Un)Stick" { Actions = "Toggle Sticky" }
+	Entry = "(Un)Shade" { Actions = "Toggle Shaded" }
+	Submenu = "Maximize" {
+		Entry = "Full" { Actions = "Toggle Maximized True True" }
+		Entry = "Horizontal" { Actions = "Toggle Maximized True False" }
+		Entry = "Vertical" { Actions = "Toggle Maximized False True" }
+	}
+	Submenu = "Fill" {
+		Entry = "Full" { Actions = "MaxFill True True" }
+		Entry = "Horizontal" { Actions = "MaxFill True False" }
+		Entry = "Vertical" { Actions = "MaxFill False True" }
+	}
+	Submenu = "Stacking" {
+		Entry = "Raise " { Actions = "Raise" }
+		Entry = "Lower" { Actions = "Lower" }
+		Entry = "Always On Top " { Actions = "Toggle AlwaysOnTop" }
+		Entry = "Always Below" { Actions = "Toggle AlwaysBelow" }
+	}
+	Submenu = "Decor" {
+		Entry = "Decor" { Actions = "Toggle DecorBorder; Toggle DecorTitlebar" }
+		Entry = "Border" { Actions = "Toggle DecorBorder" }
+		Entry = "Titlebar" { Actions = "Toggle DecorTitlebar" }
+	}
+	Submenu = "Skip" {
+		Entry = "Menus" { Actions = "Toggle Skip Menus" }
+		Entry = "Focus Toggle" { Actions = "Toggle Skip FocusToggle" }
+		Entry = "Snap" { Actions = "Toggle Skip Snap" }
+	}
+	Entry = "Iconify " { Actions = "Set Iconified" }
+	Entry = "Manual Action" { Actions = "ShowCmdDialog" }
+	Separator {}
+	Entry = "Close" { Actions = "Close" }
+	Entry = "Kill " { Actions = "Kill " }
+}
+

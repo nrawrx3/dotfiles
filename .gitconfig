@@ -1,0 +1,32 @@
+[user]
+	name = Soumik Rakshit
+	email = slnsoumik@gmail.com
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	interactive = auto
+	ui = auto
+[core]
+	editor = /usr/bin/vim
+
+[gc]
+	auto=1
+
+[merge]
+	summary=true
+[alias]
+	cp = cherry-pick -x
+	co = checkout
+	br = branch
+	cm = commit
+	st = status
+
+[alias]
+	b = branch -v
+	r = remote -v
+	t = tag -l
+	unstage = reset HEAD
+	uncommit = reset --soft HEAD^
+
+

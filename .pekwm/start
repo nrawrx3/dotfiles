@@ -1,0 +1,9 @@
+bmpanel2 --theme=transpy &
+sh ~/.fehbg &
+xrdb ~/.Xresources
+urxvt &
+clipit &
+batterymon &
+wicd-gtk &
+xcompmgr &
+conky &
