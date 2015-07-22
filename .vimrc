@@ -49,6 +49,11 @@ nnoremap Q <nop>
 set nocompatible
 set rtp+=~/.vim/bundle/Vundle.vim
 
+" MERLIN, BITCH!!!
+"let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
+"execute "set rtp+=" . g:opamshare . "/merlin/vim"
+"set rtp+=/home/snyp/.opam/system/share/ocamlmerlin/vim
+:set rtp+=/usr/local/share/ocamlmerlin/vim
 "----------------------------PLUGINS-----------------------------"
 
 call vundle#begin()
@@ -77,22 +82,21 @@ Bundle 'michaeljsmith/vim-indent-object'
 Bundle 'guns/vim-sexp'
 Bundle 'kien/rainbow_parentheses.vim'
 
+"Bundle 'chriskempson/base16-vim'
+
 Bundle 'christoomey/vim-tmux-navigator'
 
 Bundle 'octol/vim-cpp-enhanced-highlight'
+Bundle 'hdima/python-syntax'
 "Bundle 'davidhalter/jedi-vim'
+Bundle "fatih/vim-go"
 Bundle 'jmcantrell/vim-virtualenv'
-Bundle 'wting/rust.vim'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'honza/vim-snippets'
-Bundle 'tpope/vim-fireplace'
-"Bundle 'Blackrush/vim-gocode'
 Bundle 'rhysd/vim-clang-format'
+Bundle 'Superbil/llvm.vim'
+Bundle 'tell-k/vim-autopep8'
 
-
-Bundle 'endel/vim-github-colorscheme'
-Bundle 'Sclarki/neonwave.vim'
-Bundle 'fxn/vim-monochrome'
 call vundle#end()
 filetype plugin indent on
 
@@ -110,11 +114,18 @@ let g:ycm_confirm_extra_conf = 1
 "let g:ycm_autoclose_preview_window_after_completion=1
 
 "----------------------------------------------
+" => Tsukoyomi
+"----------------------------------------------
+"autocmd FileType typescript setlocal completeopt+=menu,preview
+
+"----------------------------------------------
 " => Ultisnips (Not using)
 "----------------------------------------------
 "let g:UltiSnipsExpandTrigger="<tab>"
 "let g:UltiSnipsJumpForwardTrigger="<c-b>"
 "let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+let python_highlight_all = 1
 
 "----------------------------------------------
 " => Syntastic Type Checking
@@ -224,9 +235,8 @@ set mouse=a
 "----------------------------------------------
 
 " Enable syntax highlighting
-syntax enable
-colorscheme vividchalk
-
+syntax on
+colorscheme base16-grayscale
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -251,7 +261,7 @@ set encoding=utf8
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
 
-set guifont=MonacoForPowerline\ 10
+set guifont=Pointfree\ 10
 
 
 "----------------------------------------------
@@ -298,18 +308,15 @@ set autoindent
 " File type specific tab options
 "----------------------------------------------
 autocmd FileType c setlocal et ts=4 sw=4 sts=4
-autocmd FileType python setlocal et ts=4 sw=4 sts=4
-autocmd FileType ruby setlocal et ts=4 sw=4 sts=4
-autocmd FileType ocaml setlocal et ts=4 sw=4 sts=4
-au BufRead,BufNewFile *.rs set ft=rust
-autocmd FileType rust setlocal et ts=4 sw=4 sts=4
+autocmd FileType python setlocal et ts=4 sw=4 sts=4 textwidth=1000
 autocmd FileType cpp setlocal et ts=4 sw=4 sts=4
 autocmd FileType vim setlocal et ts=4 sw=4 sts=4
 autocmd FileType scheme setlocal et ts=2 sw=2 sts=2
 autocmd FileType bash setlocal et ts=4 sw=4 sts=4
 autocmd FileType zsh setlocal et ts=4 sw=4 sts=4
 autocmd FileType clojure setlocal et ts=2 sw=2 sts=2
-"au BufRead,BufNewFile *.pxd set ft=pyrex
+autocmd FileType go setlocal noet ts=4 sw=4 sts=4
+au BufRead,BufNewFile *.ts set ft=typescript
 " Linebreak on 80 characters
 set lbr
 set tw=80
@@ -322,7 +329,7 @@ set wrap "Wrap lines
 ""set secure
 
 set colorcolumn=100
-highlight ColorColumn ctermbg=blue
+highlight ColorColumn ctermbg=white guibg=white
 
 
 """"""""""""""""""""""""""""""
@@ -364,6 +371,8 @@ map <leader>tn :tabnew<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
 map <leader>tm :tabmove
+map <leader>tk :tabnext<cr>
+map <leader>tl :tabprevious<cr>
 
 " Opens a new tab with the current buffer's path
 " Super useful when editing files in the same directory
@@ -621,7 +630,6 @@ function! SummarizeTabs()
   endtry
 endfunction
 
-set gcr=n:blinkon0
-set gcr=i:blinkon0
+"set gcr=n:blinkon0
+"set gcr=i:blinkon0
 highlight Cursor gui=reverse guifg=red guibg=NONE
-

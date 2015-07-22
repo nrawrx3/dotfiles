@@ -1,7 +1,7 @@
 INCLUDE = "$_PEKWM_ETC_PATH/config_system"
 
 Files {
-	Theme = "/home/snyp/.pekwm/themes/ArchSimple"
+	#Theme = "/home/snyp/.pekwm/themes/ArchSimple"
 }
 
 Screen {

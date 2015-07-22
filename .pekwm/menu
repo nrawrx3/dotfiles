@@ -2,11 +2,8 @@ Rootmenu = "/" {
 	Submenu = "Development" {
 		Entry = "Qt Creator" { Actions = "Exec qtcreator -style=gtk &" }
 		Entry = "GDB" { Actions = "Exec urxvt -e gdb &" }
-		Entry = "Liteide" { Actions = "Exec liteide -style=gtk &" }
 	}
 	Submenu = "Editors" {
-		Entry = "Character map" { Actions = "Exec gucharmap &" }
-		Entry = "Sublime" { Actions = "Exec subl &" }
 		Entry = "Sublime3" { Actions = "Exec subl3 &" }
 		Entry = "Vim" { Actions = "Exec gvim &" }
 	}
@@ -15,26 +12,21 @@ Rootmenu = "/" {
 	}
 	Submenu = "Multimedia" {
 		Entry = "ALSA mixer" { Actions = "Exec urxvt -e alsamixer &" }
-		Entry = "DeadBeef" { Actions = "Exec deadbeef &"}
 	}
 	Submenu = "Network" {
-		Entry = "Firefox" { Actions = "Exec firefox &"}
-		Entry = "Weechat" { Actions = "Exec urxvt -e weechat &" }
-		Entry = "weechat-xfce4-terminal" { Actions = "Exec xfce4-terminal -e weechat &" }
+		Entry = "chromium" { Actions = "Exec chromium &"}
+		Entry = "Weechat" { Actions = "Exec termite -e weechat &" }
 	}
 	Submenu = "Readers" {
-		Entry = "qpdfview" { Actions = "Exec qpdfview --style=gtk &" }
-		Entry = "zathura" { Actions = "Exec  zathura &" }
 		Entry = "mcomix" { Actions = "Exec  mcomix &" }
 	}
 	Submenu = "Shells" {
 		Entry = "urxvt" { Actions = "Exec urxvt &" }
-		Entry = "xfce4-terminal" { Actions = "Exec xfce4-terminal &" }
+		Entry = "termite" { Actions = "Exec termite &" }
 		Entry = "Python" { Actions = "Exec urxvt -e python2 &" }
 	}
 	Submenu = "System" {
 		Entry = "Htop" { Actions = "Exec urxvt -e htop &" }
-		Entry = "Nitrogen" { Actions = "Exec nitrogen &" }
 		Entry = "lxappearance" { Actions = "Exec lxappearance  &" }
 	}
 	Submenu = "File Managers" {

@@ -1,0 +1,22 @@
+
+Welcome!
+
+Please save files in the following places.
+
+All text files go in the ~/text directory.
+
+For code, if it is a git repo and contains mostly text, it goes to
+text/code_repos. If it contains many binary files, it goes to mixed/code_repos.
+
+All builds must be done in ~/builds directory.
+
+All mixed stuff goes in the ~/mixed directory.
+
+All python virtual environments go in the ~/venvs directory.
+
+All manual dotfiles, text as well as binary go in ~/dotfiles and symlinked.
+
+Some mixed configuration can be placed in ~/mixed/configs and symlinked.
+
+---
+

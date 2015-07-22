@@ -1,4 +1,4 @@
-bmpanel2 --theme=transpy &
+bmpanel2 &
 sh ~/.fehbg &
 xrdb ~/.Xresources
 urxvt &
