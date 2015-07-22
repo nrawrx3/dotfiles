@@ -1,9 +1,0 @@
-bmpanel2 &
-sh ~/.fehbg &
-xrdb ~/.Xresources
-urxvt &
-clipit &
-batterymon &
-wicd-gtk &
-xcompmgr &
-conky &
