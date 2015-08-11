@@ -73,7 +73,6 @@ Bundle 'bling/vim-airline'
 Bundle 'kien/ctrlp.vim'
 Bundle 'majutsushi/tagbar'
 Bundle 'tpope/vim-vinegar'
-
 Bundle 'vim-scripts/Align'
 Bundle 'vim-scripts/Gundo'
 Bundle 'tpope/vim-commentary'
@@ -81,7 +80,6 @@ Bundle 'godlygeek/tabular'
 Bundle 'michaeljsmith/vim-indent-object'
 Bundle 'guns/vim-sexp'
 Bundle 'kien/rainbow_parentheses.vim'
-
 "Bundle 'chriskempson/base16-vim'
 
 Bundle 'christoomey/vim-tmux-navigator'
@@ -90,7 +88,6 @@ Bundle 'octol/vim-cpp-enhanced-highlight'
 Bundle 'hdima/python-syntax'
 "Bundle 'davidhalter/jedi-vim'
 Bundle "fatih/vim-go"
-Bundle 'jmcantrell/vim-virtualenv'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'honza/vim-snippets'
 Bundle 'rhysd/vim-clang-format'
@@ -236,7 +233,7 @@ set mouse=a
 
 " Enable syntax highlighting
 syntax on
-colorscheme base16-grayscale
+colorscheme nuvola
 
 " Set extra options when running in GUI mode
 if has("gui_running")

@@ -5,6 +5,7 @@ export LLVM_BUILD_DIR=~/builds/llvm
 export GOPATH=~/go
 
 PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
+PATH="$HOME/text/scripts":$PATH
 PATH=$PATH:$GOPATH/bin
 
 export PATH=$HOME/.local/bin:$PATH
@@ -13,6 +14,8 @@ export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH"
 
 export CSCOPE_EDITOR="vim"
 
+export PACMAN_CACHE="/var/cache/pacman/pkg"
+
 # Guile scheme extra libraries
 export GUILE_LOAD_PATH="${HOME}/.local/share/my_guile_libs"
 
@@ -20,9 +23,6 @@ export GUILE_LOAD_PATH="${HOME}/.local/share/my_guile_libs"
 # dirs
 
 export PYTHONDONTWRITEBYTECODE=1
-
-export PAGER=vimpager
-
 
 # Functions
 
@@ -61,20 +61,78 @@ xkcd() {
   curl -sA Mozilla -i "http://www.google.com/search?hl=en&tbo=d&site=&source=hp&btnI=1&q=xkcd+$search" | awk '/Location: http/ {print $2}'
 }
 
-# My dear Toshiba hard drive
-# You make it easier for me
-# Without you grace
-# Where would I fucking be
-# Can you keep my knowledge with you
-# I only do it for us both
-# So take my heart for now too
-# Rest of me will follow through
+# She eyes me like a Pisces when I am weak
+# I've been locked inside your heart shaped box for weeks
 
 export HSB=/run/media/snyp/f6a9fbcb-7440-4cd7-b60b-4dbf1200eaed/snyp
 export HSB1=/run/media/snyp/18378179-adf3-4dad-8336-8388ff71d8c5
+
+rsync_home() {
+  dirname=$1
+  rsync -aAXvu ~/$dirname $HSB/
+}
+
+rsync_paccache() {
+  sudo bash -c "rsync -aAXvu ${PACMAN_CACHE}/* $HSB1/var/cache/pacman/pkg/"
+}
 
 remind_me() {
     cat ~/dotfiles/.remember.txt
     python ~/dotfiles/random_quote.py
 }
 
+# It's GITS_DIR not GIT_DIR!! Otherwise git will begin using this value in the commands
+export GITS_DIR=gits
+export INTERNAL_GITS_DIR=$HOME/$GITS_DIR
+export EXTERNAL_GITS_DIR=$HSB/$GITS_DIR
+
+# Pull **each** repo from the backup remote
+git_backup_pull_all() {
+  # $1 is the directory to backup
+  for d in $(ls ${EXTERNAL_GITS_DIR}); do
+    echo "Pulling remote of ${INTERNAL_GITS_DIR}/${d} at ${EXTERNAL_GITS_DIR}/${d}"
+    echo "cd $EXTERNAL_GITS_DIR/$d"
+    cd $EXTERNAL_GITS_DIR/$d
+    echo "git pull backup master"
+    git pull backup master
+    #git pull backup master
+    echo "---------------------"
+  done
+  cd $HOME
+}
+
+git_backup_init_one() {
+  d=$1
+  cd $EXTERNAL_GITS_DIR
+  echo "Creating backup remote of ${INTERNAL_GITS_DIR}/${d} at ${EXTERNAL_GITS_DIR}/${d}"
+  echo "git clone $INTERNAL_GITS_DIR/$d"
+  git clone $INTERNAL_GITS_DIR/$d
+  echo "cd $EXTERNAL_GITS_DIR/$d"
+  cd $EXTERNAL_GITS_DIR/$d
+  echo "pwd: " `pwd`
+  echo "git remote add backup ${INTERNAL_GITS_DIR}/${d}"
+  git remote add backup ${INTERNAL_GITS_DIR}/${d}
+  cd $EXTERNAL_GITS_DIR
+  echo "---------------------"
+  cd $HOME
+}
+
+# Create a backup remote for **each** directory in the $GITS_DIR for the first time
+git_backup_init_all() {
+  cd $EXTERNAL_GITS_DIR
+  for d in $(ls ${INTERNAL_GITS_DIR}); do
+    echo "Creating backup remote of ${INTERNAL_GITS_DIR}/${d} at ${EXTERNAL_GITS_DIR}/${d}"
+    echo "git clone $INTERNAL_GITS_DIR/$d"
+    git clone $INTERNAL_GITS_DIR/$d
+    echo "cd $EXTERNAL_GITS_DIR/$d"
+    cd $EXTERNAL_GITS_DIR/$d
+    echo "pwd: " `pwd`
+    echo "git remote add backup ${INTERNAL_GITS_DIR}/${d}"
+    git remote add backup ${INTERNAL_GITS_DIR}/${d}
+    # Just a test
+    #git pull backup master
+    cd $EXTERNAL_GITS_DIR
+    echo "---------------------"
+  done
+  cd $HOME
+}

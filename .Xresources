@@ -10,7 +10,7 @@ URxvt*urgentOnBell:				true
 
 URxvt*perl-ext-common:				default,matcher
 URxvt*matcher.button:				1
-URxvt*url-launcher:				/usr/bin/firefox
+URxvt*url-launcher:				/usr/bin/chromium
 
 URxvt.font:					xft:Pointfree:size=10
 URxvt.boldFont:					xft:Pointfree:bold:size=10
@@ -27,53 +27,33 @@ Xft.hintstyle: hintfull
 Xft.rgba: rgb                                                                                                                  
                    
 
-! Base16 Twilight
-! Scheme: David Hart (http://hart-dev.com)
+!BD and FD
+*background:                    #ffffff
 
-#define base00 #1e1e1e
-#define base01 #323537
-#define base02 #464b50
-#define base03 #5f5a60
-#define base04 #838184
-#define base05 #a7a7a7
-#define base06 #c3c3c3
-#define base07 #ffffff
-#define base08 #cf6a4c
-#define base09 #cda869
-#define base0A #f9ee98
-#define base0B #8f9d6a
-#define base0C #afc4db
-#define base0D #7587a6
-#define base0E #9b859d
-#define base0F #9b703f
+! red
+*color1:        #AC008F
+*color9:        #AC008F
 
-*.foreground:   base05
-*.background:   base00
-*.cursorColor:  base05
+!Green
+*color2:                        #115322
+*color10:                       #115322
 
-*.color0:       base00
-*.color1:       base08
-*.color2:       base0B
-*.color3:       base0A
-*.color4:       base0D
-*.color5:       base0E
-*.color6:       base0C
-*.color7:       base05
+!Yellow
+*color3:                        #FF002E
+*color11:                       #FF002E
 
-*.color8:       base03
-*.color9:       base08
-*.color10:      base0B
-*.color11:      base0A
-*.color12:      base0D
-*.color13:      base0E
-*.color14:      base0C
-*.color15:      base07
+! blue
+*color4:        #59306B
+*color12:       #59306B
 
-! Note: colors beyond 15 might not be loaded (e.g., xterm, urxvt),
-! use 'shell' template to set these if necessary
-*.color16:      base09
-*.color17:      base0F
-*.color18:      base01
-*.color19:      base02
-*.color20:      base04
-*.color21:      base06
+! magenta
+*color5:        #720033
+*color13:       #720033
+
+! cyan
+*color6:        #4F5C5B
+*color14:       #4F5C5B
+
+! white
+*color7:        #2E2D00
+*color15:       #2E2D00
