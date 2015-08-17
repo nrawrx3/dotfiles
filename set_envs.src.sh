@@ -26,7 +26,10 @@ export PYTHONDONTWRITEBYTECODE=1
 
 # Functions
 
-# Colored man pages
+# The sounds of silence often soothe
+# Shapes and colors shift with mood
+# Pupils widen change their hue
+# Rapid brown avoids clear blue (Frogs - Alice in Chains)
 man() {
     env LESS_TERMCAP_mb=$'\E[01;31m' \
     LESS_TERMCAP_md=$'\E[01;38;5;74m' \
@@ -62,7 +65,7 @@ xkcd() {
 }
 
 # She eyes me like a Pisces when I am weak
-# I've been locked inside your heart shaped box for weeks
+# I've been locked inside your heart shaped box for weeks (Heart Shaped Box - Nirvana)
 
 export HSB=/run/media/snyp/f6a9fbcb-7440-4cd7-b60b-4dbf1200eaed/snyp
 export HSB1=/run/media/snyp/18378179-adf3-4dad-8336-8388ff71d8c5
@@ -81,10 +84,24 @@ remind_me() {
     python ~/dotfiles/random_quote.py
 }
 
+# Project names and upstream URLS
+
+# Managing git repositories with 
+
 # It's GITS_DIR not GIT_DIR!! Otherwise git will begin using this value in the commands
 export GITS_DIR=gits
 export INTERNAL_GITS_DIR=$HOME/$GITS_DIR
 export EXTERNAL_GITS_DIR=$HSB/$GITS_DIR
+
+# $HSB's $GITS_DIR/<PROJECT> have each a 'backup' remote which is set to
+# $INTERNAL_GITS_DIR/<PROJECT>
+
+# When cloning from $HSB/$GITS_DIR/<PROJECT>, the origin remote is set to
+# $HSB/$GITS_DIR/<PROJECT>. So we need to restore origin remote to point to
+# the actual project URL. Do it via
+
+#       git remote rm origin
+#       git remote add origin <URL>
 
 # Pull **each** repo from the backup remote
 git_backup_pull_all() {
@@ -95,7 +112,6 @@ git_backup_pull_all() {
     cd $EXTERNAL_GITS_DIR/$d
     echo "git pull backup master"
     git pull backup master
-    #git pull backup master
     echo "---------------------"
   done
   cd $HOME
@@ -135,4 +151,38 @@ git_backup_init_all() {
     echo "---------------------"
   done
   cd $HOME
+}
+
+
+## KEEP THIS UPDATED YOU FOOL!
+
+typeset -A name_to_url
+name_to_url=(llvm "https://github.com/llvm-mirror/llvm.git"
+       libjit "git://git.savannah.gnu.org/libjit.git"
+       libbsd "git://anongit.freedesktop.org/git/libbsd"
+       luajit-2.0 "http://luajit.org/git/luajit-2.0.git"
+       toml "https://github.com/toml-lang/toml.git"
+       cpython "https://github.com/python/cpython"
+       gpm "https://github.com/pote/gpm.git")
+
+print_git_urls() {
+  for k in "${(@k)name_to_url}"; do
+      echo "$k -> $name_to_url[$k]"
+  done
+}
+
+remove_default_origin_and_add_upstream() {
+  for k in "${(@k)name_to_url}"; do
+    echo "$k -> $name_to_url[$k]"
+    echo "cd $INTERNAL_GITS_DIR/$k"
+    cd $INTERNAL_GITS_DIR/$k
+      echo "git remote rm origin"
+      git remote rm origin
+
+      echo "git remote add origin $name_to_url[$k]"
+      git remote add origin $name_to_url[$k]
+
+      cd $HOME
+      echo "----------------------"
+  done  
 }

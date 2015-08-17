@@ -1,0 +1,2 @@
+Get your data structures correct first, and the rest of the program will write itself.
+	- David Jones
