@@ -163,7 +163,8 @@ name_to_url=(llvm "https://github.com/llvm-mirror/llvm.git"
        luajit-2.0 "http://luajit.org/git/luajit-2.0.git"
        toml "https://github.com/toml-lang/toml.git"
        cpython "https://github.com/python/cpython"
-       gpm "https://github.com/pote/gpm.git")
+       gpm "https://github.com/pote/gpm.git"
+       earnestly "https://github.com/Earnestly/pkgbuilds.git")
 
 print_git_urls() {
   for k in "${(@k)name_to_url}"; do
