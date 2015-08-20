@@ -16,7 +16,7 @@
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
-font pango:Pointfree 10
+font pango:Monaco For Powerline 10
 
 # use Mouse+Mod1 to drag floating windows to their wanted position
 floating_modifier Mod1
@@ -185,15 +185,12 @@ bar {
 # editors
 bindsym Mod4+e exec gvim
 bindsym Mod4+Shift+e exec subl3
-bindsym Mod4+d exec subl
 
 # ide
 bindsym Mod4+i exec qtcreator -style=gtk
-bindsym Mod4+Shift+i exec liteide -style=gtk
 
 # document readers
-bindsym Mod4+r exec zathura
-bindsym Mod4+Shift+r exec qpdfview -style=gtk
+bindsym Mod4+r exec evince
 
 # terminal emulator
 bindsym Mod4+t exec urxvt
@@ -231,5 +228,4 @@ exec --no-startup-id wicd-gtk
 exec parcellite
 exec xrdb /home/snyp/.Xresources
 exec xcompmgr
-exec --no-startup-id dunst -config ~/.i3/config_dunst
 exec sh ~/.fehbg

@@ -164,7 +164,9 @@ name_to_url=(llvm "https://github.com/llvm-mirror/llvm.git"
        toml "https://github.com/toml-lang/toml.git"
        cpython "https://github.com/python/cpython"
        gpm "https://github.com/pote/gpm.git"
-       earnestly "https://github.com/Earnestly/pkgbuilds.git")
+       earnestly "https://github.com/Earnestly/pkgbuilds.git"
+       scaffold "https://snyp@bitbucket.org/snyp/scaffold.git"
+       regvm "https://snyp@bitbucket.org/snyp/regvm.git")
 
 print_git_urls() {
   for k in "${(@k)name_to_url}"; do
