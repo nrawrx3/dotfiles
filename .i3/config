@@ -16,7 +16,7 @@
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
-font pango:Monaco For Powerline 10
+font pango:Pointfree 10
 
 # use Mouse+Mod1 to drag floating windows to their wanted position
 floating_modifier Mod1
@@ -152,14 +152,10 @@ mode "resize" {
 bindsym Mod1+r mode "resize"
 
 # class                 border  backgr. text    indicator
-client.focused          #849492 #000000 #ffffff #2e9ef4
+client.focused          #849492 #59306B #ffffff #2e9ef4
 client.focused_inactive #6e686f #6e686f #f0f0f0 #484e50
 client.unfocused        #6e686f #6e686f #f0f0f0 #292d2e
 client.urgent           #e9e6e6 #BFB8B0 #ffffff #900000
-#client.focused          #171717 #171717 #a6e22e
-#client.focused_inactive	#2e3436 #2e3436 #b9c8d1
-#client.unfocused		#2e3436 #2e3436 #999999
-#client.urgent			#cd989a #cd989a #2e3436
 
 # new_window    1pixel                 broadcastM #<normal|1pixel|none|pixel>
 new_window  normal
@@ -175,7 +171,7 @@ bar {
     colors {
         statusline #efefef
         background #242424
-        focused_workspace #242424 #D5D5D5 #242424 
+        focused_workspace #242424 #59306B  #ffffff 
         inactive_workspace #242424 #282828 #CCCACA
         urgent_workspace   #1A1A1A #664742 #1b1b1b
     }

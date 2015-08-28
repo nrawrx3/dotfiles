@@ -7,8 +7,9 @@ export GOPATH=~/go
 PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
 PATH="$HOME/text/scripts":$PATH
 PATH=$PATH:$GOPATH/bin
+PATH=$PATH:~/text/scripts
 
-export PATH=$HOME/.local/bin:$PATH
+export PATH
 
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH"
 
@@ -166,7 +167,9 @@ name_to_url=(llvm "https://github.com/llvm-mirror/llvm.git"
        gpm "https://github.com/pote/gpm.git"
        earnestly "https://github.com/Earnestly/pkgbuilds.git"
        scaffold "https://snyp@bitbucket.org/snyp/scaffold.git"
-       regvm "https://snyp@bitbucket.org/snyp/regvm.git")
+       regvm "https://snyp@bitbucket.org/snyp/regvm.git"
+       real-world-ocaml "https://github.com/realworldocaml/examples.git"
+       musl "git://git.musl-libc.org/musl")
 
 print_git_urls() {
   for k in "${(@k)name_to_url}"; do

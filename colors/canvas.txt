@@ -1,0 +1,30 @@
+!BD and FD
+*background:                    [85]#ffffff
+
+! red
+*color1:        #AC008F
+*color9:        #AC008F
+
+!Green
+*color2:                        #115322
+*color10:                       #115322
+
+!Yellow
+*color3:                        #FF002E
+*color11:                       #FF002E
+
+! blue
+*color4:        #59306B
+*color12:       #59306B
+
+! magenta
+*color5:        #720033
+*color13:       #720033
+
+! cyan
+*color6:        #4F5C5B
+*color14:       #4F5C5B
+
+! white
+*color7:        #4e4f4d
+*color15:       #4e4f4d
