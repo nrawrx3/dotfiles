@@ -50,8 +50,8 @@ set nocompatible
 set rtp+=~/.vim/bundle/Vundle.vim
 
 " MERLIN, BITCH!!!
-"let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
-"execute "set rtp+=" . g:opamshare . "/merlin/vim"
+let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
+execute "set rtp+=" . g:opamshare . "/merlin/vim"
 "set rtp+=/home/snyp/.opam/system/share/ocamlmerlin/vim
 :set rtp+=/usr/local/share/ocamlmerlin/vim
 "----------------------------PLUGINS-----------------------------"
@@ -92,7 +92,7 @@ Bundle 'Valloric/YouCompleteMe'
 Bundle 'honza/vim-snippets'
 Bundle 'rhysd/vim-clang-format'
 Bundle 'Superbil/llvm.vim'
-Bundle 'tell-k/vim-autopep8'
+Bundle 'chilicuil/vim-sml-coursera'
 
 call vundle#end()
 filetype plugin indent on
@@ -233,7 +233,7 @@ set mouse=a
 
 " Enable syntax highlighting
 syntax on
-colorscheme nuvola
+colorscheme lightning
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -296,7 +296,7 @@ let g:ctrlp_custom_ignore = { 'dir': '\v[\/](.git)$' }
 set noexpandtab
 " Be smart when using tabs ;)
 set smarttab
-set textwidth=100
+set textwidth=80
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
