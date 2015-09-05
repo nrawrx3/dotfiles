@@ -18,7 +18,8 @@ export CSCOPE_EDITOR="vim"
 export PACMAN_CACHE="/var/cache/pacman/pkg"
 
 # Guile scheme extra libraries
-export GUILE_LOAD_PATH="${HOME}/.local/share/my_guile_libs"
+export GUILE_LOAD_PATH="${HOME}/text/code/guile"
+export GUILE_LOAD_COMPILED_PATH="${HOME}/mixed/misc/guile_compiled"
 
 # Need to run python scripts but don't want to create .pyc files in the text
 # dirs
@@ -127,6 +128,9 @@ git_backup_init_one() {
   echo "cd $EXTERNAL_GITS_DIR/$d"
   cd $EXTERNAL_GITS_DIR/$d
   echo "pwd: " `pwd`
+  git remote rm origin
+  echo "git remote add origin $name_to_url[$d]"
+  git remote add origin $name_to_url[$d]
   echo "git remote add backup ${INTERNAL_GITS_DIR}/${d}"
   git remote add backup ${INTERNAL_GITS_DIR}/${d}
   cd $EXTERNAL_GITS_DIR
@@ -144,10 +148,11 @@ git_backup_init_all() {
     echo "cd $EXTERNAL_GITS_DIR/$d"
     cd $EXTERNAL_GITS_DIR/$d
     echo "pwd: " `pwd`
+    git remote rm origin
+    echo "git remote add origin $name_to_url[$d]"
+    git remote add origin $name_to_url[$d]
     echo "git remote add backup ${INTERNAL_GITS_DIR}/${d}"
     git remote add backup ${INTERNAL_GITS_DIR}/${d}
-    # Just a test
-    #git pull backup master
     cd $EXTERNAL_GITS_DIR
     echo "---------------------"
   done
@@ -169,7 +174,10 @@ name_to_url=(llvm "https://github.com/llvm-mirror/llvm.git"
        scaffold "https://snyp@bitbucket.org/snyp/scaffold.git"
        regvm "https://snyp@bitbucket.org/snyp/regvm.git"
        real-world-ocaml "https://github.com/realworldocaml/examples.git"
-       musl "git://git.musl-libc.org/musl")
+       musl "git://git.musl-libc.org/musl"
+       swank-chicken "https://github.com/nickg/swank-chicken.git"
+       llvm-clang-examples "https://github.com/eliben/llvm-clang-samples.git"
+       ocaml-makefile "https://github.com/mmottl/ocaml-makefile.git")
 
 print_git_urls() {
   for k in "${(@k)name_to_url}"; do
@@ -177,7 +185,7 @@ print_git_urls() {
   done
 }
 
-remove_default_origin_and_add_upstream() {
+remove_default_origin_and_add_upstream_in_host_all() {
   for k in "${(@k)name_to_url}"; do
     echo "$k -> $name_to_url[$k]"
     echo "cd $INTERNAL_GITS_DIR/$k"
@@ -190,5 +198,21 @@ remove_default_origin_and_add_upstream() {
 
       cd $HOME
       echo "----------------------"
-  done  
+    done
+}
+
+remove_default_origin_and_add_upstream_in_hsb_all() {
+  for k in "${(@k)name_to_url}"; do
+    echo "$k -> $name_to_url[$k]"
+    echo "cd $EXTERNAL_GITS_DIR/$k"
+    cd $EXTERNAL_GITS_DIR/$k
+      echo "git remote rm origin"
+      git remote rm origin
+
+      echo "git remote add origin $name_to_url[$k]"
+      git remote add origin $name_to_url[$k]
+
+      cd $HOME
+      echo "----------------------"
+    done
 }

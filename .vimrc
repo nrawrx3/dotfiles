@@ -87,12 +87,13 @@ Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'octol/vim-cpp-enhanced-highlight'
 Bundle 'hdima/python-syntax'
 "Bundle 'davidhalter/jedi-vim'
-Bundle "fatih/vim-go"
+Bundle 'fatih/vim-go'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'honza/vim-snippets'
 Bundle 'rhysd/vim-clang-format'
 Bundle 'Superbil/llvm.vim'
 Bundle 'chilicuil/vim-sml-coursera'
+Bundle 'vim-scripts/Io-programming-language-syntax'
 
 call vundle#end()
 filetype plugin indent on
@@ -233,7 +234,7 @@ set mouse=a
 
 " Enable syntax highlighting
 syntax on
-colorscheme lightning
+colorscheme hemisu_mod
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -313,6 +314,7 @@ autocmd FileType bash setlocal et ts=4 sw=4 sts=4
 autocmd FileType zsh setlocal et ts=4 sw=4 sts=4
 autocmd FileType clojure setlocal et ts=2 sw=2 sts=2
 autocmd FileType go setlocal noet ts=4 sw=4 sts=4
+autocmd FileType io setlocal noet ts=4 sw=4 sts=4 ft=io
 au BufRead,BufNewFile *.ts set ft=typescript
 " Linebreak on 80 characters
 set lbr

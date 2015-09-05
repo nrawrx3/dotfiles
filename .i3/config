@@ -225,3 +225,4 @@ exec parcellite
 exec xrdb /home/snyp/.Xresources
 exec xcompmgr
 exec sh ~/.fehbg
+exec mpd
