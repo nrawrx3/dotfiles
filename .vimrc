@@ -54,6 +54,9 @@ let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
 execute "set rtp+=" . g:opamshare . "/merlin/vim"
 "set rtp+=/home/snyp/.opam/system/share/ocamlmerlin/vim
 :set rtp+=/usr/local/share/ocamlmerlin/vim
+
+" And ocp-indent
+set rtp^="/home/snyp/.opam/4.02.3/share/ocp-indent/vim"
 "----------------------------PLUGINS-----------------------------"
 
 call vundle#begin()

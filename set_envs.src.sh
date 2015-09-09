@@ -177,7 +177,8 @@ name_to_url=(llvm "https://github.com/llvm-mirror/llvm.git"
        musl "git://git.musl-libc.org/musl"
        swank-chicken "https://github.com/nickg/swank-chicken.git"
        llvm-clang-examples "https://github.com/eliben/llvm-clang-samples.git"
-       ocaml-makefile "https://github.com/mmottl/ocaml-makefile.git")
+       ocaml-makefile "https://github.com/mmottl/ocaml-makefile.git"
+       Parser-Combinators "https://github.com/keean/Parser-Combinators.git")
 
 print_git_urls() {
   for k in "${(@k)name_to_url}"; do
