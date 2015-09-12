@@ -237,7 +237,7 @@ set mouse=a
 
 " Enable syntax highlighting
 syntax on
-colorscheme hemisu_mod
+colorscheme calmar256-light
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -262,7 +262,7 @@ set encoding=utf8
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
 
-set guifont=Pointfree\ 10
+set guifont=Pointfree\ 8
 
 
 "----------------------------------------------

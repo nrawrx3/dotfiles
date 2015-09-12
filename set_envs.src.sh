@@ -1,6 +1,5 @@
 export EDITOR=vim
 
-export LLVM_CHECK_DIR=~/text/code_repos/llvm
 export LLVM_BUILD_DIR=~/builds/llvm
 export GOPATH=~/go
 
@@ -22,9 +21,9 @@ export GUILE_LOAD_PATH="${HOME}/text/code/guile"
 export GUILE_LOAD_COMPILED_PATH="${HOME}/mixed/misc/guile_compiled"
 
 # Need to run python scripts but don't want to create .pyc files in the text
-# dirs
+# dirs (NAH...)
 
-export PYTHONDONTWRITEBYTECODE=1
+##export PYTHONDONTWRITEBYTECODE=1
 
 # Functions
 
