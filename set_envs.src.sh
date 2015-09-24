@@ -3,6 +3,8 @@ export EDITOR=vim
 export LLVM_BUILD_DIR=~/builds/llvm
 export GOPATH=~/go
 
+export RUST_SRC_PATH=/usr/src/rust/src
+
 PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
 PATH="$HOME/text/scripts":$PATH
 PATH=$PATH:$GOPATH/bin
@@ -97,13 +99,6 @@ export EXTERNAL_GITS_DIR=$HSB/$GITS_DIR
 # $HSB's $GITS_DIR/<PROJECT> have each a 'backup' remote which is set to
 # $INTERNAL_GITS_DIR/<PROJECT>
 
-# When cloning from $HSB/$GITS_DIR/<PROJECT>, the origin remote is set to
-# $HSB/$GITS_DIR/<PROJECT>. So we need to restore origin remote to point to
-# the actual project URL. Do it via
-
-#       git remote rm origin
-#       git remote add origin <URL>
-
 # Pull **each** repo from the backup remote
 git_backup_pull_all() {
   # $1 is the directory to backup
@@ -117,6 +112,9 @@ git_backup_pull_all() {
   done
   cd $HOME
 }
+
+# When cloning from $HSB/$GITS_DIR/<PROJECT>, the origin remote is set to
+# $HSB/$GITS_DIR/<PROJECT>. So we need to restore origin remote
 
 git_backup_init_one() {
   d=$1
@@ -174,10 +172,9 @@ name_to_url=(llvm "https://github.com/llvm-mirror/llvm.git"
        regvm "https://snyp@bitbucket.org/snyp/regvm.git"
        real-world-ocaml "https://github.com/realworldocaml/examples.git"
        musl "git://git.musl-libc.org/musl"
-       swank-chicken "https://github.com/nickg/swank-chicken.git"
        llvm-clang-examples "https://github.com/eliben/llvm-clang-samples.git"
        ocaml-makefile "https://github.com/mmottl/ocaml-makefile.git"
-       Parser-Combinators "https://github.com/keean/Parser-Combinators.git")
+       termbox "https://github.com/nsf/termbox.git")
 
 print_git_urls() {
   for k in "${(@k)name_to_url}"; do

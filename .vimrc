@@ -64,7 +64,7 @@ call vundle#begin()
 Bundle 'gmarik/Vundle.vim'
 Bundle 'Shougo/vimproc.vim'
 Bundle 'ervandew/supertab'
-Bundle 'scrooloose/syntastic'
+"Bundle 'scrooloose/syntastic'
 Bundle 'moll/vim-bbye'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'vim-scripts/gitignore'
@@ -95,8 +95,8 @@ Bundle 'Valloric/YouCompleteMe'
 Bundle 'honza/vim-snippets'
 Bundle 'rhysd/vim-clang-format'
 Bundle 'Superbil/llvm.vim'
-Bundle 'chilicuil/vim-sml-coursera'
-Bundle 'vim-scripts/Io-programming-language-syntax'
+Bundle 'racer-rust/vim-racer'
+Bundle 'wting/rust.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -129,15 +129,15 @@ let g:ycm_confirm_extra_conf = 1
 let python_highlight_all = 1
 
 "----------------------------------------------
-" => Syntastic Type Checking
+" => Syntastic Checking
 "----------------------------------------------
-map <silent> <Leader>e :Errors<CR>
-map <Leader>s :SyntasticToggleMode<CR>
+"map <silent> <Leader>e :Errors<CR>
+"map <Leader>s :SyntasticToggleMode<CR>
 
-let g:syntastic_auto_loc_list=1
+"let g:syntastic_auto_loc_list=1
 
-let g:syntastic_cpp_compiler = 'clang++'
-let g:syntastic_cpp_compiler_options = '-std=c++11'
+"let g:syntastic_cpp_compiler = 'clang++'
+"let g:syntastic_cpp_compiler_options = '-std=c++11'
 
 "----------------------------------------------
 " => Vim Cpp Enhanced
@@ -237,7 +237,7 @@ set mouse=a
 
 " Enable syntax highlighting
 syntax on
-colorscheme calmar256-light
+colorscheme lightning
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -262,7 +262,7 @@ set encoding=utf8
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
 
-set guifont=Pointfree\ 8
+set guifont=Pointfree\ 10
 
 
 "----------------------------------------------
@@ -315,10 +315,8 @@ autocmd FileType vim setlocal et ts=4 sw=4 sts=4
 autocmd FileType scheme setlocal et ts=2 sw=2 sts=2
 autocmd FileType bash setlocal et ts=4 sw=4 sts=4
 autocmd FileType zsh setlocal et ts=4 sw=4 sts=4
-autocmd FileType clojure setlocal et ts=2 sw=2 sts=2
 autocmd FileType go setlocal noet ts=4 sw=4 sts=4
-autocmd FileType io setlocal noet ts=4 sw=4 sts=4 ft=io
-au BufRead,BufNewFile *.ts set ft=typescript
+autocmd FileType lemon set noet ts=4 sw=4 sts=4
 " Linebreak on 80 characters
 set lbr
 set tw=80
@@ -634,4 +632,4 @@ endfunction
 
 "set gcr=n:blinkon0
 "set gcr=i:blinkon0
-highlight Cursor gui=reverse guifg=red guibg=NONE
+highlight Cursor gui=reverse guifg=#9000af guibg=black

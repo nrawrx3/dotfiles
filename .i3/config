@@ -16,7 +16,7 @@
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
-font pango: DejaVu Sans Mono 8
+font pango: CtrlD 10
 
 # use Mouse+Mod1 to drag floating windows to their wanted position
 floating_modifier Mod1
@@ -192,7 +192,7 @@ bindsym Mod4+r exec evince
 bindsym Mod4+t exec urxvt
 bindsym Mod4+Shift+t exec termite
 # web browsers
-bindsym Mod4+w exec chromium
+bindsym Mod4+w exec firefox
 
 # file manager
 bindsym Mod4+f exec spacefm
@@ -220,7 +220,7 @@ bindsym Mod1+Shift+b exec systemctl reboot
 
 # autostart
 
-exec --no-startup-id nm-applet
+#exec --no-startup-id nm-applet
 exec parcellite
 exec xrdb /home/snyp/.Xresources
 exec xcompmgr
