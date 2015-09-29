@@ -1,6 +1,6 @@
-"----------------------------------------------
+
 " => General
-"----------------------------------------------
+
 
 " Sets how many lines of history VIM has to remember
 set history=700
@@ -57,7 +57,9 @@ execute "set rtp+=" . g:opamshare . "/merlin/vim"
 
 " And ocp-indent
 set rtp^="/home/snyp/.opam/4.02.3/share/ocp-indent/vim"
-"----------------------------PLUGINS-----------------------------"
+
+
+" PLUGINS
 
 call vundle#begin()
 
@@ -83,9 +85,9 @@ Bundle 'godlygeek/tabular'
 Bundle 'michaeljsmith/vim-indent-object'
 Bundle 'guns/vim-sexp'
 Bundle 'kien/rainbow_parentheses.vim'
+Bundle 'jeffkreeftmeijer/vim-numbertoggle'
 "Bundle 'chriskempson/base16-vim'
 
-Bundle 'christoomey/vim-tmux-navigator'
 
 Bundle 'octol/vim-cpp-enhanced-highlight'
 Bundle 'hdima/python-syntax'
@@ -95,17 +97,19 @@ Bundle 'Valloric/YouCompleteMe'
 Bundle 'honza/vim-snippets'
 Bundle 'rhysd/vim-clang-format'
 Bundle 'Superbil/llvm.vim'
-Bundle 'racer-rust/vim-racer'
-Bundle 'wting/rust.vim'
+Bundle 'ebfe/vim-racer'
+"Bundle 'wting/rust.vim'
+Bundle 'rust-lang/rust.vim'
 
 call vundle#end()
 filetype plugin indent on
 
-"----------------------------END PLUGIN-----------------------------"
+" PLUGINS DONE
 
-"----------------------------------------------
+
+
 " => YouCompleteMe
-"----------------------------------------------
+
 
 let g:ycm_global_ycm_extra_conf = "~/.vim/ycm_extra_conf.py"
 let g:ycm_confirm_extra_conf = 1
@@ -114,23 +118,17 @@ let g:ycm_confirm_extra_conf = 1
 "let g:ycm_key_list_previous_completion=[]
 "let g:ycm_autoclose_preview_window_after_completion=1
 
-"----------------------------------------------
-" => Tsukoyomi
-"----------------------------------------------
-"autocmd FileType typescript setlocal completeopt+=menu,preview
+" Racer
 
-"----------------------------------------------
-" => Ultisnips (Not using)
-"----------------------------------------------
-"let g:UltiSnipsExpandTrigger="<tab>"
-"let g:UltiSnipsJumpForwardTrigger="<c-b>"
-"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+set hidden
+let g:racer_cmd = "racer"
+
 
 let python_highlight_all = 1
 
-"----------------------------------------------
-" => Syntastic Checking
-"----------------------------------------------
+
+" => Syntastic Checking (not using)
+
 "map <silent> <Leader>e :Errors<CR>
 "map <Leader>s :SyntasticToggleMode<CR>
 
@@ -139,16 +137,16 @@ let python_highlight_all = 1
 "let g:syntastic_cpp_compiler = 'clang++'
 "let g:syntastic_cpp_compiler_options = '-std=c++11'
 
-"----------------------------------------------
+
 " => Vim Cpp Enhanced
-"----------------------------------------------
+
 let g:cpp_class_scope_highlight = 1
 
 let g:cpp_experimental_template_highlight = 1
 
-"----------------------------------------------
+
 " => VIM user interface
-"----------------------------------------------
+
 " Set 7 lines to the cursor - when moving vertically using j/k
 set so=7
 
@@ -211,12 +209,12 @@ set novisualbell
 set vb t_vb=
 set tm=500
 
-"if &term =~ '256color'
+if &term =~ '256color'
 "  " disable Background Color Erase (BCE) so that color schemes
 "  " render properly when inside 256-color tmux and GNU screen.
 "  " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
-"  set t_ut=
-"endif
+  set t_ut=
+endif
 
 " Force redraw
 map <silent> <leader>r :redraw!<CR>
@@ -231,18 +229,24 @@ nnoremap <leader>mo :set mouse=<cr>
 set mouse=a
 
 
-"----------------------------------------------
+
 " => Colors and Fonts
-"----------------------------------------------
+
 
 " Enable syntax highlighting
 syntax on
-colorscheme lightning
+colorscheme autumnfruit
+
+map <silent> <F5> :call gruvbox#bg_toggle()<CR>
+imap <silent> <F5> <ESC>:call gruvbox#bg_toggle()<CR>a
+vmap <silent> <F5> <ESC>:call gruvbox#bg_toggle()<CR>gv
 
 " Set extra options when running in GUI mode
 if has("gui_running")
     set guioptions-=T
     set guioptions+=e
+    set guioptions-=m
+    set guioptions-=r
     set t_Co=256
     set guitablabel=%M\ %t
 endif
@@ -262,12 +266,12 @@ set encoding=utf8
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
 
-set guifont=Pointfree\ 10
+set guifont=Pointfree\ 8
 
 
-"----------------------------------------------
+
 " => Files, backups and undo
-"----------------------------------------------
+
 " Turn backup off, since most stuff is in SVN, git et.c anyway...
 set nobackup
 set nowb
@@ -293,9 +297,9 @@ let g:ctrlp_custom_ignore = { 'dir': '\v[\/](.git)$' }
 
 
 
-"----------------------------------------------
+
 " => Default indentation and tab widths
-"----------------------------------------------
+
 " Tabs should be tabs by default, not spaces
 set noexpandtab
 " Be smart when using tabs ;)
@@ -305,9 +309,9 @@ set shiftwidth=4
 set tabstop=4
 set softtabstop=4
 set autoindent
-"----------------------------------------------
+
 " File type specific tab options
-"----------------------------------------------
+
 autocmd FileType c setlocal et ts=4 sw=4 sts=4
 autocmd FileType python setlocal et ts=4 sw=4 sts=4 textwidth=1000
 autocmd FileType cpp setlocal et ts=4 sw=4 sts=4
@@ -317,6 +321,7 @@ autocmd FileType bash setlocal et ts=4 sw=4 sts=4
 autocmd FileType zsh setlocal et ts=4 sw=4 sts=4
 autocmd FileType go setlocal noet ts=4 sw=4 sts=4
 autocmd FileType lemon set noet ts=4 sw=4 sts=4
+au BufRead,BufNewFile *.rs set filetype=rust
 " Linebreak on 80 characters
 set lbr
 set tw=80
@@ -340,9 +345,9 @@ vnoremap <silent> * :call VisualSelection('f')<CR>
 vnoremap <silent> # :call VisualSelection('b')<CR>
 
 
-"----------------------------------------------
+
 " => Moving around, tabs, windows and buffers
-"----------------------------------------------
+
 " Treat long lines as break lines (useful when moving around in them)
 map j gj
 map k gk
@@ -409,9 +414,9 @@ set laststatus=2
 set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
 
 
-"----------------------------------------------
+
 " => Editing mappings
-"----------------------------------------------
+
 " Remap VIM 0 to first non-blank character
 map 0 ^
 
@@ -438,9 +443,9 @@ autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.coffee :call DeleteTrailingWS()
 
 
-"----------------------------------------------
+
 " => vimgrep searching and cope displaying (UNUSED)
-"----------------------------------------------
+
 " When you press gv you vimgrep after the selected text
 vnoremap <silent> gv :call VisualSelection('gv')<CR>
 
@@ -470,9 +475,9 @@ map <leader>n :cn<cr>
 map <leader>p :cp<cr>
 
 
-"----------------------------------------------
+
 " => Spell checking
-"----------------------------------------------
+
 " Pressing ,ss will toggle and untoggle spell checking
 map <leader>ss :setlocal spell!<cr>
 
@@ -483,17 +488,17 @@ map <leader>sa zg
 map <leader>s? z=
 
 
-"----------------------------------------------
+
 " => Tagbar
-"----------------------------------------------
+
 " Toggle
 nmap <leader>= :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
 
 
-"----------------------------------------------
+
 " => Misc
-"----------------------------------------------
+
 " Remove the Windows ^M - when the encodings gets messed up
 noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
@@ -503,9 +508,9 @@ map <leader>q :e ~/buffer<cr>
 " Toggle paste mode on and off
 map <leader>pp :setlocal paste!<cr>
 
-"----------------------------------------------
+
 " => NERDTree
-"----------------------------------------------
+
 
 " Close nerdtree after a file is selected
 let NERDTreeQuitOnOpen = 1
@@ -526,9 +531,9 @@ endfunction
 nmap <silent> <leader>f <ESC>:call ToggleFindNerd()<CR>
 nmap <silent> <C-s> <ESC>:call ToggleFindNerd()<CR>
 
-"----------------------------------------------
+
 " => Alignment
-"----------------------------------------------
+
 
 " Stop Align plugin from forcing its mappings on us
 let g:loaded_AlignMapsPlugin=1
@@ -541,9 +546,9 @@ map <Leader>a<bar> :Align <bar><CR>
 " Prompt for align character
 map <leader>ap :Align
 
-"----------------------------------------------
+
 " => Helper functions
-"----------------------------------------------
+
 function! CmdLine(str)
     exe "menu Foo.Bar :" . a:str
     emenu Foo.Bar
@@ -632,4 +637,4 @@ endfunction
 
 "set gcr=n:blinkon0
 "set gcr=i:blinkon0
-highlight Cursor gui=reverse guifg=#9000af guibg=black
+"highlight Cursor gui=reverse guifg=#9000af guibg=black

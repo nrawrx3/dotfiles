@@ -195,7 +195,7 @@ lyrics_directory = ~/.ncmpcpp/lyrics
 #
 browser_sort_mode = format
 #
-browser_sort_format = {%b - }{%t}{%a - }|{%f} {(%l)}
+browser_sort_format = {%a - }{%b}{%n}{%t}|{%f} {(%l)}
 #
 ##
 ## Note: Below variables are for alternative version of user's interface.
