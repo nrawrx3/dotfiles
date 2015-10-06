@@ -4,6 +4,7 @@
 
 " Sets how many lines of history VIM has to remember
 set history=700
+set number
 
 " use indentation for folds
 set foldmethod=indent
@@ -93,6 +94,7 @@ Bundle 'octol/vim-cpp-enhanced-highlight'
 Bundle 'hdima/python-syntax'
 "Bundle 'davidhalter/jedi-vim'
 Bundle 'fatih/vim-go'
+Bundle 'cespare/vim-toml'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'honza/vim-snippets'
 Bundle 'rhysd/vim-clang-format'
@@ -100,6 +102,7 @@ Bundle 'Superbil/llvm.vim'
 Bundle 'ebfe/vim-racer'
 "Bundle 'wting/rust.vim'
 Bundle 'rust-lang/rust.vim'
+Bundle 'rhysd/rust-doc.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -235,7 +238,7 @@ set mouse=a
 
 " Enable syntax highlighting
 syntax on
-colorscheme autumnfruit
+colorscheme gruvbox
 
 map <silent> <F5> :call gruvbox#bg_toggle()<CR>
 imap <silent> <F5> <ESC>:call gruvbox#bg_toggle()<CR>a
@@ -266,7 +269,7 @@ set encoding=utf8
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
 
-set guifont=Pointfree\ 8
+set guifont=Pointfree\ 10
 
 
 
@@ -322,6 +325,7 @@ autocmd FileType zsh setlocal et ts=4 sw=4 sts=4
 autocmd FileType go setlocal noet ts=4 sw=4 sts=4
 autocmd FileType lemon set noet ts=4 sw=4 sts=4
 au BufRead,BufNewFile *.rs set filetype=rust
+au BufRead,BufNewFile *.toml set filetype=toml
 " Linebreak on 80 characters
 set lbr
 set tw=80

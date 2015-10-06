@@ -3,7 +3,7 @@ export EDITOR=vim
 export LLVM_BUILD_DIR=~/builds/llvm
 export GOPATH=~/go
 
-export RUST_SRC_PATH=/usr/src/rust/src
+export RUST_SRC_PATH=/home/snyp/builds/rust-git/src/rust/src
 
 PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
 PATH="$HOME/text/scripts":$PATH
