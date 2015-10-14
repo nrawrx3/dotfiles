@@ -4,7 +4,6 @@
 
 " Sets how many lines of history VIM has to remember
 set history=700
-set number
 
 " use indentation for folds
 set foldmethod=indent
@@ -238,7 +237,7 @@ set mouse=a
 
 " Enable syntax highlighting
 syntax on
-colorscheme gruvbox
+colorscheme zenburn
 
 map <silent> <F5> :call gruvbox#bg_toggle()<CR>
 imap <silent> <F5> <ESC>:call gruvbox#bg_toggle()<CR>a
