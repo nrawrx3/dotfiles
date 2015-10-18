@@ -49,11 +49,10 @@ nnoremap Q <nop>
 set nocompatible
 set rtp+=~/.vim/bundle/Vundle.vim
 
-" MERLIN, BITCH!!!
-let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
-execute "set rtp+=" . g:opamshare . "/merlin/vim"
+"let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
+"execute "set rtp+=" . g:opamshare . "/merlin/vim"
 "set rtp+=/home/snyp/.opam/system/share/ocamlmerlin/vim
-:set rtp+=/usr/local/share/ocamlmerlin/vim
+":set rtp+=/usr/local/share/ocamlmerlin/vim
 
 " And ocp-indent
 set rtp^="/home/snyp/.opam/4.02.3/share/ocp-indent/vim"
@@ -98,10 +97,10 @@ Bundle 'Valloric/YouCompleteMe'
 Bundle 'honza/vim-snippets'
 Bundle 'rhysd/vim-clang-format'
 Bundle 'Superbil/llvm.vim'
-Bundle 'ebfe/vim-racer'
+"Bundle 'ebfe/vim-racer'
 "Bundle 'wting/rust.vim'
-Bundle 'rust-lang/rust.vim'
-Bundle 'rhysd/rust-doc.vim'
+"Bundle 'rust-lang/rust.vim'
+"Bundle 'rhysd/rust-doc.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -268,7 +267,7 @@ set encoding=utf8
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
 
-set guifont=Pointfree\ 10
+set guifont=MonacoForPowerline\ 8
 
 
 
