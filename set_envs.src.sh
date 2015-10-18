@@ -89,6 +89,27 @@ remind_me() {
 
 # Project names and upstream URLS
 
+## KEEP THIS UPDATED YOU FOOL!
+
+typeset -A name_to_url
+name_to_url=(llvm "https://github.com/llvm-mirror/llvm.git"
+       libjit "git://git.savannah.gnu.org/libjit.git"
+       libbsd "git://anongit.freedesktop.org/git/libbsd"
+       luajit-2.0 "http://luajit.org/git/luajit-2.0.git"
+       toml "https://github.com/toml-lang/toml.git"
+       cpython "https://github.com/python/cpython"
+       gpm "https://github.com/pote/gpm.git"
+       earnestly "https://github.com/Earnestly/pkgbuilds.git"
+       scaffold "https://snyp@bitbucket.org/snyp/scaffold.git"
+       regvm "https://snyp@bitbucket.org/snyp/regvm.git"
+       real-world-ocaml "https://github.com/realworldocaml/examples.git"
+       musl "git://git.musl-libc.org/musl"
+       llvm-clang-examples "https://github.com/eliben/llvm-clang-samples.git"
+       ocaml-makefile "https://github.com/mmottl/ocaml-makefile.git"
+       termbox "https://github.com/nsf/termbox.git"
+       khinsider "https://github.com/obskyr/khinsider.git")
+
+
 # Managing git repositories with 
 
 # It's GITS_DIR not GIT_DIR!! Otherwise git will begin using this value in the commands
@@ -157,24 +178,6 @@ git_backup_init_all() {
 }
 
 
-## KEEP THIS UPDATED YOU FOOL!
-
-typeset -A name_to_url
-name_to_url=(llvm "https://github.com/llvm-mirror/llvm.git"
-       libjit "git://git.savannah.gnu.org/libjit.git"
-       libbsd "git://anongit.freedesktop.org/git/libbsd"
-       luajit-2.0 "http://luajit.org/git/luajit-2.0.git"
-       toml "https://github.com/toml-lang/toml.git"
-       cpython "https://github.com/python/cpython"
-       gpm "https://github.com/pote/gpm.git"
-       earnestly "https://github.com/Earnestly/pkgbuilds.git"
-       scaffold "https://snyp@bitbucket.org/snyp/scaffold.git"
-       regvm "https://snyp@bitbucket.org/snyp/regvm.git"
-       real-world-ocaml "https://github.com/realworldocaml/examples.git"
-       musl "git://git.musl-libc.org/musl"
-       llvm-clang-examples "https://github.com/eliben/llvm-clang-samples.git"
-       ocaml-makefile "https://github.com/mmottl/ocaml-makefile.git"
-       termbox "https://github.com/nsf/termbox.git")
 
 print_git_urls() {
   for k in "${(@k)name_to_url}"; do
