@@ -93,6 +93,7 @@ remind_me() {
 
 typeset -A name_to_url
 name_to_url=(llvm "https://github.com/llvm-mirror/llvm.git"
+       clang "https://github.com/llvm-mirror/clang.git"
        libjit "git://git.savannah.gnu.org/libjit.git"
        libbsd "git://anongit.freedesktop.org/git/libbsd"
        luajit-2.0 "http://luajit.org/git/luajit-2.0.git"

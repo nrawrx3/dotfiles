@@ -10,11 +10,10 @@ URxvt*urgentOnBell:				true
 
 URxvt*perl-ext-common:				default,matcher
 URxvt*matcher.button:				1
-URxvt*url-launcher:				/usr/bin/chromium
+URxvt*url-launcher:				/usr/bin/firefox
 
-URxvt.font:					xft:Pointfree:size=10
-URxvt.boldFont:					xft:Pointfree:bold:size=10
-
+URxvt.font:					xft:Monaco For Powerline:size=8
+URxvt.boldFont:					xft:Monaco For Powerline:bold:size=8
 URxvt*depth: 32
 
 !-----------------------------------------                                                                                     
@@ -27,33 +26,40 @@ Xft.hintstyle: hintfull
 Xft.rgba: rgb                                                                                                                  
                    
 
-!BD and FD
-*background:                    #ffffff
 
-! red
-*color1:        #AC008F
-*color9:        #AC008F
 
-!Green
-*color2:                        #115322
-*color10:                       #115322
+! Zenburn color-scheme
+URxvt*background: #3F3F3F
+URxvt*foreground: #DCDCCC
+URxvt*cursorColor: #DCDCCC
+URxvt*cursorColor2: #FFFFEF
+URxvt*colorUL: #8CD0D3
+URxvt*underlineColor: #F0DFAF
+URxvt*colorBD: #E0CF9F
+URxvt*colorIT: #656555
 
-!Yellow
-*color3:                        #FF002E
-*color11:                       #FF002E
+!! black dark/light
+URxvt*color0: #3F3F3F
+URxvt*color8: #5F5F5F
+!! red dark/light
+URxvt*color1: #BC8383
+URxvt*color9: #CC9393
+!! green dark/light
+URxvt*color2: #5F7F5F
+URxvt*color10: #7F9F7F
+!! yellow dark/light
+URxvt*color3: #E0CF9F
+URxvt*color11: #F0DFAF
+!! blue dark/light
+URxvt*color4: #7CB8BB
+URxvt*color12: #8CD0D3
+!! magenta dark/light
+URxvt*color5: #DC8CC3
+URxvt*color13: #DC8CC3
+!! cyan dark/light
+URxvt*color6: #93E0E3
+URxvt*color14: #93E0E3
+!! white dark/light
+URxvt*color7: #DCDCCC
+URxvt*color15: #FFFFFF
 
-! blue
-*color4:        #59306B
-*color12:       #59306B
-
-! magenta
-*color5:        #720033
-*color13:       #720033
-
-! cyan
-*color6:        #4F5C5B
-*color14:       #4F5C5B
-
-! white
-*color7:        #2E2D00
-*color15:       #2E2D00
