@@ -1,14 +1,9 @@
 export EDITOR=vim
 
-export LLVM_BUILD_DIR=~/builds/llvm
-export GOPATH=~/go
-
-export RUST_SRC_PATH=/home/snyp/builds/rust-git/src/rust/src
-
 PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
 PATH="$HOME/text/scripts":$PATH
 PATH=$PATH:$GOPATH/bin
-PATH=$PATH:~/text/scripts
+PATH=$PATH:$HOME/text/scripts
 
 export PATH
 
@@ -75,7 +70,7 @@ export HSB1=/run/media/snyp/18378179-adf3-4dad-8336-8388ff71d8c5
 
 rsync_home() {
   dirname=$1
-  rsync -aAXvu ~/$dirname $HSB/
+  rsync -aAXvu $HOME/$dirname $HSB/
 }
 
 rsync_paccache() {
@@ -83,8 +78,8 @@ rsync_paccache() {
 }
 
 remind_me() {
-    cat ~/dotfiles/.remember.txt
-    python ~/dotfiles/random_quote.py
+    cat $HOME/dotfiles/.remember.txt
+    python $HOME/dotfiles/random_quote.py
 }
 
 # Project names and upstream URLS
@@ -105,7 +100,7 @@ name_to_url=(llvm "https://github.com/llvm-mirror/llvm.git"
        regvm "https://snyp@bitbucket.org/snyp/regvm.git"
        real-world-ocaml "https://github.com/realworldocaml/examples.git"
        musl "git://git.musl-libc.org/musl"
-       llvm-clang-examples "https://github.com/eliben/llvm-clang-samples.git"
+       llvm-clang-samples "https://github.com/eliben/llvm-clang-samples.git"
        ocaml-makefile "https://github.com/mmottl/ocaml-makefile.git"
        termbox "https://github.com/nsf/termbox.git"
        khinsider "https://github.com/obskyr/khinsider.git")
@@ -217,3 +212,18 @@ remove_default_origin_and_add_upstream_in_hsb_all() {
       echo "----------------------"
     done
 }
+
+# The builds
+export BUILD_DIR=$HOME/builds
+
+# The checkouts
+export CO_DIR=$HOME/co
+
+export LLVM_BUILD_DIR=$BUILD_DIR/llvm
+
+export LLVM_CO_DIR=$CO_DIR/llvm
+
+export GOPATH=$HOME/go
+
+export PATH=$GOPATH:$PATH
+
