@@ -98,14 +98,16 @@ name_to_url=(llvm "https://github.com/llvm-mirror/llvm.git"
        earnestly "https://github.com/Earnestly/pkgbuilds.git"
        scaffold "https://snyp@bitbucket.org/snyp/scaffold.git"
        regvm "https://snyp@bitbucket.org/snyp/regvm.git"
-       real-world-ocaml "https://github.com/realworldocaml/examples.git"
        musl "git://git.musl-libc.org/musl"
        llvm-clang-samples "https://github.com/eliben/llvm-clang-samples.git"
-       ocaml-makefile "https://github.com/mmottl/ocaml-makefile.git"
        termbox "https://github.com/nsf/termbox.git"
-       khinsider "https://github.com/obskyr/khinsider.git")
+       llvm-leg "https://github.com/codeplaysoftware/llvm-leg"
+)
 
+# Removing some repositories
 
+# ocaml-makefile "https://github.com/mmottl/ocaml-makefile.git"
+# khinsider "https://github.com/obskyr/khinsider.git"
 # Managing git repositories with 
 
 # It's GITS_DIR not GIT_DIR!! Otherwise git will begin using this value in the commands
