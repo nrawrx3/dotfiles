@@ -5,7 +5,6 @@ PATH="$HOME/text/scripts":$PATH
 PATH=$PATH:$GOPATH/bin
 PATH=$PATH:$HOME/text/scripts
 
-export PATH
 
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH"
 
@@ -226,6 +225,4 @@ export LLVM_BUILD_DIR=$BUILD_DIR/llvm
 export LLVM_CO_DIR=$CO_DIR/llvm
 
 export GOPATH=$HOME/go
-
-export PATH=$GOPATH:$PATH
 

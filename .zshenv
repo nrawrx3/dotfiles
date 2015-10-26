@@ -1,4 +1,4 @@
 source ~/dotfiles/set_envs.src.sh
 
-prompt adam2
-
+typeset -U path
+path=(~/bin $GOPATH/bin $path[@])
