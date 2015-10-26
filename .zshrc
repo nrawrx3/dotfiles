@@ -1,7 +1,7 @@
 #eval `opam config env`
 
 
-#source ~/.zshenv
+source ~/dotfiles/set_envs.src.sh
 
 
 # Alt+u to cd ..
@@ -27,8 +27,8 @@ RPROMPT="%~   "
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=-1
+SAVEHIST=-1
 bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
