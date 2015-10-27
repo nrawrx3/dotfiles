@@ -22,7 +22,7 @@ export LLVM_CO_DIR=$CO_DIR/llvm
 export GOPATH=$HOME/go
 PATH="$HOME/text/scripts":$PATH
 PATH=$PATH:$GOPATH/bin
-PATH=$PATH:$HOME/text/dotfiles
+PATH=$PATH:$HOME/dotfiles
 
 export PATH
 
