@@ -1,4 +1,4 @@
-PS1="\[\e[01;30m\]┌─(\u@\h)(\w)\[\e[01;30m\]\n\[\e[01;30m\]└──\[\e[01;30m\]──$\[\e[0m\] "
+PS1="\[\e[01;35m\]┌─(\u@\h)(\w)\[\e[01;35m\]\n\[\e[01;35m\]└──\[\e[01;35m\]──$\[\e[0m\] "
 
 
 alias ls="ls --color=auto"
@@ -8,9 +8,23 @@ alias grep="grep --color=auto"
 export EDITOR=vim
 
 PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
+
+# The builds
+export BUILD_DIR=$HOME/builds
+
+# The checkouts
+export CO_DIR=$HOME/co
+
+export LLVM_BUILD_DIR=$BUILD_DIR/llvm
+
+export LLVM_CO_DIR=$CO_DIR/llvm
+
+export GOPATH=$HOME/go
 PATH="$HOME/text/scripts":$PATH
 PATH=$PATH:$GOPATH/bin
-PATH=$PATH:$HOME/text/scripts
+PATH=$PATH:$HOME/text/dotfiles
+
+export PATH
 
 
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH"
@@ -79,15 +93,3 @@ remind_me() {
     python $HOME/dotfiles/random_quote.py
 }
 
-#
-# The builds
-export BUILD_DIR=$HOME/builds
-
-# The checkouts
-export CO_DIR=$HOME/co
-
-export LLVM_BUILD_DIR=$BUILD_DIR/llvm
-
-export LLVM_CO_DIR=$CO_DIR/llvm
-
-export GOPATH=$HOME/go
