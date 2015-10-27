@@ -37,3 +37,5 @@ zstyle :compinstall filename '/home/snyp/.zshrc'
 # End of lines added by compinstall
 
 export TERM=rxvt-unicode-256color
+
+export PATH=$GOPATH/bin:$PATH
