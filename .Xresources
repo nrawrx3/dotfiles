@@ -27,31 +27,21 @@ Xft.hintstyle: hintfull
 Xft.rgba: rgb                                                                                                                  
                    
 
-
-*foreground: #ECE8CF
-*background: #2D2D2D
-!black
-*color0:     #393939
-*color8:     #474747
-!!red
-*color1:     #EE9379
-*color9:     #FF8D80
-!!green
-*color2:     #E2FFC7
-*color10:    #DBFFB3
-!!yellow
-*color3:     #FFFFB9
-*color11:    #FFBE64
-!!blue
-*color4:     #EDE7B4
-*color12:    #E15848
-!!magenta
-*color5:     #E2BEB5
-*color13:    #94C7B5
-!!cyan
-*color6:     #6EB49D
-*color14:    #A2C3CC
-!!white
-*color7:     #dddddd
-*color15:    #dddddd
-
+URxvt*background: #e6e6e6
+URxvt*foreground: #000000
+URxvt*color0:  #FFFFFF
+URxvt*color1:  #121212
+URxvt*color2:  #A5A5A5
+URxvt*color3:  #777777
+URxvt*color4:  #999999
+URxvt*color5:  #4C4C4C
+URxvt*color6:  #2B2B2B
+URxvt*color7:  #000000
+URxvt*color8:  #9A9A9A
+URxvt*color9:  #1C1C1C
+URxvt*color10: #A4A4A4
+URxvt*color11: #646464
+URxvt*color12: #7C7C7C
+URxvt*color13: #515151
+URxvt*color14: #322929
+URxvt*color15: #101010

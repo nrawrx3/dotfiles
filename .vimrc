@@ -97,6 +97,7 @@ Bundle 'Valloric/YouCompleteMe'
 Bundle 'honza/vim-snippets'
 Bundle 'rhysd/vim-clang-format'
 Bundle 'Superbil/llvm.vim'
+Bundle 'cypok/vim-sml'
 "Bundle 'ebfe/vim-racer'
 "Bundle 'wting/rust.vim'
 "Bundle 'rust-lang/rust.vim'
@@ -236,7 +237,7 @@ set mouse=a
 
 " Enable syntax highlighting
 syntax on
-colorscheme zenburn
+colorscheme lightning
 
 map <silent> <F5> :call gruvbox#bg_toggle()<CR>
 imap <silent> <F5> <ESC>:call gruvbox#bg_toggle()<CR>a
@@ -268,7 +269,6 @@ set encoding=utf8
 set ffs=unix,dos,mac
 
 set guifont=MonacoForPowerline\ 8
-
 
 
 " => Files, backups and undo
