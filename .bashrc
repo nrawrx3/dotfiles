@@ -4,6 +4,8 @@ PS1="\[\e[01;35m\]┌─(\u@\h)(\w)\[\e[01;35m\]\n\[\e[01;35m\]└──\[\e[01;
 alias ls="ls --color=auto"
 alias pacman="pacman --color=auto"
 alias grep="grep --color=auto"
+alias la="ls -a"
+alias ltr="ls -ltr"
 
 export EDITOR=vim
 
