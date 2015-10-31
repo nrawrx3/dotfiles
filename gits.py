@@ -23,7 +23,8 @@ NAME_TO_URL = {
     'llvm-leg': "https://github.com/codeplaysoftware/llvm-leg",
     'clang-leg': "https://github.com/codeplaysoftware/clang-leg",
     'xdot.py': "https://github.com/jrfonseca/xdot.py",
-    "dotfiles": "https://snyp@bitbucket.org/snyp/dotfiles.git"
+    "dotfiles": "https://snyp@bitbucket.org/snyp/dotfiles.git",
+    "CppCoreGuidelines": "http://github.com/isocpp/CppCoreGuidelines.git"
 }
 
 HSB = os.getenv('HSB')
