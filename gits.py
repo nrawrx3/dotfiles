@@ -101,6 +101,21 @@ def pull_one_in_hsb(dir_name):
     sp.run(['git', 'pull', 'hdd', 'master'], check=True)
     cd(CUR_DIR)
 
+def clone_or_pull_from_hsb(dir_name):
+    if not dir_name in NAME_TO_URL:
+        print(sys.argv[0], "Not in dict, not checking")
+    dir_list = os.listdir(HOME_GITS)
+    if not dir_name in dir_list:
+        that_dir = os.path.join(HSB_GITS_DIR, dir_name)
+        cd(HOME_GITS)
+        sp.run(['git', 'clone', that_dir])
+        cd(dir_name)
+        sp.run(['git', 'remote', 'set-url', 'origin', NAME_TO_URL[dir_name]])
+        sp.run(['git', 'remote', 'add', 'hsb', that_dir])
+    else:
+        cd(HOME_GITS)
+        sp.run(['git', 'pull', 'hsb', 'master'])
+    cd(CUR_DIR)
 
 if __name__ == '__main__':
     a = ap.ArgumentParser(usage='Easily backup the git projects')
@@ -108,6 +123,7 @@ if __name__ == '__main__':
     a.add_argument('--clone_all', action='store_true', help='Clone all directories')
     a.add_argument('--pull_one', type=str, default='', help='Pull changes from home directory')
     a.add_argument('--pull_all', action='store_true', help='Pull all directories')
+    a.add_argument('--clone_from', type=str, default='', help='Clone or pull a directory from hsb')
 
     a = a.parse_args()
 
@@ -122,3 +138,7 @@ if __name__ == '__main__':
 
     if a.pull_one != '':
         pull_one_in_hsb(a.pull_one)
+
+    if a.clone_from != '':
+        clone_or_pull_from_hsb(a.clone_from)
+

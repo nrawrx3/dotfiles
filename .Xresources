@@ -27,25 +27,29 @@ Xft.hintstyle: hintfull
 Xft.rgba: rgb                                                                                                                  
                    
 
-*background:	#20242c
-*foreground:	#b3b8c4
-*cursorColor: #0090f0
-
-*color0:	#3e4853
-*color1:	#b06a58
-*color2:	#95b47b
-*color3:	#e5c078
-*color4:	#58698c
-*color5:	#7b5e8d
-*color6:	#82a1b2
-*color7:	#cccaca
-
-*color8:	#525c67
-*color9:	#ba7e6c
-*color10:	#a9c88f
-*color11:	#f9d48c
-*color12:	#6c7da0
-*color13:	#8f72a1
-*color14:	#96b5c6
-*color15:	#e0dede
-
+*pointerColor: #aea190
+*color2: #aea190
+*color1: #aea190
+*color9: #443727
+*color13: #443727
+*color10: #443727
+*color8: #c8c8c8
+*background: #eceeec
+*color11: #443727
+*color15: #181818
+*highlightTextColor: #0d0d0d
+*color7: #7f7f7f
+*highlightColor: #c2bbad
+*color3: #aea190
+*foreground: #181818
+*color0: #eaeaea
+*underlineColor: #a99889
+*color12: #443727
+*color6: #aea190
+*colorUL: #6a5b4d
+*pointerColor2: #181818
+*color14: #443727
+*colorBD: #181818
+*cursorColor: #181818
+*color5: #aea190
+*color4: #aea190
