@@ -27,40 +27,23 @@ Xft.hintstyle: hintfull
 Xft.rgba: rgb                                                                                                                  
                    
 
+*background:  #010101
+*foreground:  #E7DCBD
+*cursorColor: #0078af
 
-
-! Zenburn color-scheme
-URxvt*background: #3F3F3F
-URxvt*foreground: #DCDCCC
-URxvt*cursorColor: #8e9ff0
-URxvt*cursorColor2: #FFFFEF
-URxvt*colorUL: #8CD0D3
-URxvt*underlineColor: #F0DFAF
-URxvt*colorBD: #E0CF9F
-URxvt*colorIT: #656555
-
-!! black dark/light
-URxvt*color0: #3F3F3F
-URxvt*color8: #5F5F5F
-!! red dark/light
-URxvt*color1: #BC8383
-URxvt*color9: #CC9393
-!! green dark/light
-URxvt*color2: #5F7F5F
-URxvt*color10: #7F9F7F
-!! yellow dark/light
-URxvt*color3: #E0CF9F
-URxvt*color11: #F0DFAF
-!! blue dark/light
-URxvt*color4: #7CB8BB
-URxvt*color12: #8CD0D3
-!! magenta dark/light
-URxvt*color5: #DC8CC3
-URxvt*color13: #DC8CC3
-!! cyan dark/light
-URxvt*color6: #93E0E3
-URxvt*color14: #93E0E3
-!! white dark/light
-URxvt*color7: #DCDCCC
-URxvt*color15: #FFFFFF
-
+*color0:  #525252
+*color1:  #AA5B5E
+*color2:  #7EA674
+*color3:  #F48341
+*color4:  #6B92B2
+*color5:  #9F9CA9
+*color6:  #5BAAA7
+*color7:  #D2D1D4
+*color8:  #707070 
+*color9:  #CC9C9E
+*color10: #A9C4A2
+*color11: #F8B48D
+*color12: #ADC2D4
+*color13: #B3A5B2 
+*color14: #9CCCCA 
+*color15: #D6DAC3
