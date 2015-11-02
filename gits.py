@@ -124,8 +124,12 @@ if __name__ == '__main__':
     a.add_argument('--pull_one', type=str, default='', help='Pull changes from home directory')
     a.add_argument('--pull_all', action='store_true', help='Pull all directories')
     a.add_argument('--clone_from', type=str, default='', help='Clone or pull a directory from hsb')
+    a.add_argument('--hsb_gits_dir', type=str, default=HSB_GITS_DIR, help='HSB directory')
 
     a = a.parse_args()
+
+    if a.hsb_gits_dir != HSB_GITS_DIR:
+        HSB_GITS_DIR = a.hsb_gits_dir
 
     if a.clone_all:
         clone_all_in_hsb()

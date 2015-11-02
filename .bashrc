@@ -26,6 +26,8 @@ PATH="$HOME/text/scripts":$PATH
 PATH=$PATH:$GOPATH/bin
 PATH=$PATH:$HOME/dotfiles
 
+PATH=/usr/local/texlive/2015/bin/x86_64-linux:$PATH
+
 export PATH
 
 
