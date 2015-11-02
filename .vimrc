@@ -237,7 +237,7 @@ set mouse=a
 
 " Enable syntax highlighting
 syntax on
-colorscheme lightning
+colorscheme lucius
 
 map <silent> <F5> :call gruvbox#bg_toggle()<CR>
 imap <silent> <F5> <ESC>:call gruvbox#bg_toggle()<CR>a
