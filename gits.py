@@ -24,7 +24,8 @@ NAME_TO_URL = {
     'clang-leg': "https://github.com/codeplaysoftware/clang-leg",
     'xdot.py': "https://github.com/jrfonseca/xdot.py",
     "dotfiles": "https://snyp@bitbucket.org/snyp/dotfiles.git",
-    "CppCoreGuidelines": "http://github.com/isocpp/CppCoreGuidelines.git"
+    "CppCoreGuidelines": "http://github.com/isocpp/CppCoreGuidelines.git",
+    "cpp-netlib": "https://github.com/cpp-netlib/cpp-netlib.git"
 }
 
 HSB = os.getenv('HSB')
