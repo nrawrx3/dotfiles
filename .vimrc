@@ -98,10 +98,6 @@ Bundle 'honza/vim-snippets'
 Bundle 'rhysd/vim-clang-format'
 Bundle 'Superbil/llvm.vim'
 Bundle 'cypok/vim-sml'
-"Bundle 'ebfe/vim-racer'
-"Bundle 'wting/rust.vim'
-"Bundle 'rust-lang/rust.vim'
-"Bundle 'rhysd/rust-doc.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -119,12 +115,6 @@ let g:ycm_confirm_extra_conf = 1
 "let g:ycm_key_list_select_completion=[]
 "let g:ycm_key_list_previous_completion=[]
 "let g:ycm_autoclose_preview_window_after_completion=1
-
-" Racer
-
-set hidden
-let g:racer_cmd = "racer"
-
 
 let python_highlight_all = 1
 
@@ -237,7 +227,7 @@ set mouse=a
 
 " Enable syntax highlighting
 syntax on
-colorscheme lucius
+colorscheme lightning
 
 map <silent> <F5> :call gruvbox#bg_toggle()<CR>
 imap <silent> <F5> <ESC>:call gruvbox#bg_toggle()<CR>a
