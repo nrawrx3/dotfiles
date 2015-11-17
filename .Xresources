@@ -12,8 +12,8 @@ URxvt*perl-ext-common:				default,matcher
 URxvt*matcher.button:				1
 URxvt*url-launcher:				/usr/bin/firefox
 
-URxvt.font:					xft:Monaco For Powerline:size=8
-URxvt.boldFont:					xft:Monaco For Powerline:bold:size=8
+URxvt.font:					xft:MonacoB:size=10
+URxvt.boldFont:					xft:MonacoB:bold:size=10
 
 URxvt*depth: 32
 
@@ -29,38 +29,24 @@ Xft.rgba: rgb
 
 
 
-! Zenburn color-scheme
-URxvt*background: #3F3F3F
-URxvt*foreground: #DCDCCC
-URxvt*cursorColor: #8e9ff0
-URxvt*cursorColor2: #FFFFEF
-URxvt*colorUL: #8CD0D3
-URxvt*underlineColor: #F0DFAF
-URxvt*colorBD: #E0CF9F
-URxvt*colorIT: #656555
 
-!! black dark/light
-URxvt*color0: #3F3F3F
-URxvt*color8: #5F5F5F
-!! red dark/light
-URxvt*color1: #BC8383
-URxvt*color9: #CC9393
-!! green dark/light
-URxvt*color2: #5F7F5F
-URxvt*color10: #7F9F7F
-!! yellow dark/light
-URxvt*color3: #E0CF9F
-URxvt*color11: #F0DFAF
-!! blue dark/light
-URxvt*color4: #7CB8BB
-URxvt*color12: #8CD0D3
-!! magenta dark/light
-URxvt*color5: #DC8CC3
-URxvt*color13: #DC8CC3
-!! cyan dark/light
-URxvt*color6: #93E0E3
-URxvt*color14: #93E0E3
-!! white dark/light
-URxvt*color7: #DCDCCC
-URxvt*color15: #FFFFFF
+*background:  #080608
+*foreground:  #E8EAEC
+
+*color0:  #525252
+*color1:  #BF606B
+*color2:  #BBBB87
+*color3:  #876F6A
+*color4:  #606B6F
+*color5:  #908C9C
+*color6:  #88959A
+*color7:  #E8E5DC
+*color8:  #707070
+*color9:  #8A7885
+*color10: #BFAF72
+*color11: #9F8985
+*color12: #9FA6A8
+*color13: #AAA7B4
+*color14: #AABBC1
+*color15: #F5F5EB
 
