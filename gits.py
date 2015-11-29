@@ -25,7 +25,8 @@ NAME_TO_URL = {
     'xdot.py': "https://github.com/jrfonseca/xdot.py",
     "dotfiles": "https://snyp@bitbucket.org/snyp/dotfiles.git",
     "CppCoreGuidelines": "http://github.com/isocpp/CppCoreGuidelines.git",
-    "cpp-netlib": "https://github.com/cpp-netlib/cpp-netlib.git"
+    "cpp-netlib": "https://github.com/cpp-netlib/cpp-netlib.git",
+    "benchmark": "https://github.com/google/benchmark.git"
 }
 
 HSB = os.getenv('HSB')
