@@ -227,7 +227,7 @@ set mouse=a
 
 " Enable syntax highlighting
 syntax on
-colorscheme laederon
+colorscheme kolor
 
 map <silent> <F5> :call gruvbox#bg_toggle()<CR>
 imap <silent> <F5> <ESC>:call gruvbox#bg_toggle()<CR>a
@@ -258,7 +258,7 @@ set encoding=utf8
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
 
-set guifont=Pointfree\ 10
+set guifont=MonacoForPowerline\ 8
 
 " => Files, backups and undo
 

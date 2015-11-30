@@ -26,27 +26,31 @@ Xft.hinting: 1
 Xft.hintstyle: hintfull
 Xft.rgba: rgb
 
-!Black
-URxvt*color0:           #4a4b4a
-URxvt*color8:           #696969
-!Red
-URxvt*color1:           #D7699A
-URxvt*color9:           #F5A2B5
-!Green
-URxvt*color2:           #80D468
-URxvt*color10:          #A3F2A0
-!Yellow
-URxvt*color3:           #D7A169
-URxvt*color11:          #F5CDA2
-!Blue
-URxvt*color4:           #6985D7
-URxvt*color12:          #A2C1F5
-!Magenta
-URxvt*color5:           #C86AD4
-URxvt*color13:          #D2A2F5
-!Cyan
-URxvt*color6:           #6FCCD1
-URxvt*color14:          #A0E9F2
-!White
-URxvt*color7:           #DBDCDC
-URxvt*color15:          #FDFDFD
+
+*foreground: #ECE8CF
+*background: #2D2D2D
+!black
+*color0:     #393939
+*color8:     #474747
+!!red
+*color1:     #EE9379
+*color9:     #FF8D80
+!!green
+*color2:     #E2FFC7
+*color10:    #DBFFB3
+!!yellow
+*color3:     #FFFFB9
+*color11:    #FFBE64
+!!blue
+*color4:     #EDE7B4
+*color12:    #E15848
+!!magenta
+*color5:     #E2BEB5
+*color13:    #94C7B5
+!!cyan
+*color6:     #6EB49D
+*color14:    #A2C3CC
+!!white
+*color7:     #dddddd
+*color15:    #dddddd
+
