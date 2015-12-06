@@ -227,11 +227,13 @@ set mouse=a
 
 " Enable syntax highlighting
 syntax on
-colorscheme kolor
+colorscheme sprinkles
 
 map <silent> <F5> :call gruvbox#bg_toggle()<CR>
 imap <silent> <F5> <ESC>:call gruvbox#bg_toggle()<CR>a
 vmap <silent> <F5> <ESC>:call gruvbox#bg_toggle()<CR>gv
+
+colorscheme calmar256-light
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -258,7 +260,7 @@ set encoding=utf8
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
 
-set guifont=MonacoForPowerline\ 8
+set guifont=Pointfree\ 10
 
 " => Files, backups and undo
 

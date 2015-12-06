@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Written on Sat Dec 5 00:57:24 2015 by Qt Creator 3.5.1-->
+<externaltool id="Clang_format">
+    <description>clang format</description>
+    <displayname>Clang format</displayname>
+    <category>Text</category>
+    <executable output="replaceselection" error="showinpane" modifiesdocument="no">
+        <path>clang-format</path>
+        <arguments>%{CurrentDocument:FilePath}</arguments>
+    </executable>
+</externaltool>
