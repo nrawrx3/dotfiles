@@ -19,7 +19,6 @@ NAME_TO_URL = {
     'regvm': "https://snyp@bitbucket.org/snyp/regvm.git",
     'musl': "git://git.musl-libc.org/musl",
     'llvm-clang-samples': "https://github.com/eliben/llvm-clang-samples.git",
-    'termbox': "https://github.com/nsf/termbox.git",
     'llvm-leg': "https://github.com/codeplaysoftware/llvm-leg",
     'clang-leg': "https://github.com/codeplaysoftware/clang-leg",
     'xdot.py': "https://github.com/jrfonseca/xdot.py",
