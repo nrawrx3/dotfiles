@@ -94,17 +94,45 @@ Bundle 'hdima/python-syntax'
 Bundle 'fatih/vim-go'
 Bundle 'cespare/vim-toml'
 Bundle 'Valloric/YouCompleteMe'
+Bundle 'eagletmt/neco-ghc'
 Bundle 'honza/vim-snippets'
 Bundle 'rhysd/vim-clang-format'
 Bundle 'Superbil/llvm.vim'
 Bundle 'cypok/vim-sml'
+"Bundle 'travitch/hasksyn'
 
 call vundle#end()
 filetype plugin indent on
 
 " PLUGINS DONE
 
+if has("autocmd")
+  autocmd FileType haskell setlocal formatexpr=FormatHaskell()
+endif
 
+" => hindent
+
+
+if exists("g:loaded_hindent") || !executable("hindent")
+    finish
+endif
+let g:loaded_hindent = 1
+if !exists("g:hindent_style")
+    let g:hindent_style = "chris-done"
+endif
+function! FormatHaskell()
+    if !empty(v:char)
+        return 1
+    else
+        let l:filter = "hindent --style " . g:hindent_style
+        let l:command = v:lnum.','.(v:lnum+v:count-1).'!'.l:filter
+        execute l:command
+    endif
+endfunction
+
+if has("autocmd")
+  autocmd FileType haskell setlocal formatexpr=FormatHaskell()
+endif
 
 " => YouCompleteMe
 
@@ -116,8 +144,11 @@ let g:ycm_confirm_extra_conf = 1
 "let g:ycm_key_list_previous_completion=[]
 "let g:ycm_autoclose_preview_window_after_completion=1
 
-let python_highlight_all = 1
+let g:haskellmode_completion_ghc = 0
+autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+let g:ycm_semantic_triggers = {'haskell' : ['.']}
 
+let python_highlight_all = 1
 
 " => Syntastic Checking (not using)
 
@@ -227,13 +258,12 @@ set mouse=a
 
 " Enable syntax highlighting
 syntax on
-colorscheme sprinkles
 
 map <silent> <F5> :call gruvbox#bg_toggle()<CR>
 imap <silent> <F5> <ESC>:call gruvbox#bg_toggle()<CR>a
 vmap <silent> <F5> <ESC>:call gruvbox#bg_toggle()<CR>gv
 
-colorscheme calmar256-light
+colorscheme summerfruit256
 
 " Set extra options when running in GUI mode
 if has("gui_running")
