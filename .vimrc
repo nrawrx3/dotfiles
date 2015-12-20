@@ -244,6 +244,8 @@ if has("gui_running")
     set guioptions-=r
     set t_Co=256
     set guitablabel=%M\ %t
+else
+    colorscheme hybrid
 endif
 
 "hi Cursor guifg=red
