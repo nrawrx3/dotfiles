@@ -94,7 +94,6 @@ Bundle 'hdima/python-syntax'
 Bundle 'fatih/vim-go'
 Bundle 'cespare/vim-toml'
 Bundle 'Valloric/YouCompleteMe'
-Bundle 'eagletmt/neco-ghc'
 Bundle 'rhysd/vim-clang-format'
 Bundle 'Superbil/llvm.vim'
 Bundle 'cypok/vim-sml'
@@ -234,7 +233,7 @@ map <silent> <F5> :call gruvbox#bg_toggle()<CR>
 imap <silent> <F5> <ESC>:call gruvbox#bg_toggle()<CR>a
 vmap <silent> <F5> <ESC>:call gruvbox#bg_toggle()<CR>gv
 
-colorscheme sprinkles
+colorscheme sre
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -244,8 +243,6 @@ if has("gui_running")
     set guioptions-=r
     set t_Co=256
     set guitablabel=%M\ %t
-else
-    colorscheme hybrid
 endif
 
 "hi Cursor guifg=red
