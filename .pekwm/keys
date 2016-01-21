@@ -228,10 +228,14 @@ Global {
 		KeyPress = "F9" { Actions = "SendToWorkspace 9" }
 	}
 	# External commands
-	Chain = "Ctrl Mod1 E" {
-		KeyPress = "E" { Actions = "Exec urxvt" }
+	Chain = "Ctrl Mod1 L" {
+		KeyPress = "E" { Actions = "Exec urxvt &" }
 		KeyPress = "L" { Actions = "Exec xlock -mode blank &" }
 		KeyPress = "S" { Actions = "Exec scrot &" }
+        KeyPress = "F" { Actions = "Exec spacefm &" }
+        KeyPress = "W" { Actions = "Exec firefox &" }
+        KeyPress = "V" { Actions = "Exec gvim &" }
+        KeyPress = "S" { Actions = "Exec subl3 &"}
 		KeyPress = "C" { Actions = "ShowCmdDialog" }
 	}
 	# Wm actions

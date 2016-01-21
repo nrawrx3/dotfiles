@@ -228,7 +228,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
     call <SID>X("IncSearch", "800000", "ffae00", "")
 
     " Interface Elements
-    call <SID>X("StatusLine", "ffffff", "43c464", "bold")
+    call <SID>X("StatusLine", "ffffff", "43c464", "")
     call <SID>X("StatusLineNC", "9bd4a9", "51b069", "")
     call <SID>X("VertSplit", "3687a2", "3687a2", "")
     call <SID>X("Folded", "3c78a2", "c3daea", "")
@@ -236,11 +236,11 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
     call <SID>X("Pmenu", "ffffff", "cb2f27", "")
     call <SID>X("SignColumn", "", "", "")
     call <SID>X("CursorLine", "", "c0d9eb", "")
-    call <SID>X("LineNr", "eeeeee", "438ec3", "bold")
+    call <SID>X("LineNr", "eeeeee", "438ec3", "")
     call <SID>X("MatchParen", "", "", "")
 
     " Specials
-    call <SID>X("Todo", "e50808", "dbf3cd", "bold")
+    call <SID>X("Todo", "e50808", "dbf3cd", "")
     call <SID>X("Title", "000000", "", "")
     call <SID>X("Special", "710073", "", "")
 
@@ -278,11 +278,11 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
     call <SID>X("htmlTagN", "4aa04a", "", "")
 
     " Jinja Highlighting
-    call <SID>X("jinjaTagBlock", "ff0007", "fbf4c7", "bold")
+    call <SID>X("jinjaTagBlock", "ff0007", "fbf4c7", "")
     call <SID>X("jinjaVarBlock", "ff0007", "fbf4c7", "")
     call <SID>X("jinjaString", "710073", "fbf4c7", "")
-    call <SID>X("jinjaNumber", "bf0945", "fbf4c7", "bold")
-    call <SID>X("jinjaStatement", "fb660a", "fbf4c7", "bold")
+    call <SID>X("jinjaNumber", "bf0945", "fbf4c7", "")
+    call <SID>X("jinjaStatement", "fb660a", "fbf4c7", "")
     call <SID>X("jinjaComment", "008800", "002300", "italic")
     call <SID>X("jinjaFilter", "000000", "fbf4c7", "")
     call <SID>X("jinjaRaw", "aaaaaa", "fbf4c7", "")

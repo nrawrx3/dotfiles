@@ -19,7 +19,7 @@
 
 xcompmgr &
 sh ~/.fehbg &
+tint2 &
 parcellite &
-bmpanel2 &
-cbatticon &
+qbat &
 
