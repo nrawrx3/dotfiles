@@ -44,7 +44,7 @@ export PACMAN_CACHE="/var/cache/pacman/pkg"
 # The sounds of silence often soothe
 # Shapes and colors shift with mood
 # Pupils widen change their hue
-# Rapid brown avoids clear blue (Frogs - Alice in Chains)
+# Rapid brown avoids clear blue
 man() {
     env LESS_TERMCAP_mb=$'\E[01;31m' \
     LESS_TERMCAP_md=$'\E[01;38;5;74m' \
@@ -80,7 +80,7 @@ xkcd() {
 }
 
 # She eyes me like a Pisces when I am weak
-# I've been locked inside your heart shaped box for weeks (Heart Shaped Box - Nirvana)
+# I've been locked inside your heart shaped box for weeks
 
 export HSB=/run/media/snyp/f6a9fbcb-7440-4cd7-b60b-4dbf1200eaed/snyp
 export HSB1=/run/media/snyp/18378179-adf3-4dad-8336-8388ff71d8c5
@@ -94,8 +94,15 @@ rsync_paccache() {
   sudo bash -c "rsync -aAXvu ${PACMAN_CACHE}/* $HSB1/var/cache/pacman/pkg/"
 }
 
+rsync_home_all() {
+  rsync_home text
+  rsync_home reads
+  rsync_home images
+  rsync_home music
+  rsync_home videos
+}
+
 remind_me() {
     cat $HOME/dotfiles/.remember.txt
     python $HOME/dotfiles/random_quote.py
 }
-
