@@ -74,6 +74,7 @@ Bundle 'int3/vim-extradite'
 
 Bundle 'scrooloose/nerdtree'
 Bundle 'bling/vim-airline'
+Bundle 'vim-airline/vim-airline-themes'
 Bundle 'kien/ctrlp.vim'
 Bundle 'majutsushi/tagbar'
 Bundle 'tpope/vim-vinegar'
@@ -104,6 +105,11 @@ filetype plugin indent on
 
 " PLUGINS DONE
 
+" => Airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline_theme='light'
+
 " => YouCompleteMe
 
 
@@ -128,7 +134,7 @@ let python_highlight_all = 1
 "let g:syntastic_auto_loc_list=1
 
 "let g:syntastic_cpp_compiler = 'clang++'
-"let g:syntastic_cpp_compiler_options = '-std=c++11'
+"let g:syntastic_cpp_compiler_options = '-std=c++14'
 
 
 " => Vim Cpp Enhanced
@@ -260,7 +266,7 @@ set encoding=utf8
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
 
-set guifont=Pointfree\ 10
+set guifont=DejaVuSansMonoForPowerline\ 8
 
 " => Files, backups and undo
 
