@@ -26,7 +26,8 @@ NAME_TO_URL = {
     "CppCoreGuidelines": "http://github.com/isocpp/CppCoreGuidelines.git",
     "cpp-netlib": "https://github.com/cpp-netlib/cpp-netlib.git",
     "benchmark": "https://github.com/google/benchmark.git",
-    "guile": "git clone git://git.sv.gnu.org/guile.git"
+    "guile": "git clone git://git.sv.gnu.org/guile.git",
+    "spdlog": "https://github.com/gabime/spdlog.git"
 }
 
 HSB = os.getenv('HSB')
