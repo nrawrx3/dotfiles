@@ -94,12 +94,18 @@ rsync_paccache() {
   sudo bash -c "rsync -aAXvu ${PACMAN_CACHE}/* $HSB1/var/cache/pacman/pkg/"
 }
 
-rsync_home_all() {
+rsync_all() {
   rsync_home text
   rsync_home reads
   rsync_home images
   rsync_home music
   rsync_home videos
+  rsync_paccahe
+}
+
+bak_all() {
+  rsync_all 
+  gits.py --pull_all
 }
 
 remind_me() {
