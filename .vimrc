@@ -98,6 +98,7 @@ Bundle 'Valloric/YouCompleteMe'
 Bundle 'rhysd/vim-clang-format'
 Bundle 'Superbil/llvm.vim'
 Bundle 'cypok/vim-sml'
+Bundle 'editorconfig/editorconfig-vim'
 "Bundle 'travitch/hasksyn'
 
 call vundle#end()
@@ -108,7 +109,7 @@ filetype plugin indent on
 " => Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme='light'
+let g:airline_theme='luna'
 
 " => YouCompleteMe
 
@@ -182,7 +183,7 @@ set whichwrap+=<,>,h,l
 " Ignore case when searching
 set ignorecase
 
-" When searching try to be smart about cases 
+" When searching try to be smart about cases
 set smartcase
 
 " Highlight search results
@@ -266,7 +267,7 @@ set encoding=utf8
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
 
-set guifont=Pointfree\ 8
+set guifont=Pointfree\ 10
 
 " => Files, backups and undo
 
@@ -390,7 +391,7 @@ map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 " Switch CWD to the directory of the open buffer
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
 
-" Specify the behavior when switching between buffers 
+" Specify the behavior when switching between buffers
 try
   set switchbuf=useopen,usetab,newtab
   set stal=2
@@ -637,26 +638,6 @@ function! SummarizeTabs()
   finally
     echohl None
   endtry
-endfunction
-
-if exists("g:loaded_hindent") || !executable("hindent")
-    finish
-endif
-
-let g:loaded_hindent = 1
-
-if !exists("g:hindent_style")
-    let g:hindent_style = "fundamental"
-endif
-
-function! FormatHaskell()
-    if !empty(v:char)
-        return 1
-    else
-        let l:filter = "hindent --style " . g:hindent_style
-        let l:command = v:lnum.','.(v:lnum+v:count-1).'!'.l:filter
-        execute l:command
-    endif
 endfunction
 
 if has("autocmd")
