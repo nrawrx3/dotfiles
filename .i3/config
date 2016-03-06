@@ -158,7 +158,7 @@ bindsym Mod1+r mode "resize"
 #client.urgent           #e9e6e6 #BFB8B0 #ffffff #900000
 
 # class                   border  backgr. text    indicator
-client.focused            #cecece #cecece #2b2b2b #cecece
+client.focused            #5dff9e #0f291a #5dff9e #cecece
 client.focused_inactive   #5f676a #5f676a #cecece #5f676a
 client.unfocused          #222222 #222222 #888888 #222222
 client.urgent             #2f343a #900000 #ffffff #900000
@@ -177,7 +177,7 @@ bar {
     #colors {
     #    statusline #efefef
     #    background #242424
-    #    focused_workspace #242424 #59306B  #ffffff 
+    #    focused_workspace #242424 #59306B  #ffffff
     #    inactive_workspace #242424 #282828 #CCCACA
     #    urgent_workspace   #1A1A1A #664742 #1b1b1b
     #}
@@ -186,10 +186,12 @@ bar {
 		statusline	#999999
 
 #                           border  backgr  text
-		focused_workspace	#cccccc #444444 #cccccc
+#5DFF9E
+#0F291A
+		focused_workspace	#5dff9e #0f291a #5dff9e
 		active_workspace	#cccccc #444444 #cccccc
 		inactive_workspace	#444444 #1B1B1B #cccccc
-		urgent_workspace	#cccccc #bf3939 #cccccc 
+		urgent_workspace	#cccccc #bf3939 #cccccc
 	}
 }
 

@@ -120,8 +120,18 @@ def clone_or_pull_from_hsb(dir_name):
         sp.run(['git', 'pull', 'hsb', 'master'])
     cd(CUR_DIR)
 
+
+def update_all():
+    cd(HOME_GITS)
+    for d in NAME_TO_URL:
+        cd(d)
+        sp.run(['git', 'pull', 'origin', 'master'])
+        cd(HOME_GITS)
+
+
 if __name__ == '__main__':
     a = ap.ArgumentParser(usage='Easily backup the git projects')
+    a.add_argument('--update_all', action='store_true', help='Sync with master all the repositories')
     a.add_argument('--clone_one', type=str, default='', help='The directory to clone')
     a.add_argument('--clone_all', action='store_true', help='Clone all directories')
     a.add_argument('--pull_one', type=str, default='', help='Pull changes from home directory')
@@ -130,6 +140,9 @@ if __name__ == '__main__':
     a.add_argument('--hsb_gits_dir', type=str, default=HSB_GITS_DIR, help='HSB directory')
 
     a = a.parse_args()
+
+    if a.update_all:
+        update_all()
 
     if a.hsb_gits_dir != HSB_GITS_DIR:
         HSB_GITS_DIR = a.hsb_gits_dir
