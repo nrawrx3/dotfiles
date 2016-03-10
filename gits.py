@@ -27,7 +27,6 @@ NAME_TO_URL = {
     "cpp-netlib": "https://github.com/cpp-netlib/cpp-netlib.git",
     "benchmark": "https://github.com/google/benchmark.git",
     "guile": "git clone git://git.sv.gnu.org/guile.git",
-    "spdlog": "https://github.com/gabime/spdlog.git",
     "pycparser": "https://github.com/eliben/pycparser",
     "seasocks": "https://github.com/mattgodbolt/seasocks"
 }

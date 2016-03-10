@@ -89,7 +89,7 @@ Bundle 'jeffkreeftmeijer/vim-numbertoggle'
 "Bundle 'chriskempson/base16-vim'
 
 
-Bundle 'octol/vim-cpp-enhanced-highlight'
+"Bundle 'octol/vim-cpp-enhanced-highlight'
 Bundle 'hdima/python-syntax'
 "Bundle 'davidhalter/jedi-vim'
 Bundle 'fatih/vim-go'
