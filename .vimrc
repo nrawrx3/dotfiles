@@ -109,7 +109,7 @@ filetype plugin indent on
 " => Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme='luna'
+let g:airline_theme='laederon'
 
 " => YouCompleteMe
 
@@ -240,7 +240,7 @@ map <silent> <F5> :call gruvbox#bg_toggle()<CR>
 imap <silent> <F5> <ESC>:call gruvbox#bg_toggle()<CR>a
 vmap <silent> <F5> <ESC>:call gruvbox#bg_toggle()<CR>gv
 
-colorscheme gentooish
+colorscheme sre
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -267,7 +267,7 @@ set encoding=utf8
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
 
-set guifont=Profont\ 10
+set guifont=Pointfree\ 8
 
 " => Files, backups and undo
 
@@ -303,7 +303,7 @@ let g:ctrlp_custom_ignore = { 'dir': '\v[\/](.git)$' }
 set noexpandtab
 " Be smart when using tabs ;)
 set smarttab
-set textwidth=80
+set textwidth=100
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
