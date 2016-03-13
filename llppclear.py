@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 # Remove the llpp.conf's saved locations that are older than the given number
 # of days since they were last opened - but only if there are no bookmarks
 

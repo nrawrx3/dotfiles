@@ -27,6 +27,7 @@ PATH="$HOME/text/scripts":$PATH
 PATH=$PATH:$GOPATH/bin
 PATH=$PATH:$HOME/dotfiles
 PATH=${HOME}/.cabal/bin:$PATH
+PATH=$HOME/bin:$PATH
 
 PATH=/usr/local/texlive/2015/bin/x86_64-linux:$PATH
 
@@ -104,7 +105,7 @@ rsync_all() {
 }
 
 bak_all() {
-  rsync_all 
+  rsync_all
   gits.py --pull_all
 }
 
