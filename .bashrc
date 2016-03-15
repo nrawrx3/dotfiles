@@ -101,7 +101,7 @@ rsync_all() {
   rsync_home images
   rsync_home music
   rsync_home videos
-  rsync_paccahe
+  rsync_paccache
 }
 
 bak_all() {
