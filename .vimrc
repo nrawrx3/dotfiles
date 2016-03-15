@@ -267,7 +267,7 @@ set encoding=utf8
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
 
-set guifont=Pointfree\ 8
+set guifont=CodeNewRoman\ 10
 
 " => Files, backups and undo
 
@@ -640,6 +640,3 @@ function! SummarizeTabs()
   endtry
 endfunction
 
-if has("autocmd")
-  autocmd FileType haskell setlocal formatexpr=FormatHaskell()
-endif

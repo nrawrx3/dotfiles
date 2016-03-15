@@ -152,16 +152,16 @@ mode "resize" {
 bindsym Mod1+r mode "resize"
 
 # class                 border  backgr. text    indicator
-#client.focused          #849492 #59306B #ffffff #2e9ef4
-#client.focused_inactive #6e686f #6e686f #f0f0f0 #484e50
-#client.unfocused        #6e686f #6e686f #f0f0f0 #292d2e
-#client.urgent           #e9e6e6 #BFB8B0 #ffffff #900000
+client.focused          #849492 #59306B #ffffff #2e9ef4
+client.focused_inactive #6e686f #6e686f #f0f0f0 #484e50
+client.unfocused        #6e686f #6e686f #f0f0f0 #292d2e
+client.urgent           #e9e6e6 #BFB8B0 #ffffff #900000
 
 # class                   border  backgr. text    indicator
-client.focused            #5dff9e #0f291a #5dff9e #cecece
-client.focused_inactive   #5f676a #5f676a #cecece #5f676a
-client.unfocused          #222222 #222222 #888888 #222222
-client.urgent             #2f343a #900000 #ffffff #900000
+#client.focused            #5dff9e #0f291a #5dff9e #cecece
+#client.focused_inactive   #5f676a #5f676a #cecece #5f676a
+#client.unfocused          #222222 #222222 #888888 #222222
+#client.urgent             #2f343a #900000 #ffffff #900000
 
 # new_window    1pixel                 broadcastM #<normal|1pixel|none|pixel>
 new_window  normal
