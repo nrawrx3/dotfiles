@@ -8,7 +8,7 @@ Most text files go in the ~/text directory.
 For code, if it is a git repo and contains mostly text, it goes to
 text/code_repos. If it contains many binary files, it goes to mixed/code_repos.
 
-All builds must be done in ~/builds or ~/build directory.
+All builds must be done in ~/build directory.
 
 All mixed stuff goes in the ~/mixed directory.
 

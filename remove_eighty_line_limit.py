@@ -25,6 +25,3 @@ with open(sys.argv[1]) as f:
                 newtext += ' {}'.format(line[:len(line) - 1])
 
     print(newtext)
-
-
-
