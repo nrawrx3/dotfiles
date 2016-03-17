@@ -46,8 +46,12 @@ noremap ,, ,
 nnoremap Q <nop>
 
 " Muthafuckin vundle
-set nocompatible
-set rtp+=~/.vim/bundle/Vundle.vim
+"set nocompatible
+"set rtp+=~/.vim/bundle/Vundle.vim
+
+" Using plug
+call plug#begin('~/.vim/plugged')
+
 
 "let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
 "execute "set rtp+=" . g:opamshare . "/merlin/vim"
@@ -55,53 +59,48 @@ set rtp+=~/.vim/bundle/Vundle.vim
 ":set rtp+=/usr/local/share/ocamlmerlin/vim
 
 " And ocp-indent
-set rtp^="/home/snyp/.opam/4.02.3/share/ocp-indent/vim"
+"set rtp^="/home/snyp/.opam/4.02.3/share/ocp-indent/vim"
 
 
 " PLUGINS
 
-call vundle#begin()
+"call vundle#begin()
 
-Bundle 'gmarik/Vundle.vim'
-Bundle 'Shougo/vimproc.vim'
-Bundle 'ervandew/supertab'
-"Bundle 'scrooloose/syntastic'
-Bundle 'moll/vim-bbye'
-Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'vim-scripts/gitignore'
-Bundle 'tpope/vim-fugitive'
-Bundle 'int3/vim-extradite'
+Plug 'gmarik/Vundle.vim'
+Plug 'Shougo/vimproc.vim'
+Plug 'ervandew/supertab'
+Plug 'moll/vim-bbye'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'vim-scripts/gitignore'
+Plug 'tpope/vim-fugitive'
+Plug 'int3/vim-extradite'
 
-Bundle 'scrooloose/nerdtree'
-Bundle 'bling/vim-airline'
-Bundle 'vim-airline/vim-airline-themes'
-Bundle 'kien/ctrlp.vim'
-Bundle 'majutsushi/tagbar'
-Bundle 'tpope/vim-vinegar'
-Bundle 'vim-scripts/Align'
-Bundle 'vim-scripts/Gundo'
-Bundle 'tpope/vim-commentary'
-Bundle 'godlygeek/tabular'
-Bundle 'michaeljsmith/vim-indent-object'
-Bundle 'guns/vim-sexp'
-Bundle 'kien/rainbow_parentheses.vim'
-Bundle 'jeffkreeftmeijer/vim-numbertoggle'
-"Bundle 'chriskempson/base16-vim'
+Plug 'scrooloose/nerdtree'
+Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'kien/ctrlp.vim'
+Plug 'majutsushi/tagbar'
+Plug 'tpope/vim-vinegar'
+Plug 'vim-scripts/Align'
+Plug 'vim-scripts/Gundo'
+Plug 'tpope/vim-commentary'
+Plug 'godlygeek/tabular'
+Plug 'michaeljsmith/vim-indent-object'
+Plug 'guns/vim-sexp'
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
 
 
-"Bundle 'octol/vim-cpp-enhanced-highlight'
-Bundle 'hdima/python-syntax'
-"Bundle 'davidhalter/jedi-vim'
-Bundle 'fatih/vim-go'
-Bundle 'cespare/vim-toml'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'rhysd/vim-clang-format'
-Bundle 'Superbil/llvm.vim'
-Bundle 'cypok/vim-sml'
-Bundle 'editorconfig/editorconfig-vim'
-"Bundle 'travitch/hasksyn'
+Plug 'hdima/python-syntax'
+Plug 'fatih/vim-go'
+Plug 'cespare/vim-toml'
+Plug 'Valloric/YouCompleteMe', { 'for': ['cpp', 'python'] }
+Plug 'rhysd/vim-clang-format'
+Plug 'Superbil/llvm.vim'
+Plug 'cypok/vim-sml'
+Plug 'editorconfig/editorconfig-vim'
 
-call vundle#end()
+"call vundle#end()
 filetype plugin indent on
 
 " PLUGINS DONE
@@ -240,7 +239,7 @@ map <silent> <F5> :call gruvbox#bg_toggle()<CR>
 imap <silent> <F5> <ESC>:call gruvbox#bg_toggle()<CR>a
 vmap <silent> <F5> <ESC>:call gruvbox#bg_toggle()<CR>gv
 
-colorscheme sre
+colorscheme hybrid
 
 " Set extra options when running in GUI mode
 if has("gui_running")
