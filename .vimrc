@@ -64,7 +64,7 @@ call plug#begin('~/.vim/plugged')
 
 " PLUGINS
 
-"call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
 Plug 'gmarik/Vundle.vim'
 Plug 'Shougo/vimproc.vim'
@@ -92,15 +92,14 @@ Plug 'jeffkreeftmeijer/vim-numbertoggle'
 
 
 Plug 'hdima/python-syntax'
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'for': ['go'] }
 Plug 'cespare/vim-toml'
 Plug 'Valloric/YouCompleteMe', { 'for': ['cpp', 'python'] }
 Plug 'rhysd/vim-clang-format'
 Plug 'Superbil/llvm.vim'
 Plug 'cypok/vim-sml'
-Plug 'editorconfig/editorconfig-vim'
 
-"call vundle#end()
+call plug#end()
 filetype plugin indent on
 
 " PLUGINS DONE
