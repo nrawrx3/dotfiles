@@ -49,19 +49,6 @@ nnoremap Q <nop>
 "set nocompatible
 "set rtp+=~/.vim/bundle/Vundle.vim
 
-" Using plug
-call plug#begin('~/.vim/plugged')
-
-
-"let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
-"execute "set rtp+=" . g:opamshare . "/merlin/vim"
-"set rtp+=/home/snyp/.opam/system/share/ocamlmerlin/vim
-":set rtp+=/usr/local/share/ocamlmerlin/vim
-
-" And ocp-indent
-"set rtp^="/home/snyp/.opam/4.02.3/share/ocp-indent/vim"
-
-
 " PLUGINS
 
 call plug#begin('~/.vim/plugged')
@@ -95,19 +82,20 @@ Plug 'hdima/python-syntax'
 Plug 'fatih/vim-go', { 'for': ['go'] }
 Plug 'cespare/vim-toml'
 Plug 'Valloric/YouCompleteMe', { 'for': ['cpp', 'python'] }
+autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable() | endif
 Plug 'rhysd/vim-clang-format'
 Plug 'Superbil/llvm.vim'
 Plug 'cypok/vim-sml'
 
 call plug#end()
-filetype plugin indent on
+"filetype plugin indent on
 
 " PLUGINS DONE
 
 " => Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme='laederon'
+let g:airline_theme='hybrid'
 
 " => YouCompleteMe
 
