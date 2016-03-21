@@ -25,8 +25,8 @@ NAME_TO_URL = {
     "benchmark": "https://github.com/google/benchmark.git",
     "guile": "git clone git://git.sv.gnu.org/guile.git",
     "pycparser": "https://github.com/eliben/pycparser",
-    "seasocks": "https://github.com/mattgodbolt/seasocks",
     "websocketpp": "https://github.com/zaphoyd/websocketpp",
+    "leveldb":"https://github.com/google/leveldb.git",
     "vim-plug": "https://github.com/junegunn/vim-plug"
 }
 
