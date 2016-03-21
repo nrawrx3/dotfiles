@@ -15,22 +15,13 @@ PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor
 # The builds
 export BUILD_DIR=$HOME/builds
 
-# The checkouts
-export CO_DIR=$HOME/co
-
-export LLVM_BUILD_DIR=$BUILD_DIR/llvm
-
-export LLVM_CO_DIR=$CO_DIR/llvm
-
 export GOPATH=$HOME/go
 PATH="$HOME/text/scripts":$PATH
 PATH=$PATH:$GOPATH/bin
 PATH=$PATH:$HOME/dotfiles
 PATH=${HOME}/.cabal/bin:$PATH
 PATH=$HOME/bin:$PATH
-
 PATH=/usr/local/texlive/2015/bin/x86_64-linux:$PATH
-
 export PATH
 
 
@@ -41,11 +32,6 @@ export CSCOPE_EDITOR="vim"
 export PACMAN_CACHE="/var/cache/pacman/pkg"
 
 # Functions
-
-# The sounds of silence often soothe
-# Shapes and colors shift with mood
-# Pupils widen change their hue
-# Rapid brown avoids clear blue
 man() {
     env LESS_TERMCAP_mb=$'\E[01;31m' \
     LESS_TERMCAP_md=$'\E[01;38;5;74m' \
@@ -79,9 +65,6 @@ xkcd() {
   done
   curl -sA Mozilla -i "http://www.google.com/search?hl=en&tbo=d&site=&source=hp&btnI=1&q=xkcd+$search" | awk '/Location: http/ {print $2}'
 }
-
-# She eyes me like a Pisces when I am weak
-# I've been locked inside your heart shaped box for weeks
 
 export HSB=/run/media/snyp/f6a9fbcb-7440-4cd7-b60b-4dbf1200eaed/snyp
 export HSB1=/run/media/snyp/18378179-adf3-4dad-8336-8388ff71d8c5

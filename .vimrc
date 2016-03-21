@@ -86,6 +86,7 @@ autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable(
 Plug 'rhysd/vim-clang-format'
 Plug 'Superbil/llvm.vim'
 Plug 'cypok/vim-sml'
+Plug 'pbrisbin/vim-colors-off'
 
 call plug#end()
 "filetype plugin indent on
@@ -95,7 +96,7 @@ call plug#end()
 " => Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme='hybrid'
+let g:airline_theme='serene'
 
 " => YouCompleteMe
 
@@ -226,7 +227,7 @@ map <silent> <F5> :call gruvbox#bg_toggle()<CR>
 imap <silent> <F5> <ESC>:call gruvbox#bg_toggle()<CR>a
 vmap <silent> <F5> <ESC>:call gruvbox#bg_toggle()<CR>gv
 
-colorscheme hybrid
+colorscheme gentooish
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -253,7 +254,7 @@ set encoding=utf8
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
 
-set guifont=CodeNewRoman\ 10
+set guifont=Pointfree\ 8
 
 " => Files, backups and undo
 
