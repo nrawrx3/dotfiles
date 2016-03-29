@@ -79,6 +79,7 @@ Plug 'jeffkreeftmeijer/vim-numbertoggle'
 
 
 Plug 'hdima/python-syntax'
+Plug 'plasticboy/vim-markdown'
 Plug 'fatih/vim-go', { 'for': ['go'] }
 Plug 'cespare/vim-toml'
 Plug 'Valloric/YouCompleteMe', { 'for': ['cpp', 'python'] }
@@ -254,7 +255,7 @@ set encoding=utf8
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
 
-set guifont=Pointfree\ 8
+set guifont=CodeNewRoman\ 10
 
 " => Files, backups and undo
 
@@ -306,6 +307,7 @@ autocmd FileType scheme setlocal et ts=2 sw=2 sts=2
 autocmd FileType bash setlocal et ts=4 sw=4 sts=4
 autocmd FileType zsh setlocal et ts=4 sw=4 sts=4
 autocmd FileType go setlocal noet ts=4 sw=4 sts=4
+autocmd FileType d setlocal et ts=4 sw=4 sts=4
 autocmd FileType lemon set noet ts=4 sw=4 sts=4
 au BufRead,BufNewFile *.rs set filetype=rust
 au BufRead,BufNewFile *.toml set filetype=toml
