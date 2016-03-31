@@ -27,31 +27,37 @@ Xft.hintstyle: hintfull
 Xft.rgba: rgb
 
 
-!!URxvt Color Scheme
-*background:  #1E1F20
-*foreground:  #EBEAE5
+! █▓▒░ blizzard orb colors
+! by xero <http://xero.nu>
 
-! BLACK 
-*color0:  #525252
-*color8:  #707070 
-! RED 
-*color1:  #D48E9C
-*color9:  #D99CA6
-! GREEN
-*color2:  #BBBB87
-*color10: #BFAF72
-! ORANGE 
-*color3:  #F9CC8F
-*color11: #F3B386 
-! BLUE
-*color4:  #8DA4A8
-*color12: #95B7C2 
-! MAGENTA 
-*color5:  #9F9CA9
-*color13: #B3A5B2 
-! CYAN 
-*color6:  #88AABB
-*color14: #AACCDD 
-! WHITE 
-*color7:  #D2D1D4
-*color15: #D6DAC3
+*.foreground:   #111111
+*.background:   #fcfcfc
+*.cursorColor:  #94B6CC
+! black
+*.color0:       #000000
+*.color8:       #000000
+! red
+*.color1:       #6688AA
+*.color9:       #6688AA
+! green
+*.color2:       #94B6CC
+*.color10:      #94B6CC
+! yellow
+*.color3:       #4C6E84
+*.color11:      #4C6E84
+! blue
+*.color4:       #6688AA
+*.color12:      #6688AA
+! magenta
+*.color5:       #94B6CC
+*.color13:      #94B6CC
+! cyan
+*.color6:       #4C6E84
+*.color14:      #4C6E84
+! white
+*.color7:       #87875f
+*.color15:      #87875f
+! others
+URxvt.colorIT:  #4C6E84
+URxvt.colorBD:  #87875f
+URxvt.colorUL:  #528b8b
