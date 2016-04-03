@@ -18,7 +18,6 @@ NAME_TO_URL = {
     'regvm': "https://snyp@bitbucket.org/snyp/regvm.git",
     'musl': "git://git.musl-libc.org/musl",
     'llvm-clang-samples': "https://github.com/eliben/llvm-clang-samples.git",
-    'xdot.py': "https://github.com/jrfonseca/xdot.py",
     "dotfiles": "https://snyp@bitbucket.org/snyp/dotfiles.git",
     "CppCoreGuidelines": "http://github.com/isocpp/CppCoreGuidelines.git",
     "cpp-netlib": "https://github.com/cpp-netlib/cpp-netlib.git",
@@ -27,7 +26,8 @@ NAME_TO_URL = {
     "pycparser": "https://github.com/eliben/pycparser",
     "websocketpp": "https://github.com/zaphoyd/websocketpp",
     "leveldb":"https://github.com/google/leveldb.git",
-    "vim-plug": "https://github.com/junegunn/vim-plug"
+    "vim-plug": "https://github.com/junegunn/vim-plug",
+    "GSL": "https://github.com/Microsoft/GSL"
 }
 
 HSB = os.getenv('HSB')
