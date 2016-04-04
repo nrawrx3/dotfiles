@@ -27,7 +27,8 @@ NAME_TO_URL = {
     "websocketpp": "https://github.com/zaphoyd/websocketpp",
     "leveldb":"https://github.com/google/leveldb.git",
     "vim-plug": "https://github.com/junegunn/vim-plug",
-    "GSL": "https://github.com/Microsoft/GSL"
+    "GSL": "https://github.com/Microsoft/GSL",
+    "ChaiScript": "https://github.com/ChaiScript/ChaiScript"
 }
 
 HSB = os.getenv('HSB')
