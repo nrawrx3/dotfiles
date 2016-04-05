@@ -82,11 +82,11 @@ Plug 'hdima/python-syntax'
 Plug 'plasticboy/vim-markdown'
 Plug 'fatih/vim-go', { 'for': ['go'] }
 Plug 'cespare/vim-toml'
-Plug 'Valloric/YouCompleteMe', { 'for': ['cpp', 'python'] }
+Plug 'Valloric/YouCompleteMe', { 'for': ['cpp', 'python', 'rust'] }
 autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable() | endif
 Plug 'rhysd/vim-clang-format'
 Plug 'Superbil/llvm.vim'
-Plug 'cypok/vim-sml'
+Plug 'rust-lang/rust.vim'
 Plug 'pbrisbin/vim-colors-off'
 
 call plug#end()
@@ -109,9 +109,11 @@ let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
 "let g:ycm_autoclose_preview_window_after_completion=1
 
+let g:ycm_rust_src_path="/usr/src/rust/src/"
+
 let g:haskellmode_completion_ghc = 0
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
-let g:ycm_semantic_triggers = {'haskell' : ['.']}
+let g:ycm_semantic_triggers = {'haskell' : ['.'], 'rust': ['.', '::']}
 
 let python_highlight_all = 1
 
