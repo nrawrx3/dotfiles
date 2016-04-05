@@ -87,6 +87,7 @@ autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable(
 Plug 'rhysd/vim-clang-format'
 Plug 'Superbil/llvm.vim'
 Plug 'rust-lang/rust.vim'
+Plug 'zah/nim.vim'
 Plug 'pbrisbin/vim-colors-off'
 
 call plug#end()
