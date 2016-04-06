@@ -82,13 +82,14 @@ Plug 'hdima/python-syntax'
 Plug 'plasticboy/vim-markdown'
 Plug 'fatih/vim-go', { 'for': ['go'] }
 Plug 'cespare/vim-toml'
-Plug 'Valloric/YouCompleteMe', { 'for': ['cpp', 'python', 'rust'] }
+Plug 'Valloric/YouCompleteMe', { 'for': ['cpp', 'python', 'rust', 'nim'] }
 autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable() | endif
 Plug 'rhysd/vim-clang-format'
 Plug 'Superbil/llvm.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'zah/nim.vim'
 Plug 'pbrisbin/vim-colors-off'
+Plug 'BitR/ycm-nimsuggest'
 
 call plug#end()
 "filetype plugin indent on
