@@ -45,13 +45,9 @@ noremap ,, ,
 " Kill the damned Ex mode(?)
 nnoremap Q <nop>
 
-" Muthafuckin vundle
-"set nocompatible
-"set rtp+=~/.vim/bundle/Vundle.vim
-
 " PLUGINS
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.nvim/plugged')
 
 Plug 'gmarik/Vundle.vim'
 Plug 'Shougo/vimproc.vim'
@@ -104,7 +100,7 @@ let g:airline_theme='light'
 " => YouCompleteMe
 
 
-let g:ycm_global_ycm_extra_conf = "~/.vim/ycm_extra_conf.py"
+let g:ycm_global_ycm_extra_conf = "~/.nvim/ycm_extra_conf.py"
 let g:ycm_confirm_extra_conf = 1
 " Use <tab> for ultipsnips and use <C-n> and <C-p> for ycm
 let g:ycm_key_list_select_completion=[]
