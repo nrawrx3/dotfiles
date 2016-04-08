@@ -78,7 +78,7 @@ Plug 'hdima/python-syntax'
 Plug 'plasticboy/vim-markdown'
 Plug 'fatih/vim-go', { 'for': ['go'] }
 Plug 'cespare/vim-toml'
-Plug 'Valloric/YouCompleteMe', { 'for': ['cpp', 'python', 'rust', 'nim'] }
+Plug 'Valloric/YouCompleteMe', { 'for': ['c', 'cpp', 'python', 'rust', 'nim'] }
 autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable() | endif
 Plug 'rhysd/vim-clang-format'
 Plug 'Superbil/llvm.vim'
