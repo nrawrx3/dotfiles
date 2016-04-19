@@ -20,7 +20,6 @@ NAME_TO_URL = {
     'llvm-clang-samples': "https://github.com/eliben/llvm-clang-samples.git",
     "dotfiles": "https://snyp@bitbucket.org/snyp/dotfiles.git",
     "CppCoreGuidelines": "http://github.com/isocpp/CppCoreGuidelines.git",
-    "cpp-netlib": "https://github.com/cpp-netlib/cpp-netlib.git",
     "benchmark": "https://github.com/google/benchmark.git",
     "guile": "git clone git://git.sv.gnu.org/guile.git",
     "pycparser": "https://github.com/eliben/pycparser",
@@ -28,7 +27,6 @@ NAME_TO_URL = {
     "leveldb":"https://github.com/google/leveldb.git",
     "vim-plug": "https://github.com/junegunn/vim-plug",
     "GSL": "https://github.com/Microsoft/GSL",
-    "ChaiScript": "https://github.com/ChaiScript/ChaiScript"
 }
 
 HSB = os.getenv('HSB')
@@ -109,17 +107,33 @@ def clone_or_pull_from_hsb(dir_name):
     if not dir_name in NAME_TO_URL:
         print(sys.argv[0], "Not in dict, not checking")
     dir_list = os.listdir(HOME_GITS)
+    print("Doing", dir_name)
     if not dir_name in dir_list:
         that_dir = os.path.join(HSB_GITS_DIR, dir_name)
         cd(HOME_GITS)
+        print(['git', 'clone', that_dir])
         sp.run(['git', 'clone', that_dir])
         cd(dir_name)
         sp.run(['git', 'remote', 'set-url', 'origin', NAME_TO_URL[dir_name]])
         sp.run(['git', 'remote', 'add', 'hsb', that_dir])
     else:
-        cd(HOME_GITS)
+        cd(os.path.join(HOME_GITS, dir_name))
+        print(['git', 'pull', 'hsb', 'master'])
         sp.run(['git', 'pull', 'hsb', 'master'])
     cd(CUR_DIR)
+
+def clone_or_pull_from_hsb_all():
+    for dir_name in NAME_TO_URL:
+        clone_or_pull_from_hsb(dir_name)
+
+def remove_if_not_in_dict(dir_name):
+    cd(HOME_GITS)
+    dirs = os.listdir('.')
+    if not dir_name in NAME_TO_URL:
+        print('Removing', dir_name)
+        #sp.run(['rm', '-r', '-f', dir_name])
+    cd(CUR_DIR)
+
 
 
 def update_all():
@@ -133,20 +147,21 @@ def update_all():
 if __name__ == '__main__':
     a = ap.ArgumentParser(usage='Easily backup the git projects')
     a.add_argument('--update_all', action='store_true', help='Sync with master all the repositories')
-    a.add_argument('--clone_one', type=str, default='', help='The directory to clone')
-    a.add_argument('--clone_all', action='store_true', help='Clone all directories')
-    a.add_argument('--pull_one', type=str, default='', help='Pull changes from home directory')
-    a.add_argument('--pull_all', action='store_true', help='Pull all directories')
-    a.add_argument('--clone_from', type=str, default='', help='Clone or pull a directory from hsb')
+    a.add_argument('--clone_one', type=str, default='', metavar='DIRECTORY', help='The directory to clone')
+    a.add_argument('--clone_all', action='store_true', help='Clone all directories to hsb')
+    a.add_argument('--pull_one', type=str, default='', metavar='DIRECTORY', help='Pull changes from home directory')
+    a.add_argument('--pull_all', action='store_true',  help='Pull all noted directories')
+    a.add_argument('--clone_or_pull_from', type=str, default='', metavar='DIRECTORY', help='Clone or pull a directory from hsb')
+    a.add_argument('--clone_or_pull_from_all', action='store_true', help='Clone or pull all noted directories from hsb')
     a.add_argument('--hsb_gits_dir', type=str, default=HSB_GITS_DIR, help='HSB directory')
+    a.add_argument('--remove_if_not_in_dict', type=str, default='', help='Remove the directory if not present in the note')
 
     a = a.parse_args()
 
+    HSB_GITS_DIR = a.hsb_gits_dir
+
     if a.update_all:
         update_all()
-
-    if a.hsb_gits_dir != HSB_GITS_DIR:
-        HSB_GITS_DIR = a.hsb_gits_dir
 
     if a.clone_all:
         clone_all_in_hsb()
@@ -160,6 +175,11 @@ if __name__ == '__main__':
     if a.pull_one != '':
         pull_one_in_hsb(a.pull_one)
 
-    if a.clone_from != '':
-        clone_or_pull_from_hsb(a.clone_from)
+    if a.clone_or_pull_from != '':
+        clone_or_pull_from_hsb(a.clone_or_pull_from)
 
+    if a.clone_or_pull_from_all:
+        clone_or_pull_from_hsb_all()
+
+    if a.remove_if_not_in_dict != '':
+        remove_if_not_in_dict(a.remove_if_not_in_dict)
