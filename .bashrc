@@ -1,4 +1,3 @@
-#PS1="\[\e[01;35m\]┌─(\u@\h)(\w)\[\e[01;35m\]\n\[\e[01;35m\]└──\[\e[01;35m\]──$\[\e[0m\] "
 PS1="┌─(\u@\h)(\w)\n└────$ "
 
 alias ls="ls --color=auto"
@@ -84,6 +83,9 @@ rsync_all() {
   rsync_home images
   rsync_home music
   rsync_home videos
+  rsync_home .fonts
+  rsync_home theming
+  rsync ~/.config/llpp.conf $HSB/.config/llpp.conf -aAXvu
   rsync_paccache
 }
 

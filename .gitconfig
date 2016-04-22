@@ -8,7 +8,7 @@
 	interactive = auto
 	ui = auto
 [core]
-	editor = /usr/bin/vim
+	editor = /usr/bin/nvim
 
 [gc]
 	auto=1
