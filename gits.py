@@ -27,6 +27,7 @@ NAME_TO_URL = {
     "leveldb":"https://github.com/google/leveldb.git",
     "vim-plug": "https://github.com/junegunn/vim-plug",
     "GSL": "https://github.com/Microsoft/GSL",
+    "debugger.lua": "https://github.com/slembcke/debugger.lua.git"
 }
 
 HSB = os.getenv('HSB')
