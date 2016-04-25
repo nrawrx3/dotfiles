@@ -1,0 +1,23 @@
+[Configuration]
+MiscAlwaysShowTabs=FALSE
+MiscBell=FALSE
+MiscBordersDefault=TRUE
+MiscCursorBlinks=FALSE
+MiscCursorShape=TERMINAL_CURSOR_SHAPE_BLOCK
+MiscDefaultGeometry=80x24
+MiscInheritGeometry=FALSE
+MiscMenubarDefault=FALSE
+MiscMouseAutohide=FALSE
+MiscToolbarDefault=FALSE
+MiscConfirmClose=TRUE
+MiscCycleTabs=TRUE
+MiscTabCloseButtons=TRUE
+MiscTabCloseMiddleClick=TRUE
+MiscTabPosition=GTK_POS_TOP
+MiscHighlightUrls=TRUE
+FontName=Monaco for Powerline 9
+ColorPalette=#d4a4d4a4d4a4;#87871d1d5858;#a4d9ffff4e81;#f732ffff0000;#e88bb6c2e7d9;#757550507b7b;#e522e59ee5a0;#d3d3d7d7cfcf;#555557575353;#87871d1d5858;#b8d0ffff7340;#fee8ffff0000;#ffffffffffff;#adad7f7fa8a8;#3434e2e2e2e2;#eeeeeeeeecec
+ColorCursor=#cf970000b7d2
+FontAllowBold=FALSE
+ColorBackground=#00001cb51a85
+
