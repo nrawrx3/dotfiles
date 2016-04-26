@@ -6,7 +6,7 @@ alias grep="grep --color=auto"
 alias la="ls -a"
 alias ltr="ls -ltr"
 
-export EDITOR=vim
+export EDITOR=nvim
 HISTSIZE=-1
 
 PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
