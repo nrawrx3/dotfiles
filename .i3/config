@@ -22,7 +22,7 @@ font pango:creep 12
 floating_modifier Mod1
 
 # start a terminal
-bindsym Mod1+Return exec xfce4-terminal
+bindsym Mod1+Return exec termite
 
 # kill focused window
 bindsym Mod1+Shift+q kill
