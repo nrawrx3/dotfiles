@@ -1,5 +1,7 @@
 #!/usr/bin/python
 
+FONT_NAME = "Pointfree 10"
+
 s = """
 [options]
 scroll_on_output = false
@@ -10,7 +12,7 @@ allow_bold = true
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
-font = Pointfree 10
+font = {}
 scrollback_lines = 10000
 search_wrap = true
 #icon_name = terminal
@@ -39,8 +41,13 @@ import sys
 
 r = re.compile("(urxvt)?(.|\*)(background|foreground|color[0-9][0-9]?).*:.*#(......)")
 
-assert len(sys.argv) == 2
+assert len(sys.argv) >= 2
 f = open(sys.argv[1], 'r')
+
+if len(sys.argv) == 3:
+    FONT_NAME = sys.argv[2]
+
+s = s.format(FONT_NAME)
 
 print(s)
 
