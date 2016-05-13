@@ -1,0 +1,7 @@
+Beauty has many aspects, of course, and is in the eye of the beholder. Some
+theorems and algorithms are beautiful to me because they have many different
+applications; some because they do powerful things with severely limited
+resources; some because they involve aesthetically pleasing patterns; some
+because they have a poetic purity of concept.
+
+		-- Donald E. Knuth
