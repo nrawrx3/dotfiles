@@ -255,7 +255,7 @@ set encoding=utf8
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
 
-set guifont=CodeNewRoman\ 10
+set guifont=Bront\ 10
 
 " => Files, backups and undo
 
