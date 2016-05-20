@@ -83,9 +83,7 @@ autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable(
 Plug 'rhysd/vim-clang-format'
 Plug 'Superbil/llvm.vim'
 Plug 'rust-lang/rust.vim'
-Plug 'zah/nim.vim'
-Plug 'pbrisbin/vim-colors-off'
-Plug 'BitR/ycm-nimsuggest'
+Plug 'lifepillar/vim-solarized8'
 
 call plug#end()
 "filetype plugin indent on
@@ -95,7 +93,7 @@ call plug#end()
 " => Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme='light'
+let g:airline_theme='solarized'
 
 " => YouCompleteMe
 

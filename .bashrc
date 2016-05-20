@@ -56,6 +56,15 @@ replace_string () {
     done
 }
 
+
+# Fully updates the git repo that you are sitting in...
+git_pup() {
+  git pull && \
+  git submodule init && \
+  git submodule update && \
+  git submodule status
+}
+
 # XKCD searcher by @sudokode in #archlinux
 xkcd() {
   local search=

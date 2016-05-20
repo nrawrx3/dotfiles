@@ -28,6 +28,9 @@ NAME_TO_URL = {
     "vim-plug": "https://github.com/junegunn/vim-plug",
     "GSL": "https://github.com/Microsoft/GSL",
     "debugger.lua": "https://github.com/slembcke/debugger.lua.git"
+    "libuv": "https://github.com/libuv/libuv.git",
+    "http_parser": "https://github.com/nodejs/http-parser.git",
+    "libuv-cmake": "https://github.com/jen20/libuv-cmake.git"
 }
 
 HSB = os.getenv('HSB')
