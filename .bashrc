@@ -57,12 +57,9 @@ replace_string () {
 }
 
 
-# Fully updates the git repo that you are sitting in...
-git_pup() {
-  git pull && \
-  git submodule init && \
-  git submodule update && \
-  git submodule status
+# Updates submodules in the repo
+git_sub_update() {
+  git submodule update --init --recursive
 }
 
 # XKCD searcher by @sudokode in #archlinux
