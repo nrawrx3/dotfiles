@@ -69,8 +69,7 @@ xkcd() {
   curl -sA Mozilla -i "http://www.google.com/search?hl=en&tbo=d&site=&source=hp&btnI=1&q=xkcd+$search" | awk '/Location: http/ {print $2}'
 }
 
-export HSB=/run/media/snyp/f6a9fbcb-7440-4cd7-b60b-4dbf1200eaed/snyp
-export HSB1=/run/media/snyp/18378179-adf3-4dad-8336-8388ff71d8c5
+export HSB=/run/media/snyp/2763c3c1-08fe-4fcd-aaa7-7837b8cad829/snyp
 
 rsync_home() {
   dirname=$1
@@ -78,7 +77,7 @@ rsync_home() {
 }
 
 rsync_paccache() {
-  sudo bash -c "rsync -aAXvu ${PACMAN_CACHE}/* $HSB1/var/cache/pacman/pkg/"
+  sudo bash -c "rsync -aAXvu ${PACMAN_CACHE}/* $HSB/pacman_cache/"
 }
 
 rsync_all() {
