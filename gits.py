@@ -29,7 +29,7 @@ NAME_TO_URL = {
     "GSL": "https://github.com/Microsoft/GSL",
     "debugger.lua": "https://github.com/slembcke/debugger.lua.git",
     "libuv": "https://github.com/libuv/libuv.git",
-    "http_parser": "https://github.com/nodejs/http-parser.git",
+    "http-parser": "https://github.com/nodejs/http-parser.git",
     "libuv-cmake": "https://github.com/jen20/libuv-cmake.git"
 }
 
@@ -42,6 +42,7 @@ HOME_GITS = os.path.join(os.getenv('HOME'), GITS)
 CUR_DIR = os.getcwd()
 
 def cd(dir_name):
+    print("CD -", dir_name)
     os.chdir(dir_name)
 
 
@@ -146,7 +147,6 @@ def update_all():
         cd(d)
         sp.run(['git', 'pull', 'origin', 'master'])
         cd(HOME_GITS)
-
 
 if __name__ == '__main__':
     a = ap.ArgumentParser(usage='Easily backup the git projects')
