@@ -11,12 +11,12 @@
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
-font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # The font above is very space-efficient, that is, it looks good, sharp and
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
-# font pango:creep 12
+font pango:creep 12
 
 # use Mouse+Mod1 to drag floating windows to their wanted position
 floating_modifier Mod1
@@ -151,17 +151,24 @@ mode "resize" {
 
 bindsym Mod1+r mode "resize"
 
-# class                 border  backgr. text    indicator
-client.focused          #849492 #59306B #ffffff #2e9ef4
-client.focused_inactive #6e686f #6e686f #f0f0f0 #484e50
-client.unfocused        #6e686f #6e686f #f0f0f0 #292d2e
-client.urgent           #e9e6e6 #BFB8B0 #ffffff #900000
+# Hybrid colors
+set $black	#002B36
+set $white	#839496
+set $gray	#CCCCCC
+set $darkgray	#666666
+set $green 	#799F26
+set $blue	#4D73AA
+set $purple	#8473A7
+set $red	#B58900
+set $orange	#E59847
+set $cyan	#2AA198
+set $dark	#00252E
 
-# class                   border  backgr. text    indicator
-#client.focused            #5dff9e #0f291a #5dff9e #cecece
-#client.focused_inactive   #5f676a #5f676a #cecece #5f676a
-#client.unfocused          #222222 #222222 #888888 #222222
-#client.urgent             #2f343a #900000 #ffffff #900000
+#class                  border  backgr. text    indicator
+client.focused			$white  $white  $dark    $dark
+client.unfocused		$dark   $dark   $white   $white
+client.focused_inactive	$dark   $dark   $white   $dark
+client.urgent			$orange $orange $dark    $white
 
 # new_window    1pixel                 broadcastM #<normal|1pixel|none|pixel>
 new_window  normal
@@ -172,30 +179,27 @@ hide_edge_borders   both
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
+
+# Bar
 bar {
-    status_command i3status
-    #colors {
-    #    statusline #efefef
-    #    background #242424
-    #    focused_workspace #242424 #59306B  #ffffff
-    #    inactive_workspace #242424 #282828 #CCCACA
-    #    urgent_workspace   #1A1A1A #664742 #1b1b1b
-    #}
+    position bottom
+    font pango:creep 12
+    status_command ~/.i3/conky.sh
+    tray_output none
+    output LVDS1
+    output VGA1
+
     colors {
-		background	#1B1B1B
-		statusline	#999999
+			statusline	#999999
+			background	$black
 
-#                           border  backgr  text
-#5DFF9E
-#0F291A
-		focused_workspace	#5dff9e #0f291a #5dff9e
-		active_workspace	#cccccc #444444 #cccccc
-		inactive_workspace	#444444 #1B1B1B #cccccc
-		urgent_workspace	#cccccc #bf3939 #cccccc
-	}
+        # Colors            border      backgr.     text
+		focused_workspace	$white	 	$white		$black
+        active_workspace	#073642 	#073642 	#696f89
+        inactive_workspace	#073642 	#073642     $white
+        urgent_workspace  	$orange		$orange		$dark
+    }
 }
-
-
 # editors
 bindsym Mod4+e exec gvim
 bindsym Mod4+Shift+e exec subl3

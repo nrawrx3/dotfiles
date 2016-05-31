@@ -4,6 +4,7 @@ import subprocess as sp
 import os
 import sys
 import argparse as ap
+import pprint
 
 NAME_TO_URL = {
     'llvm': "https://github.com/llvm-mirror/llvm.git",
@@ -83,6 +84,7 @@ def clone_one_in_hsb(dir_name):
 
 
 def pull_all_in_hsb():
+    failed_list = []
     for dir_name in os.listdir(HOME_GITS):
         if not (dir_name in NAME_TO_URL):
             print(sys.argv[0], "Url for {} not in the dict - not pulling".format(dir_name))
@@ -92,9 +94,11 @@ def pull_all_in_hsb():
             sp.run(['git', 'pull', 'hdd', 'master'], check=True)
 
         except sp.CalledProcessError as e:
-            print("{} - Git failed: {}".format(sys.argv[0], e.stderr))
-            cd(CUR_DIR)
-            sys.exit(-1)
+            failed_list.append("{} - {} - Git failed: {}".format(dir_name, sys.argv[0], e.stderr))
+
+    if len(failed_list) != 0:
+        print("Some failed: ")
+        pprint.pprint(failed_list)
 
     cd(CUR_DIR)
 
