@@ -211,15 +211,15 @@ bindsym Mod4+r exec evince
 # terminal emulator
 bindsym Mod4+t exec urxvt
 bindsym Mod4+Shift+t exec termite
-# web browsers
+# web browser
 bindsym Mod4+w exec firefox
 
-# file manager
+# file managers
 bindsym Mod4+f exec spacefm
 bindsym Mod4+Shift+f exec urxvt -e ranger
 
-# scrot
-bindsym Mod4+p exec scrot -u
+# alsamixer(audio volume)
+bindsym Mod4+s exec urxvt -e alsamixer
 
 # i3lock
 bindsym Mod4+l exec i3lock
