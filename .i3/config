@@ -186,8 +186,6 @@ bar {
     font pango:creep 12
     status_command ~/.i3/conky.sh
     tray_output none
-    output LVDS1
-    output VGA1
 
     colors {
 			statusline	#999999
