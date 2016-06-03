@@ -29,3 +29,13 @@ Aur and general pkgbuilds go in ~/aur.
 
 ---
 
+NixOS specifics
+
+For working around NixOS's handling of things put nixvim.sh in ~/.local/bin. 
+Also run
+
+    ln -s /run/current-system/sw/lib/libncursesw.so.5 /home/snyp/.local/lib/libtinfo.so.5
+
+to get around the lack of tinfo lib for ycm.
+
+
