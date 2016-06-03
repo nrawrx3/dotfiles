@@ -2,5 +2,6 @@
 .ncmpcpp/lyrics/
 .mpd/
 note.txt
+*.pyc
 
 
