@@ -89,7 +89,9 @@ rsync_all() {
   rsync_home .fonts
   rsync_home theming
   rsync ~/.config/llpp.conf $HSB/.config/llpp.conf -aAXvu
-  rsync_paccache
+  if [[ $HOSTNAME -eq "mace" ]]; then
+    rsync_paccache
+  fi
 }
 
 bak_all() {
