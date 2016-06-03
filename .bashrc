@@ -18,7 +18,7 @@ export GOPATH=$HOME/go
 PATH="$HOME/text/scripts":$PATH
 PATH=$PATH:$GOPATH/bin
 PATH=$PATH:$HOME/dotfiles
-PATH=$HOME/bin:$PATH
+PATH=$HOME/.local/bin:$PATH
 export PATH
 
 
