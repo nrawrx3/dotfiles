@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 
+# ~/.local/bin/note.py
+# --------------------
+
 import argparse
 import os
 

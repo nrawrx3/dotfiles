@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 
+# ~/.local/bin/gits.py
+# --------------------
+
 import subprocess as sp
 import os
 import sys

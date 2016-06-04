@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# ~/.local/bin/nixvim.sh
+# ----------------------
+
 # On NixOS due to the lack of libtinfo.so I have created a symlink at
 # ~/.local/lib. So LD_LIBRARY_PATH that
 

@@ -1,6 +1,7 @@
 #!/usr/bin/env python2
 
-# Keep this file in ~/.vim or ~/.config/nvim
+# ~/.vim and/or ~/.config/nvim
+# ----------------------------
 
 import os
 #import ycm_core
