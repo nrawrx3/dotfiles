@@ -32,6 +32,7 @@ if is_nixos:
             '/run/current-system/sw/include/c++/{}'.format(GCC_VERSION)
     ]
 
+# Add more flags to this list as required
 flags = [
     '-Wall',
     '-Wextra',
