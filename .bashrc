@@ -17,9 +17,7 @@ PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor
 export BUILD_DIR=$HOME/builds
 
 export GOPATH=$HOME/go
-PATH="$HOME/text/scripts":$PATH
 PATH=$PATH:$GOPATH/bin
-PATH=$PATH:$HOME/dotfiles
 PATH=$HOME/.local/bin:$PATH
 export PATH
 
