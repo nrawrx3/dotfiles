@@ -94,11 +94,13 @@
 	mpv
 	alsaUtils
 	feh
+	ffmpeg
 
 
 	htop
 	powertop
 	iftop
+	screenfetch
 	lm_sensors
 	mtpfs
 	ntfs3g
