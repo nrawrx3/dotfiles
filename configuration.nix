@@ -59,8 +59,11 @@
 	bashCompletion
 	boost
 	clang
+	leiningen
 	#clang_38
 	python27Packages.jedi
+	man-pages
+	posix_man_pages
 
 	vim
 	neovim
@@ -111,6 +114,7 @@
 	gparted
 	gnufdisk
 	gptfdisk
+	nox
    ];
 
     # For C/C++/etc. development it's easiest to just symlink the /include
