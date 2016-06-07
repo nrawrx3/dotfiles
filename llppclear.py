@@ -6,32 +6,36 @@
 import xml.etree.ElementTree as ET
 import os
 import sys
+import argparse
 from datetime import datetime, timedelta
 
 LLPPCONFIG = os.path.join(os.getenv('HOME'), '.config', 'llpp.conf')
-REMOVE_BEFORE_DAYS = 20
+days = 20
 
-def doit(remove_before_days):
-    t = ET.parse(LLPPCONFIG)
+def doit(file, days, any_bookmark, any_day):
+    t = ET.parse(file)
     root = t.getroot()
-    td = timedelta(days=remove_before_days)
+    td = timedelta(days=days)
     now = datetime.today()
     oldest_to_keep = now - td
     for elem in root.findall('doc'):
         last_visit = datetime.fromtimestamp(int(elem.attrib['last-visit']))
-        if last_visit < oldest_to_keep and len(elem.getchildren()) == 0:
+        # Such logic
+        day_keep = (not any_day) and (last_visit >= oldest_to_keep)
+        bookmark_keep = (not any_bookmark) and (len(elem.getchildren()) > 0)
+        # Much wow
+        if not (day_keep or bookmark_keep):
             print("Removing - {}".format(elem.attrib['path']))
             root.remove(elem)
-    t.write(LLPPCONFIG)
+    t.write(file)
 
 
 if __name__ == '__main__':
-    if len(sys.argv) == 2:
-        if sys.argv[1] == '-h':
-            sys.stderr.write("Usage: python {} [llpp_config_file({})] [remove_before_days=({})]\n".format(sys.argv[0], LLPPCONFIG, REMOVE_BEFORE_DAYS))
-            sys.exit(1)
-        LLPPCONFIG = sys.argv[1]
-    elif len(sys.argv) == 3:
-        LLPPCONFIG = sys.argv[1]
-        REMOVE_BEFORE_DAYS = int(sys.argv[2])
-    doit(REMOVE_BEFORE_DAYS)
+    ap = argparse.ArgumentParser(description='Clean the llpp config file of saved document positions, etc')
+    ap.add_argument('-f', '--file', type=str, default=LLPPCONFIG, help='The config file path')
+    ap.add_argument('-d', '--days', type=int, default=days, help='How many days old minimum the entries need to be')
+    ap.add_argument('-b', '--any_bookmarks', action='store_true', default=False, help='Do not check last day of open')
+    ap.add_argument('-n', '--any_days', action='store_true', help='Do not check if bookmark is present')
+    args = ap.parse_args()
+    doit(args.file, args.days, args.any_bookmarks, args.any_days)
+
