@@ -1,9 +1,11 @@
 
-project(chatpp)
+project(whatever)
 cmake_minimum_required(VERSION 2.8)
 aux_source_directory(. SRC_LIST)
 add_compile_options("-std=c++14")
 add_executable(${PROJECT_NAME} ${SRC_LIST})
+
+# Two pretty common libraries
 
 # pthread
 find_package(Threads)
@@ -23,9 +25,6 @@ endif (Boost_FOUND)
 # websocketpp - header only library
 INCLUDE_DIRECTORIES("websocketpp")
 
-# jeayeson
-INCLUDE_DIRECTORIES("jeayeson/include")
-
-# leveldb - External example
+# leveldb - (How to link a separately compiled library)
 TARGET_LINK_LIBRARIES(${PROJECT_NAME} "/home/snyp/gits/leveldb/out-static/libleveldb.a")
 TARGET_LINK_LIBRARIES(${PROJECT_NAME} "/usr/lib/libsnappy.so")

@@ -1,0 +1,13 @@
+# This is used to compile the lua source files into a library
+
+project(lua)
+cmake_minimum_required(VERSION 2.8)
+aux_source_directory(. SRC_LIST)
+
+message("The files are ${SRC_LIST}")
+
+# Remove the luac and lua files.
+list(REMOVE_ITEM SRC_LIST "./lua.c" "./luac.c")
+
+add_library(lua STATIC ${SRC_LIST})
+
