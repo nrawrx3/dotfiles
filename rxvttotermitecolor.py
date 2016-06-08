@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 
 FONT_NAME = "Pointfree"
 FONT_SIZE = 8

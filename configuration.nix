@@ -59,13 +59,11 @@
 	bashCompletion
 	boost
 	clang
-	leiningen
 	#clang_38
 	python27Packages.jedi
 	man-pages
 	posix_man_pages
 
-	vim
 	neovim
 	python27Packages.neovim
 	ctags
