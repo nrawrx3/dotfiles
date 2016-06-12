@@ -103,3 +103,5 @@ remind_me() {
     cat $HOME/dotfiles/.remember.txt
     python $HOME/dotfiles/random_quote.py
 }
+
+
