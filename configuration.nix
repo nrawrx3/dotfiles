@@ -44,6 +44,8 @@
 	wvdial
 	usb_modeswitch
 	ntp
+	openssl
+	wireshark
 
 	gcc
 	gnumake
@@ -86,6 +88,7 @@
 
 	lxappearance
 	mate-icon-theme
+	xcompmgr
 
 	mpd
 	ncmpcpp
@@ -170,8 +173,19 @@
   	isNormalUser = true;
 	home = "/home/snyp";
 	description = "Soumik Rakshit";
-	extraGroups = [ "wheel" "networkmanager"];	
+	extraGroups = [ "wheel" "networkmanager" "wireshark"];
   };
+
+  # Wireshark related
+  security.setuidOwners = [
+  { 	program = "dumpcap";
+  	owner = "root";
+	group = "wireshark";
+	setuid = true;
+	setgid = false;
+	permissions = "u+rx,g+x";
+  }];
+  users.extraGroups.wireshark.gid = 500;
 
   # The NixOS release to be compatible with for stateful data such as databases.
   system.stateVersion = "16.03";
