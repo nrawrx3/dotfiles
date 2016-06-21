@@ -22,7 +22,7 @@ font pango:profont 10
 floating_modifier Mod1
 
 # start a terminal
-bindsym Mod1+Return exec termite
+bindsym Mod1+Return exec xfce4-terminal
 
 # kill focused window
 bindsym Mod1+Shift+q kill
