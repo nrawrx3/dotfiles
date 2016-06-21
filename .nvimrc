@@ -227,7 +227,7 @@ map <silent> <F5> :call gruvbox#bg_toggle()<CR>
 imap <silent> <F5> <ESC>:call gruvbox#bg_toggle()<CR>a
 vmap <silent> <F5> <ESC>:call gruvbox#bg_toggle()<CR>gv
 
-colorscheme acme
+colorscheme sre
 
 " Set extra options when running in GUI mode
 if has("gui_running")
