@@ -33,9 +33,11 @@ def doit(file, days, any_bookmark, any_day):
 if __name__ == '__main__':
     ap = argparse.ArgumentParser(description='Clean the llpp config file of saved document positions, etc')
     ap.add_argument('-f', '--file', type=str, default=LLPPCONFIG, help='The config file path')
-    ap.add_argument('-d', '--days', type=int, default=days, help='How many days old minimum the entries need to be')
-    ap.add_argument('-b', '--any_bookmarks', action='store_true', default=False, help='Do not check last day of open')
-    ap.add_argument('-n', '--any_days', action='store_true', help='Do not check if bookmark is present')
+    ap.add_argument('-d', '--days', type=int, default=days,
+                    help='How many days old minimum the entries need to be')
+    ap.add_argument('-b', '--any_bookmarks', action='store_true', default=False,
+                    help='Do not take presence of bookmark into account')
+    ap.add_argument('-n', '--any_days', action='store_true', help='Do not take entry age into account')
     args = ap.parse_args()
     doit(args.file, args.days, args.any_bookmarks, args.any_days)
 
