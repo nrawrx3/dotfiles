@@ -187,6 +187,9 @@
   }];
   users.extraGroups.wireshark.gid = 500;
 
+  # Fontconfig ultimate
+  fonts.fontconfig.ultimate.rendering = pkgs.fontconfig-ultimate.rendering.ubuntu;
+
   # The NixOS release to be compatible with for stateful data such as databases.
   system.stateVersion = "16.03";
 }
