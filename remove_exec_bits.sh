@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/usr/bin/env bash
 
 # Recursively removes the executable permission from all regular files in a
 # directory
