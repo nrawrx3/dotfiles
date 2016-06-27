@@ -222,5 +222,6 @@ bindsym Mod1+Shift+b exec systemctl reboot
 exec parcellite
 exec xrdb /home/snyp/.Xresources
 exec sh ~/.fehbg
+exec xcompmgr
 #exec mpd
 
