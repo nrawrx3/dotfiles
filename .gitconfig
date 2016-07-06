@@ -8,7 +8,7 @@
 	interactive = auto
 	ui = auto
 [core]
-	editor = /usr/bin/env vim
+	editor = /usr/bin/env nano
 
 [gc]
 	auto=1
