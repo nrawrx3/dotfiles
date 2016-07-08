@@ -68,6 +68,7 @@
 
 	neovim
 	python27Packages.neovim
+	atom
 	ctags
 	xsel
 	
@@ -84,11 +85,13 @@
 	llpp
 	djview
 	evince
+	mcomix
 	
 
 	lxappearance
 	mate-icon-theme
 	xcompmgr
+	scrot
 
 	mpd
 	ncmpcpp
