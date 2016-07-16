@@ -68,7 +68,6 @@
 
 	neovim
 	python27Packages.neovim
-	atom
 	ctags
 	xsel
 	
@@ -81,7 +80,6 @@
 	ranger
 	rxvt_unicode
 	parcellite
-	termite
 	llpp
 	djview
 	evince
