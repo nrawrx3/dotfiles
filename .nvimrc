@@ -83,7 +83,7 @@ Plug 'Valloric/YouCompleteMe', { 'for': ['c', 'cpp', 'python', 'rust', 'nim'] }
 autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable() | endif
 Plug 'rhysd/vim-clang-format'
 Plug 'Superbil/llvm.vim'
-Plug 'rust-lang/rust.vim'
+Plug 'elixir-lang/vim-elixir'
 Plug 'lifepillar/vim-solarized8'
 
 call plug#end()
