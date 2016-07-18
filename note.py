@@ -57,5 +57,7 @@ if modified:
         f.write('\n'.join(notes).strip())
 
 with open(filename, 'r') as f:
-    print('-> ', end='')
-    print("\n-> ".join(f.read().split('\n')))
+    s = f.read().split('\n')
+    for i, l in enumerate(s):
+        print(i, '->', l)
+
