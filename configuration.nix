@@ -153,8 +153,7 @@
   services.xserver.layout = "us";
   services.xserver.xkbOptions = "eurosign:e";
 
-  # Enable the XFCE Desktop Environment.
-  services.xserver.desktopManager.xfce.enable = true; 
+  # Enable window manager
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.windowManager.i3.enable = true;
 
