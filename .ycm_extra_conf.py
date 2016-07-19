@@ -26,11 +26,11 @@ is_nixos = re.match(r'.*(NixOS).*', uname_out)
 
 # NixOS
 if is_nixos:
-    print('We are on nix -', uname_out)
     SYSTEM_INCLUDES = [
             '/run/current-system/sw/include',
             '/run/current-system/sw/include/c++/{}'.format(GCC_VERSION)
     ]
+    print 'We are on nix -', uname_out, SYSTEM_INCLUDES
 
 # Add more flags to this list as required
 flags = [
