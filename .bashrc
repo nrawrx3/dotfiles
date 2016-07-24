@@ -70,7 +70,7 @@ xkcd() {
   curl -sA Mozilla -i "http://www.google.com/search?hl=en&tbo=d&site=&source=hp&btnI=1&q=xkcd+$search" | awk '/Location: http/ {print $2}'
 }
 
-export HSB=/run/media/snyp/2763c3c1-08fe-4fcd-aaa7-7837b8cad829/snyp
+export HSB=/media/2763c3c1-08fe-4fcd-aaa7-7837b8cad829/snyp
 
 rsync_home() {
   dirname=$1
@@ -104,5 +104,4 @@ remind_me() {
     cat $HOME/dotfiles/.remember.txt
     python $HOME/dotfiles/random_quote.py
 }
-
 
