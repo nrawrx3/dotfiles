@@ -31,10 +31,10 @@ def doit(file, days, ignore_bookmarks, ignore_days, regex, is_dry_run):
         # Such logic
         day_keep = (not ignore_days) and (last_visit >= oldest_to_keep)
         bookmark_keep = (not ignore_bookmarks) and (len(elem.getchildren()) > 0)
-        regex_keep = regex == '' or re.fullmatch(r, _get_filename(elem.attrib['path']))
+        regex_matches = regex == '' or re.fullmatch(r, _get_filename(elem.attrib['path']))
 
         # Much wow
-        if not(day_keep or bookmark_keep) and regex_keep:
+        if not(day_keep or bookmark_keep) and regex_matches:
             print("Removing - {}".format(elem.attrib['path']))
             if not is_dry_run:
                 root.remove(elem)
@@ -50,8 +50,11 @@ if __name__ == '__main__':
     ap.add_argument('-b', '--ignore_bookmarks', action='store_true', default=False,
                     help='Do not take presence of bookmark into account')
     ap.add_argument('-n', '--ignore_days', action='store_true', help='Do not take entry age into account')
-    ap.add_argument('-r', '--regex', type=str, default='', help='Use a regular expression to match file names')
-    ap.add_argument('-s', '--dry_run', action='store_true', help='Just print potential filenames, don\'t actually remove them')
+    ap.add_argument('-r', '--regex', type=str, default='',
+                    help='Use a regular expression to match file names')
+    ap.add_argument('-s', '--dry_run', action='store_true',
+                    help='Just print potential filenames, don\'t actually remove them')
+
     args = ap.parse_args()
     doit(args.file, args.days, args.ignore_bookmarks, args.ignore_days, args.regex, args.dry_run)
 
