@@ -103,6 +103,13 @@ bak_all() {
   gits.py --pull_all
 }
 
+# Backup and shutdown
+baksdown() {
+	rsync_all
+	gits.py --pull_all
+	systemctl shutdown
+}
+
 remind_me() {
     cat $HOME/dotfiles/.remember.txt
     python $HOME/dotfiles/random_quote.py
