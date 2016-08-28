@@ -3,6 +3,8 @@
 # ~/.local/bin/gits.py
 # --------------------
 
+# Managing git repositories on my computer
+
 import subprocess as sp
 import os
 import sys
@@ -34,7 +36,10 @@ NAME_TO_URL = {
     "debugger.lua": "https://github.com/slembcke/debugger.lua.git",
     "libuv": "https://github.com/libuv/libuv.git",
     "http-parser": "https://github.com/nodejs/http-parser.git",
-    "libuv-cmake": "https://github.com/jen20/libuv-cmake.git"
+    "libuv-cmake": "https://github.com/jen20/libuv-cmake.git",
+    "nanomsg": "https://github.com/nanomsg/nanomsg.git",
+    "YCM-Generator": "https://github.com/rdnetto/YCM-Generator.git",
+    "cxxopts": "https://github.com/jarro2783/cxxopts.git"
 }
 
 HSB = os.getenv('HSB')

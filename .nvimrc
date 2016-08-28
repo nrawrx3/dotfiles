@@ -82,6 +82,7 @@ Plug 'cespare/vim-toml'
 Plug 'Valloric/YouCompleteMe', { 'for': ['c', 'cpp', 'python', 'rust', 'nim'] }
 autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable() | endif
 Plug 'rhysd/vim-clang-format'
+Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 Plug 'Superbil/llvm.vim'
 Plug 'elixir-lang/vim-elixir'
 Plug 'lifepillar/vim-solarized8'

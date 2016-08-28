@@ -21,6 +21,8 @@ PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor
 export BUILD_DIR=$HOME/builds
 
 export GOPATH=$HOME/go
+export SBT_HOME=$HOME/sbt
+
 PATH=$PATH:$GOPATH/bin
 PATH=$HOME/.local/bin:$PATH
 export PATH
