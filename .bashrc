@@ -66,6 +66,11 @@ git_sub_update() {
   git submodule update --init --recursive
 }
 
+# Time a process - requires the gnu time(1) command installed
+timeit() {
+  /usr/bin/time -f "Elapsed=%E, User=%U, Kernel=%S" $@
+}
+
 # XKCD searcher by @sudokode in #archlinux
 xkcd() {
   local search=
