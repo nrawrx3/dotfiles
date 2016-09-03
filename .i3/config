@@ -16,7 +16,7 @@
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
-font pango:UbuntuMono-Bront 12
+font pango:IBM3270 12
 
 # use Mouse+Mod1 to drag floating windows to their wanted position
 floating_modifier Mod1
@@ -151,19 +151,13 @@ mode "resize" {
 
 bindsym Mod1+r mode "resize"
 
-color_good = "#4A9003"
+# class                 border  backgr. text    indicator
+client.focused #664477 #664477 #cccccc #e7d8b1
+client.focused_inactive #e7d8b1 #e7d8b1 #181715 #A074C4
+client.unfocused #222133 #222133 #AAAAAA #A074C4
+client.urgent #CE4045 #CE4045 #e7d8b1 #DCCD69
 
-# debian-bright
-color_bad = "#D70A53"
-color_good = "#75DD0A"
-color_degraded = "#F5B70B"
 
-# $i3-theme-window
-# <clientclass>		<border> <bg> <text> <indicator>
-client.focused          #da2263 #d70a53 #ffffff #eb709b
-client.focused_inactive	#565656 #444444 #ffffff #666666
-client.unfocused 	#373737 #222222 #888888 #444444
-client.urgent           #ec7ea4 #eb709b #ffffff #eb709b
 
 # $i3-background
 exec_always --no-startup-id xsetroot -solid '#000000'
@@ -179,17 +173,15 @@ hide_edge_borders   both
 # finds out, if available)
 bar {
 	status_command i3status
+	# $i3-theme-bar
 	colors {
-		# <bar>
-		background #222222
-		separator  #444444
-		statusline #666666
-
-		# <workclass>       <border> <bg> <text>
-		focused_workspace   #da2263 #d70a53 #ffffff
-		active_workspace    #565656 #444444 #ffffff
-		inactive_workspace  #373737 #222222 #888888
-		urgent_workspace    #ec7ea4 #eb709b #ffffff
+    	separator #AAAAAA
+    	background #222133
+    	statusline #FFFFFF
+    	focused_workspace #664477 #664477 #cccccc
+    	active_workspace #DCCD69 #DCCD69 #181715
+    	inactive_workspace #222133 #222133 #AAAAAA
+    	urgent_workspace #CE4045 #CE4045 #FFFFFF
 	}
 }
 
