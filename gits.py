@@ -39,7 +39,9 @@ NAME_TO_URL = {
     "libuv-cmake": "https://github.com/jen20/libuv-cmake.git",
     "nanomsg": "https://github.com/nanomsg/nanomsg.git",
     "YCM-Generator": "https://github.com/rdnetto/YCM-Generator.git",
-    "cxxopts": "https://github.com/jarro2783/cxxopts.git"
+    "cxxopts": "https://github.com/jarro2783/cxxopts.git",
+    "msgpack-c": "https://github.com/msgpack/msgpack-c.git",
+    "cmakepp": "https://github.com/toeb/cmakepp.git"
 }
 
 HSB = os.getenv('HSB')
