@@ -95,7 +95,7 @@ call plug#end()
 " => Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme='serene'
+let g:airline_theme='base16'
 
 " => YouCompleteMe
 
@@ -228,7 +228,7 @@ map <silent> <F5> :call gruvbox#bg_toggle()<CR>
 imap <silent> <F5> <ESC>:call gruvbox#bg_toggle()<CR>a
 vmap <silent> <F5> <ESC>:call gruvbox#bg_toggle()<CR>gv
 
-colorscheme sre
+colorscheme paramount
 
 " Set extra options when running in GUI mode
 if has("gui_running")
