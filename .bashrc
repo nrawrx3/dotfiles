@@ -114,7 +114,7 @@ bak_all() {
 baksdown() {
 	rsync_all
 	gits.py --pull_all
-	systemctl shutdown
+	systemctl poweroff
 }
 
 remind_me() {
