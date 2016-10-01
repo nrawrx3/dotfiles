@@ -41,8 +41,8 @@ NAME_TO_URL = {
     "YCM-Generator": "https://github.com/rdnetto/YCM-Generator.git",
     "cxxopts": "https://github.com/jarro2783/cxxopts.git",
     "msgpack-c": "https://github.com/msgpack/msgpack-c.git",
-    "cmakepp": "https://github.com/toeb/cmakepp.git"
-    "qbe": "git clone git://c9x.me/qbe.git",
+    "cmakepp": "https://github.com/toeb/cmakepp.git",
+    "qbe": "git clone git://c9x.me/qbe.git"
 }
 
 HSB = os.getenv('HSB')
