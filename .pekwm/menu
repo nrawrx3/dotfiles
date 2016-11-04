@@ -4,7 +4,7 @@
 INCLUDE = "vars"
 
 RootMenu = "Pekwm" {
-	Entry = "Terminal" { Actions = "Exec urxvt &" }
+	Entry = "Terminal" { Actions = "Exec xfce4-terminal &" }
 	Entry = "Run.." { Actions = "ShowCmdDialog" }
 
 	Separator {}
@@ -28,7 +28,7 @@ RootMenu = "Pekwm" {
 
 	Separator {}
 
-	Entry = "Take screenshot" { Actions = "Exec $_PEKWM_SCRIPT_PATH/pekwm_screenshot.sh" }
+	Entry = "Take screenshot" { Actions = "Exec scrot" }
 
 	Separator {}
 
