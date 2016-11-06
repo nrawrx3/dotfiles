@@ -61,7 +61,8 @@ def cd(dir_name):
 
 def clone_all_in_hsb():
     cd(HSB_GITS_DIR)
-    for dir_name in os.listdir(HOME_GITS):
+    not_present = set(os.listdir(HOME_GITS)) - set(os.listdir(HSB_GITS_DIR))
+    for dir_name in not_present:
         if not (dir_name in NAME_TO_URL):
             print(sys.argv[0], "Url for {} not in the dict - not cloning".format(dir_name))
             continue
