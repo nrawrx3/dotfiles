@@ -34,7 +34,7 @@ set tm=2000
 nmap <leader>w :w!<cr>
 
 " Window dimensions
-set lines=30 columns=90
+set lines=30 columns=120
 
 " Use par for prettier line formatting
 set formatprg="PARINIT='rTbgqR B=.,?_A_a Q=_s>|' par\ -w72"
