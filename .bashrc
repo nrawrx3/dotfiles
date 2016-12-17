@@ -1,6 +1,6 @@
 # ~/.bashrc
 
-PS1="┌─(\u@\h)(\w)\n└────$ "
+export PS1="\[$(tput setaf 1)\]┌─╼ \[$(tput setaf 7)\][\w]\n\[$(tput setaf 1)\]\$(if [[ \$? == 0 ]]; then echo \"\[$(tput setaf 1)\]└────╼\"; else echo \"\[$(tput setaf 1)\]└╼\"; fi) \[$(tput setaf 7)\]"
 
 alias ls="ls --color=auto"
 alias pacman="pacman --color=auto"
@@ -11,6 +11,9 @@ alias ltr="ls -ltr"
 alias cl="clear"
 alias raxu="rsync -aAXu"
 alias raxvu="rsync -aAXvu"
+alias up="cd .."
+alias upp="cd ../.."
+alias uppp="cd ../../.."
 
 export EDITOR=nvim
 HISTSIZE=-1
@@ -21,10 +24,10 @@ PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor
 export BUILD_DIR=$HOME/builds
 
 export GOPATH=$HOME/go
-export SBT_HOME=$HOME/sbt
 
 PATH=$PATH:$GOPATH/bin
 PATH=$HOME/.local/bin:$PATH
+
 export PATH
 
 

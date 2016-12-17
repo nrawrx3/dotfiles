@@ -39,3 +39,7 @@ Also run
 
 to get around the lack of tinfo lib for ycm.
 
+(Not using nixos anymore)
+
+---
+

@@ -97,3 +97,4 @@ remind_me() {
     python $HOME/dotfiles/random_quote.py
 }
 
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
