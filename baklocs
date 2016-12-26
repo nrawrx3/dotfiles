@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# Used by some functions in .bashrc
+
+export conf_dir=confs
+export reads_dir=reads
+export text_dir=text
+export pacaur_cache_dir=.pacaur
+export build_dir=build
+export videos_dir=videos
+export go_dir=$GOPATH
+export music_dir=music
+export samples_dir=samples
+export rand_dir=rand

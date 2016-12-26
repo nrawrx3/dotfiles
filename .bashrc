@@ -1,5 +1,6 @@
 # ~/.bashrc
 
+# Pretty nice prompt I copy-pasted from somewhere
 export PS1="\[$(tput setaf 1)\]┌─╼ \[$(tput setaf 7)\][\w]\n\[$(tput setaf 1)\]\$(if [[ \$? == 0 ]]; then echo \"\[$(tput setaf 1)\]└────╼\"; else echo \"\[$(tput setaf 1)\]└╼\"; fi) \[$(tput setaf 7)\]"
 
 alias ls="ls --color=auto"
@@ -49,6 +50,7 @@ man() {
     man "$@"
 }
 
+# Replaces a string with another string in the given files
 replace_string () {
     from=$1
     to=$2
@@ -74,15 +76,7 @@ timeit() {
   /usr/bin/time -f "Elapsed=%E, User=%U, Kernel=%S" $@
 }
 
-# XKCD searcher by @sudokode in #archlinux
-xkcd() {
-  local search=
-  for w in "$@"; do
-    search="$search+$w"
-  done
-  curl -sA Mozilla -i "http://www.google.com/search?hl=en&tbo=d&site=&source=hp&btnI=1&q=xkcd+$search" | awk '/Location: http/ {print $2}'
-}
-
+# Keep your heart-shaped-box updated!
 export HSB=/run/media/snyp/2763c3c1-08fe-4fcd-aaa7-7837b8cad829/snyp
 
 rsync_home() {
@@ -102,6 +96,7 @@ rsync_all() {
   rsync_home videos
   rsync_home .fonts
   rsync_home theming
+  rsync_home .config
   rsync ~/.config/llpp.conf $HSB/.config/llpp.conf -aAXvu
   if [[ $HOSTNAME -eq "mace" ]]; then
     rsync_paccache
@@ -125,3 +120,23 @@ remind_me() {
     python $HOME/dotfiles/random_quote.py
 }
 
+# The gits dir should be backed up using gits.py
+
+remove_and_backup() {
+  source $HOME/dotfiles/baklocs
+  dir_path=${!1}
+  home_dir_path=$HOME/$dir_path
+  hsb_dir_path=$HSB/$dir_path
+  echo "Removing - ${hsb_dir_path} and copying ${home_dir_path}"
+  rm -rf $hsb_dir_path
+  raxu $home_dir_path $HSB/
+}
+
+incr_backup() {
+  source $HOME/dotfiles/baklocs
+  dir_path=${!1}
+  home_dir_path=$HOME/$dir_path
+  hsb_dir_path=$HSB/$dir_path
+  echo "Removing - ${hsb_dir_path} and copying ${home_dir_path}"
+  raxu $home_dir_path $HSB/
+}
