@@ -43,7 +43,8 @@ NAME_TO_URL = {
     "msgpack-c": "https://github.com/msgpack/msgpack-c.git",
     "cmakepp": "https://github.com/toeb/cmakepp.git",
     "qbe": "git://c9x.me/qbe.git",
-    "mbedtls": "https://github.com/ARMmbed/mbedtls.git"
+    "mbedtls": "https://github.com/ARMmbed/mbedtls.git",
+    "cmp": "https://github.com/camgunz/cmp.git"
 }
 
 HSB = os.getenv('HSB')

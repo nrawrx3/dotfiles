@@ -1,7 +1,8 @@
 # ~/.bashrc
 
-# Pretty nice prompt I copy-pasted from somewhere
-export PS1="\[$(tput setaf 1)\]┌─╼ \[$(tput setaf 7)\][\w]\n\[$(tput setaf 1)\]\$(if [[ \$? == 0 ]]; then echo \"\[$(tput setaf 1)\]└────╼\"; else echo \"\[$(tput setaf 1)\]└╼\"; fi) \[$(tput setaf 7)\]"
+if [[ $TERMINIX_ID ]]; then
+        source /etc/profile.d/vte.sh
+fi
 
 alias ls="ls --color=auto"
 alias pacman="pacman --color=auto"

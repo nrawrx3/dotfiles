@@ -84,7 +84,6 @@ autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable(
 Plug 'rhysd/vim-clang-format'
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 Plug 'Superbil/llvm.vim'
-Plug 'elixir-lang/vim-elixir'
 Plug 'lifepillar/vim-solarized8'
 
 call plug#end()
@@ -255,7 +254,7 @@ set encoding=utf8
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
 
-set guifont=Bront\ 10
+set guifont=InputMonoMedium\ 10
 
 " => Files, backups and undo
 

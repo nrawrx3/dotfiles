@@ -4,7 +4,7 @@
 INCLUDE = "vars"
 
 RootMenu = "Pekwm" {
-	Entry = "Terminal" { Actions = "Exec xfce4-terminal &" }
+	Entry = "Terminal" { Actions = "Exec terminix &" }
 	Entry = "Run.." { Actions = "ShowCmdDialog" }
 
 	Separator {}
