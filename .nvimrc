@@ -82,6 +82,7 @@ Plug 'cespare/vim-toml'
 Plug 'Valloric/YouCompleteMe', { 'for': ['c', 'cpp', 'python', 'rust', 'nim'] }
 autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable() | endif
 Plug 'rhysd/vim-clang-format'
+Plug 'mindriot101/vim-yapf'
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 Plug 'Superbil/llvm.vim'
 Plug 'lifepillar/vim-solarized8'
@@ -227,7 +228,7 @@ map <silent> <F5> :call gruvbox#bg_toggle()<CR>
 imap <silent> <F5> <ESC>:call gruvbox#bg_toggle()<CR>a
 vmap <silent> <F5> <ESC>:call gruvbox#bg_toggle()<CR>gv
 
-colorscheme paramount
+colorscheme mayansmoke
 
 " Set extra options when running in GUI mode
 if has("gui_running")

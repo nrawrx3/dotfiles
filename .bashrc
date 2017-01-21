@@ -1,5 +1,7 @@
 # ~/.bashrc
 
+export PS1="\[$(tput setaf 1)\]┌─╼ \[$(tput setaf 7)\][\w]\n\[$(tput setaf 1)\]\$(if [[ \$? == 0 ]]; then echo \"\[$(tput setaf 1)\]└────╼\"; else echo \"\[$(tput setaf 1)\]└╼\"; fi) \[$(tput setaf 7)\]"
+
 if [[ $TERMINIX_ID ]]; then
         source /etc/profile.d/vte.sh
 fi
@@ -111,9 +113,9 @@ bak_all() {
 
 # Backup and shutdown
 baksdown() {
-	rsync_all
-	gits.py --pull_all
-	systemctl poweroff
+  rsync_all
+  gits.py --pull_all
+  systemctl poweroff
 }
 
 remind_me() {
