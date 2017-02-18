@@ -1,11 +1,8 @@
 # ~/.bashrc
 
-export PS1="\[$(tput setaf 1)\]┌─╼ \[$(tput setaf 7)\][\w]\n\[$(tput setaf 1)\]\$(if [[ \$? == 0 ]]; then echo \"\[$(tput setaf 1)\]└────╼\"; else echo \"\[$(tput setaf 1)\]└╼\"; fi) \[$(tput setaf 7)\]"
+export PS1="\[$(tput setaf 2)\]┌─╼ \[$(tput setaf 6)\][\w]\n\[$(tput setaf 1)\]\$(if [[ \$? == 0 ]]; then echo \"\[$(tput setaf 1)\]└────╼\"; else echo \"\[$(tput setaf 1)\]└╼\"; fi) \[$(tput setaf 7)\]"
 
-if [[ $TERMINIX_ID ]]; then
-        source /etc/profile.d/vte.sh
-fi
-
+# It's dangerous to go alone, take these aliases
 alias ls="ls --color=auto"
 alias pacman="pacman --color=auto"
 alias grep="grep --color=auto"
@@ -71,51 +68,51 @@ replace_string () {
 
 # Updates submodules in the repo
 git_sub_update() {
-  git submodule update --init --recursive
+    git submodule update --init --recursive
 }
 
 # Time a process - requires the gnu time(1) command installed
 timeit() {
-  /usr/bin/time -f "Elapsed=%E, User=%U, Kernel=%S" $@
+    /usr/bin/time -f "Elapsed=%E, User=%U, Kernel=%S" $@
 }
 
 # Keep your heart-shaped-box updated!
 export HSB=/run/media/snyp/2763c3c1-08fe-4fcd-aaa7-7837b8cad829/snyp
 
 rsync_home() {
-  dirname=$1
-  rsync -aAXvu $HOME/$dirname $HSB/
+    dirname=$1
+    rsync -aAXvu $HOME/$dirname $HSB/
 }
 
 rsync_paccache() {
-  sudo bash -c "rsync -aAXvu ${PACMAN_CACHE}/* $HSB/pacman_cache/"
+    sudo bash -c "rsync -aAXvu ${PACMAN_CACHE}/* $HSB/pacman_cache/"
 }
 
 rsync_all() {
-  rsync_home text
-  rsync_home reads
-  rsync_home images
-  rsync_home music
-  rsync_home videos
-  rsync_home .fonts
-  rsync_home theming
-  rsync_home .config
-  rsync ~/.config/llpp.conf $HSB/.config/llpp.conf -aAXvu
-  if [[ $HOSTNAME -eq "mace" ]]; then
-    rsync_paccache
-  fi
+    rsync_home text
+    rsync_home reads
+    rsync_home images
+    rsync_home music
+    rsync_home videos
+    rsync_home .fonts
+    rsync_home theming
+    rsync_home .config
+    rsync ~/.config/llpp.conf $HSB/.config/llpp.conf -aAXvu
+    if [[ $HOSTNAME -eq "mace" ]]; then
+        rsync_paccache
+    fi
 }
 
 bak_all() {
-  rsync_all
-  gits.py --pull_all
+    rsync_all
+    gits.py --pull_all
 }
 
 # Backup and shutdown
 baksdown() {
-  rsync_all
-  gits.py --pull_all
-  systemctl poweroff
+    rsync_all
+    gits.py --pull_all
+    systemctl poweroff
 }
 
 remind_me() {
@@ -126,20 +123,20 @@ remind_me() {
 # The gits dir should be backed up using gits.py
 
 remove_and_backup() {
-  source $HOME/dotfiles/baklocs
-  dir_path=${!1}
-  home_dir_path=$HOME/$dir_path
-  hsb_dir_path=$HSB/$dir_path
-  echo "Removing - ${hsb_dir_path} and copying ${home_dir_path}"
-  rm -rf $hsb_dir_path
-  raxu $home_dir_path $HSB/
+    source $HOME/dotfiles/baklocs
+    dir_path=${!1}
+    home_dir_path=$HOME/$dir_path
+    hsb_dir_path=$HSB/$dir_path
+    echo "Removing - ${hsb_dir_path} and copying ${home_dir_path}"
+    rm -rf $hsb_dir_path
+    raxu $home_dir_path $HSB/
 }
 
 incr_backup() {
-  source $HOME/dotfiles/baklocs
-  dir_path=${!1}
-  home_dir_path=$HOME/$dir_path
-  hsb_dir_path=$HSB/$dir_path
-  echo "Removing - ${hsb_dir_path} and copying ${home_dir_path}"
-  raxu $home_dir_path $HSB/
+    source $HOME/dotfiles/baklocs
+    dir_path=${!1}
+    home_dir_path=$HOME/$dir_path
+    hsb_dir_path=$HSB/$dir_path
+    echo "Copying ${home_dir_path}"
+    raxu $home_dir_path $HSB/
 }

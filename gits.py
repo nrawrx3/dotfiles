@@ -44,7 +44,9 @@ NAME_TO_URL = {
     "cmakepp": "https://github.com/toeb/cmakepp.git",
     "qbe": "git://c9x.me/qbe.git",
     "mbedtls": "https://github.com/ARMmbed/mbedtls.git",
-    "cmp": "https://github.com/camgunz/cmp.git"
+    "cmp": "https://github.com/camgunz/cmp.git",
+    "nflibs": "https://github.com/niklasfrykholm/nflibs.git",
+    "Vulkan-Hpp":"https://github.com/KhronosGroup/Vulkan-Hpp.git"
 }
 
 HSB = os.getenv('HSB')
