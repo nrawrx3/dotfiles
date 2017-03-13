@@ -16,6 +16,8 @@ alias up="cd .."
 alias upp="cd ../.."
 alias uppp="cd ../../.."
 
+source /etc/profile.d/vte.sh
+
 export EDITOR=nvim
 HISTSIZE=-1
 
@@ -125,6 +127,10 @@ remind_me() {
 remove_and_backup() {
     source $HOME/dotfiles/baklocs
     dir_path=${!1}
+    if [ -z "$dir_path" ]; then
+        echo "No such directory set"
+        return
+    fi
     home_dir_path=$HOME/$dir_path
     hsb_dir_path=$HSB/$dir_path
     echo "Removing - ${hsb_dir_path} and copying ${home_dir_path}"
@@ -135,6 +141,10 @@ remove_and_backup() {
 incr_backup() {
     source $HOME/dotfiles/baklocs
     dir_path=${!1}
+    if [ -z "$dir_path" ]; then
+        echo "No such directory set"
+        return
+    fi
     home_dir_path=$HOME/$dir_path
     hsb_dir_path=$HSB/$dir_path
     echo "Copying ${home_dir_path}"

@@ -6,6 +6,7 @@ export conf_dir=confs
 export reads_dir=reads
 export text_dir=text
 export pacaur_cache_dir=.cache/pacaur
+export mixed_dir=mixed
 export build_dir=build
 export videos_dir=videos
 export go_dir=$GOPATH

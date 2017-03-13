@@ -46,7 +46,10 @@ NAME_TO_URL = {
     "mbedtls": "https://github.com/ARMmbed/mbedtls.git",
     "cmp": "https://github.com/camgunz/cmp.git",
     "nflibs": "https://github.com/niklasfrykholm/nflibs.git",
-    "Vulkan-Hpp":"https://github.com/KhronosGroup/Vulkan-Hpp.git"
+    "Vulkan-Hpp":"https://github.com/KhronosGroup/Vulkan-Hpp.git",
+    "glad": "https://github.com/Dav1dde/glad.git",
+    "learnogl": "https://bitbucket.com/snyp/learnogl",
+    "ycmd": "https://github.com/Valloric/ycmd"
 }
 
 HSB = os.getenv('HSB')

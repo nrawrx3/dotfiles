@@ -34,7 +34,7 @@ set tm=2000
 nmap <leader>w :w!<cr>
 
 " Window dimensions
-set lines=30 columns=120
+set lines=40 columns=100
 
 " Use par for prettier line formatting
 set formatprg="PARINIT='rTbgqR B=.,?_A_a Q=_s>|' par\ -w72"
@@ -72,6 +72,8 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'guns/vim-sexp'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
+Plug 'rhysd/nyaovim-markdown-preview'
+
 
 
 Plug 'hdima/python-syntax'
@@ -81,6 +83,8 @@ Plug 'tpope/vim-fireplace'
 Plug 'cespare/vim-toml'
 Plug 'Valloric/YouCompleteMe', { 'for': ['c', 'cpp', 'python', 'rust', 'nim'] }
 autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable() | endif
+Plug 'ternjs/tern_for_vim'
+Plug 'maksimr/vim-jsbeautify'
 Plug 'rhysd/vim-clang-format'
 Plug 'mindriot101/vim-yapf'
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
@@ -95,7 +99,7 @@ call plug#end()
 " => Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme='base16'
+let g:airline_theme='zenburn'
 
 " => YouCompleteMe
 
@@ -228,7 +232,7 @@ map <silent> <F5> :call gruvbox#bg_toggle()<CR>
 imap <silent> <F5> <ESC>:call gruvbox#bg_toggle()<CR>a
 vmap <silent> <F5> <ESC>:call gruvbox#bg_toggle()<CR>gv
 
-colorscheme synthwave
+colorscheme zenburn
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -255,7 +259,7 @@ set encoding=utf8
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
 
-set guifont=InputMonoMedium\ 10
+set guifont=IosevkaTermHeavy\ 10
 
 " => Files, backups and undo
 

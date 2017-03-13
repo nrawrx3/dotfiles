@@ -16,7 +16,7 @@
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
-font pango:Mononoki Bold 10
+font pango:Iosevka Term Heavy 10
 
 # use Mouse+Mod1 to drag floating windows to their wanted position
 floating_modifier Mod1
@@ -151,15 +151,10 @@ mode "resize" {
 
 bindsym Mod1+r mode "resize"
 
-# $i3-theme-window
-# class                 border  backgr. text    indicator
-client.focused          #808090 #606070 #C0C0C5 #2e9ef4
-client.focused_inactive #5F5F6F #303040 #707075 #484e50
-client.unfocused        #5F5F5F #303030 #808080 #292d2e
-# alternative colouring - the other way round
-#client.focused_inactive #5F5F5F #303030 #808080 #292d2e
-#client.unfocused        #5F5F6F #303040 #707075 #484e50
-client.urgent           #2f343a #900000 #ffffff #900000
+client.focused #99cc99 #99cc99 #000000 #2d2d2d
+client.focused_inactive #393939 #393939 #888888 #292d2e
+client.unfocused #2d2d2d #2d2d2d #999999 #292d2e
+client.urgent #2f343a #900000 #ffffff #900000
 
 # $i3-background
 exec_always --no-startup-id xsetroot -solid '#000000'
@@ -175,17 +170,16 @@ hide_edge_borders   both
 # finds out, if available)
 bar {
 	status_command i3status
-	# $i3-theme-bar
-	colors {
-	background #000000
-	statusline #ffffff
-	separator #666666
-	focused_workspace #808090 #606070 #C0C0C5
-	active_workspace #5F5F5F #303030 #808080
-	inactive_workspace #5F5F5F #303030 #808080
-	urgent_workspace #2f343a #900000 #ffffff
-	}
 
+    colors {
+        separator #515151
+        background #2d2d2d
+        statusline #cccccc
+        focused_workspace #99cc99 #99cc99 #000000
+        active_workspace #333333 #333333 #ffffff
+        inactive_workspace #2d2d2d #2d2d2d #999999
+        urgent_workspace #f2777a #f2777a #ffffff
+    }
 }
 
 # editors
