@@ -21,16 +21,12 @@ NAME_TO_URL = {
     'cpython': "https://github.com/python/cpython",
     'earnestly': "https://github.com/Earnestly/pkgbuilds.git",
     'scaffold': "https://snyp@bitbucket.org/snyp/scaffold.git",
-    'regvm': "https://snyp@bitbucket.org/snyp/regvm.git",
     'musl': "git://git.musl-libc.org/musl",
     'llvm-clang-samples': "https://github.com/eliben/llvm-clang-samples.git",
     "dotfiles": "https://snyp@bitbucket.org/snyp/dotfiles.git",
     "CppCoreGuidelines": "http://github.com/isocpp/CppCoreGuidelines.git",
     "benchmark": "https://github.com/google/benchmark.git",
-    "guile": "git clone git://git.sv.gnu.org/guile.git",
     "pycparser": "https://github.com/eliben/pycparser",
-    "websocketpp": "https://github.com/zaphoyd/websocketpp",
-    "leveldb":"https://github.com/google/leveldb.git",
     "vim-plug": "https://github.com/junegunn/vim-plug",
     "GSL": "https://github.com/Microsoft/GSL",
     "debugger.lua": "https://github.com/slembcke/debugger.lua.git",
@@ -49,7 +45,8 @@ NAME_TO_URL = {
     "Vulkan-Hpp":"https://github.com/KhronosGroup/Vulkan-Hpp.git",
     "glad": "https://github.com/Dav1dde/glad.git",
     "learnogl": "https://bitbucket.com/snyp/learnogl",
-    "ycmd": "https://github.com/Valloric/ycmd"
+    "ycmd": "https://github.com/Valloric/ycmd",
+    "ogl-samples": "https://github.com/g-truc/ogl-samples.git"
 }
 
 HSB = os.getenv('HSB')
