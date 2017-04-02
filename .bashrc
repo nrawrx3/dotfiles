@@ -18,7 +18,7 @@ alias uppp="cd ../../.."
 
 source /etc/profile.d/vte.sh
 
-export EDITOR=nvim
+export EDITOR=vim
 HISTSIZE=-1
 
 PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl":$PATH
@@ -115,6 +115,10 @@ baksdown() {
     rsync_all
     gits.py --pull_all
     systemctl poweroff
+}
+
+store_pacman_list() {
+    pacman -Qtnq > $HSB/package_list
 }
 
 remind_me() {
