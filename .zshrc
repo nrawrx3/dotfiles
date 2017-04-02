@@ -2,7 +2,7 @@ alias raxu="rsync -aAXu"
 alias raxvu="rsync -aAXvu"
 
 export EDITOR=nvim
-HISTSIZE=-1
+HISTSIZE=8000
 
 PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl":$PATH
 
@@ -47,54 +47,87 @@ replace_string () {
     done
 }
 
-
 # Updates submodules in the repo
 git_sub_update() {
-  git submodule update --init --recursive
+    git submodule update --init --recursive
 }
 
-# XKCD searcher by @sudokode in #archlinux
-xkcd() {
-  local search=
-  for w in "$@"; do
-    search="$search+$w"
-  done
-  curl -sA Mozilla -i "http://www.google.com/search?hl=en&tbo=d&site=&source=hp&btnI=1&q=xkcd+$search" | awk '/Location: http/ {print $2}'
+# Time a process - requires the gnu time(1) command installed
+timeit() {
+    /usr/bin/time -f "Elapsed=%E, User=%U, Kernel=%S" $@
 }
 
+# Keep your heart-shaped-box updated!
 export HSB=/run/media/snyp/2763c3c1-08fe-4fcd-aaa7-7837b8cad829/snyp
 
 rsync_home() {
-  dirname=$1
-  rsync -aAXvu $HOME/$dirname $HSB/
+    dirname=$1
+    rsync -aAXvu $HOME/$dirname $HSB/
 }
 
 rsync_paccache() {
-  sudo bash -c "rsync -aAXvu ${PACMAN_CACHE}/* $HSB/pacman_cache/"
+    sudo bash -c "rsync -aAXvu ${PACMAN_CACHE}/* $HSB/pacman_cache/"
 }
 
 rsync_all() {
-  rsync_home text
-  rsync_home reads
-  rsync_home images
-  rsync_home music
-  rsync_home videos
-  rsync_home .fonts
-  rsync_home theming
-  rsync ~/.config/llpp.conf $HSB/.config/llpp.conf -aAXvu
-  if [[ $HOSTNAME -eq "mace" ]]; then
-    rsync_paccache
-  fi
+    rsync_home text
+    rsync_home reads
+    rsync_home images
+    rsync_home music
+    rsync_home videos
+    rsync_home .fonts
+    rsync_home theming
+    rsync_home .config
+    rsync ~/.config/llpp.conf $HSB/.config/llpp.conf -aAXvu
+    if [[ $HOSTNAME -eq "mace" ]]; then
+        rsync_paccache
+    fi
 }
 
 bak_all() {
-  rsync_all
-  gits.py --pull_all
+    rsync_all
+    gits.py --pull_all
+}
+
+# Backup and shutdown
+baksdown() {
+    rsync_all
+    gits.py --pull_all
+    systemctl poweroff
 }
 
 remind_me() {
     cat $HOME/dotfiles/.remember.txt
     python $HOME/dotfiles/random_quote.py
+}
+
+# The gits dir should be backed up using gits.py
+
+remove_and_backup() {
+    source $HOME/dotfiles/baklocs
+    dir_path=${!1}
+    if [ -z "$dir_path" ]; then
+        echo "No such directory set"
+        return
+    fi
+    home_dir_path=$HOME/$dir_path
+    hsb_dir_path=$HSB/$dir_path
+    echo "Removing - ${hsb_dir_path} and copying ${home_dir_path}"
+    rm -rf $hsb_dir_path
+    raxu $home_dir_path $HSB/
+}
+
+incr_backup() {
+    source $HOME/dotfiles/baklocs
+    dir_path=${!1}
+    if [ -z "$dir_path" ]; then
+        echo "No such directory set"
+        return
+    fi
+    home_dir_path=$HOME/$dir_path
+    hsb_dir_path=$HSB/$dir_path
+    echo "Copying ${home_dir_path}"
+    raxu $home_dir_path $HSB/
 }
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
