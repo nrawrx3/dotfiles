@@ -3,7 +3,8 @@
 # ~/.local/bin/gits.py
 # --------------------
 
-# Managing git repositories on my computer
+# Managing git repositories on my computer. Can't simply rsync these, so using
+# git itself.
 
 import subprocess as sp
 import os
@@ -12,41 +13,36 @@ import argparse as ap
 import pprint
 
 NAME_TO_URL = {
-    'llvm': "https://github.com/llvm-mirror/llvm.git",
-    'clang': "https://github.com/llvm-mirror/clang.git",
-    'libjit': "git://git.savannah.gnu.org/libjit.git",
-    'libbsd': "git://anongit.freedesktop.org/git/libbsd",
-    'luajit-2.0': "http://luajit.org/git/luajit-2.0.git",
-    'toml': "https://github.com/toml-lang/toml.git",
-    'cpython': "https://github.com/python/cpython",
-    'earnestly': "https://github.com/Earnestly/pkgbuilds.git",
-    'scaffold': "https://snyp@bitbucket.org/snyp/scaffold.git",
-    'musl': "git://git.musl-libc.org/musl",
-    'llvm-clang-samples': "https://github.com/eliben/llvm-clang-samples.git",
-    "dotfiles": "https://snyp@bitbucket.org/snyp/dotfiles.git",
-    "CppCoreGuidelines": "http://github.com/isocpp/CppCoreGuidelines.git",
-    "benchmark": "https://github.com/google/benchmark.git",
-    "pycparser": "https://github.com/eliben/pycparser",
-    "vim-plug": "https://github.com/junegunn/vim-plug",
-    "GSL": "https://github.com/Microsoft/GSL",
-    "debugger.lua": "https://github.com/slembcke/debugger.lua.git",
-    "libuv": "https://github.com/libuv/libuv.git",
-    "http-parser": "https://github.com/nodejs/http-parser.git",
-    "libuv-cmake": "https://github.com/jen20/libuv-cmake.git",
-    "nanomsg": "https://github.com/nanomsg/nanomsg.git",
-    "YCM-Generator": "https://github.com/rdnetto/YCM-Generator.git",
-    "cxxopts": "https://github.com/jarro2783/cxxopts.git",
-    "msgpack-c": "https://github.com/msgpack/msgpack-c.git",
-    "cmakepp": "https://github.com/toeb/cmakepp.git",
-    "qbe": "git://c9x.me/qbe.git",
-    "mbedtls": "https://github.com/ARMmbed/mbedtls.git",
-    "cmp": "https://github.com/camgunz/cmp.git",
-    "nflibs": "https://github.com/niklasfrykholm/nflibs.git",
-    "Vulkan-Hpp":"https://github.com/KhronosGroup/Vulkan-Hpp.git",
-    "glad": "https://github.com/Dav1dde/glad.git",
-    "learnogl": "https://bitbucket.com/snyp/learnogl",
-    "ycmd": "https://github.com/Valloric/ycmd",
-    "ogl-samples": "https://github.com/g-truc/ogl-samples.git"
+    'llvm': 'https://github.com/llvm-mirror/llvm.git',
+    'clang': 'https://github.com/llvm-mirror/clang.git',
+    'libjit': 'git://git.savannah.gnu.org/libjit.git',
+    'libbsd': 'git://anongit.freedesktop.org/git/libbsd',
+    'luajit-2.0': 'http://luajit.org/git/luajit-2.0.git',
+    'cpython': 'https://github.com/python/cpython',
+    'earnestly': 'https://github.com/Earnestly/pkgbuilds.git',
+    'scaffold': 'https://snyp@bitbucket.org/snyp/scaffold.git',
+    'musl': 'git://git.musl-libc.org/musl',
+    'llvm-clang-samples': 'https://github.com/eliben/llvm-clang-samples.git',
+    'dotfiles': 'https://snyp@bitbucket.org/snyp/dotfiles.git',
+    'CppCoreGuidelines': 'http://github.com/isocpp/CppCoreGuidelines.git',
+    'benchmark': 'https://github.com/google/benchmark.git',
+    'vim-plug': 'https://github.com/junegunn/vim-plug',
+    'debugger.lua': 'https://github.com/slembcke/debugger.lua.git',
+    'nanomsg': 'https://github.com/nanomsg/nanomsg.git',
+    'YCM-Generator': 'https://github.com/rdnetto/YCM-Generator.git',
+    'cxxopts': 'https://github.com/jarro2783/cxxopts.git',
+    'qbe': 'git://c9x.me/qbe.git',
+    'mbedtls': 'https://github.com/ARMmbed/mbedtls.git',
+    'cmp': 'https://github.com/camgunz/cmp.git',
+    'nflibs': 'https://github.com/niklasfrykholm/nflibs.git',
+    'Vulkan-Hpp':'https://github.com/KhronosGroup/Vulkan-Hpp.git',
+    'glad': 'https://github.com/Dav1dde/glad.git',
+    'learnogl': 'https://bitbucket.com/snyp/learnogl',
+    'ycmd': 'https://github.com/Valloric/ycmd',
+    'stb': 'https://github.com/nothings/stb',
+    'ogl-samples': 'https://github.com/g-truc/ogl-samples.git',
+    'par': 'https://github.com/prideout/par.git',
+    'docs.gl': 'https://github.com/BSVino/docs.gl.git'
 }
 
 HSB = os.getenv('HSB')
@@ -159,6 +155,27 @@ def remove_if_not_in_dict(dir_name):
         #sp.run(['rm', '-r', '-f', dir_name])
     cd(CUR_DIR)
 
+def clean():
+    cd(HOME_GITS)
+    dirs = os.listdir('.')
+    hsb_dirs = None
+
+    try:
+        hsb_dirs = os.listdir(os.path.join(HSB_GITS_DIR))
+    except:
+        print('HSB not available, so not going to remove those')
+
+    for dir_name in dirs:
+        if dir_name in NAME_TO_URL:
+            continue
+        print('Removing: {}'.format(dir_name))
+        sp.run(['rm', '-r', '-f', dir_name])
+        if hsb_dirs is not None and dir_name in hsb_dirs:
+            hsb_dir_name = os.path.join(HSB_GITS_DIR, dir_name)
+            print('Removing: {}'.format(hsb_dir_name))
+            sp.run(['rm', '-r', '-f', hsb_dir_name])
+    cd(CUR_DIR)
+
 
 
 def update_all():
@@ -179,6 +196,7 @@ if __name__ == '__main__':
     a.add_argument('--clone_or_pull_from_all', action='store_true', help='Clone or pull all noted directories from hsb')
     a.add_argument('--hsb_gits_dir', type=str, default=HSB_GITS_DIR, help='HSB directory')
     a.add_argument('--remove_if_not_in_dict', type=str, default='', help='Remove the directory if not present in the note')
+    a.add_argument('--clean', action='store_true', help='Remove directories no longer in the url list')
 
     a = a.parse_args()
 
@@ -207,3 +225,6 @@ if __name__ == '__main__':
 
     if a.remove_if_not_in_dict != '':
         remove_if_not_in_dict(a.remove_if_not_in_dict)
+
+    if a.clean:
+        clean()
