@@ -90,21 +90,6 @@ rsync_paccache() {
     sudo bash -c "rsync -aAXvu ${PACMAN_CACHE}/* $HSB/pacman_cache/"
 }
 
-rsync_all() {
-    rsync_home text
-    rsync_home reads
-    rsync_home images
-    rsync_home music
-    rsync_home videos
-    rsync_home .fonts
-    rsync_home theming
-    rsync_home .config
-    rsync ~/.config/llpp.conf $HSB/.config/llpp.conf -aAXvu
-    if [[ $HOSTNAME -eq "mace" ]]; then
-        rsync_paccache
-    fi
-}
-
 bak_all() {
     rsync_all
     gits.py --pull_all
@@ -117,8 +102,10 @@ baksdown() {
     systemctl poweroff
 }
 
+PACKAGE_LIST_FILE="package_list"
+
 store_pacman_list() {
-    pacman -Qtnq > $HSB/package_list
+    pacman -Qtnq > $HSB/$PACKAGE_LIST_FILE
 }
 
 remind_me() {
@@ -153,4 +140,33 @@ incr_backup() {
     hsb_dir_path=$HSB/$dir_path
     echo "Copying ${home_dir_path}"
     raxu $home_dir_path $HSB/
+}
+
+incr_all() {
+	source $HOME/dotfiles/baklocs
+	remove_and_backup conf_dir
+	incr_backup reads_dir
+	incr_backup text_dir
+	incr_backup pacaur_cache_dir
+	incr_backup mixed_dir
+	incr_backup build_dir
+	incr_backup videos_dir
+	incr_backup music_dir
+	incr_backup samples_dir
+	incr_backup rand_dir
+	incr_backup fonts_dir
+	incr_backup theming_dir
+	rsync_paccache
+}
+
+install_pacman_list() {
+    extra_args_to_pacman=$@
+
+    pacman -Q > /tmp/installed_packages
+
+    for PACKAGE in $(cat $HSB/$PACKAGE_LIST_FILE); do
+        if ! grep -Fxq $PACKAGE /tmp/installed_packages; then
+            sudo pacman -S $@ $PACKAGE
+        fi
+    done
 }

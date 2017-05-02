@@ -42,7 +42,9 @@ NAME_TO_URL = {
     'stb': 'https://github.com/nothings/stb',
     'ogl-samples': 'https://github.com/g-truc/ogl-samples.git',
     'par': 'https://github.com/prideout/par.git',
-    'docs.gl': 'https://github.com/BSVino/docs.gl.git'
+    'docs.gl': 'https://github.com/BSVino/docs.gl.git',
+    'cmakepp': 'https://github.com/toeb/cmakepp.git',
+    "assimp": "https://github.com/assimp/assimp.git"
 }
 
 HSB = os.getenv('HSB')
@@ -166,14 +168,16 @@ def clean():
         print('HSB not available, so not going to remove those')
 
     for dir_name in dirs:
-        if dir_name in NAME_TO_URL:
-            continue
-        print('Removing: {}'.format(dir_name))
-        sp.run(['rm', '-r', '-f', dir_name])
-        if hsb_dirs is not None and dir_name in hsb_dirs:
-            hsb_dir_name = os.path.join(HSB_GITS_DIR, dir_name)
-            print('Removing: {}'.format(hsb_dir_name))
-            sp.run(['rm', '-r', '-f', hsb_dir_name])
+        if dir_name not in NAME_TO_URL:
+            print('Removing: {}'.format(dir_name))
+            sp.run(['rm', '-r', '-f', dir_name])
+
+    if hsb_dirs is not None:
+        for dir_name in hsb_dirs:
+            if dir_name not in NAME_TO_URL:
+                hsb_dir_name = os.path.join(HSB_GITS_DIR, dir_name)
+                print('Removing: {}'.format(hsb_dir_name))
+                sp.run(['rm', '-r', '-f', hsb_dir_name])
     cd(CUR_DIR)
 
 
