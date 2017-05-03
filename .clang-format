@@ -59,5 +59,15 @@ ContinuationIndentWidth: 4
 ForEachMacros:   [ foreach, Q_FOREACH, BOOST_FOREACH ]
 SpaceBeforeParens: ControlStatements
 DisableFormat:   false
+
+---
+
+Language:        Java
+ColumnLimit:     110
+IndentWidth:     4
+TabWidth:        4
+UseTab:          Never
+BreakBeforeBraces: Attach
+
 ...
 

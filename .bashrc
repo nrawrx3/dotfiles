@@ -144,7 +144,7 @@ incr_backup() {
 
 incr_all() {
 	source $HOME/dotfiles/baklocs
-	remove_and_backup conf_dir
+	remove_and_backup config_dir
 	incr_backup reads_dir
 	incr_backup text_dir
 	incr_backup pacaur_cache_dir
