@@ -44,7 +44,8 @@ NAME_TO_URL = {
     'par': 'https://github.com/prideout/par.git',
     'docs.gl': 'https://github.com/BSVino/docs.gl.git',
     'cmakepp': 'https://github.com/toeb/cmakepp.git',
-    "assimp": "https://github.com/assimp/assimp.git"
+    'assimp': 'https://github.com/assimp/assimp.git',
+    'cereal': 'https://github.com/USCiLab/cereal'
 }
 
 HSB = os.getenv('HSB')
