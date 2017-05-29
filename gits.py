@@ -45,7 +45,10 @@ NAME_TO_URL = {
     'docs.gl': 'https://github.com/BSVino/docs.gl.git',
     'cmakepp': 'https://github.com/toeb/cmakepp.git',
     'assimp': 'https://github.com/assimp/assimp.git',
-    'cereal': 'https://github.com/USCiLab/cereal'
+    'cereal': 'https://github.com/USCiLab/cereal',
+    'hext': 'https://github.com/njh/hext.git',
+    'BearSSL': 'https://www.bearssl.org/git/BearSSL',
+    'Vulkan': 'https://github.com/SaschaWillems/Vulkan.git'
 }
 
 HSB = os.getenv('HSB')
