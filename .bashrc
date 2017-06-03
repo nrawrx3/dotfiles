@@ -18,7 +18,7 @@ alias uppp="cd ../../.."
 
 source /etc/profile.d/vte.sh
 
-export EDITOR=vim
+export EDITOR=nvim
 HISTSIZE=-1
 
 PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl":$PATH

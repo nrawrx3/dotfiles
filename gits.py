@@ -35,7 +35,6 @@ NAME_TO_URL = {
     'mbedtls': 'https://github.com/ARMmbed/mbedtls.git',
     'cmp': 'https://github.com/camgunz/cmp.git',
     'nflibs': 'https://github.com/niklasfrykholm/nflibs.git',
-    'Vulkan-Hpp':'https://github.com/KhronosGroup/Vulkan-Hpp.git',
     'glad': 'https://github.com/Dav1dde/glad.git',
     'learnogl': 'https://bitbucket.com/snyp/learnogl',
     'ycmd': 'https://github.com/Valloric/ycmd',
@@ -48,7 +47,10 @@ NAME_TO_URL = {
     'cereal': 'https://github.com/USCiLab/cereal',
     'hext': 'https://github.com/njh/hext.git',
     'BearSSL': 'https://www.bearssl.org/git/BearSSL',
-    'Vulkan': 'https://github.com/SaschaWillems/Vulkan.git'
+    'Vulkan-Hpp':'https://github.com/KhronosGroup/Vulkan-Hpp.git',
+    'Vulkan': 'https://github.com/SaschaWillems/Vulkan.git',
+    'Vulkan-Docs': 'https://github.com/KhronosGroup/Vulkan-Docs.git'
+
 }
 
 HSB = os.getenv('HSB')

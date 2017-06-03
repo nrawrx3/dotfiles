@@ -510,7 +510,7 @@ use_console_editor = yes
 #active_window_border = red
 #
 
-main_window_highlight_color = "white"
+# main_window_highlight_color = "white"
 
 progressbar_look = "▀▀ "
 progressbar_color = "black"
