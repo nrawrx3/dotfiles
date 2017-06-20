@@ -49,12 +49,30 @@ NAME_TO_URL = {
     'BearSSL': 'https://www.bearssl.org/git/BearSSL',
     'Vulkan-Hpp':'https://github.com/KhronosGroup/Vulkan-Hpp.git',
     'Vulkan': 'https://github.com/SaschaWillems/Vulkan.git',
-    'Vulkan-Docs': 'https://github.com/KhronosGroup/Vulkan-Docs.git'
-
+    'Vulkan-Docs': 'https://github.com/KhronosGroup/Vulkan-Docs.git',
+    'VulkanTools': 'https://github.com/LunarG/VulkanTools.git',
+    'VulkanSamples': 'https://github.com/LunarG/VulkanSamples.git'
 }
 
+## Some errors with a few repositories. For these, just rsync them, and optionally remove them from hsb before doing that.
+
+class RsyncOptions:
+    def __init__(self, remove_before_rsync=False):
+        self.remove_before_rsync = remove_before_rsync
+
+rsync_these = {
+    'Vulkan': RsyncOptions(remove_before_rsync=True),
+    'Vulkan-Docs': RsyncOptions(),
+    'learnogl': RsyncOptions(remove_before_rsync=True)
+}
+
+# Global variable storing whether to rsync or not
+RSYNC = False
+
+# By default, we set HSB to the enviroment variable's value
 HSB = os.getenv('HSB')
 
+# Gits folder name. Should be present at the top level in HSB and HOME dir
 GITS = 'gits'
 HSB_GITS_DIR = os.path.join(HSB, GITS)
 HOME_GITS = os.path.join(os.getenv('HOME'), GITS)
@@ -93,6 +111,9 @@ def clone_one_in_hsb(dir_name):
         print('{} is not present in the dict, will not clone'.format(dir_name))
         return
 
+    if dir_name in rsync_these:
+        print('{} is to be rsync\'d so not cloning'.format(dir_name))
+
     cd(HSB_GITS_DIR)
     home_dir = os.path.join(HOME_GITS, dir_name)
     sp.run(['git', 'clone', home_dir], stdout=sp.PIPE, check=True)
@@ -108,6 +129,9 @@ def pull_all_in_hsb():
     for dir_name in os.listdir(HOME_GITS):
         if not (dir_name in NAME_TO_URL):
             print(sys.argv[0], "Url for {} not in the dict - not pulling".format(dir_name))
+            continue
+        if dir_name in rsync_these:
+            print(sys.argv[0], "Dir {} is to be rsync'ed, so not pulling".format(dir_name))
             continue
         try:
             cd(os.path.join(HSB_GITS_DIR, dir_name))
@@ -127,6 +151,9 @@ def pull_one_in_hsb(dir_name):
     if not (dir_name in NAME_TO_URL):
         print(sys.argv[0], "Url for {} not in the dict - not pulling".format(dir_name))
         return
+
+    if dir_name in rsync_these:
+        print('{} is to be rsync\'d so not pulling'.format(dir_name))
 
     cd(os.path.join(HSB_GITS_DIR, dir_name))
     sp.run(['git', 'pull', 'hdd', 'master'], check=True)
@@ -155,12 +182,13 @@ def clone_or_pull_from_hsb_all():
     for dir_name in NAME_TO_URL:
         clone_or_pull_from_hsb(dir_name)
 
-def remove_if_not_in_dict(dir_name):
+def remove_if_not_in_dict(dir_name, dry_run):
     cd(HOME_GITS)
     dirs = os.listdir('.')
     if not dir_name in NAME_TO_URL:
         print('Removing', dir_name)
-        #sp.run(['rm', '-r', '-f', dir_name])
+        if not dry_run:
+            sp.run(['rm', '-r', '-f', dir_name])
     cd(CUR_DIR)
 
 def clean():
@@ -186,14 +214,22 @@ def clean():
                 sp.run(['rm', '-r', '-f', hsb_dir_name])
     cd(CUR_DIR)
 
-
-
 def update_all():
     cd(HOME_GITS)
     for d in NAME_TO_URL:
         cd(d)
         sp.run(['git', 'pull', 'origin', 'master'])
         cd(HOME_GITS)
+
+def rsync_all():
+    cd(HOME_GITS)
+    for dir_name, options in rsync_these.items():
+        if options.remove_before_rsync:
+            hsb_dir_name = os.path.join(HSB_GITS_DIR, dir_name)
+            print('Removing before rsyncing - {}'.format(hsb_dir_name))
+            sp.run(['rm', '-r', '-f', hsb_dir_name])
+        print('Rsyncing = {}'.format(dir_name))
+        sp.run(['rsync', '-a', '-X', '-u', dir_name, HSB_GITS_DIR])
 
 if __name__ == '__main__':
     a = ap.ArgumentParser(usage='Easily backup the git projects')
@@ -207,6 +243,7 @@ if __name__ == '__main__':
     a.add_argument('--hsb_gits_dir', type=str, default=HSB_GITS_DIR, help='HSB directory')
     a.add_argument('--remove_if_not_in_dict', type=str, default='', help='Remove the directory if not present in the note')
     a.add_argument('--clean', action='store_true', help='Remove directories no longer in the url list')
+    a.add_argument('--rsync', action='store_true', default=False, help='Rsync the directories in the rsync list')
 
     a = a.parse_args()
 
@@ -234,7 +271,10 @@ if __name__ == '__main__':
         clone_or_pull_from_hsb_all()
 
     if a.remove_if_not_in_dict != '':
-        remove_if_not_in_dict(a.remove_if_not_in_dict)
+        remove_if_not_in_dict(a.remove_if_not_in_dict, False)
+
+    if a.rsync:
+        rsync_all()
 
     if a.clean:
         clean()

@@ -26,7 +26,7 @@ PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor
 # The builds
 export BUILD_DIR=$HOME/builds
 
-export GOPATH=$HOME/go
+export GOPATH=$HOME/samples/go
 
 PATH=$PATH:$GOPATH/bin
 PATH=$HOME/.local/bin:$PATH
