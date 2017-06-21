@@ -1,3 +1,4 @@
+" ~/.config/nvim/init.vim or ~/.vimrc
 
 " => General
 
@@ -90,6 +91,7 @@ Plug 'mindriot101/vim-yapf'
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 Plug 'Superbil/llvm.vim'
 Plug 'romainl/Apprentice'
+Plug 'bluz71/vim-moonfly-colors'
 
 call plug#end()
 "filetype plugin indent on
@@ -232,7 +234,7 @@ map <silent> <F5> :call gruvbox#bg_toggle()<CR>
 imap <silent> <F5> <ESC>:call gruvbox#bg_toggle()<CR>a
 vmap <silent> <F5> <ESC>:call gruvbox#bg_toggle()<CR>gv
 
-colorscheme apprentice
+colorscheme moonfly
 
 " Set extra options when running in GUI mode
 if has("gui_running")
