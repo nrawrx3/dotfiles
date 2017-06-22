@@ -51,7 +51,8 @@ NAME_TO_URL = {
     'Vulkan': 'https://github.com/SaschaWillems/Vulkan.git',
     'Vulkan-Docs': 'https://github.com/KhronosGroup/Vulkan-Docs.git',
     'VulkanTools': 'https://github.com/LunarG/VulkanTools.git',
-    'VulkanSamples': 'https://github.com/LunarG/VulkanSamples.git'
+    'VulkanSamples': 'https://github.com/LunarG/VulkanSamples.git',
+    'cppitertools': 'https://github.com/ryanhaining/cppitertools.git'
 }
 
 ## Some errors with a few repositories. For these, just rsync them, and optionally remove them from hsb before doing that.
