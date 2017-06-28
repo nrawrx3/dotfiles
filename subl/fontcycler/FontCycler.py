@@ -8,6 +8,7 @@ Field = namedtuple('Field', ['name', 'default'])
 
 ANY_FONT_SIZE = -1
 
+
 def toggle_bold():
     settings = sublime.load_settings('Preferences.sublime-settings')
     font_options = set(settings.get('font_options', []))
@@ -23,10 +24,58 @@ def toggle_bold():
     settings.set('font_options', font_options)
     sublime.status_message('Bold: %s' % (bold))
 
+    sublime.save_settings('Preferences.sublime-settings')
+
+
+def next_line_padding():
+    settings = sublime.load_settings('Preferences.sublime-settings')
+    line_padding_bottom = settings.get('line_padding_bottom', 0)
+    line_padding_top = settings.get('line_padding_top', 0)
+    max_line_padding = settings.get('fontcycler.max_line_padding', 2) + 1
+    settings.set('line_padding_bottom',
+                 (line_padding_bottom + 1) % max_line_padding)
+    settings.set('line_padding_top', (line_padding_top + 1) % max_line_padding)
+
+    sublime.save_settings('Preferences.sublime-settings')
+
+def next_font_configuration():
+    settings = sublime.load_settings('Preferences.sublime-settings')
+    confs = settings.get('fontcycler.font_confs', None)
+    if confs is None:
+        sublime.status_message('Font confs not found')
+        return
+
+    cur_font_face = settings.get('font_face')
+    cur_font_size = settings.get('font_size')
+    cur_font_options = set(settings.get('font_options'))
+
+    i = 0
+    while i != len(confs):
+        conf = confs[i]
+        print(type(conf[0]), type(conf[1]), type(conf[2]))
+        if conf[0] == cur_font_face and conf[1] == cur_font_size and set(conf[2]) == cur_font_options:
+            break
+        i += 1
+
+    if i == len(confs):
+        i = 0
+    else:
+        i = (i + 1) % len(confs)
+
+    conf = confs[i]
+
+    settings.set('font_face', conf[0])
+    settings.set('font_size', conf[1])
+    settings.set('font_options', conf[2])
+    sublime.status_message('%s %s %s' %(conf[0], conf[1], conf[2]))
+
+    sublime.save_settings('Preferences.sublime-settings')
+
+
 
 def cycle_font(backward=False):
     settings = sublime.load_settings('Preferences.sublime-settings')
-    settings_fonts_list = settings.get('fonts_list', [])
+    settings_fonts_list = settings.get('fontcycler.fonts_list', [])
 
     if not settings_fonts_list:
         return
@@ -44,7 +93,7 @@ def cycle_font(backward=False):
                 item = {
                     'font_face': item,
                 }
-                
+
         if 'font_face' in item:
             fonts_list.append(item)
             key = (item['font_face'], item.get('font_size', ANY_FONT_SIZE))
@@ -55,10 +104,8 @@ def cycle_font(backward=False):
     current_font_face = settings.get('font_face')
     current_font_size = settings.get('font_size')
     cur_pos = position_by_key.get(
-        (current_font_face, current_font_size)
-    ) or position_by_key.get(
-        (current_font_face, ANY_FONT_SIZE)
-    )
+        (current_font_face, current_font_size)) or position_by_key.get(
+            (current_font_face, ANY_FONT_SIZE))
     new_pos = (cur_pos + delta) % len(fonts_list) if cur_pos is not None else 0
 
     font_settings = fonts_list[new_pos]
@@ -72,7 +119,7 @@ def cycle_font(backward=False):
         settings.set(field.name, font_settings.get(field.name, field.default))
     sublime.save_settings('Preferences.sublime-settings')
 
-    sublime.status_message('Font Face: %s' % (font_settings['font_face'],))
+    sublime.status_message('Font Face: %s' % (font_settings['font_face'], ))
 
 
 class NextFontCommand(sublime_plugin.TextCommand):
@@ -84,6 +131,16 @@ class PreviousFontCommand(sublime_plugin.TextCommand):
     def run(self, edit):
         cycle_font(backward=True)
 
+
 class ToggleBoldCommand(sublime_plugin.TextCommand):
     def run(self, edit):
         toggle_bold()
+
+
+class LinePaddingCommand(sublime_plugin.TextCommand):
+    def run(self, edit):
+        next_line_padding()
+
+class FontConfCommand(sublime_plugin.TextCommand):
+    def run(self, edit):
+        next_font_configuration()

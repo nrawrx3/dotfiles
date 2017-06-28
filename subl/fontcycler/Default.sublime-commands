@@ -11,4 +11,12 @@
         "caption": "Toggle bold",
         "command": "toggle_bold"
     },
+    {
+        "caption": "Next Line Padding",
+        "command": "line_padding"
+    }
+    {
+        "caption": "Font conf",
+        "command": "font_conf"
+    }
 ]
