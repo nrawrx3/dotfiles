@@ -74,6 +74,7 @@ Plug 'guns/vim-sexp'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'rhysd/nyaovim-markdown-preview'
+Plug 'scrooloose/nerdcommenter'
 
 
 
@@ -544,6 +545,9 @@ map <Leader>a, :Align ,<CR>
 map <Leader>a<bar> :Align <bar><CR>
 " Prompt for align character
 map <leader>ap :Align
+
+map <C-U> <C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y>
+map <C-D> <C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E>
 
 
 " => Helper functions
