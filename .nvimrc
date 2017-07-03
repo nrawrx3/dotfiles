@@ -92,6 +92,9 @@ Plug 'mindriot101/vim-yapf'
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 Plug 'Superbil/llvm.vim'
 Plug 'romainl/Apprentice'
+Plug 'rakr/vim-one'
+Plug 'tpope/vim-vividchalk'
+Plug 'michalbachowski/vim-wombat256mod'
 
 call plug#end()
 "filetype plugin indent on
@@ -101,7 +104,7 @@ call plug#end()
 " => Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme='zenburn'
+let g:airline_theme='wombat'
 
 " => YouCompleteMe
 
@@ -234,7 +237,7 @@ map <silent> <F5> :call gruvbox#bg_toggle()<CR>
 imap <silent> <F5> <ESC>:call gruvbox#bg_toggle()<CR>a
 vmap <silent> <F5> <ESC>:call gruvbox#bg_toggle()<CR>gv
 
-colorscheme apprentice
+colorscheme wombat256mod
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -261,7 +264,7 @@ set encoding=utf8
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
 
-set guifont=IosevkaTermHeavy\ 10
+set guifont=MonacoBSemi\ 9
 
 " => Files, backups and undo
 
@@ -328,7 +331,7 @@ set wrap "Wrap lines
 ""set exrc
 ""set secure
 
-set colorcolumn=100
+set colorcolumn=110
 highlight ColorColumn ctermbg=white guibg=white
 
 
@@ -392,6 +395,9 @@ try
   set stal=2
 catch
 endtry
+
+nnoremap <leader>bk :bnext<cr>
+nnoremap <leader>bl :bprevious<cr>
 
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost *
