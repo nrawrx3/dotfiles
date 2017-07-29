@@ -53,7 +53,8 @@ NAME_TO_URL = {
     'VulkanTools': 'https://github.com/LunarG/VulkanTools.git',
     'VulkanSamples': 'https://github.com/LunarG/VulkanSamples.git',
     'cppitertools': 'https://github.com/ryanhaining/cppitertools.git'
-    'VulkanMemoryAllocator': 'https://github.com/GPUOpen-LibrariesAndSDKs/VulkanMemoryAllocator.git'
+    'VulkanMemoryAllocator': 'https://github.com/GPUOpen-LibrariesAndSDKs/VulkanMemoryAllocator.git',
+    'Anvil': 'https://github.com/GPUOpen-LibrariesAndSDKs/Anvil.git'
 }
 
 ## Some errors with a few repositories. For these, just rsync them, and optionally remove them from hsb before doing that.
