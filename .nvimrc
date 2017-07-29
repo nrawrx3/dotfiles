@@ -83,6 +83,7 @@ Plug 'plasticboy/vim-markdown'
 Plug 'fatih/vim-go', { 'for': ['go'] }
 Plug 'tpope/vim-fireplace'
 Plug 'cespare/vim-toml'
+Plug 'tikhomirov/vim-glsl'
 Plug 'Valloric/YouCompleteMe', { 'for': ['c', 'cpp', 'python', 'rust', 'nim'] }
 autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable() | endif
 Plug 'ternjs/tern_for_vim'
