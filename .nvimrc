@@ -92,8 +92,8 @@ Plug 'rhysd/vim-clang-format'
 Plug 'mindriot101/vim-yapf'
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 Plug 'Superbil/llvm.vim'
+Plug 'racer-rust/vim-racer'
 Plug 'romainl/Apprentice'
-Plug 'rakr/vim-one'
 Plug 'tpope/vim-vividchalk'
 Plug 'michalbachowski/vim-wombat256mod'
 
@@ -122,6 +122,9 @@ let g:ycm_rust_src_path="/usr/src/rust/src/"
 let g:haskellmode_completion_ghc = 0
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 let g:ycm_semantic_triggers = {'haskell' : ['.'], 'rust': ['.', '::']}
+
+set hidden
+let g:racer_cmd = "~/.cargo/bin/racer"
 
 let python_highlight_all = 1
 
