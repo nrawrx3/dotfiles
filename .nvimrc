@@ -84,7 +84,7 @@ Plug 'fatih/vim-go', { 'for': ['go'] }
 Plug 'tpope/vim-fireplace'
 Plug 'cespare/vim-toml'
 Plug 'tikhomirov/vim-glsl'
-Plug 'Valloric/YouCompleteMe', { 'for': ['c', 'cpp', 'python', 'rust', 'nim'] }
+Plug 'Valloric/YouCompleteMe', { 'for': ['c', 'cpp', 'python', 'nim'] }
 autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable() | endif
 Plug 'ternjs/tern_for_vim'
 Plug 'maksimr/vim-jsbeautify'
@@ -241,7 +241,7 @@ map <silent> <F5> :call gruvbox#bg_toggle()<CR>
 imap <silent> <F5> <ESC>:call gruvbox#bg_toggle()<CR>a
 vmap <silent> <F5> <ESC>:call gruvbox#bg_toggle()<CR>gv
 
-colorscheme wombat256mod
+colorscheme apprentice
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -268,7 +268,11 @@ set encoding=utf8
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
 
-set guifont=MonacoBSemi\ 9
+if has('nvim')
+    set Guifont=Operator Mono:h10
+else
+    set guifont=CourierPrimeCode\ 10
+endif
 
 " => Files, backups and undo
 
