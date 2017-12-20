@@ -19,7 +19,6 @@
 
 xcompmgr &
 sh ~/.fehbg &
-tint2 &
+lxpanel &
 parcellite &
 qbat &
-

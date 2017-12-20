@@ -96,6 +96,7 @@ Plug 'racer-rust/vim-racer'
 Plug 'romainl/Apprentice'
 Plug 'tpope/vim-vividchalk'
 Plug 'michalbachowski/vim-wombat256mod'
+Plug 'nightsense/simplifysimplify'
 
 call plug#end()
 "filetype plugin indent on
@@ -268,11 +269,6 @@ set encoding=utf8
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
 
-if has('nvim')
-    set Guifont=Operator Mono:h10
-else
-    set guifont=CourierPrimeCode\ 10
-endif
 
 " => Files, backups and undo
 

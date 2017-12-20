@@ -4,14 +4,14 @@
 INCLUDE = "vars"
 
 RootMenu = "Pekwm" {
-	Entry = "Terminal" { Actions = "Exec terminix &" }
+	Entry = "Terminal" { Actions = "Exec xfce4-terminal &" }
 	Entry = "Run.." { Actions = "ShowCmdDialog" }
 
 	Separator {}
 
 	Submenu = "Editors" {
-		Entry = "gvim" { Actions = "Exec gvim" }
-		Entry = "vim" { Actions = "Exec urxvt -title vim -e vim" }
+		Entry = "gvim" { Actions = "Exec nvim-qt" }
+		Entry = "vim" { Actions = "Exec urxvt -title vim -e nvim" }
 		Entry = "subl3" { Actions = "Exec subl3" }
 	}
 	Submenu = "Filemanager" {

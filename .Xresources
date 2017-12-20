@@ -12,8 +12,8 @@ URxvt*perl-ext-common:				default,matcher
 URxvt*matcher.button:				1
 URxvt*url-launcher:				/usr/bin/firefox
 
-URxvt.font:					xft:MonacoBSemi:bold:size=9
-URxvt.boldFont:					xft:MonacoBSemi:bold:size=9
+URxvt.font:					xft:Consolas:size=10
+URxvt.boldFont:					xft:Consolas:bold:size=10
 
 URxvt*depth: 32
 
@@ -26,21 +26,38 @@ Xft.hinting: 1
 Xft.hintstyle: hintfull
 Xft.rgba: rgb
 
-*.foreground: #BCBCBC
-*.background: #262626
-*.color0:     #1C1C1C
-*.color8:     #444444
-*.color1:     #AF5F5F
-*.color9:     #FF8700
-*.color2:     #5F875F
-*.color10:    #87AF87
-*.color3:     #87875F
-*.color11:    #FFFFAF
-*.color4:     #5F87AF
-*.color12:    #8FAFD7
-*.color5:     #5F5F87
-*.color13:    #8787AF
-*.color6:     #5F8787
-*.color14:    #5FAFAF
-*.color7:     #6C6C6C
-*.color15:    #FFFFFF
+*.foreground:   #fbf0d2
+*.background:   #181512
+*.cursorColor:  #839496
+
+! black
+*.color0:       #282828
+*.color8:       #454545
+
+! red
+*.color1:       #e93c93
+*.color9:       #a87181
+
+! green
+*.color2:       #00a17c
+*.color10:      #76a571
+
+! yellow
+*.color3:       #f79031
+*.color11:      #d0a845
+
+! blue
+*.color4:       #00c0ce
+*.color12:      #008ba5
+
+! magenta
+*.color5:       #86458b
+*.color13:      #a0446c
+
+! cyan
+*.color6:       #8eb173
+*.color14:      #007d62
+
+! white
+*.color7:       #d3cab3
+*.color15:      #f4f3e2
