@@ -12,52 +12,33 @@ URxvt*perl-ext-common:				default,matcher
 URxvt*matcher.button:				1
 URxvt*url-launcher:				/usr/bin/firefox
 
-URxvt.font:					xft:Consolas:size=10
-URxvt.boldFont:					xft:Consolas:bold:size=10
+URxvt.font:					xft:Monofonto:size=10
+URxvt.boldFont:					xft:Monofonto:bold:size=10
 
 URxvt*depth: 32
 
-!-----------------------------------------
-! XFT
-!-----------------------------------------
-Xft.dpi: 96
-Xft.antialias: 1
-Xft.hinting: 1
-Xft.hintstyle: hintfull
-Xft.rgba: rgb
-
-*.foreground:   #fbf0d2
-*.background:   #181512
-*.cursorColor:  #839496
-
-! black
-*.color0:       #282828
-*.color8:       #454545
-
-! red
-*.color1:       #e93c93
-*.color9:       #a87181
-
-! green
-*.color2:       #00a17c
-*.color10:      #76a571
-
-! yellow
-*.color3:       #f79031
-*.color11:      #d0a845
-
-! blue
-*.color4:       #00c0ce
-*.color12:      #008ba5
-
-! magenta
-*.color5:       #86458b
-*.color13:      #a0446c
-
-! cyan
-*.color6:       #8eb173
-*.color14:      #007d62
-
-! white
-*.color7:       #d3cab3
-*.color15:      #f4f3e2
+! X Resources: Generated with Hodler (http://github.com/matttproud/hodler)
+*color0: #2b282b
+*color1: #e06e94
+*color2: #45b49a
+*color3: #e5c3ce
+*color4: #66998c
+*color5: #7c7d82
+*color6: #66988b
+*color7: #b9bdc4
+*color8: #2a282a
+*color9: #e06e94
+*color10: #83d0be
+*color11: #e5c3ce
+*color12: #62656c
+*color13: #44b399
+*color14: #004b32
+*color15: #d4d8e0
+*background: #000000
+*foreground: #cdd0d8
+*cursorColor: #c7c7c7
+! See "highlightColorMode" and "hm" options in XTerm manual page.
+*highlightTextColor: #000000
+*highlightColor: #c1ddff
+! No support for cursor text coloring; would be #feffff.
+! No support for bold coloring; would be #feffff.

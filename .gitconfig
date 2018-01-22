@@ -9,6 +9,7 @@
 	ui = auto
 [core]
 	editor = /usr/bin/env nano
+	autocrlf = input
 
 [gc]
 	auto=1

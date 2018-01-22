@@ -73,6 +73,17 @@ git_sub_update() {
     git submodule update --init --recursive
 }
 
+# Stage the modified files
+git_add_modified() {
+    git ls-files --modified | xargs git add 
+}
+
+# Stage the untracked but not ignored files. These are those files that you just
+# created in the repo.
+git_add_untracked() {
+    git ls-files --others --exclude-standard | xargs git add
+}
+
 # Time a process - requires the gnu time(1) command installed
 timeit() {
     /usr/bin/time -f "Elapsed=%E, User=%U, Kernel=%S" $@
