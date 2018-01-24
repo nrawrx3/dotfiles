@@ -1,0 +1,10 @@
+[
+    {"keys": ["f10"], "command": "next_font"},
+    {"keys": ["shift+f10"], "command": "previous_font"},
+    {"keys": ["shift+f11"], "command": "toggle_bold"},
+    {"keys": ["shift+f12"], "command": "line_padding"},
+    {"keys": ["f9"], "command": "font_conf_next"},
+    {"keys": ["shift+f9"], "command": "font_conf_prev"},
+    { "keys": ["ctrl+shift+c"], "command": "clang_format" },
+    { "keys": ["ctrl+shift+l"], "command":  "unix_line_ending"}
+]

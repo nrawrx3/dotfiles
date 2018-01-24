@@ -1,7 +1,0 @@
-[
-    {"keys": ["f10"], "command": "next_font"},
-    {"keys": ["shift+f10"], "command": "previous_font"},
-    {"keys": ["shift+f11"], "command": "toggle_bold"},
-    {"keys": ["shift+f12"], "command": "line_padding"},
-    {"keys": ["shift+f9"], "command": "font_conf"}
-]
