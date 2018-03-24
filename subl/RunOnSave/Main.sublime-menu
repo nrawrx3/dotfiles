@@ -1,0 +1,24 @@
+[{
+    "caption" : "Preferences",
+    "mnemonic" : "n",
+    "id" : "preferences",
+    "children" : [ {
+        "caption" : "Package Settings",
+        "mnemonic" : "P",
+        "id" : "package-settings",
+        "children" : [ {
+            "caption" : "Run On Save",
+            "children" : [
+                {"command" : "turn_on_run_on_save", "caption" : "Turn on RunOnSave"},
+
+                {"command" : "turn_off_run_on_save", "caption" : "Turn off RunOnSave"},
+
+                {
+                    "command" : "edit_settings",
+                    "args" : {"base_file" : "${packages}/RunOnSave/run_on_save.sublime-settings"},
+                    "caption" : "Settings"
+                }
+            ]
+        } ]
+    } ]
+}]

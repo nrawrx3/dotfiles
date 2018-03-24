@@ -1,44 +1,51 @@
-URxvt*geometry:					120x30
-URxvt*loginShell:				true
-URxvt*scrollBar:				false
-URxvt*scrollWithBuffer:				true
-!URxvt*fading:					30
-URxvt*urgentOnBell:				true
-!URxvt*cursorUnderline:				true
+URxvt*geometry:                 100x30
+URxvt*loginShell:               true
+URxvt*scrollBar:                false
+URxvt*scrollWithBuffer:             true
+!URxvt*fading:                  30
+URxvt*urgentOnBell:             true
+!URxvt*cursorUnderline:             true
 
-*internalBorder:				10
+XTerm*termName: xterm-256color
+URxvt*termName: rxvt-unicode
 
-URxvt*perl-ext-common:				default,matcher
-URxvt*matcher.button:				1
-URxvt*url-launcher:				/usr/bin/firefox
 
-URxvt.font:					xft:Source Code Pro Black:size=10
-URxvt.boldFont:					xft:Source Code Pro Black:bold:size=10
+*internalBorder:                10
+
+URxvt*perl-ext-common:              default,matcher
+URxvt*matcher.button:               1
+URxvt*url-launcher:             /usr/bin/firefox
+
+URxvt.font:                     xft:Monoid:bold:size=9
+URxvt.boldFont:                 xft:Monoid:bold:size=9
 
 URxvt*depth: 32
 
+ 
 ! X Resources: Generated with Hodler (http://github.com/matttproud/hodler)
-*color0: #2b282b
-*color1: #e06e94
-*color2: #45b49a
-*color3: #e5c3ce
-*color4: #66998c
-*color5: #7c7d82
-*color6: #66988b
-*color7: #b9bdc4
-*color8: #2a282a
-*color9: #e06e94
-*color10: #83d0be
-*color11: #e5c3ce
-*color12: #62656c
-*color13: #44b399
-*color14: #004b32
-*color15: #d4d8e0
-*background: #000000
-*foreground: #cdd0d8
+*color0: #495c65
+*color1: #f7cac9
+*color2: #9fa19c
+*color3: #e0cbd4
+*color4: #91a8cf
+*color5: #8b85a5
+*color6: #c1cfcf
+*color7: #c9d3de
+*color8: #485c64
+*color9: #d9b1b1
+*color10: #c1beb7
+*color11: #af9ea5
+*color12: #677793
+*color13: #656178
+*color14: #858f8f
+*color15: #e4e9ec
+*background: #292827
+*foreground: #e4e9ec
 *cursorColor: #c7c7c7
 ! See "highlightColorMode" and "hm" options in XTerm manual page.
 *highlightTextColor: #000000
 *highlightColor: #c1ddff
+
 ! No support for cursor text coloring; would be #feffff.
+! No support for bold coloring; would be #feffff.
 ! No support for bold coloring; would be #feffff.

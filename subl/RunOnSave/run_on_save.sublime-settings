@@ -1,0 +1,15 @@
+{
+    // A list of filenames (not path) to a sequence of commands which are in the
+    // form of the subprocess module's `run` command
+
+    "watched_files" :
+    {
+    	"cpumonitor.py" :
+    	[
+    		["@chdir", "/home/rksht/build/"],
+    		["urxvt", "-e", "nvim"]
+    	]
+	},
+
+	"terminal_path": "/usr/bin/urxvt"
+}

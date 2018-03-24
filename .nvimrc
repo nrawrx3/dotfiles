@@ -70,6 +70,7 @@ Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-vinegar'
 Plug 'vim-scripts/Align'
 Plug 'vim-scripts/Gundo'
+Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-commentary'
 Plug 'godlygeek/tabular'
 Plug 'michaeljsmith/vim-indent-object'
@@ -100,6 +101,7 @@ Plug 'romainl/Apprentice'
 Plug 'tpope/vim-vividchalk'
 Plug 'michalbachowski/vim-wombat256mod'
 Plug 'nightsense/simplifysimplify'
+Plug 'yuttie/inkstained-vim'
 Plug 'nightsense/plumber'
 
 call plug#end()
@@ -246,7 +248,7 @@ map <silent> <F5> :call gruvbox#bg_toggle()<CR>
 imap <silent> <F5> <ESC>:call gruvbox#bg_toggle()<CR>a
 vmap <silent> <F5> <ESC>:call gruvbox#bg_toggle()<CR>gv
 
-colorscheme apprentice
+colorscheme inkstained
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -316,9 +318,9 @@ set autoindent
 
 " File type specific tab options
 
-autocmd FileType c setlocal et ts=4 sw=4 sts=4
+autocmd FileType c setlocal et ts=4 sw=4 sts=4 textwidth=110
 autocmd FileType python setlocal et ts=4 sw=4 sts=4 textwidth=1000
-autocmd FileType cpp setlocal et ts=4 sw=4 sts=4
+autocmd FileType cpp setlocal et ts=4 sw=4 sts=4 textwidth=110
 autocmd FileType vim setlocal et ts=4 sw=4 sts=4
 autocmd FileType scheme setlocal et ts=2 sw=2 sts=2
 autocmd FileType bash setlocal et ts=4 sw=4 sts=4
