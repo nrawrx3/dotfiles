@@ -301,6 +301,8 @@ let g:ctrlp_max_files=0
 let g:ctrlp_show_hidden=1
 let g:ctrlp_custom_ignore = { 'dir': '\v[\/](.git)$' }
 
+map <C-a> <esc>ggVG<CR>
+
 
 
 

@@ -2,17 +2,18 @@
 
 import subprocess as sp
 import os
+import sys
 import argparse
 
 # Put files here
-files = ['weekend.cpp', 'rng.cpp']
+files = ['wallpaper.cpp']
 
 # Default path to compiler
 cc = 'g++'
 
 cwd = os.getcwd()
 
-command_line_cflags = ["-L\"{}\"".format(cwd), '-lSDL2main', '-lSDL2']
+command_line_cflags = ['-std=c++17']
 
 def pkgconfig(libname, extra_args):
     out = sp.Popen(['pkg-config', libname] + extra_args, stdout=sp.PIPE)
@@ -25,13 +26,16 @@ def pkgconfig(libname, extra_args):
 
 def run_gcc():
     # Call pkgconfig or put libflags here (as a list)
-    # sdl_flags = pkgconfig('sdl2', ['--libs', '--cflags'])
+
     sdl_flags = []
+
+    lflags = ['-lstdc++fs']
 
     include_path = '-I' + str(os.path.dirname(os.path.abspath(__file__)))
 
     # Append lists here
-    all_flags = [cc, include_path] + sdl_flags + files + command_line_cflags
+    all_flags = [cc, include_path] + command_line_cflags + sdl_flags + files + lflags
+
     print('Build line = ', ' '.join(all_flags))
     sp.run(all_flags, check=True)
 

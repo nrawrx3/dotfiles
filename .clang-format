@@ -4,6 +4,7 @@ AccessModifierOffset: -2
 AlignAfterOpenBracket: true
 AlignEscapedNewlinesLeft: false
 AlignOperands:   true
+AlignConsecutiveAssignments: false
 AlignTrailingComments: true
 AllowAllParametersOfDeclarationOnNextLine: true
 AllowShortBlocksOnASingleLine: false
@@ -17,8 +18,8 @@ AlwaysBreakBeforeMultilineStrings: false
 BreakBeforeBinaryOperators: None
 BreakBeforeTernaryOperators: true
 BreakConstructorInitializersBeforeComma: true
-BinPackParameters: true
-BinPackArguments: true
+BinPackParameters: false
+BinPackArguments: false
 ColumnLimit:     110
 ConstructorInitializerAllOnOneLineOrOnePerLine: false
 ConstructorInitializerIndentWidth: 4
@@ -69,5 +70,11 @@ TabWidth:        4
 UseTab:          Never
 BreakBeforeBraces: Attach
 
-...
+---
 
+Language:		JavaScript
+ColumnLimit: 	110
+IndentWidth: 	4
+TabWidth: 		4
+UseTab: 		Never
+BreakBeforeBraces: Attach
