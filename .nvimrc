@@ -103,6 +103,7 @@ Plug 'michalbachowski/vim-wombat256mod'
 Plug 'nightsense/simplifysimplify'
 Plug 'yuttie/inkstained-vim'
 Plug 'nightsense/plumber'
+Plug 'andreypopp/vim-colors-plain'
 
 call plug#end()
 "filetype plugin indent on

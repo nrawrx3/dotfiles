@@ -10,10 +10,6 @@ import os
 import subprocess as sp
 import re
 
-# Do you sometimes just fucking hate programming? NO!! I just love adapting
-# scripts to work with different distros, oses, cats, dogs, zombies. Here's
-# for my NixOS setup
-
 IS_NIXOS = False
 GCC_VERSION = '6.3.1'
 
