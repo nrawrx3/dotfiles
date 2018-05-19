@@ -40,6 +40,16 @@ def run_gcc():
     sp.run(all_flags, check=True)
 
 
+def arg_list(strlist: str):
+    s = strlist.strip()
+    assert(len(s) >= 2)
+    assert(s[0] == '[')
+    assert(s[-1] == ']')
+    s = s[1:-1]
+    libnames = [name.strip() for name in s.split(',')]
+    return libnames
+
+
 if __name__ == '__main__':
     a = argparse.ArgumentParser(usage='Shove .cpp files to gcc')
 
@@ -50,9 +60,7 @@ if __name__ == '__main__':
 
     args = a.parse_args()
 
-    for opt in args.cflags.split(','):
-        if opt != '':
-            command_line_cflags.append(opt)
+    command_line_cflags.extend(arg_list(args.cflags))
 
     if args.files != '':
         files = args.files.split(',')[1:]

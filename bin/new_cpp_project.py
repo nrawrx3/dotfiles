@@ -1,3 +1,7 @@
+#!/usr/bin/env python3
+
+# Generate a CMake based C++ project
+
 import subprocess as sp
 import argparse
 import typing
@@ -9,6 +13,13 @@ class UrlType:
     GIT = 0
     ZIP = 1  # Not implemented yet
     FILE = 2 # Not implemented yet
+    CMAKE_PACKAGE = 3
+
+class FindPackageInfo:
+    def __init__(self, package_name, include_dirs_found_name, libraries_name):
+        self.package_name = package_name
+        self.include_dirs_found_name = include_dirs_found_name
+        self.libraries_name = libraries_name
 
 
 class LibraryInfo:
@@ -44,7 +55,8 @@ PREDEFINED_LIBRARY_INFO = [
     LibraryInfo('argh', 'https://github.com/adishavit/argh.git', usual_include_dir),
     LibraryInfo('glfw', 'https://github.com/glfw/glfw.git', usual_include_dir, is_c_library=True),
     LibraryInfo('assimp', 'https://github.com/assimp/assimp.git', usual_include_dir),
-    LibraryInfo('json', "https://github.com/nlohmann/json.git", usual_include_dir),
+    LibraryInfo('json', 'https://github.com/nlohmann/json.git', usual_include_dir),
+    LibraryInfo('opencv', FindPackageInfo('OpenCV', 'OpenCV_INCLUDE_DIRS', 'OpenCV_LIBS'), None, url_type=UrlType.CMAKE_PACKAGE),
 ]
 
 # Ensure no duplicates
@@ -105,12 +117,20 @@ ex_prepend_to_each("${{_rel_include_dirs}}" "${{PROJECT_SOURCE_DIR}}/third/" thi
     s = s.format('\n    '.join(include_dirs_relative))
     return s
 
+
+def make_find_packages_section(cmake_packages_libs):
+    s = '''find_package({} REQUIRED)
+list(APPEND third_party_include_dirs ${{{}}})
+'''
+    return ''.join(s.format(lib.url.package_name, lib.url.include_dirs_found_name) for lib in cmake_packages_libs)
+
+
 def make_add_subdirectories_section(libs):
     add_subdir_commands = []
     for lib in libs:
         if lib.has_cmakelists:
             add_subdir_commands.append('add_subdirectory(third/{})'.format(lib.name))
-    print(add_subdir_commands)
+    print("Add subdir commands = ", add_subdir_commands)
 
     s = '''set(SCAFFOLD_BUILD_SHARED_LIB ON CACHE BOOL "Build scaffold as shared lib" FORCE)
 {}
@@ -118,16 +138,6 @@ add_subdirectory(src)
 add_subdirectory(test)'''
     s = s.format('\n'.join(add_subdir_commands))
     return s
-
-
-def arg_list(strlist: str):
-    s = strlist.strip()
-    assert(len(s) >= 2)
-    assert(s[0] == '[')
-    assert(s[-1] == ']')
-    s = s[1:-1]
-    libnames = [name.strip() for name in s.split(',')]
-    return libnames
 
 
 def make_dirs(dirpath):
@@ -142,14 +152,15 @@ class Info:
         self.projname = projname
         self.thirds = thirds
         self.dest_dir = dest_dir
+        self.projdir = "{}/{}".format(self.dest_dir, self.projname)
+        self.testdir = "{}/test".format(self.projdir)
+        self.srcdir = "{}/src".format(self.projdir)
 
         name_to_libinfo = {}
-
         for info in PREDEFINED_LIBRARY_INFO:
             name_to_libinfo[info.name] = info
 
         self.libs = [name_to_libinfo[name] for name in libnames]
-
 
         # Add mandatory libraries
         libs_set = set(lib.name for lib in self.libs)
@@ -159,25 +170,27 @@ class Info:
         for lib in PREDEFINED_LIBRARY_INFO:
             if lib.name in need_to_add:
                 self.libs.append(lib)
-        
+
         non_mandatory_libs = libs_set - mlibs_set
 
         self.non_mandatory_libs = []
 
         for lib in self.libs:
-            if lib.name in non_mandatory_libs:
+            if lib.name in non_mandatory_libs and lib.url_type != UrlType.CMAKE_PACKAGE:
                 self.non_mandatory_libs.append(lib)
-
-        self.projdir = "{}/{}".format(self.dest_dir, self.projname)
-        self.testdir = "{}/test".format(self.projdir)
-        self.srcdir = "{}/src".format(self.projdir)
 
         self.git_libs = []
 
         for lib in self.libs:
             if lib.url_type == UrlType.GIT:
                 self.git_libs.append(lib)
-        
+
+        self.cmake_packages_libs = list(filter(lambda lib: lib.url_type == UrlType.CMAKE_PACKAGE, self.libs))
+        self.non_cmake_packages_libs = list(filter(lambda lib: lib.url_type != UrlType.CMAKE_PACKAGE, self.libs))
+        self.add_as_subdirectory_libs = list(filter(lambda lib: not lib.is_c_library, self.non_cmake_packages_libs))
+        self.clibs = list(filter(lambda lib: lib.is_c_library, self.libs))
+        self.non_cmake_packages_clibs = list(filter(lambda lib: lib.url_type != UrlType.CMAKE_PACKAGE, self.clibs))
+
 
     def generate_top_level(self):
         try:
@@ -188,15 +201,15 @@ class Info:
         except FileExistsError:
             pass
 
-        clibs = list(filter(lambda lib: lib.is_c_library, self.libs))
-        non_clibs = list(filter(lambda lib: not lib.is_c_library, self.libs))
+        cmake_packages_libs = list(filter(lambda lib: lib.url_type == UrlType.CMAKE_PACKAGE, self.libs))
 
-        cmake_top_level_generated = '{}\n{}\n{}\n{}\n{}\n'.format(
+        cmake_top_level_generated = '{}\n{}\n{}\n{}\n{}\n{}\n'.format(
             make_prelude_section(self.projname),
-            make_c_library_section(clibs),
+            make_c_library_section(self.non_cmake_packages_clibs),
             make_stdflag_section(17),
-            make_third_party_include_dirs_section(self.libs),
-            make_add_subdirectories_section(non_clibs))
+            make_find_packages_section(cmake_packages_libs),
+            make_third_party_include_dirs_section(self.non_cmake_packages_libs),
+            make_add_subdirectories_section(self.add_as_subdirectory_libs))
 
         with open(os.path.join(self.projdir, 'CMakeLists.txt'), 'w') as f:
             f.write(cmake_top_level_generated)
@@ -237,7 +250,7 @@ endfunction()
 '''
             f.write(s)
 
-        
+
     def generate_test_level(self):
         s = '''cmake_minimum_required(VERSION 3.4)
 
@@ -312,7 +325,7 @@ include(extra_functions)
 if (gcc_or_clang)
     add_compile_options(-Wall -march=native -fmax-errors=1)
 else()
-    add_compile_options(-Wall)    
+    add_compile_options(-Wall)
 endif()
 
 ## Source files
@@ -327,7 +340,7 @@ set(source_files fizzbuzz.cpp
 include_directories(${{third_party_include_dirs}})
 include_directories(${{PROJECT_SOURCE_DIR}}/include)
 
-add_library({0} ${{source_files}})
+add_library({0} SHARED ${{source_files}})
 
 set(depending_libraries scaffold {1})
 
@@ -336,25 +349,15 @@ if (gcc_or_clang)
 endif()
 
 target_link_libraries({0} ${{depending_libraries}})
-
-if (LDX_BUILD_SHARED_LIB)
-    add_library({0}-shared SHARED ${{source_files}})
-
-    set(depending_libraries scaffold-shared {1})
-
-    if (gcc_or_clang)
-        LIST(APPEND depending_libraries -lstdc++fs -pthread)
-    endif()
-    
-    target_link_libraries({0}-shared ${{depending_libraries}})
-
-endif()
 '''
-        cmake_source = cmake_source.format(self.projname, ' '.join(lib.name for lib in self.non_mandatory_libs))
-
+        cmake_package_lib_format = '${{{}}}'
+        non_package_libraries_names = list(lib.name for lib in self.non_mandatory_libs)
+        package_libraries_names = list('${' + lib.url.libraries_name + '}' for lib in self.cmake_packages_libs)
+        source = cmake_source.format(self.projname, ' '.join(non_package_libraries_names + package_libraries_names))
         with open("{}/CMakeLists.txt".format(self.srcdir), 'w') as f:
-            f.write(cmake_source)
+            f.write(source)
 
+        # Fizzbuzz program for testing
         fizzbuzz_cpp = '''#include <{0}/fizzbuzz.h>
 const char *fizzbuzz(int n) {{
     if (n % 15 == 0) {{
@@ -430,6 +433,16 @@ const char *fizzbuzz(int n) {{
         except Exception as e:
             print("Exception: ", e)
             os.chdir(working_dir)
+
+
+def arg_list(strlist: str):
+    s = strlist.strip()
+    assert(len(s) >= 2)
+    assert(s[0] == '[')
+    assert(s[-1] == ']')
+    s = s[1:-1]
+    libnames = [name.strip() for name in s.split(',')]
+    return libnames
 
 
 if __name__ == '__main__':
