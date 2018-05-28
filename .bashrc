@@ -25,19 +25,15 @@ HISTSIZE=-1
 PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl":$PATH
 
 # The builds
-export BUILD_DIR=$HOME/builds
+export BUILD_DIR=$HOME/build
 
-export GOPATH=$HOME/samples/go
-
-PATH=$PATH:$GOPATH/bin
 PATH=$HOME/.local/bin:$PATH
 
 export PATH
 
-
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH"
 
-export CSCOPE_EDITOR="vim"
+export CSCOPE_EDITOR="nvim"
 
 export PACMAN_CACHE="/var/cache/pacman/pkg"
 
@@ -76,13 +72,18 @@ git_sub_update() {
 
 # Stage the modified files
 git_add_modified() {
-    git ls-files --modified | xargs git add 
+    git ls-files --modified | xargs git add
 }
 
 # Stage the untracked but not ignored files. These are those files that you just
 # created in the repo.
 git_add_untracked() {
     git ls-files --others --exclude-standard | xargs git add
+}
+
+# Prettier log
+git_pretty_log() {
+    git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 }
 
 # Time a process - requires the gnu time(1) command installed
@@ -231,7 +232,7 @@ export GIT_HOSTING='git@git.domain.com'
 unset MAILCHECK
 
 # Change this to your console based IRC client of choice.
-export IRC_CLIENT='irssi'
+export IRC_CLIENT='weechat'
 
 # Set this to the command you use for todo.txt-cli
 export TODO="t"

@@ -104,6 +104,7 @@ Plug 'nightsense/simplifysimplify'
 Plug 'yuttie/inkstained-vim'
 Plug 'nightsense/plumber'
 Plug 'andreypopp/vim-colors-plain'
+Plug 'arcticicestudio/nord-vim'
 
 call plug#end()
 "filetype plugin indent on
@@ -249,7 +250,7 @@ map <silent> <F5> :call gruvbox#bg_toggle()<CR>
 imap <silent> <F5> <ESC>:call gruvbox#bg_toggle()<CR>a
 vmap <silent> <F5> <ESC>:call gruvbox#bg_toggle()<CR>gv
 
-colorscheme inkstained
+colorscheme nord
 
 " Set extra options when running in GUI mode
 if has("gui_running")
