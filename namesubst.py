@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 # Change some string in all files recursively in directories. Use with caution.
 
 import re
@@ -48,10 +50,19 @@ def write_to_file(filepath, new_string):
     with open(filepath, 'w') as stream:
         stream.write(new_string)
 
+def arg_list(strlist: str):
+    s = strlist.strip()
+    assert(len(s) >= 2)
+    assert(s[0] == '[')
+    assert(s[-1] == ']')
+    s = s[1:-1]
+    libnames = [name.strip() for name in s.split(',')]
+    return libnames
+
 if __name__ == '__main__':
     ap = argparse.ArgumentParser(description='Change string in all text files recursively')
     ap.add_argument('directories', nargs='*', default=[], help='list of directories to traverse')
-    ap.add_argument('-e', '--extensions', default='', help='comma separated list of extensions')
+    ap.add_argument('-e', '--extensions', default='', help='list of extensions')
     ap.add_argument('-r', '--regex', default=None, help='regex to match string against')
     ap.add_argument('-n', '--newstring', default=None, help='new string')
     ap.add_argument('-y', '--yes', action='store_true', help='Yes, do actually modify the files')
@@ -62,7 +73,7 @@ if __name__ == '__main__':
     if args.extensions == '':
         print('Will test ALL files')
     else:
-        config.extensions = [e for e in args.extensions.split(',') if e != '']
+        config.extensions = arg_list(args.extensions)
         print('Replacing in files with extensions: ' + str(config.extensions))
 
     config.is_dry_run = not args.yes
@@ -79,7 +90,7 @@ if __name__ == '__main__':
         print('Error - Need string to replace with')
         exit()
 
-    
+
     config.regex = re.compile(args.regex)
     config.replace_with = args.newstring
 
