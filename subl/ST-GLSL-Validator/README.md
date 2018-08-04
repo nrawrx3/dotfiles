@@ -15,17 +15,19 @@ Everything should work fine as long as you have a GLSL syntax highlighter instal
 The main change is that you can define the type of macros in a multiline comment in the GLSL file, like this -
 
 ```
-/*  __macro
+/*  __macro__
 	PARAMS_UBO_BINDING = int
 	PER_CAMERA_UBO_BINDING = int
 */
 
 ```
 
-and glslangValidator will be called with `-DPARAMS_UBO_BINDING=1 -DPER_CAMERA_UBO_BINDING=1`, the exact 
+and glslangValidator will be called with `-DPARAMS_UBO_BINDING=1 -DPER_CAMERA_UBO_BINDING=1`, the exact value of the macro is not usually important so I just send `1`. Might allow specifying a value too in future.
+
+The settings are in
 
 ```
-Preferences > Package Settings > GLSL Validator > Settings - Default
+Preferences > Package Settings > GLSL Validator > Settings - User
 ```
 
 ## Permissions
