@@ -3,3 +3,5 @@
 .mpd/
 note.txt
 *.pyc
+bin/homewrecker.py
+
