@@ -20,8 +20,8 @@ filetype indent on
 set autoread
 
 " Line numbers
-"set relativenumber
-"set number
+set number
+set norelativenumber
 
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file, and the leader is ,
@@ -62,10 +62,9 @@ Plug 'vim-scripts/gitignore'
 Plug 'tpope/vim-fugitive'
 Plug 'int3/vim-extradite'
 
-Plug 'scrooloose/nerdtree'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'kien/ctrlp.vim'
+"Plug 'kien/ctrlp.vim'
 Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-vinegar'
 Plug 'vim-scripts/Align'
@@ -76,9 +75,9 @@ Plug 'godlygeek/tabular'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'guns/vim-sexp'
 Plug 'kien/rainbow_parentheses.vim'
-Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'rhysd/nyaovim-markdown-preview'
 Plug 'scrooloose/nerdcommenter'
+Plug 'Shougo/denite.nvim'
 
 Plug 'hdima/python-syntax'
 Plug 'plasticboy/vim-markdown'
@@ -96,6 +95,16 @@ Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 Plug 'Superbil/llvm.vim'
 Plug 'l04m33/vlime'
 Plug 'racer-rust/vim-racer'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
+if has('nvim')
+  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/defx.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
 
 Plug 'romainl/Apprentice'
 Plug 'tpope/vim-vividchalk'
@@ -105,11 +114,79 @@ Plug 'yuttie/inkstained-vim'
 Plug 'nightsense/plumber'
 Plug 'andreypopp/vim-colors-plain'
 Plug 'arcticicestudio/nord-vim'
+Plug 'sts10/vim-pink-moon'
+Plug 'lifepillar/vim-solarized8'
 
 call plug#end()
 "filetype plugin indent on
 
+colorscheme solarized8
+
 " PLUGINS DONE
+
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+" Default fzf layout
+" - down / up / left / right
+let g:fzf_layout = { 'down': '~40%' }
+
+" In Neovim, you can set up fzf window using a Vim command
+let g:fzf_layout = { 'window': 'enew' }
+let g:fzf_layout = { 'window': '-tabnew' }
+let g:fzf_layout = { 'window': '10split enew' }
+
+" Customize fzf colors to match your color scheme
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
+" [Buffers] Jump to the existing window if possible
+let g:fzf_buffers_jump = 1
+
+" [[B]Commits] Customize the options used by 'git log':
+let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
+
+" [Tags] Command to generate tags file
+let g:fzf_tags_command = 'ctags -R'
+
+" [Commands] --expect expression for directly executing the command
+let g:fzf_commands_expect = 'alt-enter,ctrl-x'
+
+" Enable per-command history.
+" CTRL-N and CTRL-P will be automatically bound to next-history and
+" previous-history instead of down and up. If you don't like the change,
+" explicitly bind the keys to down and up in your $FZF_DEFAULT_OPTS.
+let g:fzf_history_dir = '~/.local/share/fzf-history'
+
+let g:fzf_action = {
+      \ 'ctrl-s': 'split',
+      \ 'ctrl-v': 'vsplit'
+      \ }
+
+nnoremap <c-p> :FZF<cr>
+
+augroup fzf
+  autocmd!
+  autocmd! FileType fzf
+  autocmd  FileType fzf set laststatus=0 noshowmode noruler
+    \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+augroup END
+
+nnoremap <silent> <Leader><space> :FZF<CR>
 
 " => Airline
 let g:airline#extensions#tabline#enabled = 1
@@ -132,28 +209,7 @@ let g:haskellmode_completion_ghc = 0
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 let g:ycm_semantic_triggers = {'haskell' : ['.'], 'rust': ['.', '::']}
 
-set hidden
-let g:racer_cmd = "~/.cargo/bin/racer"
-
 let python_highlight_all = 1
-
-" => Syntastic Checking (not using)
-
-"map <silent> <Leader>e :Errors<CR>
-"map <Leader>s :SyntasticToggleMode<CR>
-
-"let g:syntastic_auto_loc_list=1
-
-"let g:syntastic_cpp_compiler = 'clang++'
-"let g:syntastic_cpp_compiler_options = '-std=c++14'
-
-
-" => Vim Cpp Enhanced
-
-let g:cpp_class_scope_highlight = 1
-
-let g:cpp_experimental_template_highlight = 1
-
 
 " => VIM user interface
 
@@ -190,29 +246,26 @@ set hidden
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
 
+set hidden
+"nnoremap <C-N> :bnext<CR>
+"nnoremap <C-P> :bprev<CR>
+
 " Ignore case when searching
 set ignorecase
-
 " When searching try to be smart about cases
 set smartcase
-
 " Highlight search results
 set hlsearch
-
 " Makes search act like search in modern browsers
 set incsearch
-
 " Don't redraw while executing macros (good performance config)
 set lazyredraw
-
 " For regular expressions turn magic on
 set magic
-
 " Show matching brackets when text indicator is over them
 set showmatch
 " How many tenths of a second to blink when matching brackets
 set mat=2
-
 " No annoying sound on errors
 set noerrorbells
 set novisualbell
@@ -228,29 +281,16 @@ endif
 
 " Force redraw
 map <silent> <leader>r :redraw!<CR>
-
 " Turn mouse mode on
 nnoremap <leader>ma :set mouse=a<cr>
-
 " Turn mouse mode off
 nnoremap <leader>mo :set mouse=<cr>
-
 " Default to mouse mode on
 set mouse=a
-
-
-
 " => Colors and Fonts
-
 
 " Enable syntax highlighting
 syntax on
-
-map <silent> <F5> :call gruvbox#bg_toggle()<CR>
-imap <silent> <F5> <ESC>:call gruvbox#bg_toggle()<CR>a
-vmap <silent> <F5> <ESC>:call gruvbox#bg_toggle()<CR>gv
-
-colorscheme nord
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -273,10 +313,8 @@ hi! link SyntasticWarningSign WarningMsg
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
-
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
-
 
 " => Files, backups and undo
 
@@ -297,16 +335,7 @@ nmap <leader>e :e <C-R>=expand("%:p:h") . '/'<CR>
 " Show undo tree
 nmap <silent> <leader>u :GundoToggle<CR>
 
-" Fuzzy find files
-nnoremap <silent> <Leader><space> :CtrlP<CR>
-let g:ctrlp_max_files=0
-let g:ctrlp_show_hidden=1
-let g:ctrlp_custom_ignore = { 'dir': '\v[\/](.git)$' }
-
 map <C-a> <esc>ggVG<CR>
-
-
-
 
 " => Default indentation and tab widths
 
@@ -355,8 +384,6 @@ highlight ColorColumn ctermbg=white guibg=white
 " Visual mode pressing * or # searches for the current selection
 vnoremap <silent> * :call VisualSelection('f')<CR>
 vnoremap <silent> # :call VisualSelection('b')<CR>
-
-
 
 " => Moving around, tabs, windows and buffers
 
@@ -420,8 +447,6 @@ autocmd BufReadPost *
      \ endif
 " Remember info about open buffers on close
 set viminfo^=%
-
-let g:ctrlp_map = '<c-p>'
 
 
 """"""""""""""""""""""""""""""
@@ -530,26 +555,6 @@ map <leader>pp :setlocal paste!<cr>
 
 
 " => NERDTree
-
-
-" Close nerdtree after a file is selected
-let NERDTreeQuitOnOpen = 1
-
-function! IsNERDTreeOpen()
-  return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
-endfunction
-
-function! ToggleFindNerd()
-  if IsNERDTreeOpen()
-    exec ':NERDTreeToggle'
-  else
-    exec ':NERDTreeFind'
-  endif
-endfunction
-
-" If nerd tree is closed, find current file, if open, close it
-nmap <silent> <leader>f <ESC>:call ToggleFindNerd()<CR>
-nmap <silent> <C-s> <ESC>:call ToggleFindNerd()<CR>
 
 
 " => Alignment
