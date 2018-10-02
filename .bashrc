@@ -16,6 +16,7 @@ alias raxvu="rsync -aAXvu"
 alias up="cd .."
 alias upp="cd ../.."
 alias uppp="cd ../../.."
+alias cl="clear"
 
 source /etc/profile.d/vte.sh
 
