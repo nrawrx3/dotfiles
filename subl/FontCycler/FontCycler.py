@@ -31,10 +31,18 @@ def next_line_padding():
     settings = sublime.load_settings('Preferences.sublime-settings')
     line_padding_bottom = settings.get('line_padding_bottom', 0)
     line_padding_top = settings.get('line_padding_top', 0)
-    max_line_padding = settings.get('fontcycler.max_line_padding', 2) + 1
-    settings.set('line_padding_bottom',
-                 (line_padding_bottom + 1) % max_line_padding)
-    settings.set('line_padding_top', (line_padding_top + 1) % max_line_padding)
+
+    padding = min(line_padding_bottom, line_padding_top)
+
+    hi = settings.get('fontcycler.max_line_padding', 2) + 1
+    lo = settings.get('fontcycler.min_line_padding', 0)
+    diff = hi - lo
+    padding -= lo
+    padding = (padding + 1) % diff
+    padding += lo
+
+    settings.set('line_padding_bottom', padding)
+    settings.set('line_padding_top', padding)
 
     sublime.save_settings('Preferences.sublime-settings')
 
