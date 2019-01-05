@@ -37,6 +37,8 @@ export CSCOPE_EDITOR="nvim"
 
 export PYTHONPATH=$HOME/.local/python_modules:$PYTHONPATH
 
+export NVIM_YCMD_PATH="${HOME}/.config/nvim/plugged/YouCompleteMe/third_party/ycmd/ycmd"
+
 # Functions
 man() {
     env LESS_TERMCAP_mb=$'\E[01;31m' \
