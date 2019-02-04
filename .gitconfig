@@ -33,3 +33,5 @@
 	uncommit = reset --soft HEAD^
 
 
+[http]
+	postBuffer = 1048576000

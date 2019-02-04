@@ -108,11 +108,12 @@ endif
 Plug 'romainl/Apprentice'
 Plug 'tpope/vim-vividchalk'
 Plug 'lifepillar/vim-solarized8'
+Plug 'abnt713/vim-hashpunk'
 
 call plug#end()
 "filetype plugin indent on
 
-colorscheme solarized8
+colorscheme hashpunk
 
 " PLUGINS DONE
 
