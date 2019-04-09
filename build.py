@@ -1,4 +1,4 @@
-# Bestest build tool evar. Cmake, make, rake, cake, lake,... nothing comes close.
+#!/usr/bin/env python
 
 import subprocess as sp
 import os
@@ -6,14 +6,42 @@ import sys
 import argparse
 
 # Put files here
+# files = ['vis_buddy_alloc.cpp']
 files = ['wallpaper.cpp']
+# files = ['case_change.cpp']
+
+this_dir = os.path.dirname(os.path.abspath(__file__))
 
 # Default path to compiler
-cc = 'g++'
+cc = 'clang++'
 
 cwd = os.getcwd()
 
-command_line_cflags = ['-std=c++17']
+# ------ Linker flags, like lib directory
+ldflags = []
+if os.getenv('LDFLAGS'):
+    ldflags.extend(os.getenv('LDFLAGS').split(' ')) # Assumes no spaces in pathname components
+
+cflags = ['-std=c++17']
+if os.getenv('CXXFLAGS'):
+    cflags.extend(os.getenv('CXXFLAGS').split(' ')) # Assumes no spaces in pathname components
+
+if os.getenv('CPPFLAGS'):
+    cflags.extend(os.getenv('CPPFLAGS').split(' ')) # Assumes no spaces in pathname components
+
+lflags = []
+
+def init_lflags():
+    if sys.platform == 'linux':
+        # On Linux use libstdc++
+        lflags.append('-lstdc++fs')
+    elif sys.platform == 'darwin':
+        # On Mac, make sure to use clang
+        assert cc.find('clang') != -1
+        lflags.append('-lc++fs')
+    else:
+        raise ValueError('Will not work on windows')
+
 
 def pkgconfig(libname, extra_args):
     out = sp.Popen(['pkg-config', libname] + extra_args, stdout=sp.PIPE)
@@ -24,50 +52,50 @@ def pkgconfig(libname, extra_args):
     return out.strip().split(' ')
 
 
-def run_gcc():
+def run_cc():
     # Call pkgconfig or put libflags here (as a list)
 
-    sdl_flags = []
+    cflags.extend(pkgconfig('sdl2', ['--cflags']))
+    lflags.extend(pkgconfig('sdl2', ['--libs']))
 
-    lflags = ['-lstdc++fs']
-
-    include_path = '-I' + str(os.path.dirname(os.path.abspath(__file__)))
+    include_path = '-I' + this_dir
 
     # Append lists here
-    all_flags = [cc, include_path] + command_line_cflags + sdl_flags + files + lflags
+    all_flags = [cc, include_path] + cflags + files + ldflags + lflags
 
     print('Build line = ', ' '.join(all_flags))
     sp.run(all_flags, check=True)
 
 
-def arg_list(strlist: str):
-    s = strlist.strip()
-    assert(len(s) >= 2)
-    assert(s[0] == '[')
-    assert(s[-1] == ']')
-    s = s[1:-1]
-    libnames = [name.strip() for name in s.split(',')]
-    return libnames
+def parse_options_list(list_as_string):
+    if not list_as_string:
+        return []
+
+    assert len(list_as_string) >= 2
+    list_as_string = list_as_string[1:-1]
+    options = list_as_string.split(',')
+    options = [o.strip() for o in options]
+    return options
 
 
 if __name__ == '__main__':
     a = argparse.ArgumentParser(usage='Shove .cpp files to gcc')
 
     # Example - ./build.py ,-ggdb,-Wall,-Wextra
-    a.add_argument('cflags', nargs='?', default='', help="sequence of ',' and option. Options sent to gcc.")
-    a.add_argument('-f', '--files', nargs='?', default='', help="Override the list of files. Sequence of ',' and filename")
+    a.add_argument('cflags', nargs='?', default='', help="[options]")
+    a.add_argument('-f', '--files', nargs='?', default='', help="[files]")
     a.add_argument('-c', '--cc', nargs='?', default='g++', help="Override path to compiler")
 
     args = a.parse_args()
 
-    command_line_cflags.extend(arg_list(args.cflags))
+    cflags.extend(parse_options_list(args.cflags))
 
     if args.files != '':
-        files = args.files.split(',')[1:]
+        files = parse_options_list(args.cflags)
 
     if args.cc != 'g++':
         cc = args.cc
+    
+    init_lflags()
 
-    print(command_line_cflags)
-
-    run_gcc()
+    run_cc()
