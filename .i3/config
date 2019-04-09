@@ -16,7 +16,7 @@
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
-font pango:Inconsolatazi4 10
+font pango:Inconsolatazi4 14
 
 # use Mouse+Mod1 to drag floating windows to their wanted position
 floating_modifier Mod1
@@ -181,7 +181,7 @@ bar {
         urgent_workspace #f2777a #f2777a #ffffff
     }
 }
-
+subl
 # editors
 bindsym Mod4+e exec gvim
 bindsym Mod4+Shift+e exec subl3
@@ -194,9 +194,9 @@ bindsym Mod4+r exec evince
 
 # terminal emulator
 bindsym Mod4+t exec urxvt
-bindsym Mod4+Shift+t exec termite
+bindsym Mod4+Shift+t exec xfce4-terminal
 # web browser
-bindsym Mod4+w exec firefox
+bindsym Mod4+w exec chromium
 
 # file managers
 bindsym Mod4+f exec spacefm
@@ -222,6 +222,24 @@ bindsym Mod1+Shift+g exec systemctl hibernate
 # reboot
 bindsym Mod1+Shift+b exec systemctl reboot
 
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
+# Touchpad controls
+bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
+
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
 # autostart
 
 #exec --no-startup-id nm-applet
@@ -234,4 +252,4 @@ exec xcompmgr
 exec xrandr --newmode "1368x768_60.00"   85.25  1368 1440 1576 1784  768 771 781 798 -hsync +vsync
 exec xrandr --addmode eDP-1 1368x768_60.00
 exec spacefm
-
+xset r rate 250 40

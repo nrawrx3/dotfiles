@@ -83,7 +83,6 @@ Plug 'hdima/python-syntax'
 Plug 'plasticboy/vim-markdown'
 Plug 'fatih/vim-go', { 'for': ['go'] }
 Plug 'tpope/vim-fireplace'
-Plug 'cespare/vim-toml'
 Plug 'tikhomirov/vim-glsl'
 Plug 'Valloric/YouCompleteMe', { 'for': ['c', 'cpp', 'python', 'rust'] }
 autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable() | endif
@@ -93,8 +92,8 @@ Plug 'rhysd/vim-clang-format'
 Plug 'mindriot101/vim-yapf'
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 Plug 'Superbil/llvm.vim'
-Plug 'l04m33/vlime'
-Plug 'racer-rust/vim-racer'
+Plug 'elixir-editors/vim-elixir'
+Plug 'slashmili/alchemist.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
@@ -108,19 +107,13 @@ endif
 
 Plug 'romainl/Apprentice'
 Plug 'tpope/vim-vividchalk'
-Plug 'michalbachowski/vim-wombat256mod'
-Plug 'nightsense/simplifysimplify'
-Plug 'yuttie/inkstained-vim'
-Plug 'nightsense/plumber'
-Plug 'andreypopp/vim-colors-plain'
-Plug 'arcticicestudio/nord-vim'
-Plug 'sts10/vim-pink-moon'
 Plug 'lifepillar/vim-solarized8'
+Plug 'abnt713/vim-hashpunk'
 
 call plug#end()
 "filetype plugin indent on
 
-colorscheme solarized8
+colorscheme hashpunk
 
 " PLUGINS DONE
 
@@ -352,7 +345,8 @@ set autoindent
 " File type specific tab options
 
 autocmd FileType c setlocal et ts=4 sw=4 sts=4 textwidth=110
-autocmd FileType python setlocal et ts=4 sw=4 sts=4 textwidth=1000
+autocmd filetype python setlocal et ts=4 sw=4 sts=4 textwidth=1000
+autocmd filetype elixir setlocal et ts=2 sw=2 sts=2 textwidth=100
 autocmd FileType cpp setlocal et ts=4 sw=4 sts=4 textwidth=110
 autocmd FileType vim setlocal et ts=4 sw=4 sts=4
 autocmd FileType scheme setlocal et ts=2 sw=2 sts=2

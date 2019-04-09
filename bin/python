@@ -1,0 +1,8 @@
+#!/bin/bash
+
+script=$(readlink -f -- "$1")
+case "$script" in (/opt/cocos2d-x/*|/path/to/project1/*|/path/to/project2/*|/path/to/project3/*)
+    exec python2 "$@"
+esac
+
+exec python3 "$@"
