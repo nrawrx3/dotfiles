@@ -34,6 +34,8 @@ set tm=2000
 " Fast saving - just press ,w
 nmap <leader>w :w!<cr>
 
+set lsp=2
+
 " Window dimensions
 set lines=40 columns=120
 
@@ -47,7 +49,7 @@ noremap ,, ,
 nnoremap Q <nop>
 
 " colorscheme names that we use to set color
-let s:mycolors = ['vividchalk', 'wombat256mod', 'plumber-dark'] 
+let s:mycolors = ['vividchalk', 'wombat256mod', 'plumber-dark']
 
 " PLUGINS
 
@@ -78,6 +80,8 @@ Plug 'kien/rainbow_parentheses.vim'
 Plug 'rhysd/nyaovim-markdown-preview'
 Plug 'scrooloose/nerdcommenter'
 Plug 'Shougo/denite.nvim'
+Plug 'tpope/vim-surround'
+Plug 'haya14busa/incsearch.vim'
 
 Plug 'hdima/python-syntax'
 Plug 'plasticboy/vim-markdown'
@@ -113,7 +117,7 @@ Plug 'abnt713/vim-hashpunk'
 call plug#end()
 "filetype plugin indent on
 
-colorscheme hashpunk
+colorscheme vividchalk
 
 " PLUGINS DONE
 
@@ -184,10 +188,16 @@ nnoremap <silent> <Leader><space> :FZF<CR>
 " => Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme='wombat'
+let g:airline_theme='biogoo'
 
 " => YouCompleteMe
 
+
+" Let clangd fully control code completion
+let g:ycm_clangd_uses_ycmd_caching = 0
+
+" Use installed clangd, not YCM-bundled clangd which doesn't get updates.
+let g:ycm_clangd_binary_path = exepath("clangd")
 
 let g:ycm_global_ycm_extra_conf = "~/.config/nvim/ycm_extra_conf.py"
 let g:ycm_confirm_extra_conf = 1
@@ -230,7 +240,7 @@ set wildignore=*.o,*~,*.pyc
 set ruler
 
 " Height of the command bar
-set cmdheight=2
+set cmdheight=1
 
 " A buffer becomes hidden when it is abandoned
 set hidden
@@ -388,6 +398,10 @@ map k gk
 " Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
 map <space> /
 map <c-space> ?
+
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
 
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
@@ -757,22 +771,11 @@ nnoremap <F8> :call NextColor(1)<CR>
 nnoremap <S-F8> :call NextColor(-1)<CR>
 nnoremap <A-F8> :call NextColor(0)<CR>
 
-" Set color scheme according to current time of day.
-function! s:HourColor()
-  let hr = str2nr(strftime('%H'))
-  if hr <= 3
-    let i = 0
-  elseif hr <= 7
-    let i = 1
-  elseif hr <= 14
-    let i = 2
-  elseif hr <= 18
-    let i = 3
-  else
-    let i = 4
-  endif
-  let nowcolors = 'elflord morning desert evening pablo'
-  execute 'colorscheme '.split(nowcolors)[i]
-  redraw
-  echo g:colors_name
+function DeleteHiddenBuffers()
+    let tpbl=[]
+    call map(range(1, tabpagenr('$')), 'extend(tpbl, tabpagebuflist(v:val))')
+    for buf in filter(range(1, bufnr('$')), 'bufexists(v:val) && index(tpbl, v:val)==-1')
+        silent execute 'bwipeout' buf
+    endfor
 endfunction
+

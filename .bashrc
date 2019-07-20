@@ -11,12 +11,17 @@ alias la="ls -a"
 alias ll="ls -l"
 alias ltr="ls -ltr"
 alias cl="clear"
-alias raxu="rsync -aAXu"
-alias raxvu="rsync -aAXvu"
+alias raxu="rsync -aAu"
+alias raxvu="rsync -aAvu"
 alias up="cd .."
 alias upp="cd ../.."
 alias uppp="cd ../../.."
 alias cl="clear"
+alias gotosleep="systemctl suspend"
+alias gotocoma="systemctl hibernate"
+alias codetinfo="tinfolink.sh code"
+alias subltinfo="tinfolink.sh subl3"
+alias nvimtinfo="tinfolink.sh nvim-qt"
 
 source /etc/profile.d/vte.sh
 
@@ -37,7 +42,7 @@ export CSCOPE_EDITOR="nvim"
 
 export PYTHONPATH=$HOME/.local/python_modules:$PYTHONPATH
 
-export NVIM_YCMD_PATH="${HOME}/.config/nvim/plugged/YouCompleteMe/third_party/ycmd/ycmd"
+export NVIM_YCMD_ROOT="${HOME}/.config/nvim/plugged/YouCompleteMe/third_party/ycmd"
 
 # Functions
 man() {
@@ -227,7 +232,7 @@ include "${HOME}/dotfiles/android_sdk_paths.source.sh"
 export BASH_IT="/home/rksht/.bash_it"
 
 # Lock and Load a custom theme file location /.bash_it/themes/
-export BASH_IT_THEME='demula'
+export BASH_IT_THEME='sexy'
 
 # Your place for hosting Git repos. I use this for private repos.
 export GIT_HOSTING='git@git.domain.com'
@@ -250,3 +255,4 @@ export SCM_CHECK=true
 source "$BASH_IT"/bash_it.sh
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+export PATH=$PATH:/home/rksht/gits/cquery/build

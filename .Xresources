@@ -16,24 +16,40 @@ URxvt.font:                     xft:Consolas:size=16
 URxvt.boldFont:                 xft:Consolas:bold:size=16
 
 
-*color0: #495c65
-*color1: #f7cac9
-*color2: #9fa19c
-*color3: #e0cbd4
-*color4: #91a8cf
-*color5: #8b85a5
-*color6: #c1cfcf
-*color7: #c9d3de
-*color8: #485c64
-*color9: #d9b1b1
-*color10: #c1beb7
-*color11: #af9ea5
-*color12: #677793
-*color13: #656178
-*color14: #858f8f
-*color15: #e4e9ec
-*background: #292827
-*foreground: #e4e9ec
-*cursorColor: #c7c7c7
-*highlightTextColor: #000000
-*highlightColor: #c1ddff
+! blaquebeard
+! special
+*.foreground:   #c2c2b0
+*.background:   #222222
+*.cursorColor:  #c2c2b0
+
+! black
+*.color0:       #222222
+*.color8:       #222222
+
+! red
+*.color1:       #924650
+*.color9:       #924650
+
+! green
+*.color2:       #666666
+*.color10:      #666666
+
+! yellow
+*.color3:       #ba9864
+*.color11:      #ba9864
+
+! blue
+*.color4:       #888888
+*.color12:      #888888
+
+! magenta
+*.color5:       #4f8396
+*.color13:      #4f8396
+
+! cyan
+*.color6:       #777777
+*.color14:      #777777
+
+! white
+*.color7:       #c2c2b0
+*.color15:      #c2c2b0
