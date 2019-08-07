@@ -87,7 +87,9 @@ Plug 'hdima/python-syntax'
 Plug 'plasticboy/vim-markdown'
 Plug 'fatih/vim-go', { 'for': ['go'] }
 Plug 'tpope/vim-fireplace'
+Plug 'venantius/vim-cljfmt'
 Plug 'tikhomirov/vim-glsl'
+Plug 'editorconfig/editorconfig-vim'
 Plug 'Valloric/YouCompleteMe', { 'for': ['c', 'cpp', 'python', 'rust'] }
 autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable() | endif
 Plug 'ternjs/tern_for_vim'
@@ -117,7 +119,7 @@ Plug 'abnt713/vim-hashpunk'
 call plug#end()
 "filetype plugin indent on
 
-colorscheme vividchalk
+colorscheme paramount
 
 " PLUGINS DONE
 
@@ -228,9 +230,12 @@ set wildmode=list:longest,full
 " Show trailing whitespace
 set list
 " But only interesting whitespace
+" Nope. Don't want to see tabs.
 if &listchars ==# 'eol:$'
-  set listchars=tab:\`\ ,trail:-,extends:>,precedes:<,nbsp:+
+    set listchars=tab:\`\ ,trail:-,extends:>,precedes:<,nbsp:+
 endif
+
+set listchars=tab:\ \ 
 
 
 " Ignore compiled files
@@ -249,7 +254,6 @@ set hidden
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
 
-set hidden
 "nnoremap <C-N> :bnext<CR>
 "nnoremap <C-P> :bprev<CR>
 
