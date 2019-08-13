@@ -200,7 +200,7 @@ bindsym Mod4+w exec chromium
 
 # file managers
 bindsym Mod4+f exec spacefm
-bindsym Mod4+Shift+f exec urxvt -e ranger
+bindsym Mod4+Shift+f exec nemo
 
 # alsamixer(audio volume)
 bindsym Mod4+s exec urxvt -e alsamixer

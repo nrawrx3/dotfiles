@@ -42,6 +42,7 @@ export CSCOPE_EDITOR="nvim"
 
 export PYTHONPATH=$HOME/.local/python_modules:$PYTHONPATH
 
+export NVIM_YCMD_REPO="${HOME}/.config/nvim/plugged/YouCompleteMe"
 export NVIM_YCMD_ROOT="${HOME}/.config/nvim/plugged/YouCompleteMe/third_party/ycmd"
 
 # Functions
