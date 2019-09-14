@@ -35,3 +35,5 @@
 
 [http]
 	postBuffer = 1048576000
+[cola]
+	spellcheck = false

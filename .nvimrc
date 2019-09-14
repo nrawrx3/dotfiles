@@ -114,12 +114,12 @@ endif
 Plug 'romainl/Apprentice'
 Plug 'tpope/vim-vividchalk'
 Plug 'lifepillar/vim-solarized8'
-Plug 'abnt713/vim-hashpunk'
+Plug 'morhetz/gruvbox'
 
 call plug#end()
 "filetype plugin indent on
 
-colorscheme paramount
+colorscheme apprentice
 
 " PLUGINS DONE
 
@@ -130,7 +130,7 @@ let g:fzf_action = {
 
 " Default fzf layout
 " - down / up / left / right
-let g:fzf_layout = { 'down': '~40%' }
+let g:fzf_layout = { 'down': '~39%' }
 
 " In Neovim, you can set up fzf window using a Vim command
 let g:fzf_layout = { 'window': 'enew' }
@@ -190,7 +190,7 @@ nnoremap <silent> <Leader><space> :FZF<CR>
 " => Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme='biogoo'
+let g:airline_theme='base16_tomorrow'
 
 " => YouCompleteMe
 
@@ -256,6 +256,8 @@ set whichwrap+=<,>,h,l
 
 "nnoremap <C-N> :bnext<CR>
 "nnoremap <C-P> :bprev<CR>
+
+map <leader>c :ClangFormat<CR>
 
 " Ignore case when searching
 set ignorecase

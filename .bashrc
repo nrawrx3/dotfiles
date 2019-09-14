@@ -17,11 +17,10 @@ alias up="cd .."
 alias upp="cd ../.."
 alias uppp="cd ../../.."
 alias cl="clear"
-alias gotosleep="systemctl suspend"
-alias gotocoma="systemctl hibernate"
-alias codetinfo="tinfolink.sh code"
-alias subltinfo="tinfolink.sh subl3"
-alias nvimtinfo="tinfolink.sh nvim-qt"
+alias _code="tinfolink.sh code"
+alias _subl="tinfolink.sh subl3"
+alias _nvim="tinfolink.sh nvim-qt"
+alias _nvimcmd="tinfolink.sh nvim"
 
 source /etc/profile.d/vte.sh
 
@@ -44,6 +43,9 @@ export PYTHONPATH=$HOME/.local/python_modules:$PYTHONPATH
 
 export NVIM_YCMD_REPO="${HOME}/.config/nvim/plugged/YouCompleteMe"
 export NVIM_YCMD_ROOT="${HOME}/.config/nvim/plugged/YouCompleteMe/third_party/ycmd"
+
+export GOPATH=${HOME}/go
+export PATH=${GOPATH}/bin:$PATH
 
 # Functions
 man() {
@@ -100,7 +102,7 @@ timeit() {
 }
 
 # Keep your heart-shaped-box updated!
-export HSB=/run/media/snyp/2763c3c1-08fe-4fcd-aaa7-7837b8cad829/snyp
+export HSB=/run/media/rksht/BackupPlus
 
 rsync_home() {
     dirname=$1
@@ -234,9 +236,6 @@ export BASH_IT="/home/rksht/.bash_it"
 
 # Lock and Load a custom theme file location /.bash_it/themes/
 export BASH_IT_THEME='sexy'
-
-# Your place for hosting Git repos. I use this for private repos.
-export GIT_HOSTING='git@git.domain.com'
 
 # Don't check mail when opening terminal.
 unset MAILCHECK
