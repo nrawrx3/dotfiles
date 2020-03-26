@@ -16,11 +16,8 @@ alias raxvu="rsync -aAvu"
 alias up="cd .."
 alias upp="cd ../.."
 alias uppp="cd ../../.."
-alias cl="clear"
-alias _code="tinfolink.sh code"
-alias _subl="tinfolink.sh subl3"
-alias _nvim="tinfolink.sh nvim-qt"
-alias _nvimcmd="tinfolink.sh nvim"
+alias cls="clear"
+alias md="mkdir"
 
 source /etc/profile.d/vte.sh
 
@@ -44,7 +41,7 @@ export PYTHONPATH=$HOME/.local/python_modules:$PYTHONPATH
 export NVIM_YCMD_REPO="${HOME}/.config/nvim/plugged/YouCompleteMe"
 export NVIM_YCMD_ROOT="${HOME}/.config/nvim/plugged/YouCompleteMe/third_party/ycmd"
 
-export GOPATH=${HOME}/go
+export GOPATH=/home/rksht/werk/gj/go
 export PATH=${GOPATH}/bin:$PATH
 
 # Functions
@@ -235,7 +232,7 @@ include "${HOME}/dotfiles/android_sdk_paths.source.sh"
 export BASH_IT="/home/rksht/.bash_it"
 
 # Lock and Load a custom theme file location /.bash_it/themes/
-export BASH_IT_THEME='sexy'
+export BASH_IT_THEME='minimal'
 
 # Don't check mail when opening terminal.
 unset MAILCHECK
@@ -256,3 +253,7 @@ source "$BASH_IT"/bash_it.sh
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 export PATH=$PATH:/home/rksht/gits/cquery/build
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
+source /usr/share/z/z.sh
