@@ -1,0 +1,68 @@
+[
+  {
+    "command": "clang_format",
+    "keys": [
+      "ctrl+shift+/"
+    ]
+  },
+
+  { "keys": ["ctrl+shift+\\"], "command": "split_selection_into_lines" },
+
+  {"keys": ["ctrl+alt+m"], "command": "toggle_menu"},
+  
+  {
+    "command": "next_font",
+    "keys": [
+      "f10"
+    ]
+  },
+  {
+    "command": "previous_font",
+    "keys": [
+      "shift+f10"
+    ]
+  },
+  {
+    "command": "toggle_bold",
+    "keys": [
+      "shift+f11"
+    ]
+  },
+  {
+    "command": "line_padding",
+    "keys": [
+      "shift+f12"
+    ]
+  },
+  {
+    "command": "font_conf_next",
+    "keys": [
+      "f9"
+    ]
+  },
+  {
+    "command": "font_conf_prev",
+    "keys": [
+      "shift+f9"
+    ]
+  },
+  {
+    "command": "clang_format",
+    "keys": [
+      "ctrl+shift+c"
+    ]
+  },
+  {
+    "command": "unix_line_ending",
+    "keys": [
+      "ctrl+alt+l"
+    ]
+  },
+
+
+  { "keys": ["super+left"], "command": "move_to", "args": {"to": "bol", "extend": false} },
+  { "keys": ["super+right"], "command": "move_to", "args": {"to": "eol", "extend": false} },
+  { "keys": ["super+shift+left"], "command": "move_to", "args": {"to": "bol", "extend": true} },
+  { "keys": ["super+shift+right"], "command": "move_to", "args": {"to": "eol", "extend": true} },
+  
+ ]

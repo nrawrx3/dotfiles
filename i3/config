@@ -12,17 +12,14 @@
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-# The font above is very space-efficient, that is, it looks good, sharp and
-# clear in small sizes. However, if you need a lot of unicode glyphs or
-# right-to-left text rendering, you should instead use pango for rendering and
-# chose a FreeType font, such as:
-font pango:Source Code Pro 10
+
+font pango: Source Code Pro Black 12
 
 # use Mouse+Mod1 to drag floating windows to their wanted position
 floating_modifier Mod1
 
 # start a terminal
-bindsym Mod1+Return exec urxvt
+bindsym Mod1+Return exec konsole
 
 # kill focused window
 bindsym Mod1+Shift+q kill
@@ -37,8 +34,8 @@ bindsym Mod1+d exec dmenu_run -fn "Consolas-15"
 # change focus
 bindsym Mod1+j focus left
 bindsym Mod1+k focus down
-bindsym Mod1+l focus up
-bindsym Mod1+semicolon focus right
+bindsym Mod1+i focus up
+bindsym Mod1+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym Mod1+Left focus left
@@ -83,7 +80,7 @@ bindsym Mod1+space exec rofi_run
 bindsym Mod1+a focus parent
 
 # focus the child container
-#bindsym Mod1+d focus child
+#bindsym Mod1+d focus child"
 
 # switch to workspace
 bindsym Mod1+1 workspace 1
@@ -152,9 +149,9 @@ mode "resize" {
 
 bindsym Mod1+r mode "resize"
 
-client.focused #A0A0F0 #A0A0F0 #000000 #2d2d2d
+client.focused #ffcfda #ffcfda #000000 #505070
 client.focused_inactive #393939 #393939 #888888 #292d2e
-client.unfocused #2d2d2d #2d2d2d #999999 #292d2e
+client.unfocused #505070 #505070 #999999 #292d2e
 client.urgent #2f343a #900000 #ffffff #900000
 
 # $i3-background
@@ -168,23 +165,22 @@ new_window  normal
 #new_float      normal                  #<normal|1pixel|none|pixel>
 hide_edge_borders   both
 
-workspace_layout tabbed
-
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+
 	status_command i3status
 
-    colors {
-        separator #515151
-        background #2d2d2d
-        statusline #cccccc
-        focused_workspace #A0A0F0 #A0A0F0 #000000
-        active_workspace #333333 #333333 #ffffff
-        inactive_workspace #2d2d2d #2d2d2d #999999
-        urgent_workspace #f2777a #f2777a #ffffff
-    }
+	colors {
+		separator #515151
+		background #505070
+		statusline #ffcfda
+		focused_workspace #ffcfda #ffcfda #000000
+		active_workspace #333333 #333333 #ffffff
+		inactive_workspace #505070 #505070 #999999
+		urgent_workspace #f2777a #f2777a #ffffff
+	}
 }
 
 # editors
@@ -198,7 +194,7 @@ bindsym Mod4+i exec qtcreator -style=gtk
 bindsym Mod4+r exec evince
 
 # terminal emulator
-bindsym Mod4+t exec urxvt
+bindsym Mod4+t exec terminator
 bindsym Mod4+Shift+t exec qterminal
 # web browser
 bindsym Mod4+w exec chromium
@@ -206,6 +202,7 @@ bindsym Mod4+w exec chromium
 # file managers
 bindsym Mod4+f exec thunar
 bindsym Mod4+Shift+f exec nemo
+bindsym Mod4+g exec drill-search-gtk
 
 # alsamixer(audio volume)
 bindsym Mod4+s exec urxvt -e alsamixer
@@ -245,14 +242,20 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
+set $i3t_alt_tab        ~/.config/i3/i3t.py n
+set $i3t_alt_shift_tab  ~/.config/i3/i3t.py p
+bindsym Mod1+Tab exec   exec $i3t_alt_tab
+bindsym Mod1+Shift+Tab  exec $i3t_alt_shift_tab
+
 # autostart
 
 #exec --no-startup-id nm-applet
 exec parcellite
 exec xrdb /home/snyp/.Xresources
 exec sh ~/.fehbg
-exec xcompmgr
+exec picom
 #exec mpd
 
 exec xset r rate 250 45
+exec xset m 1 1
 exec setxkbmap -option "numpad:microsoft"
