@@ -111,6 +111,7 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
+Plug 'gryf/wombat256grf'
 Plug 'romainl/Apprentice'
 Plug 'tpope/vim-vividchalk'
 Plug 'lifepillar/vim-solarized8'
@@ -175,6 +176,9 @@ let g:fzf_action = {
       \ 'ctrl-s': 'split',
       \ 'ctrl-v': 'vsplit'
       \ }
+
+let g:go_fmt_autosave = 1
+let g:go_imports_autosave = 0
 
 nnoremap <c-p> :FZF<cr>
 
@@ -309,6 +313,7 @@ if has("gui_running")
     set guioptions-=r
     set t_Co=256
     set guitablabel=%M\ %t
+    set guifont=Consolas\ 12
 endif
 
 "hi Cursor guifg=red

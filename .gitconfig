@@ -1,6 +1,6 @@
 [user]
 	name = Soumik Rakshit
-	email = soumikrakshit@yandex.com
+	email = soumik.rakshit@go-jek.com
 [color]
 	diff = auto
 	status = auto
@@ -8,12 +8,11 @@
 	interactive = auto
 	ui = auto
 [core]
-	editor = /usr/bin/env nano
+	editor = /usr/bin/env vim
 	autocrlf = input
-
+	excludesfile = ~/.gitignore
 [gc]
 	auto=1
-
 [merge]
 	summary=true
 [alias]
@@ -23,17 +22,17 @@
 	cm = commit
 	st = status
 	sm = submodule
-
-
+	cam = commit --amend
+	camno = commit --amend --no-edit
 [alias]
 	b = branch -v
 	r = remote -v
 	t = tag -l
 	unstage = reset HEAD
 	uncommit = reset --soft HEAD^
-
-
 [http]
 	postBuffer = 1048576000
 [cola]
 	spellcheck = false
+[url "git@source.golabs.io:"]
+	insteadOf = https://source.golabs.io

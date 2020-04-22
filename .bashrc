@@ -8,7 +8,7 @@ alias ls="ls --color=auto"
 alias pacman="pacman --color=auto"
 alias grep="grep --color=auto"
 alias la="ls -a"
-alias ll="ls -l"
+alias ll="ls -l --block-size=M"
 alias ltr="ls -ltr"
 alias cl="clear"
 alias raxu="rsync -aAu"
@@ -35,6 +35,8 @@ export PATH
 export PACMAN_CACHE="/var/cache/pacman/pkg"
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH"
 export CSCOPE_EDITOR="nvim"
+
+export GUI_EDITOR=nvim-qt
 
 export PYTHONPATH=$HOME/.local/python_modules:$PYTHONPATH
 
@@ -71,6 +73,10 @@ replace_string () {
     done
 }
 
+python_source() {
+    dir=$1
+    source $dir/bin/activate
+}
 
 # Updates submodules in the repo
 git_sub_update() {
@@ -162,6 +168,24 @@ incr_backup() {
     raxu $home_dir_path $HSB/
 }
 
+export NOTES_DIR=${HOME}/werk/patient_boy
+
+takenotes() {
+	cd $NOTES_DIR
+    ${GUI_EDITOR}
+    chromium --incognito http://localhost:1313
+	hugo server -D
+}
+
+newnote() {
+    notename=$1
+    cd $NOTES_DIR
+    ${GUI_EDITOR}
+    chromium --incognito http://localhost:1313
+    hugo new posts/$notename
+    hugo server -D
+}
+
 incr_all() {
 	source $HOME/dotfiles/baklocs
 	remove_and_backup config_dir
@@ -232,7 +256,7 @@ include "${HOME}/dotfiles/android_sdk_paths.source.sh"
 export BASH_IT="/home/rksht/.bash_it"
 
 # Lock and Load a custom theme file location /.bash_it/themes/
-export BASH_IT_THEME='minimal'
+export BASH_IT_THEME='barbuk'
 
 # Don't check mail when opening terminal.
 unset MAILCHECK
@@ -252,8 +276,11 @@ export SCM_CHECK=true
 source "$BASH_IT"/bash_it.sh
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-export PATH=$PATH:/home/rksht/gits/cquery/build
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
 source /usr/share/z/z.sh
+
+# virtual go
+command -v vg >/dev/null 2>&1 && eval "$(vg eval --shell bash)"
+source /usr/share/nvm/init-nvm.sh
