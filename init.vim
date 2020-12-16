@@ -20,8 +20,8 @@ filetype indent on
 set autoread
 
 " Line numbers
-"set relativenumber
-set nonumber
+set number
+set norelativenumber
 
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file, and the leader is ,
@@ -34,6 +34,8 @@ set tm=2000
 " Fast saving - just press ,w
 nmap <leader>w :w!<cr>
 
+set lsp=2
+
 " Window dimensions
 set lines=40 columns=120
 
@@ -45,6 +47,9 @@ noremap ,, ,
 
 " Kill the damned Ex mode(?)
 nnoremap Q <nop>
+
+" colorscheme names that we use to set color
+let s:mycolors = ['vividchalk', 'solarized8', 'apprentice']
 
 " PLUGINS
 
@@ -59,57 +64,152 @@ Plug 'vim-scripts/gitignore'
 Plug 'tpope/vim-fugitive'
 Plug 'int3/vim-extradite'
 
-Plug 'scrooloose/nerdtree'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'kien/ctrlp.vim'
+"Plug 'kien/ctrlp.vim'
 Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-vinegar'
 Plug 'vim-scripts/Align'
 Plug 'vim-scripts/Gundo'
+Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-commentary'
 Plug 'godlygeek/tabular'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'guns/vim-sexp'
 Plug 'kien/rainbow_parentheses.vim'
-Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'rhysd/nyaovim-markdown-preview'
 Plug 'scrooloose/nerdcommenter'
-Plug 'djoshea/vim-autoread'
-Plug 'kana/vim-operator-user'
-
-
+Plug 'Shougo/denite.nvim'
+Plug 'tpope/vim-surround'
+Plug 'haya14busa/incsearch.vim'
 
 Plug 'hdima/python-syntax'
 Plug 'plasticboy/vim-markdown'
 Plug 'fatih/vim-go', { 'for': ['go'] }
-Plug 'tikhomirov/vim-glsl'
 Plug 'tpope/vim-fireplace'
-Plug 'cespare/vim-toml'
-Plug 'Valloric/YouCompleteMe', { 'for': ['c', 'cpp', 'python', 'rust', 'nim'] }
-autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable() | endif
+Plug 'venantius/vim-cljfmt'
+Plug 'tikhomirov/vim-glsl'
+Plug 'editorconfig/editorconfig-vim'
+"Plug 'Valloric/YouCompleteMe', { 'for': ['c', 'cpp', 'python', 'rust'] }
+"autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable() | endif
+Plug 'ternjs/tern_for_vim'
+Plug 'maksimr/vim-jsbeautify'
 Plug 'rhysd/vim-clang-format'
-Plug 'vim-erlang/vim-erlang-runtime'
+Plug 'mindriot101/vim-yapf'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 Plug 'Superbil/llvm.vim'
-Plug 'romainl/Apprentice'
-Plug 'rakr/vim-one'
-Plug 'tpope/vim-vividchalk'
-Plug 'michalbachowski/vim-wombat256mod'
-Plug 'noahfrederick/vim-noctu'
-Plug 'nightsense/vrunchbang'
+Plug 'elixir-editors/vim-elixir'
+Plug 'slashmili/alchemist.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'junegunn/goyo.vim'
 
+if has('nvim')
+  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/defx.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+
+" Plug 'kamykn/spelunker.vim'
+
+Plug 'andreypopp/vim-colors-plain'
+Plug 'romainl/Apprentice'
+Plug 'tpope/vim-vividchalk'
+Plug 'lifepillar/vim-solarized8'
+Plug 'morhetz/gruvbox'
+Plug 'duckwork/nirvana'
 call plug#end()
 "filetype plugin indent on
 
+
+colorscheme nirvana
+
 " PLUGINS DONE
+
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+" Default fzf layout
+" - down / up / left / right
+let g:fzf_layout = { 'down': '~39%' }
+
+" In Neovim, you can set up fzf window using a Vim command
+let g:fzf_layout = { 'window': 'enew' }
+let g:fzf_layout = { 'window': '-tabnew' }
+let g:fzf_layout = { 'window': '10split enew' }
+
+" Customize fzf colors to match your color scheme
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
+" [Buffers] Jump to the existing window if possible
+let g:fzf_buffers_jump = 1
+
+" [[B]Commits] Customize the options used by 'git log':
+let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
+
+" [Tags] Command to generate tags file
+let g:fzf_tags_command = 'ctags -R'
+
+" [Commands] --expect expression for directly executing the command
+let g:fzf_commands_expect = 'alt-enter,ctrl-x'
+
+" Enable per-command history.
+" CTRL-N and CTRL-P will be automatically bound to next-history and
+" previous-history instead of down and up. If you don't like the change,
+" explicitly bind the keys to down and up in your $FZF_DEFAULT_OPTS.
+let g:fzf_history_dir = '~/.local/share/fzf-history'
+
+let g:fzf_action = {
+      \ 'ctrl-s': 'split',
+      \ 'ctrl-v': 'vsplit'
+      \ }
+
+let g:go_fmt_autosave = 1
+let g:go_imports_autosave = 0
+
+nnoremap <c-p> :FZF<cr>
+
+augroup fzf
+  autocmd!
+  autocmd! FileType fzf
+  autocmd  FileType fzf set laststatus=0 noshowmode noruler
+    \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+augroup END
+
+nnoremap <silent> <Leader><space> :FZF<CR>
 
 " => Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme='wombat'
+let g:airline_theme='base16_tomorrow'
 
 " => YouCompleteMe
 
+
+" Let clangd fully control code completion
+let g:ycm_clangd_uses_ycmd_caching = 0
+
+" Use installed clangd, not YCM-bundled clangd which doesn't get updates.
+let g:ycm_clangd_binary_path = exepath("clangd")
 
 let g:ycm_global_ycm_extra_conf = "~/.config/nvim/ycm_extra_conf.py"
 let g:ycm_confirm_extra_conf = 1
@@ -126,24 +226,6 @@ let g:ycm_semantic_triggers = {'haskell' : ['.'], 'rust': ['.', '::']}
 
 let python_highlight_all = 1
 
-" => Syntastic Checking (not using)
-
-"map <silent> <Leader>e :Errors<CR>
-"map <Leader>s :SyntasticToggleMode<CR>
-
-"let g:syntastic_auto_loc_list=1
-
-"let g:syntastic_cpp_compiler = 'clang++'
-"let g:syntastic_cpp_compiler_options = '-std=c++14'
-
-
-" => Vim Cpp Enhanced
-
-let g:cpp_class_scope_highlight = 1
-
-let g:cpp_experimental_template_highlight = 1
-
-
 " => VIM user interface
 
 " Set 7 lines to the cursor - when moving vertically using j/k
@@ -158,9 +240,12 @@ set wildmode=list:longest,full
 " Show trailing whitespace
 set list
 " But only interesting whitespace
+" Nope. Don't want to see tabs.
 if &listchars ==# 'eol:$'
-  set listchars=tab:\`\ ,trail:-,extends:>,precedes:<,nbsp:+
+    set listchars=tab:\`\ ,trail:-,extends:>,precedes:<,nbsp:+
 endif
+
+set listchars=tab:\ \ 
 
 
 " Ignore compiled files
@@ -170,7 +255,7 @@ set wildignore=*.o,*~,*.pyc
 set ruler
 
 " Height of the command bar
-set cmdheight=2
+set cmdheight=1
 
 " A buffer becomes hidden when it is abandoned
 set hidden
@@ -179,29 +264,27 @@ set hidden
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
 
+"nnoremap <C-N> :bnext<CR>
+"nnoremap <C-P> :bprev<CR>
+
+map <leader>c :ClangFormat<CR>
+
 " Ignore case when searching
 set ignorecase
-
 " When searching try to be smart about cases
 set smartcase
-
 " Highlight search results
 set hlsearch
-
 " Makes search act like search in modern browsers
 set incsearch
-
 " Don't redraw while executing macros (good performance config)
 set lazyredraw
-
 " For regular expressions turn magic on
 set magic
-
 " Show matching brackets when text indicator is over them
 set showmatch
 " How many tenths of a second to blink when matching brackets
 set mat=2
-
 " No annoying sound on errors
 set noerrorbells
 set novisualbell
@@ -217,29 +300,16 @@ endif
 
 " Force redraw
 map <silent> <leader>r :redraw!<CR>
-
 " Turn mouse mode on
 nnoremap <leader>ma :set mouse=a<cr>
-
 " Turn mouse mode off
 nnoremap <leader>mo :set mouse=<cr>
-
 " Default to mouse mode on
 set mouse=a
-
-
-
 " => Colors and Fonts
-
 
 " Enable syntax highlighting
 syntax on
-
-map <silent> <F5> :call gruvbox#bg_toggle()<CR>
-imap <silent> <F5> <ESC>:call gruvbox#bg_toggle()<CR>a
-vmap <silent> <F5> <ESC>:call gruvbox#bg_toggle()<CR>gv
-
-colorscheme vrunchbang-dark
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -249,6 +319,7 @@ if has("gui_running")
     set guioptions-=r
     set t_Co=256
     set guitablabel=%M\ %t
+    set guifont=Consolas\ 12
 endif
 
 "hi Cursor guifg=red
@@ -262,11 +333,8 @@ hi! link SyntasticWarningSign WarningMsg
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
-
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
-
-set guifont=SourceCodeProBlack\ 9
 
 " => Files, backups and undo
 
@@ -287,14 +355,7 @@ nmap <leader>e :e <C-R>=expand("%:p:h") . '/'<CR>
 " Show undo tree
 nmap <silent> <leader>u :GundoToggle<CR>
 
-" Fuzzy find files
-nnoremap <silent> <Leader><space> :CtrlP<CR>
-let g:ctrlp_max_files=0
-let g:ctrlp_show_hidden=1
-let g:ctrlp_custom_ignore = { 'dir': '\v[\/](.git)$' }
-
-
-
+map <C-a> <esc>ggVG<CR>
 
 " => Default indentation and tab widths
 
@@ -310,15 +371,15 @@ set autoindent
 
 " File type specific tab options
 
-autocmd FileType c setlocal et ts=4 sw=4 sts=4
-autocmd FileType python setlocal et ts=4 sw=4 sts=4 textwidth=1000
-autocmd FileType cpp setlocal et ts=4 sw=4 sts=4
+autocmd FileType c setlocal et ts=4 sw=4 sts=4 textwidth=110
+autocmd filetype python setlocal et ts=4 sw=4 sts=4 textwidth=120
+autocmd filetype elixir setlocal et ts=2 sw=2 sts=2 textwidth=100
+autocmd FileType cpp setlocal et ts=4 sw=4 sts=4 textwidth=110
 autocmd FileType vim setlocal et ts=4 sw=4 sts=4
 autocmd FileType scheme setlocal et ts=2 sw=2 sts=2
-autocmd FileType erlang setlocal et ts=4 sw=4 sts=4
 autocmd FileType bash setlocal et ts=4 sw=4 sts=4
 autocmd FileType zsh setlocal et ts=4 sw=4 sts=4
-autocmd FileType go setlocal noet ts=4 sw=4 sts=4
+autocmd FileType go setlocal noet ts=8 sw=8 sts=8
 autocmd FileType d setlocal et ts=4 sw=4 sts=4
 autocmd FileType lemon set noet ts=4 sw=4 sts=4
 au BufRead,BufNewFile *.rs set filetype=rust
@@ -345,8 +406,6 @@ highlight ColorColumn ctermbg=white guibg=white
 vnoremap <silent> * :call VisualSelection('f')<CR>
 vnoremap <silent> # :call VisualSelection('b')<CR>
 
-
-
 " => Moving around, tabs, windows and buffers
 
 " Treat long lines as break lines (useful when moving around in them)
@@ -357,6 +416,10 @@ map k gk
 map <space> /
 map <c-space> ?
 
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
 
@@ -365,9 +428,6 @@ map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
-
-map <C-K> :%!clang-format<cr>
-imap <C-K> :%!clang-format<cr>
 
 " Close the current buffer
 map <leader>bd :Bclose<cr>
@@ -412,8 +472,6 @@ autocmd BufReadPost *
      \ endif
 " Remember info about open buffers on close
 set viminfo^=%
-
-let g:ctrlp_map = '<c-p>'
 
 
 """"""""""""""""""""""""""""""
@@ -507,6 +565,9 @@ map <leader>s? z=
 nmap <leader>= :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
 
+" => Distraction free
+nmap <leader>d :Goyo<CR>
+
 
 
 " => Misc
@@ -522,26 +583,6 @@ map <leader>pp :setlocal paste!<cr>
 
 
 " => NERDTree
-
-
-" Close nerdtree after a file is selected
-let NERDTreeQuitOnOpen = 1
-
-function! IsNERDTreeOpen()
-  return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
-endfunction
-
-function! ToggleFindNerd()
-  if IsNERDTreeOpen()
-    exec ':NERDTreeToggle'
-  else
-    exec ':NERDTreeFind'
-  endif
-endfunction
-
-" If nerd tree is closed, find current file, if open, close it
-nmap <silent> <leader>f <ESC>:call ToggleFindNerd()<CR>
-nmap <silent> <C-s> <ESC>:call ToggleFindNerd()<CR>
 
 
 " => Alignment
@@ -648,5 +689,113 @@ function! SummarizeTabs()
   finally
     echohl None
   endtry
+endfunction
+
+
+" Change the color scheme from a list of color scheme names.
+" Version 2010-09-12 from http://vim.wikia.com/wiki/VimTip341
+" Press key:
+"   F8                next scheme
+"   Shift-F8          previous scheme
+"   Alt-F8            random scheme
+" Set the list of color schemes used by the above (default is 'all'):
+"   :SetColors all              (all $VIMRUNTIME/colors/*.vim)
+"   :SetColors my               (names built into script)
+"   :SetColors blue slate ron   (these schemes)
+"   :SetColors                  (display current scheme names)
+" Set the current color scheme based on time of day:
+"   :SetColors now
+if v:version < 700 || exists('loaded_setcolors') || &cp
+  finish
+endif
+
+let loaded_setcolors = 1
+
+" Set list of color scheme names that we will use, except
+" argument 'now' actually changes the current color scheme.
+function! s:SetColors(args)
+  if len(a:args) == 0
+    echo 'Current color scheme names:'
+    let i = 0
+    while i < len(s:mycolors)
+      echo '  '.join(map(s:mycolors[i : i+4], 'printf("%-14s", v:val)'))
+      let i += 5
+    endwhile
+  elseif a:args == 'all'
+    let paths = split(globpath(&runtimepath, 'colors/*.vim'), "\n")
+    let s:mycolors = map(paths, 'fnamemodify(v:val, ":t:r")')
+    echo 'List of colors set from all installed color schemes'
+  elseif a:args == 'my'
+    let c1 = 'default elflord peachpuff desert256 breeze morning'
+    let c2 = 'darkblue gothic aqua earth black_angus relaxedgreen'
+    let c3 = 'darkblack freya motus impact less chocolateliquor'
+    let s:mycolors = split(c1.' '.c2.' '.c3)
+    echo 'List of colors set from built-in names'
+  elseif a:args == 'now'
+    call s:HourColor()
+  else
+    let s:mycolors = split(a:args)
+    echo 'List of colors set from argument (space-separated names)'
+  endif
+endfunction
+
+command! -nargs=* SetColors call s:SetColors('<args>')
+
+" Set next/previous/random (how = 1/-1/0) color from our list of colors.
+" The 'random' index is actually set from the current time in seconds.
+" Global (no 's:') so can easily call from command line.
+function! NextColor(how)
+  call s:NextColor(a:how, 1)
+endfunction
+
+" Helper function for NextColor(), allows echoing of the color name to be
+" disabled.
+function! s:NextColor(how, echo_color)
+  if len(s:mycolors) == 0
+    call s:SetColors('all')
+  endif
+  if exists('g:colors_name')
+    let current = index(s:mycolors, g:colors_name)
+  else
+    let current = -1
+  endif
+  let missing = []
+  let how = a:how
+  for i in range(len(s:mycolors))
+    if how == 0
+      let current = localtime() % len(s:mycolors)
+      let how = 1  " in case random color does not exist
+    else
+      let current += how
+      if !(0 <= current && current < len(s:mycolors))
+        let current = (how>0 ? 0 : len(s:mycolors)-1)
+      endif
+    endif
+    try
+      execute 'colorscheme '.s:mycolors[current]
+      break
+    catch /E185:/
+      call add(missing, s:mycolors[current])
+    endtry
+  endfor
+  redraw
+  if len(missing) > 0
+    echo 'Error: colorscheme not found:' join(missing)
+  endif
+  if (a:echo_color)
+    echo g:colors_name
+  endif
+endfunction
+
+nnoremap <F8> :call NextColor(1)<CR>
+nnoremap <S-F8> :call NextColor(-1)<CR>
+nnoremap <A-F8> :call NextColor(0)<CR>
+
+function DeleteHiddenBuffers()
+    let tpbl=[]
+    call map(range(1, tabpagenr('$')), 'extend(tpbl, tabpagebuflist(v:val))')
+    for buf in filter(range(1, bufnr('$')), 'bufexists(v:val) && index(tpbl, v:val)==-1')
+        silent execute 'bwipeout' buf
+    endfor
 endfunction
 
