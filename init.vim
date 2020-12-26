@@ -55,7 +55,6 @@ let s:mycolors = ['vividchalk', 'solarized8', 'apprentice']
 
 call plug#begin('~/.config/nvim/plugged')
 
-Plug 'gmarik/Vundle.vim'
 Plug 'Shougo/vimproc.vim'
 Plug 'ervandew/supertab'
 Plug 'moll/vim-bbye'
@@ -73,7 +72,6 @@ Plug 'vim-scripts/Align'
 Plug 'vim-scripts/Gundo'
 Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-commentary'
-Plug 'godlygeek/tabular'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'guns/vim-sexp'
 Plug 'kien/rainbow_parentheses.vim'
@@ -92,15 +90,17 @@ Plug 'tikhomirov/vim-glsl'
 Plug 'editorconfig/editorconfig-vim'
 "Plug 'Valloric/YouCompleteMe', { 'for': ['c', 'cpp', 'python', 'rust'] }
 "autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable() | endif
-Plug 'ternjs/tern_for_vim'
 Plug 'maksimr/vim-jsbeautify'
 Plug 'rhysd/vim-clang-format'
 Plug 'mindriot101/vim-yapf'
+Plug 'mhinz/vim-mix-format'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 Plug 'Superbil/llvm.vim'
 Plug 'elixir-editors/vim-elixir'
 Plug 'slashmili/alchemist.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'elixir-lsp/coc-elixir', {'do': 'yarn install && yarn prepack'}
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/limelight.vim'
