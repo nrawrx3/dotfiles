@@ -105,6 +105,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/goyo.vim'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
 if has('nvim')
   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -372,7 +373,7 @@ set autoindent
 " File type specific tab options
 
 autocmd FileType c setlocal et ts=4 sw=4 sts=4 textwidth=110
-autocmd filetype python setlocal et ts=4 sw=4 sts=4 textwidth=120
+autocmd filetype python setlocal et ts=4 sw=4 sts=4 textwidth=200
 autocmd filetype elixir setlocal et ts=2 sw=2 sts=2 textwidth=100
 autocmd FileType cpp setlocal et ts=4 sw=4 sts=4 textwidth=110
 autocmd FileType vim setlocal et ts=4 sw=4 sts=4
@@ -568,7 +569,9 @@ let g:tagbar_autofocus = 1
 " => Distraction free
 nmap <leader>d :Goyo<CR>
 
-
+" Markdown related convenience
+let g:mkdp_auto_start = 0
+let g:mkdp_refresh_slow = 1
 
 " => Misc
 
