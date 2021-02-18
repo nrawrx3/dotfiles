@@ -194,7 +194,7 @@ It should only modify the values of Spacemacs settings."
    ;; directory. A string value must be a path to an image format supported
    ;; by your Emacs build.
    ;; If the value is nil then no banner is displayed. (default 'official)
-   dotspacemacs-startup-banner 'official
+   dotspacemacs-startup-banner 'random
 
    ;; List of items to show in startup buffer or an association list of
    ;; the form `(list-type . list-size)`. If nil then it is disabled.
@@ -236,7 +236,9 @@ It should only modify the values of Spacemacs settings."
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(solarized-wombat-dark
-                         solarized-gruvbox-light)
+                         solarized-gruvbox-light
+                         spolsky
+                         odersky)
 
    ;; Set the theme for the Spaceline. Supported themes are `spacemacs',
    ;; `all-the-icons', `custom', `doom', `vim-powerline' and `vanilla'. The
@@ -254,7 +256,7 @@ It should only modify the values of Spacemacs settings."
    ;; Default font or prioritized list of fonts. The `:size' can be specified as
    ;; a non-negative integer (pixel size), or a floating-point (point size).
    ;; Point size is recommended, because it's device independent. (default 10.0)
-   dotspacemacs-default-font '("Consolas"
+   dotspacemacs-default-font '("DejaVu Sans Code"
                                :size 14.0
                                :weight normal
                                :width normal)
@@ -536,6 +538,7 @@ configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
   (menu-bar-mode -1)
+  (setq create-lockfiles nil)
   )
 (defun dotspacemacs/emacs-custom-settings ()
   "Emacs custom settings.

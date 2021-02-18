@@ -1,9 +1,5 @@
 # ~/.bashrc
 
-# export PS1="\[$(tput setaf 2)\]┌─╼ \[$(tput setaf 6)\][\w]\n\[$(tput setaf 1)\]\$(if [[ \$? == 0 ]]; then echo \"\[$(tput setaf 1)\]└────╼\"; else echo \"\[$(tput setaf 1)\]└╼\"; fi) \[$(tput setaf 7)\]"
-# export PS1="\n\[$(tput sgr0)\]\[\033[38;5;208m\][\[$(tput bold)\]\[$(tput sgr0)\]\[\033[38;5;33m\]\W\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;202m\]]\[$(tput sgr0)\]\[\033[38;5;15m\]\n \[$(tput sgr0)\]\[\033[38;5;200m\]\A\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;34m\]>>\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
-
-# It's dangerous to go alone, take these aliases
 alias ls="ls --color=auto"
 alias pacman="pacman --color=auto"
 alias grep="grep --color=auto"
@@ -29,6 +25,7 @@ PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor
 export BUILD_DIR=$HOME/build
 
 PATH=$HOME/.local/bin:$PATH
+PATH=$HOME/Android/Sdk/tools/bin:$PATH
 
 export PATH
 
@@ -75,7 +72,7 @@ replace_string () {
 
 python_source() {
     dir=$1
-    source $dir/bin/activate
+# source $dir/bin/activate  # commented out by conda initialize
 }
 
 # Updates submodules in the repo
@@ -186,6 +183,12 @@ newnote() {
     hugo server -D
 }
 
+# Trims the given string and prints it
+cpstdin() {
+    read INPUT
+    xargs $INPUT | xclip -se c
+}
+
 incr_all() {
 	source $HOME/dotfiles/baklocs
 	remove_and_backup config_dir
@@ -214,6 +217,11 @@ install_pacman_list() {
         fi
     done
 }
+
+update_yay() {
+    yay -S visual-studio-code-bin megasync sublime-text-dev sublime-merge steamcmd yay p7zip-gui revive rbenv drill-search-gtk
+}
+
 
 # Extract archive
 function extract {
@@ -256,16 +264,13 @@ include "${HOME}/dotfiles/android_sdk_paths.source.sh"
 export BASH_IT="/home/rksht/.bash_it"
 
 # Lock and Load a custom theme file location /.bash_it/themes/
-export BASH_IT_THEME='barbuk'
+export BASH_IT_THEME='tonotdo'
 
 # Don't check mail when opening terminal.
 unset MAILCHECK
 
 # Change this to your console based IRC client of choice.
 export IRC_CLIENT='weechat'
-
-# Set this to the command you use for todo.txt-cli
-export TODO="t"
 
 # Set this to false to turn off version control status checking within the
 # prompt for all themes
@@ -276,11 +281,29 @@ export SCM_CHECK=true
 source "$BASH_IT"/bash_it.sh
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+# export PATH="$HOME/.rbenv/bin:$PATH"
+# eval "$(rbenv init -)"
+
+export TERM="xterm-256color"
 
 source /usr/share/z/z.sh
 
-# virtual go
-command -v vg >/dev/null 2>&1 && eval "$(vg eval --shell bash)"
-source /usr/share/nvm/init-nvm.sh
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/completions/asdf.bash
+
+[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
+
+
+detached () {
+    exe_name=$1
+    dtach -n /tmp/${exe_name}.sock ${exe_name}
+}
+
+function startwork() {
+	export CONDA_ENV_NAME=handson
+
+	source ~/.conda_init ${CONDA_ENV_NAME}
+	detached emacs
+	detached code
+	detached firefox
+}
