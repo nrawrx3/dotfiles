@@ -101,68 +101,12 @@ timeit() {
     /usr/bin/time -f "Elapsed=%E, User=%U, Kernel=%S" $@
 }
 
-# Keep your heart-shaped-box updated!
-export HSB=/run/media/rksht/BackupPlus
-
-rsync_home() {
-    dirname=$1
-    rsync -aAXvu $HOME/$dirname $HSB/
-}
-
-rsync_paccache() {
-    sudo bash -c "rsync -aAXvu ${PACMAN_CACHE}/* $HSB/pacman_cache/"
-}
-
-bak_all() {
-    rsync_all
-    gits.py --pull_all
-}
-
-# Backup and shutdown
-baksdown() {
-    rsync_all
-    gits.py --pull_all
-    systemctl poweroff
-}
+export EXTERNAL_HDD=/run/media/rksht/BackupPlus
 
 PACKAGE_LIST_FILE="package_list"
 
 store_pacman_list() {
-    pacman -Qtnq > $HSB/$PACKAGE_LIST_FILE
-}
-
-remind_me() {
-    cat $HOME/dotfiles/.remember.txt
-    python $HOME/dotfiles/random_quote.py
-}
-
-# The gits dir should be backed up using gits.py
-
-remove_and_backup() {
-    source $HOME/dotfiles/baklocs
-    dir_path=${!1}
-    if [ -z "$dir_path" ]; then
-        echo "No such directory set"
-        return
-    fi
-    home_dir_path=$HOME/$dir_path
-    hsb_dir_path=$HSB/$dir_path
-    echo "Removing - ${hsb_dir_path} and copying ${home_dir_path}"
-    rm -rf $hsb_dir_path
-    raxu $home_dir_path $HSB/
-}
-
-incr_backup() {
-    source $HOME/dotfiles/baklocs
-    dir_path=${!1}
-    if [ -z "$dir_path" ]; then
-        echo "No such directory set"
-        return
-    fi
-    home_dir_path=$HOME/$dir_path
-    hsb_dir_path=$HSB/$dir_path
-    echo "Copying ${home_dir_path}"
-    raxu $home_dir_path $HSB/
+    pacman -Qtnq > $EXTERNAL_HDD/$PACKAGE_LIST_FILE
 }
 
 export NOTES_DIR=${HOME}/werk/patient_boy
@@ -211,7 +155,7 @@ install_pacman_list() {
 
     pacman -Q > /tmp/installed_packages
 
-    for PACKAGE in $(cat $HSB/$PACKAGE_LIST_FILE); do
+    for PACKAGE in $(cat $EXTERNAL_HDD/$PACKAGE_LIST_FILE); do
         if ! grep -Fxq $PACKAGE /tmp/installed_packages; then
             sudo pacman -S $@ $PACKAGE
         fi
@@ -295,15 +239,41 @@ source /usr/share/z/z.sh
 
 
 detached () {
-    exe_name=$1
-    dtach -n /tmp/${exe_name}.sock ${exe_name}
+    exe_name="$1"
+    command_line="$@"
+    echo "Starting ${exe_name} with command ${command_line}"
+    dtach -n /tmp/${exe_name}.sock ${command_line}
 }
 
 function startwork() {
 	export CONDA_ENV_NAME=handson
 
 	source ~/.conda_init ${CONDA_ENV_NAME}
+  detached jupyter-notebook --matplotlib=inline
+  jt -t onedork -f dejavu -fs 14 -cellw 90%
 	detached emacs
 	detached code
 	detached firefox
+}
+
+# Use `xrandr` to get this
+export MAIN_HDMI_OUTPUT=HDMI-A-0
+
+function set_res() {
+    res_name=$1
+
+    case $res_name in
+        "4k")
+            xrandr --output ${MAIN_HDMI_OUTPUT} --mode 3840x2160 --rate 60
+            ;;
+        "2k")
+            xrandr --output ${MAIN_HDMI_OUTPUT} --mode 2560x1440
+            ;;
+        "1k")
+            xrandr --output ${MAIN_HDMI_OUTPUT} --mode 1920x1080 --rate 60
+            ;;
+        *)
+            echo "usage - set_res [4k|2k|1k]"
+            ;;
+    esac
 }
