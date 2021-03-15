@@ -1,4 +1,4 @@
-GuiFont! Consolas:h14
+GuiFont! mononoki:h17
 GuiLinespace 1
 GuiPopupmenu 0
 

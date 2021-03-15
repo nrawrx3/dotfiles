@@ -49,7 +49,7 @@ noremap ,, ,
 nnoremap Q <nop>
 
 " colorscheme names that we use to set color
-let s:mycolors = ['vividchalk', 'solarized8', 'apprentice']
+let s:mycolors = ['nirvana', 'vividchalk', 'solarized8', 'apprentice']
 
 " PLUGINS
 
@@ -84,19 +84,19 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'hdima/python-syntax'
 Plug 'plasticboy/vim-markdown'
 Plug 'fatih/vim-go', { 'for': ['go'] }
-Plug 'tpope/vim-fireplace'
-Plug 'venantius/vim-cljfmt'
-Plug 'tikhomirov/vim-glsl'
+" Plug 'tpope/vim-fireplace'
+" Plug 'venantius/vim-cljfmt'
+" Plug 'tikhomirov/vim-glsl'
 Plug 'editorconfig/editorconfig-vim'
 "Plug 'Valloric/YouCompleteMe', { 'for': ['c', 'cpp', 'python', 'rust'] }
 "autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable() | endif
 Plug 'maksimr/vim-jsbeautify'
 Plug 'rhysd/vim-clang-format'
-Plug 'mindriot101/vim-yapf'
+" Plug 'mindriot101/vim-yapf'
 Plug 'mhinz/vim-mix-format'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
-Plug 'Superbil/llvm.vim'
+" Plug 'Superbil/llvm.vim'
 Plug 'elixir-editors/vim-elixir'
 Plug 'slashmili/alchemist.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -106,6 +106,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'mihaifm/bufstop' 
 
 if has('nvim')
   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -206,26 +207,22 @@ let g:airline_theme='base16_tomorrow'
 " => YouCompleteMe
 
 
-" Let clangd fully control code completion
-let g:ycm_clangd_uses_ycmd_caching = 0
-
-" Use installed clangd, not YCM-bundled clangd which doesn't get updates.
-let g:ycm_clangd_binary_path = exepath("clangd")
-
-let g:ycm_global_ycm_extra_conf = "~/.config/nvim/ycm_extra_conf.py"
-let g:ycm_confirm_extra_conf = 1
-" Use <tab> for ultipsnips and use <C-n> and <C-p> for ycm
-let g:ycm_key_list_select_completion=[]
-let g:ycm_key_list_previous_completion=[]
-"let g:ycm_autoclose_preview_window_after_completion=1
-
-let g:ycm_rust_src_path="/usr/src/rust/src/"
-
-let g:haskellmode_completion_ghc = 0
-autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
-let g:ycm_semantic_triggers = {'haskell' : ['.'], 'rust': ['.', '::']}
-
-let python_highlight_all = 1
+" let g:ycm_clangd_binary_path = exepath("clangd")
+" 
+" let g:ycm_global_ycm_extra_conf = "~/.config/nvim/ycm_extra_conf.py"
+" let g:ycm_confirm_extra_conf = 1
+" " Use <tab> for ultipsnips and use <C-n> and <C-p> for ycm
+" let g:ycm_key_list_select_completion=[]
+" let g:ycm_key_list_previous_completion=[]
+" "let g:ycm_autoclose_preview_window_after_completion=1
+" 
+" let g:ycm_rust_src_path="/usr/src/rust/src/"
+" 
+" let g:haskellmode_completion_ghc = 0
+" autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+" let g:ycm_semantic_triggers = {'haskell' : ['.'], 'rust': ['.', '::']}
+" 
+" let python_highlight_all = 1
 
 " => VIM user interface
 
@@ -242,9 +239,9 @@ set wildmode=list:longest,full
 set list
 " But only interesting whitespace
 " Nope. Don't want to see tabs.
-if &listchars ==# 'eol:$'
-    set listchars=tab:\`\ ,trail:-,extends:>,precedes:<,nbsp:+
-endif
+" if &listchars ==# 'eol:$'
+" set listchars=tab:\`\ ,trail:-,extends:>,precedes:<,nbsp:+
+" endif
 
 set listchars=tab:\ \ 
 
@@ -292,12 +289,12 @@ set novisualbell
 set vb t_vb=
 set tm=500
 
-if &term =~ '256color'
-"  " disable Background Color Erase (BCE) so that color schemes
-"  " render properly when inside 256-color tmux and GNU screen.
-"  " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
-  set t_ut=
-endif
+" if &term =~ '256color'
+" "  " disable Background Color Erase (BCE) so that color schemes
+" "  " render properly when inside 256-color tmux and GNU screen.
+" "  " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
+"   set t_ut=
+" endif
 
 " Force redraw
 map <silent> <leader>r :redraw!<CR>
@@ -320,7 +317,7 @@ if has("gui_running")
     set guioptions-=r
     set t_Co=256
     set guitablabel=%M\ %t
-    set guifont=Consolas\ 12
+    set guifont="DejaVu Sans Mono 20"
 endif
 
 "hi Cursor guifg=red
@@ -373,8 +370,8 @@ set autoindent
 " File type specific tab options
 
 autocmd FileType c setlocal et ts=4 sw=4 sts=4 textwidth=110
-autocmd filetype python setlocal et ts=4 sw=4 sts=4 textwidth=200
-autocmd filetype elixir setlocal et ts=2 sw=2 sts=2 textwidth=100
+autocmd FileType python setlocal et ts=4 sw=4 sts=4 textwidth=200
+autocmd FileType elixir setlocal et ts=2 sw=2 sts=2 textwidth=100
 autocmd FileType cpp setlocal et ts=4 sw=4 sts=4 textwidth=110
 autocmd FileType vim setlocal et ts=4 sw=4 sts=4
 autocmd FileType scheme setlocal et ts=2 sw=2 sts=2
@@ -424,6 +421,8 @@ map g/ <Plug>(incsearch-stay)
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
 
+nnoremap <C-W>/ :vsplit<cr>
+
 " Smart way to move between windows
 map <C-j> <C-W>j
 map <C-k> <C-W>k
@@ -463,6 +462,7 @@ try
 catch
 endtry
 
+nnoremap <leader>bb :Bufstop<cr>
 nnoremap <leader>bk :bnext<cr>
 nnoremap <leader>bl :bprevious<cr>
 
