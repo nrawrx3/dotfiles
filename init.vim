@@ -20,8 +20,8 @@ filetype indent on
 set autoread
 
 " Line numbers
-set number
-set norelativenumber
+set nonumber
+" set norelativenumber
 
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file, and the leader is ,
@@ -49,7 +49,7 @@ noremap ,, ,
 nnoremap Q <nop>
 
 " colorscheme names that we use to set color
-let s:mycolors = ['nirvana', 'vividchalk', 'solarized8', 'apprentice']
+let s:mycolors = ['nirvana', 'vividchalk', 'nord', 'solarized8', 'apprentice']
 
 " PLUGINS
 
@@ -118,7 +118,7 @@ endif
 
 " Plug 'kamykn/spelunker.vim'
 
-Plug 'andreypopp/vim-colors-plain'
+Plug 'arcticicestudio/nord-vim'
 Plug 'romainl/Apprentice'
 Plug 'tpope/vim-vividchalk'
 Plug 'lifepillar/vim-solarized8'
@@ -128,7 +128,7 @@ call plug#end()
 "filetype plugin indent on
 
 
-colorscheme nirvana
+colorscheme nord
 
 " PLUGINS DONE
 
@@ -200,9 +200,16 @@ augroup END
 nnoremap <silent> <Leader><space> :FZF<CR>
 
 " => Airline
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
-let g:airline_theme='base16_tomorrow'
+ " Configure the Tabline
+    let g:airline_statusline_ontop=1 " leave the bottom for other plugins
+    let g:airline#extensions#tmuxline#enabled = 0
+    let g:airline#extensions#neomake#enabled = 1
+    let g:airline#extensions#tabline#enabled = 1
+    let g:airline#extensions#tabline#show_buffers = 1 " enable/disable displaying buffers with a single tab
+    let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
+    let g:airline#extensions#tabline#formatter = 'unique_tail'
+    let g:airline#extensions#tabline#switch_buffers_and_tabs = 1
+    let g:airline#extensions#tagbar#enabled = 0
 
 " => YouCompleteMe
 
@@ -473,6 +480,9 @@ autocmd BufReadPost *
      \ endif
 " Remember info about open buffers on close
 set viminfo^=%
+
+" Start new vim instance
+nnoremap <leader>0 :!nvim-qt<cr>
 
 
 """"""""""""""""""""""""""""""
