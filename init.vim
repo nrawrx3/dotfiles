@@ -804,6 +804,18 @@ nnoremap <F8> :call NextColor(1)<CR>
 nnoremap <S-F8> :call NextColor(-1)<CR>
 nnoremap <A-F8> :call NextColor(0)<CR>
 
+
+function CopyPath()
+	let @*=expand('%:p')
+endfunction
+
+function CopyFileName()
+	let @*=expand('%:t')
+endfunction
+
+command! -nargs=0 CopyPath call CopyPath()
+command! -nargs=0 CopyFileName call CopyFileName()
+
 function DeleteHiddenBuffers()
     let tpbl=[]
     call map(range(1, tabpagenr('$')), 'extend(tpbl, tabpagebuflist(v:val))')
