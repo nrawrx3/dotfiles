@@ -105,8 +105,9 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/goyo.vim'
+Plug 'francoiscabrol/ranger.vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
-Plug 'mihaifm/bufstop' 
+Plug 'mihaifm/bufstop'
 
 if has('nvim')
   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -123,6 +124,7 @@ Plug 'romainl/Apprentice'
 Plug 'tpope/vim-vividchalk'
 Plug 'lifepillar/vim-solarized8'
 Plug 'morhetz/gruvbox'
+Plug 'olivertaylor/vacme'
 Plug 'duckwork/nirvana'
 call plug#end()
 "filetype plugin indent on
@@ -324,8 +326,9 @@ if has("gui_running")
     set guioptions-=r
     set t_Co=256
     set guitablabel=%M\ %t
-    set guifont="DejaVu Sans Mono 20"
 endif
+
+set guifont=Ubuntu\ Mono:h25
 
 "hi Cursor guifg=red
 
@@ -417,9 +420,7 @@ vnoremap <silent> # :call VisualSelection('b')<CR>
 map j gj
 map k gk
 
-" Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
-map <space> /
-map <c-space> ?
+nnoremap <space> :Bufstop<CR>
 
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
@@ -429,6 +430,8 @@ map g/ <Plug>(incsearch-stay)
 map <silent> <leader><cr> :noh<cr>
 
 nnoremap <C-W>/ :vsplit<cr>
+
+tnoremap <Esc> <C-\><C-n>
 
 " Smart way to move between windows
 map <C-j> <C-W>j
