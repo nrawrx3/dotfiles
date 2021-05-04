@@ -82,18 +82,18 @@ Plug 'tpope/vim-surround'
 Plug 'haya14busa/incsearch.vim'
 
 Plug 'hdima/python-syntax'
-Plug 'plasticboy/vim-markdown'
+" Plug 'plasticboy/vim-markdown'
 Plug 'fatih/vim-go', { 'for': ['go'] }
 " Plug 'tpope/vim-fireplace'
 " Plug 'venantius/vim-cljfmt'
 " Plug 'tikhomirov/vim-glsl'
 Plug 'editorconfig/editorconfig-vim'
-"Plug 'Valloric/YouCompleteMe', { 'for': ['c', 'cpp', 'python', 'rust'] }
-"autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable() | endif
-Plug 'maksimr/vim-jsbeautify'
+Plug 'Valloric/YouCompleteMe', { 'for': ['c', 'cpp'] }
+autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable() | endif
 Plug 'rhysd/vim-clang-format'
 " Plug 'mindriot101/vim-yapf'
 Plug 'mhinz/vim-mix-format'
+Plug 'gabrielelana/vim-markdown'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 " Plug 'Superbil/llvm.vim'
@@ -447,6 +447,9 @@ nnoremap <Leader>q :Bdelete<CR>
 
 command! -bang -complete=buffer -nargs=? Bclose Bdelete<bang> <args>
 
+cmap <C-P> <Up>
+cmap <C-N> <Down>
+
 " Close all the buffers
 map <leader>ba :1,1000 bd!<cr>
 
@@ -485,7 +488,7 @@ autocmd BufReadPost *
 set viminfo^=%
 
 " Start new vim instance
-nnoremap <leader>0 :!nvim-qt<cr>
+nnoremap <leader>0 :!nvim-qt<cr><cr>
 
 
 """"""""""""""""""""""""""""""
@@ -582,9 +585,11 @@ let g:tagbar_autofocus = 1
 " => Distraction free
 nmap <leader>d :Goyo<CR>
 
-" Markdown related convenience
+" Markdown related
 let g:mkdp_auto_start = 0
 let g:mkdp_refresh_slow = 1
+let g:markdown_enable_mappings = 0
+let g:markdown_enable_spell_checking = 0
 
 " => Misc
 
@@ -598,7 +603,9 @@ map <leader>q :e ~/buffer<cr>
 map <leader>pp :setlocal paste!<cr>
 
 
-" => NERDTree
+" => Ranger
+let g:NERDTreeHijackNetrw = 0 
+let g:ranger_replace_netrw = 1
 
 
 " => Alignment
