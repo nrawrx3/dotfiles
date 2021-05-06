@@ -106,6 +106,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'francoiscabrol/ranger.vim'
+Plug 'sindrets/diffview.nvim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'mihaifm/bufstop'
 
@@ -124,6 +125,7 @@ Plug 'romainl/Apprentice'
 Plug 'tpope/vim-vividchalk'
 Plug 'lifepillar/vim-solarized8'
 Plug 'morhetz/gruvbox'
+Plug 'jaredgorski/fogbell.vim'
 Plug 'olivertaylor/vacme'
 Plug 'duckwork/nirvana'
 call plug#end()
@@ -399,11 +401,12 @@ set tw=80
 set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
+set cc=
 
 ""set exrc
 ""set secure
 
-set colorcolumn=110
+" set colorcolumn=110
 highlight ColorColumn ctermbg=white guibg=white
 
 
