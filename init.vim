@@ -143,7 +143,7 @@ let g:fzf_action = {
 
 " Default fzf layout
 " - down / up / left / right
-let g:fzf_layout = { 'down': '~39%' }
+let g:fzf_layout = { 'down': '~40%' }
 
 " In Neovim, you can set up fzf window using a Vim command
 let g:fzf_layout = { 'window': 'enew' }
@@ -593,6 +593,9 @@ let g:mkdp_auto_start = 0
 let g:mkdp_refresh_slow = 1
 let g:markdown_enable_mappings = 0
 let g:markdown_enable_spell_checking = 0
+let g:mkdp_command_for_global = 0
+let g:mkdp_filetypes = ['markdown']
+let g:mkdp_browser = 'qutebrowser'
 
 " => Misc
 
