@@ -24,10 +24,12 @@ if has("nvim")
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
+  Plug 'glepnir/dashboard-nvim'
 
 
   " Colorscheme
-  Plug 'arcticicestudio/nord-vim'
+  " Plug 'arcticicestudio/nord-vim'
+  Plug 'shaunsingh/nord.nvim'
   Plug 'jnurmine/Zenburn'
   Plug 'romainl/Apprentice'
   Plug 'tpope/vim-vividchalk'
