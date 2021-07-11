@@ -25,20 +25,22 @@ if has("nvim")
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'glepnir/dashboard-nvim'
+  Plug 'gennaro-tedesco/nvim-peekup'
+  Plug 'lukas-reineke/indent-blankline.nvim'
+  Plug 'b3nj5m1n/kommentary'
+  " Plug 'jbyuki/venn.nvim'
+  Plug 'junegunn/limelight.vim'
+  Plug 'junegunn/goyo.vim'
 
+  " Language specific
+  Plug 'ray-x/go.nvim'
 
   " Colorscheme
   " Plug 'arcticicestudio/nord-vim'
   Plug 'shaunsingh/nord.nvim'
-  Plug 'jnurmine/Zenburn'
-  Plug 'romainl/Apprentice'
-  Plug 'tpope/vim-vividchalk'
-  Plug 'lifepillar/vim-solarized8'
-  Plug 'morhetz/gruvbox'
-  Plug 'arzg/vim-colors-xcode'
-  Plug 'jaredgorski/fogbell.vim'
   Plug 'olivertaylor/vacme'
   Plug 'duckwork/nirvana'
+  Plug 'folke/tokyonight.nvim'
 endif
 
 Plug 'groenewege/vim-less', { 'for': 'less' }

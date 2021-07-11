@@ -12,6 +12,12 @@ nmap <leader>w :w!<cr>
 set lsp=2
 
 nnoremap <S-C-p> "0p
+
+" peekup
+let g:peekup_open = '<leader>"'
+let g:peekup_paste_before = '<leader>P'
+let g:peekup_paste_after = '<leader>p'
+
 " Delete without yank
 nnoremap <leader>d "_d
 nnoremap x "_x
@@ -28,6 +34,8 @@ nmap <C-a> gg<S-v>G
 
 " Save with root permission
 command! W w !sudo tee > /dev/null %
+
+nmap <leader>d :Goyo<CR>
 
 " Search for selected text, forwards or backwards.
 vnoremap <silent> * :<C-U>

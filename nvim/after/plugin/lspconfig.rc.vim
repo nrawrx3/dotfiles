@@ -8,7 +8,7 @@ EOF
 
 lua << EOF
 local nvim_lsp = require('lspconfig')
-local protocol = require'vim.lsp.protocol'
+local protocol = require('vim.lsp.protocol')
 
 -- Use an on_attach function to only map the following keys 
 -- after the language server attaches to the current buffer
@@ -90,6 +90,15 @@ nvim_lsp.tsserver.setup {
   filetypes = { "typescript", "typescriptreact", "typescript.tsx" }
 }
 
+nvim_lsp.gopls.setup{
+  on_attach = on_attach
+}
+
+nvim_lsp.elixirls.setup {
+  on_attach = on_attach,
+  cmd = {"elixir-ls-launch.sh"}
+}
+
 nvim_lsp.diagnosticls.setup {
   on_attach = on_attach,
   filetypes = { 'javascript', 'javascriptreact', 'json', 'typescript', 'typescriptreact', 'css', 'less', 'scss', 'markdown', 'pandoc' },
@@ -159,7 +168,5 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     }
   }
 )
-
-nvim_lsp.gopls.setup{}
 
 EOF

@@ -28,6 +28,15 @@ set expandtab
 "let loaded_matchparen = 1
 set shell=bash
 set backupskip=/tmp/*,/private/tmp/*
+" Ignore compiled files
+set wildignore=*.o,*~,*.pyc
+"Always show current position
+set ruler
+" Height of the command bar
+set cmdheight=1
+
+" A buffer becomes hidden when it is abandoned
+set hidden
 
 " incremental substitution (neovim)
 if has('nvim')
@@ -158,7 +167,6 @@ if exists("&termguicolors") && exists("&winblend")
   set wildoptions=pum
   set pumblend=5
   set background=dark
-  colorscheme nord
 endif
 
 "}}}
