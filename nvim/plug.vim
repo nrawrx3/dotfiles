@@ -28,6 +28,7 @@ if has("nvim")
   Plug 'gennaro-tedesco/nvim-peekup'
   Plug 'lukas-reineke/indent-blankline.nvim'
   Plug 'b3nj5m1n/kommentary'
+  Plug 'kevinhwang91/rnvimr'
   " Plug 'jbyuki/venn.nvim'
   Plug 'junegunn/limelight.vim'
   Plug 'junegunn/goyo.vim'

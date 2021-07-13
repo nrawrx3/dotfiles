@@ -99,6 +99,11 @@ nvim_lsp.elixirls.setup {
   cmd = {"elixir-ls-launch.sh"}
 }
 
+nvim_lsp.clangd.setup {
+    filetypes = {"c", "cpp"},
+    on_attach = on_attach
+}
+
 nvim_lsp.diagnosticls.setup {
   on_attach = on_attach,
   filetypes = { 'javascript', 'javascriptreact', 'json', 'typescript', 'typescriptreact', 'css', 'less', 'scss', 'markdown', 'pandoc' },
