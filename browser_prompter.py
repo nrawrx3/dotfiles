@@ -9,6 +9,16 @@ root = tk.Tk()
 root.withdraw()
 
 
+def get_url_type(url):
+    if url.startswith('http:') or url.startswith('https:'):
+        return 'http'
+
+    if url.endswith('.pdf'):
+        return 'pdf'
+
+    return None
+
+
 def ask_for_browser(url):
     user_input = simpledialog.askstring(
         title="Browser Prompter",
@@ -31,17 +41,60 @@ def ask_for_browser(url):
     return None
 
 
+def browser_action(url):
+    command = ask_for_browser(url)
+
+    if command is None:
+        messagebox.showerror("Error", "Invalid browser")
+        exit(1)
+
+    command.append(url)
+
+    sp.run(command)
+
+
+def ask_for_reader(url):
+    user_input = simpledialog.askstring(
+        title="Browser Prompter",
+        prompt=f"Choose pdf reader - (l) for llpp, (c) for chrome, (f) for firefox  \nURL: {url}",
+    )
+    user_input = user_input.strip()
+
+    if user_input in ["c", "chrome"]:
+        return ["google-chrome-stable"]
+
+    if user_input in ["f", "firefox"]:
+        return ["firefox"]
+
+    if user_input in ["l", "llpp"]:
+        return ["llpp"]
+
+    return None
+
+def pdf_reader_action(url):
+    command = ask_for_reader(url)
+
+    if command is None:
+        messagebox.showerror("Error", "Invalid browser")
+        exit(1)
+
+    command.append(url)
+
+    sp.run(command)
+
+
 if __name__ == '__main__':
     if len(argv) != 2:
         messagebox.showerror("Error", f"Expected URL as parameter, but argv = {argv}")
     else:
         url = argv[1]
-        browser_command = ask_for_browser(url)
+        url_type = get_url_type(url)
 
-        if browser_command is None:
-            messagebox.showerror("Error", "Invalid browser")
-            exit(1)
+        if url_type == 'http':
+            browser_action(url)
 
-        browser_command.append(url)
+        elif url_type == 'pdf':
+            pdf_reader_action(url)
 
-        sp.run(browser_command)
+        else:
+            messagebox.showerror("Error", f"Unknown URL type: {url}")
