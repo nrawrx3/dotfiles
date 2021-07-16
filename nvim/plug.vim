@@ -26,12 +26,14 @@ if has("nvim")
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'glepnir/dashboard-nvim'
   Plug 'gennaro-tedesco/nvim-peekup'
-  Plug 'lukas-reineke/indent-blankline.nvim'
-  Plug 'b3nj5m1n/kommentary'
+  " Plug 'lukas-reineke/indent-blankline.nvim'
   Plug 'kevinhwang91/rnvimr'
   " Plug 'jbyuki/venn.nvim'
   Plug 'junegunn/limelight.vim'
   Plug 'junegunn/goyo.vim'
+  Plug 'terrortylor/nvim-comment' 
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/fzf.vim'
 
   " Language specific
   Plug 'ray-x/go.nvim'
@@ -42,6 +44,8 @@ if has("nvim")
   Plug 'olivertaylor/vacme'
   Plug 'duckwork/nirvana'
   Plug 'folke/tokyonight.nvim'
+  Plug 'rockerBOO/boo-colorscheme-nvim', { 'branch': 'main' }
+  Plug 'projekt0n/github-nvim-theme'
 endif
 
 Plug 'groenewege/vim-less', { 'for': 'less' }

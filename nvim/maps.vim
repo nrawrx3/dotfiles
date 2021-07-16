@@ -88,10 +88,10 @@ map <C-h> <C-W>h
 map <C-l> <C-W>l
 
 " Close the current buffer
-map <leader>bd :Bclose<cr>
+map <leader>bd :bclose<cr>
 
 " bbye
-nnoremap <Leader>q :Bdelete<CR>
+nnoremap <Leader>q :bdelete<CR>
 
 command! -bang -complete=buffer -nargs=? Bclose Bdelete<bang> <args>
 
@@ -111,7 +111,8 @@ map <leader>tl :tabprevious<cr>
 
 " Opens a new tab with the current buffer's path
 " Super useful when editing files in the same directory
-map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
+map <leader>e :tabedit <c-r>=expand("%:p:h")<cr>/
+map <leader>f :edit <c-r>=expand("%:p:h")<cr>/
 
 " Switch CWD to the directory of the open buffer
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
@@ -170,8 +171,6 @@ vnoremap <silent> # :call VisualSelection('b')<CR>
 " Treat long lines as break lines (useful when moving around in them)
 map j gj
 map k gk
-
-nnoremap <space> :Bufstop<CR>
 
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
@@ -240,3 +239,26 @@ set viminfo^=%
 
 " Start new vim instance
 nnoremap <leader>0 :!nvim-qt<cr><cr>
+
+" fzf
+
+" This is the default option:
+"   - Preview window on the right with 50% width
+"   - CTRL-/ will toggle preview window.
+" - Note that this array is passed as arguments to fzf#vim#with_preview function.
+" - To learn more about preview window options, see `--preview-window` section of `man fzf`.
+let g:fzf_preview_window = ['right:50%', 'ctrl-/']
+
+" Preview window on the upper side of the window with 40% height,
+" hidden by default, ctrl-/ to toggle
+let g:fzf_preview_window = ['up:40%:hidden', 'ctrl-/']
+
+" Empty value to disable preview window altogether
+let g:fzf_preview_window = []
+
+nnoremap <silent> <C-t> :FZF -m<cr>
+nnoremap <silent> <C-p> :FZF -m<cr>
+" <M-p> for open buffers
+nnoremap <silent> <C-b> :Buffers<cr>
+" <M-S-p> for MRU
+nnoremap <silent> <C-S-b> :History<cr>
