@@ -258,7 +258,5 @@ let g:fzf_preview_window = []
 
 nnoremap <silent> <C-t> :FZF -m<cr>
 nnoremap <silent> <C-p> :FZF -m<cr>
-" <M-p> for open buffers
 nnoremap <silent> <C-b> :Buffers<cr>
-" <M-S-p> for MRU
 nnoremap <silent> <C-S-b> :History<cr>

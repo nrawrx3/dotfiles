@@ -104,6 +104,8 @@ nvim_lsp.clangd.setup {
     on_attach = on_attach
 }
 
+require'lspconfig'.erlangls.setup{}
+
 nvim_lsp.diagnosticls.setup {
   on_attach = on_attach,
   filetypes = { 'javascript', 'javascriptreact', 'json', 'typescript', 'typescriptreact', 'css', 'less', 'scss', 'markdown', 'pandoc' },
