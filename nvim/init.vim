@@ -155,7 +155,7 @@ runtime ./maps.vim
 " Syntax theme "{{{
 " ---------------------------------------------------------------------
 
-let s:mycolors = ['nirvana', 'zenburn', 'vividchalk', 'nord', 'apprentice']
+let s:mycolors = ['nord', 'apprentice', 'everforest', 'tokyonight']
 
 colorscheme nord
 
@@ -419,6 +419,13 @@ function DeleteHiddenBuffers()
         silent execute 'bwipeout' buf
     endfor
 endfunction
+
+" trigger `autoread` when files changes on disk
+set autoread
+autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
+" notification after file change
+autocmd FileChangedShellPost *
+\ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 
 
 

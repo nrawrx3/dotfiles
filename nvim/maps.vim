@@ -258,5 +258,5 @@ let g:fzf_preview_window = []
 
 nnoremap <silent> <C-t> :FZF -m<cr>
 nnoremap <silent> <C-p> :FZF -m<cr>
-nnoremap <silent> <C-b> :Buffers<cr>
-nnoremap <silent> <C-S-b> :History<cr>
+nnoremap <silent> <C-k> :Buffers<cr>
+nnoremap <silent> <C-S-k> :History<cr>

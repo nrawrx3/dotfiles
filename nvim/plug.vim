@@ -31,9 +31,9 @@ if has("nvim")
   " Plug 'jbyuki/venn.nvim'
   Plug 'junegunn/limelight.vim'
   Plug 'junegunn/goyo.vim'
-  Plug 'terrortylor/nvim-comment' 
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
+  Plug 'tpope/vim-commentary'
 
   " Language specific
   Plug 'ray-x/go.nvim'
@@ -45,7 +45,7 @@ if has("nvim")
   Plug 'duckwork/nirvana'
   Plug 'folke/tokyonight.nvim'
   Plug 'rockerBOO/boo-colorscheme-nvim', { 'branch': 'main' }
-  Plug 'projekt0n/github-nvim-theme'
+  Plug 'sainnhe/everforest'
 endif
 
 Plug 'groenewege/vim-less', { 'for': 'less' }
