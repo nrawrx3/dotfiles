@@ -240,6 +240,10 @@ set viminfo^=%
 " Start new vim instance
 nnoremap <leader>0 :!nvim-qt<cr><cr>
 
+" Python formatting
+nnoremap <buffer><silent> <c-q> <cmd>call Black()<cr>
+inoremap <buffer><silent> <c-q> <cmd>call Black()<cr>
+
 " fzf
 
 " This is the default option:

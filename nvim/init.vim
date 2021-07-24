@@ -121,7 +121,7 @@ autocmd FileType vim setlocal et ts=4 sw=4 sts=4
 autocmd FileType scheme setlocal et ts=2 sw=2 sts=2
 autocmd FileType bash setlocal et ts=4 sw=4 sts=4
 autocmd FileType zsh setlocal et ts=4 sw=4 sts=4
-autocmd FileType go setlocal noet ts=8 sw=8 sts=8
+autocmd FileType go setlocal noet ts=8 sw=8 sts=8 textwidth=110
 autocmd FileType d setlocal et ts=4 sw=4 sts=4
 autocmd FileType lemon set noet ts=4 sw=4 sts=4
 au BufRead,BufNewFile *.rs set filetype=rust
@@ -155,7 +155,7 @@ runtime ./maps.vim
 " Syntax theme "{{{
 " ---------------------------------------------------------------------
 
-let s:mycolors = ['nord', 'apprentice', 'everforest', 'tokyonight']
+let s:mycolors = ['nord', 'everforest', 'tokyonight']
 
 colorscheme nord
 

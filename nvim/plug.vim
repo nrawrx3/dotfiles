@@ -27,6 +27,7 @@ if has("nvim")
   Plug 'glepnir/dashboard-nvim'
   Plug 'gennaro-tedesco/nvim-peekup'
   " Plug 'lukas-reineke/indent-blankline.nvim'
+  Plug 'a-vrma/black-nvim', {'do': ':UpdateRemotePlugins'}
   Plug 'kevinhwang91/rnvimr'
   " Plug 'jbyuki/venn.nvim'
   Plug 'junegunn/limelight.vim'
@@ -44,8 +45,10 @@ if has("nvim")
   Plug 'olivertaylor/vacme'
   Plug 'duckwork/nirvana'
   Plug 'folke/tokyonight.nvim'
-  Plug 'rockerBOO/boo-colorscheme-nvim', { 'branch': 'main' }
+  Plug 'glepnir/zephyr-nvim'
+  Plug 'kyazdani42/blue-moon'
   Plug 'sainnhe/everforest'
+  Plug 'novakne/kosmikoa.nvim'
 endif
 
 Plug 'groenewege/vim-less', { 'for': 'less' }
