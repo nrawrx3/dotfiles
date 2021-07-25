@@ -26,6 +26,7 @@ if has("nvim")
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'glepnir/dashboard-nvim'
   Plug 'gennaro-tedesco/nvim-peekup'
+  Plug 'karb94/neoscroll.nvim'
   " Plug 'lukas-reineke/indent-blankline.nvim'
   Plug 'a-vrma/black-nvim', {'do': ':UpdateRemotePlugins'}
   Plug 'kevinhwang91/rnvimr'
@@ -49,6 +50,8 @@ if has("nvim")
   Plug 'kyazdani42/blue-moon'
   Plug 'sainnhe/everforest'
   Plug 'novakne/kosmikoa.nvim'
+  Plug 'shaunsingh/moonlight.nvim'
+  Plug 'sainnhe/gruvbox-material'
 endif
 
 Plug 'groenewege/vim-less', { 'for': 'less' }
