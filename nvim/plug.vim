@@ -24,9 +24,10 @@ if has("nvim")
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
-  Plug 'glepnir/dashboard-nvim'
+  " Plug 'glepnir/dashboard-nvim'
   Plug 'gennaro-tedesco/nvim-peekup'
   Plug 'karb94/neoscroll.nvim'
+  Plug 'Xuyuanp/scrollbar.nvim'
   " Plug 'lukas-reineke/indent-blankline.nvim'
   Plug 'a-vrma/black-nvim', {'do': ':UpdateRemotePlugins'}
   Plug 'kevinhwang91/rnvimr'
