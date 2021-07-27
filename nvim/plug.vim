@@ -25,6 +25,7 @@ if has("nvim")
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
   " Plug 'glepnir/dashboard-nvim'
+  Plug 'mhinz/vim-startify'
   Plug 'gennaro-tedesco/nvim-peekup'
   Plug 'karb94/neoscroll.nvim'
   Plug 'Xuyuanp/scrollbar.nvim'
@@ -36,7 +37,10 @@ if has("nvim")
   Plug 'junegunn/goyo.vim'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
+  Plug 'folke/twilight.nvim' 
   Plug 'tpope/vim-commentary'
+  Plug 'xiyaowong/nvim-cursorword'
+  Plug 'Pocco81/HighStr.nvim'
 
   " Language specific
   Plug 'ray-x/go.nvim'
