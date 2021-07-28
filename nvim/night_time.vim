@@ -1,10 +1,11 @@
-GuiFont! Consolas:b:h21
+GuiFont! Consolas:h19
 GuiLinespace 3
 GuiPopupmenu 0
 GuiTabline 0
 set number
 
+colorscheme gruvbox-material
+
 lua << EOF
-kosmikoa = require('kosmikoa')
-setup_lualine('tokyonight')
+setup_lualine('gruvbox')
 EOF

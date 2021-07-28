@@ -41,6 +41,7 @@ if has("nvim")
   Plug 'tpope/vim-commentary'
   Plug 'xiyaowong/nvim-cursorword'
   Plug 'Pocco81/HighStr.nvim'
+  Plug 'rmagatti/auto-session'
 
   " Language specific
   Plug 'ray-x/go.nvim'
