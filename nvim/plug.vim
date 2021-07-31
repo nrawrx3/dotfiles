@@ -18,6 +18,7 @@ if has("nvim")
   Plug 'neovim/nvim-lspconfig'
   Plug 'glepnir/lspsaga.nvim'
   Plug 'folke/lsp-colors.nvim'
+  Plug 'simrat39/symbols-outline.nvim'
   Plug 'nvim-lua/completion-nvim'
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
   Plug 'kyazdani42/nvim-web-devicons'
@@ -27,7 +28,7 @@ if has("nvim")
   " Plug 'glepnir/dashboard-nvim'
   Plug 'mhinz/vim-startify'
   Plug 'gennaro-tedesco/nvim-peekup'
-  Plug 'karb94/neoscroll.nvim'
+  " Plug 'karb94/neoscroll.nvim'
   Plug 'Xuyuanp/scrollbar.nvim'
   " Plug 'lukas-reineke/indent-blankline.nvim'
   Plug 'a-vrma/black-nvim', {'do': ':UpdateRemotePlugins'}
@@ -53,7 +54,7 @@ if has("nvim")
   Plug 'duckwork/nirvana'
   Plug 'folke/tokyonight.nvim'
   Plug 'glepnir/zephyr-nvim'
-  Plug 'kyazdani42/blue-moon'
+  Plug 'arzg/vim-substrata'
   Plug 'sainnhe/everforest'
   Plug 'novakne/kosmikoa.nvim'
   Plug 'shaunsingh/moonlight.nvim'

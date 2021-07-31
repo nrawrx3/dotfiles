@@ -155,7 +155,7 @@ runtime ./maps.vim
 " Syntax theme "{{{
 " ---------------------------------------------------------------------
 
-let s:mycolors = ['nord', 'everforest', 'tokyonight']
+let s:mycolors = ['nord', 'everforest', 'substrata', 'gruvbox-material']
 
 colorscheme nord
 
