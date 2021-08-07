@@ -9,5 +9,5 @@ local opts = {
   auto_session_suppress_dirs = nil
 }
 
-require('auto-session').setup(opts)
+-- require('auto-session').setup(opts)
 EOF

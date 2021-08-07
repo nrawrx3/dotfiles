@@ -1,12 +1,11 @@
-GuiFont! Consolas:h19
+GuiFont! Inconsolata-dz For Powerline:h17
 GuiLinespace 3
 GuiPopupmenu 0
 GuiTabline 0
 set number
 
-colorscheme substrata
-
-set bg=dark
+colorscheme tokyonight
+set bg=light
 
 lua << EOF
 setup_lualine('evil')

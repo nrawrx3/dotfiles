@@ -3,5 +3,6 @@ GuiFont! Generic Mono II:h17
 GuiLinespace 3
 GuiPopupmenu 0
 GuiTabline 0
-set number
 
+set bg=dark
+set number
