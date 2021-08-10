@@ -1,12 +1,11 @@
-GuiFont! Inconsolata-dz For Powerline:h17
+GuiFont! Roboto Mono:h17
 GuiLinespace 3
 GuiPopupmenu 0
 GuiTabline 0
 set number
 
-colorscheme tokyonight
-set bg=light
+colorscheme modus-operandi
 
 lua << EOF
-setup_lualine('evil')
+setup_lualine('modus_vivendi')
 EOF

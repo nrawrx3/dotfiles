@@ -155,9 +155,10 @@ runtime ./maps.vim
 " Syntax theme "{{{
 " ---------------------------------------------------------------------
 
-let s:mycolors = ['nord', 'everforest', 'substrata', 'gruvbox-material']
+let s:mycolors = ['modus-operandi', 'nord', 'everforest', 'modus-vivendi']
 
-colorscheme nord
+set bg=dark
+colorscheme modus-vivendi
 
 " true color
 if exists("&termguicolors") && exists("&winblend")

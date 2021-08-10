@@ -259,4 +259,4 @@ function setup_evil_lualine()
   lualine.setup(config)
 end
 
-setup_lualine('nord')
+setup_lualine('modus_vivendi')

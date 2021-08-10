@@ -91,7 +91,7 @@ map <C-l> <C-W>l
 map <leader>bd :bclose<cr>
 
 " bbye
-nnoremap <Leader>q :bdelete<CR>
+nnoremap <Leader>q :Bdelete<CR>
 
 command! -bang -complete=buffer -nargs=? Bclose Bdelete<bang> <args>
 

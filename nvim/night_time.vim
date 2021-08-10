@@ -4,10 +4,8 @@ GuiPopupmenu 0
 GuiTabline 0
 set number
 
-colorscheme substrata
-
-set bg=dark
+colorscheme modus-vivendi
 
 lua << EOF
-setup_lualine('evil')
+setup_lualine('modus_vivendi')
 EOF

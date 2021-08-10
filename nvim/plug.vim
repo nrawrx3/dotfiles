@@ -56,11 +56,11 @@ if has("nvim")
   Plug 'olivertaylor/vacme'
   Plug 'duckwork/nirvana'
   Plug 'folke/tokyonight.nvim'
-  Plug 'glepnir/zephyr-nvim'
   Plug 'arzg/vim-substrata'
+  Plug 'Th3Whit3Wolf/space-nvim'
   Plug 'sainnhe/everforest'
-  Plug 'novakne/kosmikoa.nvim'
-  Plug 'shaunsingh/moonlight.nvim'
+  Plug 'ishan9299/modus-theme-vim'
+  Plug 'https://git.sr.ht/~novakane/argi.nvim'
   Plug 'sainnhe/gruvbox-material'
 endif
 
