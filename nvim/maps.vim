@@ -298,7 +298,7 @@ nnoremap <silent>    <A-c> :BufferClose<CR>
 " Wipeout buffer
 "                          :BufferWipeout<CR>
 " Close commands
-"                          :BufferCloseAllButCurrent<CR>
+nnoremap <silent> <A-d>    :BufferCloseAllButCurrent<CR>
 "                          :BufferCloseAllButPinned<CR>
 "                          :BufferCloseBuffersLeft<CR>
 "                          :BufferCloseBuffersRight<CR>
