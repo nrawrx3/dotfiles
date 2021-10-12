@@ -1,0 +1,136 @@
+{
+    "auto_complete": false,
+    "caret_style": "phase",
+    "color_scheme": "Packages/Nord/Nord.sublime-color-scheme",
+    "file_exclude_patterns":
+    [
+        "*.pyc",
+        "*.pyo",
+        "*.exe",
+        "*.dll",
+        "*.obj",
+        "*.o",
+        "*.a",
+        "*.lib",
+        "*.so",
+        "*.dylib",
+        "*.ncb",
+        "*.sdf",
+        "*.suo",
+        "*.pdb",
+        "*.idb",
+        ".DS_Store",
+        "*.class",
+        "*.psd",
+        "*.db",
+        "*.sublime-workspace",
+        "deps/"
+    ],
+    "folder_exclude_patterns":
+    [
+        ".svn",
+        ".git",
+        ".hg",
+        "CVS",
+        "node_modules",
+        "_build",
+        ".elixir_ls"
+    ],
+    "font_face": "Mensch",
+    "font_options":
+    [
+        "gray_antialias",
+    ],
+    "font_size": 18,
+    "fontcycler.common_conf":
+    [
+        "gray_antialias"
+    ],
+    "fontcycler.font_confs":
+    [
+        [
+            "Courier Typewritter",
+            20,
+            [
+            ]
+        ],
+        [
+            "Consolas",
+            19,
+            [
+            ]
+        ],
+        [
+            "Pointfree",
+            19,
+            []
+        ],
+        [
+            "DejaVu Sans Mono - bront",
+            14,
+            []
+        ],
+        [
+            "NanumGothicCoding",
+            22,
+            [
+                "bold"
+            ]
+        ],
+        [
+            "Generic Mono II",
+            17,
+            []
+        ],
+        [
+            "SF Mono Powerline",
+            17,
+            []
+        ],
+        [
+            "mononoki",
+            18,
+            []
+        ],
+        [
+            "Inconsolata-dz For Powerline",
+            17,
+            []
+        ],
+        [
+            "Mensch",
+            18,
+            []
+        ],
+        [
+            "Courier Typewritter",
+            20,
+            [
+                "bold"
+            ]
+        ]
+    ],
+    "fontcycler.fonts_list":
+    [],
+    "fontcycler.max_line_padding": 4,
+    "fontcycler.min_line_padding": 0,
+    "ignored_packages":
+    [
+        "Six",
+        "Vintage",
+        "Vintageous",
+    ],
+    "line_numbers": true,
+    "line_padding_bottom": 4,
+    "line_padding_top": 4,
+    "neovintageous_build_version": 11100,
+    "scroll_speed": 0,
+    "tab_size": 8,
+    "theme": "auto",
+    "trim_automatic_white_space": true,
+    "vintageous_use_ctrl_keys": null,
+    "vintageous_use_super_keys": null,
+    "hardware_acceleration": "opengl",
+    "dark_theme": "Default.sublime-theme",
+    "light_theme": "Default.sublime-theme",
+}
