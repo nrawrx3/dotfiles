@@ -107,7 +107,7 @@ nvim_lsp.tsserver.setup({
 
 nvim_lsp.gopls.setup({on_attach = on_attach})
 
-nvim_lsp.elixirls.setup({on_attach = on_attach, cmd = {"elixir-ls-launch.sh"}})
+nvim_lsp.elixirls.setup({on_attach = on_attach, cmd = {"language_server.sh"}})
 
 nvim_lsp.clangd.setup({filetypes = {"c", "cpp"}, on_attach = on_attach})
 
@@ -131,6 +131,14 @@ nvim_lsp.erlangls.setup({})
 --     },
 --     on_attach = on_attach
 -- })
+
+nvim_lsp.tsserver.setup({
+    cmd = { "typescript-language-server", "--stdio" },
+    filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
+    init_options = {
+      hostInfo = "neovim"
+    }
+})
 
 nvim_lsp.diagnosticls.setup({
     on_attach = on_attach,

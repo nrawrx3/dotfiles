@@ -276,29 +276,29 @@ augroup end
 nnoremap <silent> <C-s> :SymbolsOutline<cr>
 
 " Move to previous/next
-nnoremap <silent>    <A-,> :BufferPrevious<CR>
-nnoremap <silent>    <A-.> :BufferNext<CR>
+nnoremap <silent>    <D-,> :BufferPrevious<CR>
+nnoremap <silent>    <D-.> :BufferNext<CR>
 " Re-order to previous/next
-nnoremap <silent>    <A-<> :BufferMovePrevious<CR>
-nnoremap <silent>    <A->> :BufferMoveNext<CR>
+nnoremap <silent>    <D-<> :BufferMovePrevious<CR>
+nnoremap <silent>    <D->> :BufferMoveNext<CR>
 " Goto buffer in position...
-nnoremap <silent>    <A-1> :BufferGoto 1<CR>
-nnoremap <silent>    <A-2> :BufferGoto 2<CR>
-nnoremap <silent>    <A-3> :BufferGoto 3<CR>
-nnoremap <silent>    <A-4> :BufferGoto 4<CR>
-nnoremap <silent>    <A-5> :BufferGoto 5<CR>
-nnoremap <silent>    <A-6> :BufferGoto 6<CR>
-nnoremap <silent>    <A-7> :BufferGoto 7<CR>
-nnoremap <silent>    <A-8> :BufferGoto 8<CR>
-nnoremap <silent>    <A-9> :BufferLast<CR>
+nnoremap <silent>    <D-1> :BufferGoto 1<CR>
+nnoremap <silent>    <D-2> :BufferGoto 2<CR>
+nnoremap <silent>    <D-3> :BufferGoto 3<CR>
+nnoremap <silent>    <D-4> :BufferGoto 4<CR>
+nnoremap <silent>    <D-5> :BufferGoto 5<CR>
+nnoremap <silent>    <D-6> :BufferGoto 6<CR>
+nnoremap <silent>    <D-7> :BufferGoto 7<CR>
+nnoremap <silent>    <D-8> :BufferGoto 8<CR>
+nnoremap <silent>    <D-9> :BufferLast<CR>
 " Pin/unpin buffer
-nnoremap <silent>    <A-p> :BufferPin<CR>
+nnoremap <silent>    <D-p> :BufferPin<CR>
 " Close buffer
-nnoremap <silent>    <A-c> :BufferClose<CR>
+nnoremap <silent>    <D-c> :BufferClose<CR>
 " Wipeout buffer
 "                          :BufferWipeout<CR>
 " Close commands
-nnoremap <silent> <A-d>    :BufferCloseAllButCurrent<CR>
+nnoremap <silent> <D-d>    :BufferCloseAllButCurrent<CR>
 "                          :BufferCloseAllButPinned<CR>
 "                          :BufferCloseBuffersLeft<CR>
 "                          :BufferCloseBuffersRight<CR>
@@ -309,6 +309,24 @@ nnoremap <silent> <Space>bd :BufferOrderByDirectory<CR>
 nnoremap <silent> <Space>bl :BufferOrderByLanguage<CR>
 nnoremap <silent> <Space>bw :BufferOrderByWindowNumber<CR>
 
+" Float
+nnoremap   <silent>   <F7>    :FloatermNew<CR>
+tnoremap   <silent>   <F7>    <C-\><C-n>:FloatermNew<CR>
+nnoremap   <silent>   <F8>    :FloatermPrev<CR>
+tnoremap   <silent>   <F8>    <C-\><C-n>:FloatermPrev<CR>
+nnoremap   <silent>   <F9>    :FloatermNext<CR>
+tnoremap   <silent>   <F9>    <C-\><C-n>:FloatermNext<CR>
+nnoremap   <silent>   <F12>   :FloatermToggle<CR>
+tnoremap   <silent>   <F12>   <C-\><C-n>:FloatermToggle<CR>
+
 " Other:
 " :BarbarEnable - enables barbar (enabled by default)
 " :BarbarDisable - very bad command, should never be used
+
+nnoremap <leader>S :lua require('spectre').open()<CR>
+
+"search current word
+nnoremap <leader>sw :lua require('spectre').open_visual({select_word=true})<CR>
+vnoremap <leader>s :lua require('spectre').open_visual()<CR>
+"  search in current file
+nnoremap <leader>sp viw:lua require('spectre').open_file_search()<cr>
