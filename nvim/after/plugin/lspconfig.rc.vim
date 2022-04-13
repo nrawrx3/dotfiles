@@ -28,11 +28,15 @@ local on_attach = function(client, bufnr)
     local opts = {noremap = true, silent = true}
 
     -- See `:help vim.lsp.*` for documentation on any of the below functions
+
+    -- go to declaration or definition or implementation
     buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
     buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
     -- buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
     buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
     -- buf_set_keymap('i', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+
+    -- add or remove or list workspace folders
     buf_set_keymap('n', '<space>wa',
                    '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
     buf_set_keymap('n', '<space>wr',
@@ -42,6 +46,8 @@ local on_attach = function(client, bufnr)
                    opts)
     buf_set_keymap('n', '<space>D',
                    '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+
+    -- rename symbol
     buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
     buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>',
                    opts)

@@ -1,12 +1,12 @@
 GuiTabline 0
-GuiFont! Andale Mono:h19
+GuiFont! Verily Serif Mono:h18
 GuiPopupmenu 0
 GuiTabline 0
 
 set bg=dark
 set number
 
-colorscheme nord
+colorscheme kanagawa
 
-lua setup_lualine('nord')
+lua setup_lualine('kanagawa')
 

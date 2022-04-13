@@ -19,6 +19,7 @@ if has("nvim")
   Plug 'glepnir/lspsaga.nvim'
   Plug 'folke/lsp-colors.nvim'
   Plug 'simrat39/symbols-outline.nvim'
+  Plug 'folke/trouble.nvim'
   Plug 'nvim-lua/completion-nvim'
   Plug 'lukas-reineke/format.nvim'
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
@@ -61,6 +62,7 @@ if has("nvim")
   Plug 'shaunsingh/nord.nvim'
   Plug 'olivertaylor/vacme'
   Plug 'duckwork/nirvana'
+  Plug 'rebelot/kanagawa.nvim'
   Plug 'folke/tokyonight.nvim'
   Plug 'rose-pine/neovim'
   Plug 'arzg/vim-substrata'

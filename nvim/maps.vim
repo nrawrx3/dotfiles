@@ -110,8 +110,8 @@ map <leader>tk :tabnext<cr>
 map <leader>tl :tabprevious<cr>
 
 " Opens a new tab with the current buffer's path
-" Super useful when editing files in the same directory
 map <leader>e :tabedit <c-r>=expand("%:p:h")<cr>/
+" Opens a new buffer with the current buffer's path
 map <leader>f :edit <c-r>=expand("%:p:h")<cr>/
 
 " Switch CWD to the directory of the open buffer
