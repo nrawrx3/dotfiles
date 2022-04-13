@@ -15,10 +15,13 @@ alias uppp="cd ../../.."
 alias cls="clear"
 alias md="mkdir"
 alias tnvim="nvim -c terminal"
+alias tta="tmux a -t"
+alias ttn="tmux new -t"
+alias ncipython="CUDA_VISIBLE_DEVICES=-1 ipython"
 
 source /etc/profile.d/vte.sh
 
-export EDITOR=nvim
+export EDITOR=vim
 HISTSIZE=-1
 
 PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl":$PATH
@@ -29,10 +32,6 @@ PATH=$HOME/.local/bin:$PATH
 # PATH=$HOME/Android/Sdk/tools/bin:$PATH
 
 export PATH
-
-export PACMAN_CACHE="/var/cache/pacman/pkg"
-export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH"
-export CSCOPE_EDITOR="nvim"
 
 export GUI_EDITOR=nvim-qt
 
@@ -212,7 +211,7 @@ include "${HOME}/dotfiles/android_sdk_paths.source.sh"
 export BASH_IT="/home/rksht/.bash_it"
 
 # Lock and Load a custom theme file location /.bash_it/themes/
-export BASH_IT_THEME='duru'
+export BASH_IT_THEME='cooperkid'
 
 # Don't check mail when opening terminal.
 unset MAILCHECK
@@ -257,7 +256,7 @@ function jt_theme() {
     jt -r
   else
     echo "Using jupyter theme $1"
-    jt -t $1 -f generic -fs 17 -cellw 90%
+    jt -t $1 -f firacode -fs 14 -cellw 90%
   fi
 }
 
@@ -306,24 +305,38 @@ function set_res() {
 	esac
 }
 
-source ~/.ipsec.include.sh
+# source ~/.ipsec.include.sh
 
 
-function mamba_init() {
-	# >>> mamba initialize >>>
-	# !! Contents within this block are managed by 'mamba init' !!
-	export MAMBA_EXE="/usr/bin/micromamba";
-	export MAMBA_ROOT_PREFIX="/home/rksht/werk/micromamba";
-	__mamba_setup="$('/usr/bin/micromamba' shell hook --shell bash --prefix '/home/rksht/werk/micromamba' 2> /dev/null)"
-	if [ $? -eq 0 ]; then
-		eval "$__mamba_setup"
-	else
-		if [ -f "/home/rksht/werk/micromamba/etc/profile.d/mamba.sh" ]; then
-			. "/home/rksht/werk/micromamba/etc/profile.d/mamba.sh"
-		else
-			export PATH="/home/rksht/werk/micromamba/bin:$PATH"
-		fi
-	fi
-	unset __mamba_setup
-	# <<< mamba initialize <<<
+function tmuxswitch() {
+  sessname=$1
+  tmux detach
+  tmux a -t $sessname
 }
+
+
+# function mamba_init() {
+# 	# >>> mamba initialize >>>
+# 	# !! Contents within this block are managed by 'mamba init' !!
+# 	export MAMBA_EXE="/usr/bin/micromamba";
+# 	export MAMBA_ROOT_PREFIX="/home/rksht/werk/micromamba";
+# 	__mamba_setup="$('/usr/bin/micromamba' shell hook --shell bash --prefix '/home/rksht/werk/micromamba' 2> /dev/null)"
+# 	if [ $? -eq 0 ]; then
+# 		eval "$__mamba_setup"
+# 	else
+# 		if [ -f "/home/rksht/werk/micromamba/etc/profile.d/mamba.sh" ]; then
+# 			. "/home/rksht/werk/micromamba/etc/profile.d/mamba.sh"
+# 		else
+# 			export PATH="/home/rksht/werk/micromamba/bin:$PATH"
+# 		fi
+# 	fi
+# 	unset __mamba_setup
+# 	# <<< mamba initialize <<<
+# }
+
+function conda_init() {
+	[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
+}
+
+export GOPRIVATE="source.golabs.io/*"
+GOPROXY="direct"
