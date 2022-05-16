@@ -37,7 +37,7 @@ def rename_file(dirpath, filename, mode):
     old_filepath = os.path.join(dirpath, filename)
     new_filepath = os.path.join(dirpath, new_filename)
 
-    if config.ignore_substring in old_filepath:
+    if config.ignore_substring != "" and config.ignore_substring in old_filepath:
         print(f'Ignoring path {old_filepath}')
         return
 
@@ -108,7 +108,7 @@ def walk_directory(d):
 
 
 def replace_in_file(filepath):
-    if config.ignore_substring in filepath:
+    if config.ignore_substring != "" and config.ignore_substring in old_filepath:
         print(f'Ignoring contents in {filepath}')
         return
 
