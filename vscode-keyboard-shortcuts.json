@@ -1,0 +1,114 @@
+[
+        {
+                "key": "shift+cmd+i",
+                "command": "editor.action.formatDocument",
+                "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor"
+        },
+        {
+                "key": "shift+alt+f",
+                "command": "-editor.action.formatDocument",
+                "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor"
+        },
+        {
+                "key": "ctrl+,",
+                "command": "workbench.action.toggleActivityBarVisibility"
+        },
+        {
+                "key": "ctrl+.",
+                "command": "workbench.action.focusActivityBar"
+        },
+        {
+                "key": "shift+cmd+0",
+                "command": "workbench.action.zoomIn"
+        },
+        {
+                "key": "cmd+=",
+                "command": "-workbench.action.zoomIn"
+        },
+        {
+                "key": "shift+cmd+'",
+                "command": "font-switcher.setFontSize"
+        },
+        {
+                "key": "shift+cmd+8",
+                "command": "terminal.focus"
+        },
+        {
+                "key": "f1",
+                "command": "-workbench.action.showCommands"
+        },
+        {
+                "key": "f1",
+                "command": "extension.openScratchpad"
+        },
+        {
+                "key": "ctrl+shift+f",
+                "command": "font-switcher.switchFont"
+        },
+        {
+                "key": "shift+cmd+insert",
+                "command": "workbench.action.switchWindow"
+        },
+        {
+                "key": "ctrl+w",
+                "command": "-workbench.action.switchWindow"
+        },
+        {
+                "key": "cmd+k cmd+j",
+                "command": "workbench.action.focusLeftGroup"
+        },
+        {
+                "key": "cmd+k cmd+left",
+                "command": "-workbench.action.focusLeftGroup"
+        },
+        {
+                "key": "cmd+k cmd+l",
+                "command": "workbench.action.focusRightGroup"
+        },
+        {
+                "key": "cmd+k cmd+right",
+                "command": "-workbench.action.focusRightGroup"
+        },
+        {
+                "key": "shift+cmd+=",
+                "command": "editor.action.rename",
+                "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
+        },
+        {
+                "key": "f2",
+                "command": "-editor.action.rename",
+                "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
+        },
+        {
+                "key": "shift+cmd+end",
+                "command": "workbench.action.openApplicationSettingsJson"
+        },
+        {
+                "key": "shift+cmd+=",
+                "command": "-workbench.action.zoomIn"
+        },
+        {
+                "key": "alt+\\",
+                "command": "workbench.action.editorLayoutSingle"
+        },
+        {
+                "key": "cmd+. cmd+.",
+                "command": "editor.action.goToReferences",
+                "when": "editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
+        },
+        {
+                "key": "shift+f12",
+                "command": "-editor.action.goToReferences",
+                "when": "editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
+        },
+        {
+                "key": "cmd+' cmd+'",
+                "command": "editor.action.revealDefinition",
+                "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+        },
+        {
+                "key": "f12",
+                "command": "-editor.action.revealDefinition",
+                "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+        }
+]
