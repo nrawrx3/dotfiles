@@ -1,10 +1,10 @@
 {
-  "editor.fontFamily": "Gopher Mono, Monoisome, New Heterodox Mono A, Comic Mono, Monoid, Sometype Mono, Inconsolata-dz For Powerline, PT Mono, Jetbrains Mono NL, Maple Mono, Menlo, IntelOne Mono, Monofur For Powerline, Andale Mono, Fantasque Sans Mono, Tchig Mono, Iosevka Fixed SS16, Iosevka SS16, Victor Mono",
+  "editor.fontFamily": "Fira Code, Gopher Mono, Comic Mono, Maple Mono, New Heterodox Mono A, Monoid, PT Mono, Monoisome, Monofur For Powerline, Brutalist Mono, Jetbrains Mono NL, Menlo, Sometype Mono, Inconsolata-dz For Powerline",
   "editor.tabSize": 8,
   "editor.detectIndentation": false,
   "editor.trimAutoWhitespace": true,
   "editor.formatOnPaste": true,
-  "editor.fontWeight": "500",
+  "editor.fontWeight": "450",
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.snippetSuggestions": "top",
   "workbench.editor.showTabs": false,
@@ -54,7 +54,8 @@
   "terminal.integrated.fontSize": 14,
   "go.toolsManagement.autoUpdate": true,
   "[cpp]": {
-    "editor.defaultFormatter": "ms-vscode.cpptools"
+    "editor.defaultFormatter": "ms-vscode.cpptools",
+    "editor.tabSize": 2
   },
   "editor.wordWrapColumn": 80,
   "editor.wordWrap": "on",
@@ -98,8 +99,17 @@
     "[Paper]": {
       "comments": "#00959d"
     },
+    "[Everforest Light]": {
+      "comments": "#00959d"
+    },
     "[Catppuccin Frappé]": {
       "comments": "#0df6ea"
+    },
+    "[Everblush]": {
+      "comments": "#AAAAF0"
+    },
+    "[Solarized Dark]": {
+      "comments": "#AAAAF0"
     },
     "[paddy-mist]": {
       "comments": "#AAAAF0"
@@ -107,11 +117,23 @@
     "[paddy-mist-upright]": {
       "comments": "#AAAAF0"
     },
+    "[paddy-machine]": {
+      "comments": "#AAAAF0"
+    },
+    "[paddy-machine-upright]": {
+      "comments": "#AAAAF0"
+    },
     "[Everforest Dark]": {
+      "comments": "#00959d"
+    },
+    "[Iceberg]": {
       "comments": "#00959d"
     },
     "[Solarized Light]": {
       "comments": "#0c6ef7"
+    },
+    "[hackage-theme]": {
+      "comments": "#00959d"
     },
     "[paddy-citadel]": {
       "comments": "#00959d"
@@ -272,6 +294,15 @@
       "italic": false
     },
     {
+      "tag": "LOWHANG",
+      "color": "#be99ff",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "rgba(0.7, 0.7, 0.8, 1.0)",
+      "bold": false,
+      "italic": false
+    },
+    {
       "tag": "EXPLAIN",
       "color": "Plum",
       "strikethrough": false,
@@ -308,7 +339,7 @@
       "italic": false
     }
   ],
-  "workbench.iconTheme": "catppuccin-frappe",
+  "workbench.iconTheme": "catppuccin-mocha",
   //   "editor.scrollbar.verticalScrollbarSize": 5,
   "redhat.telemetry.enabled": false,
   "[typescript]": {
@@ -334,7 +365,7 @@
         "allowTrailingCommas": true
       }
     }
-],
+  ],
   "editor.inlineSuggest.enabled": true,
   "git.openRepositoryInParentFolders": "never",
   "[dart]": {
@@ -350,7 +381,6 @@
   "[dockercompose]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "workbench.colorTheme": "paddy-mist",
   "workbench.editor.limit.perEditorGroup": true,
   "workbench.editor.limit.value": 20,
   "workbench.sideBar.location": "right",
@@ -368,7 +398,6 @@
   "editor.guides.bracketPairsHorizontal": false,
   "editor.guides.indentation": false,
   "editor.cursorBlinking": "phase",
-  //   "editor.cursorSmoothCaretAnimation": "on",
   "editor.renderLineHighlight": "none",
   "editor.showFoldingControls": "never",
   "workbench.layoutControl.enabled": false,
@@ -392,11 +421,20 @@
           "editor.glyphMargin": true
         }
       ]
+    },
+    {
+      "id": "fontWeight",
+      "values": [
+        { "editor.fontWeight": "300" }, // Light
+        { "editor.fontWeight": "400" }, // Regular
+        { "editor.fontWeight": "450" }, // Retina !! Only works with FiraCode-VF.ttf installed, see below when using separated font files (the normal case).
+        { "editor.fontWeight": "500" }, // Medium
+        { "editor.fontWeight": "600" } // Bold
+      ]
     }
   ],
-  //   "editor.glyphMargin": false,
-"editor.lineNumbers": "off",
-"editor.glyphMargin": true,
-"editor.minimap.enabled": false,
-"workbench.activityBar.visible": false
+  "editor.lineNumbers": "relative",
+  "editor.glyphMargin": true,
+  "workbench.activityBar.visible": false,
+  "workbench.colorTheme": "Solarized Light"
 }

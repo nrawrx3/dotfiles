@@ -132,5 +132,14 @@
         {
                 "key": "shift+alt+n",
                 "command": "settings.cycle.glyphMargin"
+        },
+        {
+                "key": "shift+cmd+;",
+                "command": "-breadcrumbs.focus",
+                "when": "breadcrumbsPossible && breadcrumbsVisible"
+        },
+        {
+                "key": "shift+cmd+;",
+                "command": "settings.cycle.fontWeight"
         }
 ]
