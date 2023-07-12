@@ -1,5 +1,5 @@
 {
-  "editor.fontFamily": "Fira Code, Gopher Mono, Comic Mono, Maple Mono, New Heterodox Mono A, Monoid, PT Mono, Monoisome, Monofur For Powerline, Brutalist Mono, Jetbrains Mono NL, Menlo, Sometype Mono, Inconsolata-dz For Powerline",
+  "editor.fontFamily": "Gopher Mono, Menlo, Comic Mono, Monoid, Monofur For Powerline, Iosevka, Meslo LG L DZ, Meslo LG M DZ, Maple Mono, Fira Code, New Heterodox Mono A, Monoisome, Twilio Sans Mono, Sometype Mono, Iosevka SS16, Brutalist Mono, PT Mono, Red Hat Mono, Lilex, Jetbrains Mono NL, Inconsolata-dz For Powerline",
   "editor.tabSize": 8,
   "editor.detectIndentation": false,
   "editor.trimAutoWhitespace": true,
@@ -17,7 +17,9 @@
     "editor.useTabStops": false
   },
   "[json]": {
-    "editor.defaultFormatter": "vscode.json-language-features"
+    "editor.defaultFormatter": "vscode.json-language-features",
+    "editor.tabSize": 2,
+    "editor.useTabStops": false
   },
   "[graphql]": {
     "editor.tabSize": 2,
@@ -31,6 +33,14 @@
     },
     "editor.suggest.snippetsPreventQuickSuggestions": false,
     "editor.tabSize": 2
+  },
+  "[kotlin]": {
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true
+  },
+  "[rust]": {
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true
   },
   "workbench.editorAssociations": {
     "*.mobileconfig": "default"
@@ -87,6 +97,9 @@
     "[Tame Light (rainglow)]": {
       "comments": "#AAAAF0"
     },
+    "[paddy-yesterday-upright]": {
+      "comments": "#00959d"
+    },
     "[Solarized Yuki]": {
       "comments": "#AAAAF0"
     },
@@ -96,13 +109,31 @@
     "[Nord Deep]": {
       "comments": "#AAAAF0"
     },
+    "[Slate (rainglow)]": {
+      "comments": "#ff80d7"
+    },
     "[Paper]": {
       "comments": "#00959d"
     },
     "[Everforest Light]": {
-      "comments": "#00959d"
+      "comments": "#ff80d7"
     },
     "[Catppuccin Frappé]": {
+      "comments": "#0df6ea"
+    },
+    "[Catppuccin Macchiato]": {
+      "comments": "#0df6ea"
+    },
+    "[Catppuccin Mocha]": {
+      "comments": "#0df6ea"
+    },
+    "[Azure Light (rainglow)]": {
+      "comments": "#5151ff"
+    },
+    "[Azure (rainglow)]": {
+      "comments": "#0df6ea"
+    },
+    "[Super (rainglow)]": {
       "comments": "#0df6ea"
     },
     "[Everblush]": {
@@ -124,9 +155,15 @@
       "comments": "#AAAAF0"
     },
     "[Everforest Dark]": {
-      "comments": "#00959d"
+      "comments": "#ff80d7"
     },
     "[Iceberg]": {
+      "comments": "#00959d"
+    },
+    "[Iceberg Light]": {
+      "comments": "#00959d"
+    },
+    "[Mauve (rainglow)]": {
       "comments": "#00959d"
     },
     "[Solarized Light]": {
@@ -329,17 +366,17 @@
       "bold": false,
       "italic": false
     },
-    {
-      "tag": "*",
-      "color": "#98C379",
-      "strikethrough": false,
-      "underline": false,
-      "backgroundColor": "transparent",
-      "bold": false,
-      "italic": false
-    }
+//     {
+//       "tag": "*",
+//       "color": "#98C379",
+//       "strikethrough": false,
+//       "underline": false,
+//       "backgroundColor": "transparent",
+//       "bold": false,
+//       "italic": false
+//     }
   ],
-  "workbench.iconTheme": "catppuccin-mocha",
+  "workbench.iconTheme": "catppuccin-frappe",
   //   "editor.scrollbar.verticalScrollbarSize": 5,
   "redhat.telemetry.enabled": false,
   "[typescript]": {
@@ -384,7 +421,7 @@
   "workbench.editor.limit.perEditorGroup": true,
   "workbench.editor.limit.value": 20,
   "workbench.sideBar.location": "right",
-  "workbench.statusBar.visible": true,
+  "workbench.statusBar.visible": false,
   "editor.hideCursorInOverviewRuler": true,
   "editor.overviewRulerBorder": false,
   "editor.scrollbar.horizontal": "hidden",
@@ -433,8 +470,21 @@
       ]
     }
   ],
-  "editor.lineNumbers": "relative",
+  "editor.lineNumbers": "on",
   "editor.glyphMargin": true,
   "workbench.activityBar.visible": false,
-  "workbench.colorTheme": "Solarized Light"
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+},
+  "vim.handleKeys": {
+    "<C-d>": true,
+    "<C-s>": false,
+    "<C-z>": false,
+    "<C-a>": false,
+    "<C-e>": false
+},
+"[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+},
+"workbench.colorTheme": "Slate (rainglow)"
 }
