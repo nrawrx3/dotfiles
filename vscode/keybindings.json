@@ -175,5 +175,9 @@
     "key": "ctrl+e", // default is End
     "command": "extension.vim_end",
     "when": "editorTextFocus && vim.active && !inDebugRepl && vim.mode != 'Insert'"
-  }
+},
+{
+        "key": "shift+cmd+/",
+        "command": "settings.cycle.fontCombination"
+}
 ]

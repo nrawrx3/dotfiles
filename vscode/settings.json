@@ -1,10 +1,10 @@
 {
-  "editor.fontFamily": "Gopher Mono, Menlo, Comic Mono, Fira Code, SourceCodeVF, Iosevka Custom, Monoid, Monaco, Meslo LG L DZ, Monofur For Powerline, Meslo LG M DZ, Maple Mono, New Heterodox Mono A, Monoisome, Twilio Sans Mono, Sometype Mono, Brutalist Mono, PT Mono, Red Hat Mono, Lilex, Jetbrains Mono NL, Inconsolata-dz For Powerline",
+  "editor.fontFamily": "Comic Mono",
   "editor.tabSize": 8,
   "editor.detectIndentation": false,
   "editor.trimAutoWhitespace": true,
   "editor.formatOnPaste": true,
-  "editor.fontWeight": "450",
+  "editor.fontWeight": "300",
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.snippetSuggestions": "top",
   "workbench.editor.showTabs": false,
@@ -112,6 +112,9 @@
     "[Slate (rainglow)]": {
       "comments": "#ff80d7"
     },
+    "[Jellybeans Theme]": {
+      "comments": "#00959d"
+    },
     "[Paper]": {
       "comments": "#00959d"
     },
@@ -155,7 +158,7 @@
       "comments": "#AAAAF0"
     },
     "[Everforest Dark]": {
-      "comments": "#ff80d7"
+      "comments": "#0df6ea"
     },
     "[Iceberg]": {
       "comments": "#00959d"
@@ -288,7 +291,7 @@
       }
     ]
   },
-  "window.nativeTabs": true,
+  "window.nativeTabs": false,
   "editor.minimap.showSlider": "always",
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -376,7 +379,7 @@
     //       "italic": false
     //     }
   ],
-  "workbench.iconTheme": "catppuccin-frappe",
+  "workbench.iconTheme": "catppuccin-latte",
   //   "editor.scrollbar.verticalScrollbarSize": 5,
   "redhat.telemetry.enabled": false,
   "[typescript]": {
@@ -425,8 +428,7 @@
   "editor.hideCursorInOverviewRuler": true,
   "editor.overviewRulerBorder": false,
   "editor.scrollbar.horizontal": "hidden",
-  "editor.scrollbar.vertical": "hidden",
-  "breadcrumbs.enabled": false,
+"editor.scrollbar.vertical": "hidden",
   "workbench.tree.renderIndentGuides": "none",
   "explorer.openEditors.visible": 0,
   "explorer.decorations.colors": false,
@@ -468,9 +470,39 @@
         { "editor.fontWeight": "500" }, // Medium
         { "editor.fontWeight": "600" } // Bold
       ]
+    },
+    {
+      "id": "fontCombination",
+      "values": [
+        {
+          "editor.fontWeight": "400",
+          "editor.fontFamily": "Gopher Mono",
+          "editor.fontSize": 15
+        },
+        {
+          "editor.fontWeight": "500",
+          "editor.fontFamily": "Gopher Mono",
+          "editor.fontSize": 15
+        },
+        {
+          "editor.fontWeight": "300",
+          "editor.fontFamily": "Airo",
+          "editor.fontSize": 17
+        },
+        {
+          "editor.fontWeight": "300",
+          "editor.fontFamily": "Menlo",
+          "editor.fontSize": 16
+        },
+        {
+          "editor.fontWeight": "300",
+          "editor.fontFamily": "Comic Mono",
+          "editor.fontSize": 15
+        }
+      ]
     }
   ],
-  "editor.lineNumbers": "on",
+  "editor.lineNumbers": "relative",
   "editor.glyphMargin": true,
   "workbench.activityBar.visible": false,
   "[css]": {
@@ -487,11 +519,14 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "background.fullscreen": {
-    "images": ["file:///Users/soumikrakshit/Library/Mobile Documents/com~apple~CloudDocs/tswift-slate.png"], // urls of your images
+    "images": [
+      "file:///Users/soumikrakshit/Library/Mobile Documents/com~apple~CloudDocs/tswift-slate.png"
+    ], // urls of your images
     "opacity": 0.99, // 0.85 ~ 0.95 recommended
     "size": "cover", // also css, `cover` to self-adaption (recommended)，or `contain`、`200px 200px`
     "position": "center", // alias to `background-position`, default `center`
     "interval": 0 // seconds of interval for carousel, default `0` to disabled.
-  },
-"workbench.colorTheme": "Slate (rainglow)"
+},
+"workbench.colorTheme": "Nord",
+"editor.minimap.enabled": false,
 }
