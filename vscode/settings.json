@@ -1,10 +1,10 @@
 {
-  "editor.fontFamily": "Comic Mono",
+  "editor.fontFamily": "Gopher Mono",
   "editor.tabSize": 8,
   "editor.detectIndentation": false,
   "editor.trimAutoWhitespace": true,
   "editor.formatOnPaste": true,
-  "editor.fontWeight": "300",
+  "editor.fontWeight": "500",
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.snippetSuggestions": "top",
   "workbench.editor.showTabs": false,
@@ -379,7 +379,7 @@
     //       "italic": false
     //     }
   ],
-  "workbench.iconTheme": "catppuccin-latte",
+  "workbench.iconTheme": "catppuccin-mocha",
   //   "editor.scrollbar.verticalScrollbarSize": 5,
   "redhat.telemetry.enabled": false,
   "[typescript]": {
@@ -428,7 +428,7 @@
   "editor.hideCursorInOverviewRuler": true,
   "editor.overviewRulerBorder": false,
   "editor.scrollbar.horizontal": "hidden",
-"editor.scrollbar.vertical": "hidden",
+  "editor.scrollbar.vertical": "hidden",
   "workbench.tree.renderIndentGuides": "none",
   "explorer.openEditors.visible": 0,
   "explorer.decorations.colors": false,
@@ -495,14 +495,19 @@
           "editor.fontSize": 16
         },
         {
-          "editor.fontWeight": "300",
+          "editor.fontWeight": "400",
+          "editor.fontFamily": "Consolas",
+          "editor.fontSize": 17
+        },
+        {
+          "editor.fontWeight": "400",
           "editor.fontFamily": "Comic Mono",
           "editor.fontSize": 15
         }
       ]
     }
   ],
-  "editor.lineNumbers": "relative",
+  "editor.lineNumbers": "on",
   "editor.glyphMargin": true,
   "workbench.activityBar.visible": false,
   "[css]": {
@@ -522,11 +527,11 @@
     "images": [
       "file:///Users/soumikrakshit/Library/Mobile Documents/com~apple~CloudDocs/tswift-slate.png"
     ], // urls of your images
-    "opacity": 0.99, // 0.85 ~ 0.95 recommended
+    "opacity": 1, // 0.85 ~ 0.95 recommended
     "size": "cover", // also css, `cover` to self-adaption (recommended)，or `contain`、`200px 200px`
     "position": "center", // alias to `background-position`, default `center`
     "interval": 0 // seconds of interval for carousel, default `0` to disabled.
-},
-"workbench.colorTheme": "Nord",
-"editor.minimap.enabled": false,
+  },
+  "editor.fontLigatures": true,
+  "workbench.colorTheme": "Meteor"
 }

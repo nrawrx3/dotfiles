@@ -82,7 +82,7 @@ if __name__ == "__main__":
     title = args.title[0]
 
     run_command(
-        cmd=f"npm create vite@latest {title} -- --template react-ts".split(" "),
+        cmd=f"npm create --yes vite@latest {title} -- --template react-ts".split(" "),
         cwd=None,
     )
     project_path = Path(title)
