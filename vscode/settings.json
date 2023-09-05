@@ -94,11 +94,14 @@
     "[Nord]": {
       "comments": "#AAAAF0"
     },
+    "[Ariake Dark]": {
+      "comments": "#deffbb"
+    },
     "[Tame Light (rainglow)]": {
       "comments": "#AAAAF0"
     },
     "[paddy-yesterday-upright]": {
-      "comments": "#00959d"
+      "comments": "#fda07e"
     },
     "[Solarized Yuki]": {
       "comments": "#AAAAF0"
@@ -476,6 +479,11 @@
       "values": [
         {
           "editor.fontWeight": "400",
+          "editor.fontFamily": "Fira Code",
+          "editor.fontSize": 15
+        },
+        {
+          "editor.fontWeight": "400",
           "editor.fontFamily": "Gopher Mono",
           "editor.fontSize": 15
         },
@@ -493,11 +501,6 @@
           "editor.fontWeight": "300",
           "editor.fontFamily": "Menlo",
           "editor.fontSize": 16
-        },
-        {
-          "editor.fontWeight": "400",
-          "editor.fontFamily": "Consolas",
-          "editor.fontSize": 17
         },
         {
           "editor.fontWeight": "400",
@@ -532,6 +535,7 @@
     "position": "center", // alias to `background-position`, default `center`
     "interval": 0 // seconds of interval for carousel, default `0` to disabled.
   },
-  "editor.fontLigatures": true,
-  "workbench.colorTheme": "Meteor"
+"editor.fontLigatures": true,
+"workbench.colorTheme": "Paper",
+"editor.smoothScrolling": true
 }
