@@ -177,7 +177,41 @@
     "when": "editorTextFocus && vim.active && !inDebugRepl && vim.mode != 'Insert'"
 },
 {
-        "key": "shift+cmd+/",
+        "key": "shift+alt+/",
         "command": "settings.cycle.fontCombination"
+},
+{
+        "key": "shift+cmd+home",
+        "command": "workbench.view.explorer",
+        "when": "viewContainer.workbench.view.explorer.enabled"
+},
+{
+        "key": "shift+cmd+e",
+        "command": "-workbench.view.explorer",
+        "when": "viewContainer.workbench.view.explorer.enabled"
+},
+{
+        "key": "shift+cmd+,",
+        "command": "-editor.action.inPlaceReplace.up",
+        "when": "editorTextFocus && !editorReadonly"
+},
+{
+        "key": "shift+alt+r",
+        "command": "-remote-wsl.revealInExplorer",
+        "when": "editorFocus && remoteName == 'wsl'"
+},
+{
+        "key": "shift+alt+,",
+        "command": "revealFileInOS",
+        "when": "!editorFocus"
+},
+{
+        "key": "alt+cmd+r",
+        "command": "-revealFileInOS",
+        "when": "!editorFocus"
+},
+{
+        "key": "shift+cmd+e",
+        "command": "workbench.files.action.showActiveFileInExplorer"
 }
 ]
