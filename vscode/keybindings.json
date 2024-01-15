@@ -177,7 +177,7 @@
     "when": "editorTextFocus && vim.active && !inDebugRepl && vim.mode != 'Insert'"
 },
 {
-        "key": "shift+alt+/",
+        "key": "shift+cmd+,",
         "command": "settings.cycle.fontCombination"
 },
 {
@@ -213,5 +213,15 @@
 {
         "key": "shift+cmd+e",
         "command": "workbench.files.action.showActiveFileInExplorer"
+},
+{
+        "key": "cmd+; cmd+;",
+        "command": "editor.action.goToImplementation",
+        "when": "editorHasImplementationProvider && editorTextFocus && !isInEmbeddedEditor"
+},
+{
+        "key": "cmd+f12",
+        "command": "-editor.action.goToImplementation",
+        "when": "editorHasImplementationProvider && editorTextFocus && !isInEmbeddedEditor"
 }
 ]

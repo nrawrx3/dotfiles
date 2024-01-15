@@ -1,5 +1,5 @@
 {
-        "editor.fontFamily": "Mensch",
+        "editor.fontFamily": "Monaspace Radon Var",
         "editor.tabSize": 8,
         "editor.detectIndentation": false,
         "editor.trimAutoWhitespace": true,
@@ -23,7 +23,8 @@
         },
         "[graphql]": {
                 "editor.tabSize": 2,
-                "editor.insertSpaces": true
+                "editor.insertSpaces": true,
+                "editor.defaultFormatter": "esbenp.prettier-vscode"
         },
         "[go]": {
                 "editor.insertSpaces": false,
@@ -58,7 +59,6 @@
         "[jupyter]": {
                 "editor.tabSize": 4
         },
-        "editor.fontSize": 16,
         "terminal.integrated.fontFamily": "Gopher Mono",
         "jupyter.askForKernelRestart": false,
         "terminal.integrated.fontSize": 14,
@@ -160,9 +160,9 @@
                 "[firewatch]": {
                         "comments": "#fff79f"
                 },
-                "[Everforest Dark]": {
-                        "comments": "#8d5d5d"
-                },
+                // "[Everforest Dark]": {
+                //         "comments": "#7ba100"
+                // },
                 "[Iceberg]": {
                         "comments": "#00959d"
                 },
@@ -187,114 +187,16 @@
                 "textMateRules": [
                         {
                                 "scope": [
-                                        "comment",
-                                        "comment.block",
-                                        "comment.block.documentation",
-                                        "comment.line",
-                                        "constant",
-                                        "constant.character",
-                                        "constant.character.escape",
-                                        "constant.numeric",
-                                        "constant.numeric.integer",
-                                        "constant.numeric.float",
-                                        "constant.numeric.hex",
-                                        "constant.numeric.octal",
-                                        "constant.other",
-                                        "constant.regexp",
-                                        "constant.rgb-value",
-                                        "emphasis",
-                                        "entity",
-                                        "entity.name",
-                                        "entity.name.class",
-                                        "entity.name.function",
-                                        "entity.name.method",
-                                        "entity.name.section",
-                                        "entity.name.selector",
-                                        "entity.name.tag",
-                                        "entity.name.type",
-                                        "entity.other",
-                                        "entity.other.attribute-name",
-                                        "entity.other.inherited-class",
-                                        "invalid",
-                                        "invalid.deprecated",
-                                        "invalid.illegal",
-                                        "keyword",
-                                        "keyword.control",
-                                        "keyword.operator",
-                                        "keyword.operator.new",
-                                        "keyword.operator.assignment",
-                                        "keyword.operator.arithmetic",
-                                        "keyword.operator.logical",
-                                        "keyword.other",
-                                        "markup",
-                                        "markup.bold",
-                                        "markup.changed",
-                                        "markup.deleted",
-                                        "markup.heading",
-                                        "markup.inline.raw",
-                                        "markup.inserted",
-                                        "markup.italic",
-                                        "markup.list",
-                                        "markup.list.numbered",
-                                        "markup.list.unnumbered",
-                                        "markup.other",
-                                        "markup.quote",
-                                        "markup.raw",
-                                        "markup.underline",
-                                        "markup.underline.link",
-                                        "meta",
-                                        "meta.block",
-                                        "meta.cast",
-                                        "meta.class",
-                                        "meta.function",
-                                        "meta.function-call",
-                                        "meta.preprocessor",
-                                        "meta.return-type",
-                                        "meta.selector",
-                                        "meta.tag",
-                                        "meta.type.annotation",
-                                        "meta.type",
-                                        "punctuation.definition.string.begin",
-                                        "punctuation.definition.string.end",
-                                        "punctuation.separator",
-                                        "punctuation.separator.continuation",
-                                        "punctuation.terminator",
-                                        "storage",
-                                        "storage.modifier",
-                                        "storage.type",
-                                        "string",
-                                        "string.interpolated",
-                                        "string.other",
-                                        "string.quoted",
                                         "string.quoted.double",
-                                        "string.quoted.other",
                                         "string.quoted.single",
-                                        "string.quoted.triple",
-                                        "string.regexp",
-                                        "string.unquoted",
-                                        "strong",
-                                        "support",
-                                        "support.class",
-                                        "support.constant",
-                                        "support.function",
-                                        "support.other",
-                                        "support.type",
-                                        "support.type.property-name",
-                                        "support.variable",
-                                        "variable",
-                                        "variable.language",
-                                        "variable.name",
-                                        "variable.other",
-                                        "variable.other.readwrite",
-                                        "variable.parameter"
                                 ],
                                 "settings": {
-                                        "fontStyle": ""
+                                        // "fontStyle": "italic",
+                                        // "foreground": "#CE9178"
                                 }
                         }
                 ]
         },
-        "window.nativeTabs": false,
         "editor.minimap.showSlider": "always",
         "[jsonc]": {
                 "editor.defaultFormatter": "vscode.json-language-features"
@@ -325,7 +227,7 @@
                         "underline": true,
                         "backgroundColor": "transparent",
                         "bold": false,
-                        "italic": true
+                        "italic": false
                 },
                 {
                         "tag": "MUSTDO",
@@ -346,13 +248,13 @@
                         "italic": false
                 },
                 {
-                        "tag": "LOWHANG",
-                        "color": "#be99ff",
+                        "tag": "CONT",
+                        "color": "#fe5d7d",
                         "strikethrough": false,
-                        "underline": false,
-                        "backgroundColor": "rgba(0.7, 0.7, 0.8, 1.0)",
+                        "underline": true,
+                        "backgroundColor": "transparent",
                         "bold": false,
-                        "italic": false
+                        "italic": true
                 },
                 {
                         "tag": "EXPLAIN",
@@ -372,15 +274,6 @@
                         "bold": false,
                         "italic": false
                 },
-                {
-                        "tag": "CONSIDER",
-                        "color": "Khaki",
-                        "strikethrough": false,
-                        "underline": false,
-                        "backgroundColor": "rgba(0.5, 0.5, 0.1, 1.0)",
-                        "bold": false,
-                        "italic": false
-                }
                 //     {
                 //       "tag": "*",
                 //       "color": "#98C379",
@@ -391,7 +284,7 @@
                 //       "italic": false
                 //     }
         ],
-        "workbench.iconTheme": "catppuccin-mocha",
+        "workbench.iconTheme": "catppuccin-latte",
         //   "editor.scrollbar.verticalScrollbarSize": 5,
         "redhat.telemetry.enabled": false,
         "[typescript]": {
@@ -401,7 +294,9 @@
                 "editor.formatOnSave": true
         },
         "[yaml]": {
-                "editor.defaultFormatter": "esbenp.prettier-vscode"
+                "editor.defaultFormatter": "esbenp.prettier-vscode",
+                "editor.useTabStops": false,
+                "editor.tabSize": 2
         },
         "files.associations": {
                 "*.hujson": "hujson"
@@ -432,7 +327,6 @@
                 "editor.tabCompletion": "onlySnippets",
                 "editor.wordBasedSuggestions": "off"
         },
-        "editor.cursorStyle": "line",
         "[dockercompose]": {
                 "editor.defaultFormatter": "esbenp.prettier-vscode"
         },
@@ -445,16 +339,14 @@
         "editor.scrollbar.horizontal": "hidden",
         "editor.scrollbar.vertical": "hidden",
         "workbench.tree.renderIndentGuides": "none",
-        "explorer.openEditors.visible": 0,
-        "explorer.decorations.colors": false,
         "editor.bracketPairColorization.enabled": false,
         "editor.guides.highlightActiveBracketPair": false,
         "editor.guides.bracketPairsHorizontal": false,
         "editor.guides.indentation": false,
-        "editor.cursorBlinking": "phase",
         "editor.renderLineHighlight": "none",
         "editor.showFoldingControls": "never",
-        "editor.minimap.maxColumn": 50,
+        "editor.minimap.maxColumn": 30,
+        "editor.minimap.side": "left",
         "settings.cycle": [
                 {
                         "id": "lineNumbers",
@@ -520,18 +412,23 @@
                                         "editor.fontSize": 16
                                 },
                                 {
-                                        "editor.fontWeight": "300",
-                                        "editor.fontFamily": "Triplicate A Code",
-                                        "editor.fontSize": 15
-                                },
-                                {
-                                        "editor.fontWeight": "300",
-                                        "editor.fontFamily": "Triplicate B Code",
+                                        "editor.fontWeight": "400",
+                                        "editor.fontFamily": "Monaspace Argon Var",
                                         "editor.fontSize": 15
                                 },
                                 {
                                         "editor.fontWeight": "400",
-                                        "editor.fontFamily": "Iosevka Custom",
+                                        "editor.fontFamily": "Monaspace Radon Var",
+                                        "editor.fontSize": 16
+                                },
+                                {
+                                        "editor.fontWeight": "400",
+                                        "editor.fontFamily": "Monaspace Xenon Var",
+                                        "editor.fontSize": 15
+                                },
+                                {
+                                        "editor.fontWeight": "400",
+                                        "editor.fontFamily": "Comic Mono",
                                         "editor.fontSize": 15
                                 },
                                 {
@@ -539,11 +436,6 @@
                                         "editor.fontFamily": "SF Mono",
                                         "editor.fontSize": 15
                                 },
-                                {
-                                        "editor.fontWeight": "300",
-                                        "editor.fontFamily": "Rec Mono Semicasual",
-                                        "editor.fontSize": 15
-                                }
                         ]
                 }
         ],
@@ -562,20 +454,24 @@
         "[html]": {
                 "editor.defaultFormatter": "esbenp.prettier-vscode"
         },
+        "workbench.colorTheme": "Kanagawa",
+        "workbench.layoutControl.enabled": false,
+        "window.commandCenter": false,
+        "markdown.preview.fontFamily": "Avenir Next",
+        "workbench.activityBar.location": "hidden",
+        "cmake.options.statusBarVisibility": "visible",
+        "typescript.updateImportsOnFileMove.enabled": "prompt",
+        "editor.fontSize": 16,
+        "window.dialogStyle": "custom",
+        "window.titleBarStyle": "custom",
+        "window.density.editorTabHeight": "compact",
         "background.fullscreen": {
                 "images": [
-                        "file:///Users/soumikrakshit/Library/Mobile Documents/com~apple~CloudDocs/tswift-slate.png"
+                        "file:///Users/soumikrakshit/Desktop/GDKRE3fbcAAF_nj_optimized.png"
                 ], // urls of your images
                 "opacity": 0.99, // 0.85 ~ 0.95 recommended
                 "size": "cover", // also css, `cover` to self-adaption (recommended)，or `contain`、`200px 200px`
                 "position": "center", // alias to `background-position`, default `center`
                 "interval": 0 // seconds of interval for carousel, default `0` to disabled.
-        },
-        "workbench.colorTheme": "Everforest Dark",
-        "workbench.layoutControl.enabled": false,
-        "window.commandCenter": false,
-        "markdown.preview.fontFamily": "Avenir Next",
-        "markdown.preview.fontSize": 20,
-        "workbench.activityBar.location": "hidden",
-        "cmake.options.statusBarVisibility": "visible"
+        }
 }
