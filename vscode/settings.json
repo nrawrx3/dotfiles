@@ -1,5 +1,5 @@
 {
-        "editor.fontFamily": "Monaspace Radon Var",
+        "editor.fontFamily": "Monaspace Xenon Var",
         "editor.tabSize": 8,
         "editor.detectIndentation": false,
         "editor.trimAutoWhitespace": true,
@@ -402,6 +402,11 @@
                                         "editor.fontSize": 15
                                 },
                                 {
+                                        "editor.fontWeight": "400",
+                                        "editor.fontFamily": "Gopher Mono",
+                                        "editor.fontSize": 16
+                                },
+                                {
                                         "editor.fontWeight": "500",
                                         "editor.fontFamily": "Gopher Mono",
                                         "editor.fontSize": 15
@@ -414,17 +419,22 @@
                                 {
                                         "editor.fontWeight": "400",
                                         "editor.fontFamily": "Monaspace Argon Var",
-                                        "editor.fontSize": 15
-                                },
-                                {
-                                        "editor.fontWeight": "400",
-                                        "editor.fontFamily": "Monaspace Radon Var",
                                         "editor.fontSize": 16
                                 },
                                 {
                                         "editor.fontWeight": "400",
                                         "editor.fontFamily": "Monaspace Xenon Var",
-                                        "editor.fontSize": 15
+                                        "editor.fontSize": 16
+                                },
+                                {
+                                        "editor.fontWeight": "400",
+                                        "editor.fontFamily": "Monaspace Neon Var",
+                                        "editor.fontSize": 16
+                                },
+                                {
+                                        "editor.fontWeight": "400",
+                                        "editor.fontFamily": "Monaspace Radon Var",
+                                        "editor.fontSize": 16
                                 },
                                 {
                                         "editor.fontWeight": "400",
@@ -434,7 +444,7 @@
                                 {
                                         "editor.fontWeight": "300",
                                         "editor.fontFamily": "SF Mono",
-                                        "editor.fontSize": 15
+                                        "editor.fontSize": 16
                                 },
                         ]
                 }
@@ -462,8 +472,8 @@
         "cmake.options.statusBarVisibility": "visible",
         "typescript.updateImportsOnFileMove.enabled": "prompt",
         "editor.fontSize": 16,
-        "window.dialogStyle": "custom",
-        "window.titleBarStyle": "custom",
+        "window.dialogStyle": "native",
+        "window.titleBarStyle": "native",
         "window.density.editorTabHeight": "compact",
         "background.fullscreen": {
                 "images": [
@@ -473,5 +483,6 @@
                 "size": "cover", // also css, `cover` to self-adaption (recommended)，or `contain`、`200px 200px`
                 "position": "center", // alias to `background-position`, default `center`
                 "interval": 0 // seconds of interval for carousel, default `0` to disabled.
-        }
+        },
+        "eslint.format.enable": true
 }
