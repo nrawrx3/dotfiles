@@ -9,14 +9,14 @@ export OSH='/Users/soumikrakshit/.oh-my-bash'
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-bash is loaded.
-OSH_THEME="duru"
+OSH_THEME="rana"
 
 # Uncomment the following line to use case-sensitive completion.
-# OMB_CASE_SENSITIVE="true"
+# CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
-# OMB_HYPHEN_SENSITIVE="false"
+# HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
@@ -64,17 +64,12 @@ OMB_DEFAULT_ALIASES="check"
 # this variable.  The default behavior for the empty value is "true".
 OMB_USE_SUDO=true
 
-# To enable/disable display of Python virtualenv and condaenv
-OMB_PROMPT_SHOW_PYTHON_VENV=true  # enable
-OMB_PROMPT_SHOW_PYTHON_VENV=false # disable
-
 # Which completions would you like to load? (completions can be found in ~/.oh-my-bash/completions/*)
 # Custom completions may be added to ~/.oh-my-bash/custom/completions/
 # Example format: completions=(ssh git bundler gem pip pip3)
 # Add wisely, as too many completions slow down shell startup.
 completions=(
   git
-  composer
   ssh
 )
 
@@ -102,66 +97,122 @@ plugins=(
 #      plugins+=(tmux-autoattach)
 #  fi
 
-alias ls="ls --color=auto"
-alias cls="clear"
-alias up="cd .."
-alias upp="cd ../.."
-alias uppp="cd ../../.."
-alias md="mkdir"
-
 source "$OSH"/oh-my-bash.sh
 
-# Time a process - requires the gnu time(1) command installed
-xtime() {
-	/usr/bin/time -f 'User=%U Kernel=%S Real=%e MaxMem=%MkB %C' "$@"
-}
+# User configuration
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
 
 # ssh
-export SSH_KEY_PATH="~/.ssh/id_ed25519.pub"
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
 
+# Set personal aliases, overriding those provided by oh-my-bash libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-bash
+# users are encouraged to define aliases within the OSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias bashconfig="mate ~/.bashrc"
+# alias ohmybash="mate ~/.oh-my-bash"
+
+alias mmb=micromamba
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-# Cloud SDK
-source /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc
-source /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc
-source "$(brew --prefix)/share/google-cloud-sdk/path.bash.inc"
+export HISTSIZE=10000
+export HISTFILESIZE=10000
 
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
 
-# GOLANG
+# Completion
+ [[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
+
+# binutils
+
+export PATH="/opt/homebrew/opt/binutils/bin:$PATH"
+# export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
+# NodeJS
+# export PATH="/opt/homebrew/opt/node@12/bin:$PATH"
+
+# export LDFLAGS="-L/opt/homebrew/opt/node@12/lib"
+# export CPPFLAGS="-I/opt/homebrew/opt/node@12/include"
+
+# Homebrew path
+export PATH=/opt/homebrew/bin:$PATH
+
+# Go
 export GOPATH=$HOME/werk/go
 export PATH=$GOPATH/bin:$PATH
 
-# Android SDK
-export ANDROID_SDK_PATH=$HOME/Library/Android/sdk
-export PATH=$ANDROID_SDK_PATH/tools/bin:$ANDROID_SDK_PATH/platform-tools:$PATH
+# ElixirLS
+export PATH=$HOME/werk/elixirls_dir:$PATH
 
-[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
+# psql (keep this updated as per brew's libpq version)
+export PATH=/opt/homebrew/Cellar/libpq/15.0/bin:$PATH
 
-export SOSREPOS=$HOME/werk/sos
-export PATH=$SOSREPOS/bin:$PATH
+# asdf
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
 
-export PATH="/Users/soumikrakshit/werk/sos/flutter/flutter-3.7.11/bin":$PATH
+# Jupyter
+export JUPYTER_BROWSER=safari
+export USE_JT_THEME=
 
-
-# Gem for cocoapods mainly
-export GEM_HOME=$HOME/.gem
-export PATH=$GEM_HOME/bin:$PATH
-export PATH="/Users/soumikrakshit/.gem/ruby/2.6.0/bin":$PATH
-
+# .local/bin
 export PATH=$HOME/.local/bin:$PATH
 
-export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:${PATH}"
+# yarn global
+export PATH=$HOME/.yarn/bin:$PATH
 
-# zoxide
-export PATH="/opt/homebrew/Cellar/zoxide/0.9.1/bin/":$PATH
-eval "$(zoxide init bash)"
+jt_theme() {
+  if [ -z $USE_JT_THEME ]; then
+    jt -r
+  else
+    echo "Using jupyter theme $1"
+    jt -t $1 -f generic -fs 9 -cellw 90%
+  fi
+}
 
-export ICLOUD_DIR="/Users/soumikrakshit/Library/Mobile Documents/com~apple~CloudDocs"
+start_jupyter() {
+	jt_theme chesterish
+	detached jupyter-notebook --matplotlib=inline --port 9999
+}
 
-# Needed for mosh for some reason and I don't want to learn why, here's the article:
-# http://pesin.space/posts/2020-10-05-mosh-macos/
-export LANG=en_US.UTF-8 LC_CTYPE=en_US.UTF-8
+# Command line editor
+export EDITOR=vim
+
+# dtach
+detached () {
+	exe_name="$1"
+	command_line="$@"
+	sockname="/tmp/${exe_name}__$(cat /dev/urandom | tr -cd 'a-f0-9' | head -c 32)".sock
+	echo "sockname=${sockname}"
+	echo "dtach -n ${sockname} ${command_line}"
+	dtach -n ${sockname} $@
+}
+
+alias dt=detached
+alias ttn='tmux new -t'
+alias tta='tmux a -t'
+alias ls='ls --color=auto'
+
+# Updates submodules in the repo
+git_sub_update() {
+	git submodule update --init --recursive
+}
 
 # Stage the modified files
 git_add_modified() {
@@ -174,35 +225,63 @@ git_add_untracked() {
 	git ls-files --others --exclude-standard | xargs git add
 }
 
-detached () {
-	exe_name="$1"
-	command_line="$@"
-	sockname="/tmp/${exe_name}__$(cat /dev/urandom | tr -cd 'a-f0-9' | head -c 32)".sock
-	echo "Starting ${exe_name} with command ${command_line}"
-	dtach -n ${sockname} ${command_line}
+# Prettier log
+git_pretty_log() {
+	git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 }
 
-alias dt=detached15
-
-eval "$(direnv hook bash)"
-
-lsdocker() {
-        docker exec -ti $1 sh -c "ls -l $2"
+# Time a process - requires the gnu time(1) command installed
+xtime() {
+	/usr/bin/time -f 'User=%U Kernel=%S Real=%e MaxMem=%MkB %C' "$@"
 }
 
-git_commit_pweease() {
-    last_commit_message=$(git log -1 --pretty=%B)
+# LLVM
+# export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 
-    if [ "$last_commit_message" != "UNCOMMIT PWEEEASE" ]; then
-        git add .
-        git commit -m "UNCOMMIT PWEEEASE"
-        echo "Changes added and committed with message UNCOMMIT PWEEEASE"
-    else
-        echo "Last commit message matches 'UNCOMMIT PWEEEASE', no new commit made."
-    fi
-}
+# coreutils
+export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
 
-git_uncommit_pweease() {
+# autoconf-2.69
+export PATH="/opt/homebrew/opt/autoconf@2.69/bin:$PATH"
+
+# LD
+# export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
+# export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+#export LDFLAGS="-L/opt/homebrew/opt/erlang@23/lib"
+
+# Erlang
+# export PATH="/opt/homebrew/opt/erlang@23/bin:$PATH"
+
+# gcloud
+source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc"
+source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc"
+
+
+# icloud drive
+
+export ICLOUD_DIR="/Users/soumikrakshit/Library/Mobile\ Documents/com~apple~CloudDocs"
+
+# brew info openssl
+export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
+export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@3/lib/pkgconfig":$PKG_CONFIG_PATH
+export PKG_CONFIG_PATH="/opt/homebrew/Cellar/librdkafka/1.8.2/lib/pkgconfig":$PKG_CONFIG_PATH
+export PKG_CONFIG_PATH="/opt/local/lib/pkgconfig":$PKG_CONFIG_PATH
+
+# brew info libpcap
+export PATH="/opt/homebrew/opt/libpcap/bin:$PATH"
+
+export PATH="/Users/soumikrakshit/.cargo/bin:$PATH"
+
+if [ -f ~/.git-completion.bash ]; then
+  . ~/.git-completion.bash
+fi
+
+# zoxide
+if [ -x "$(command -v zoxide)" ]; then
+  eval "$(zoxide init bash)"
+fi
+
+git_uncommit_uwu() {
     last_commit_message=$(git log -1 --pretty=%B)
 
     if [ "$last_commit_message" = "UNCOMMIT PWEEEASE" ]; then
@@ -213,3 +292,28 @@ git_uncommit_pweease() {
         echo "Last commit message does not match, no action taken."
     fi
 }
+
+git_commit_uwu() {
+    last_commit_message=$(git log -1 --pretty=%B)
+
+    if [ "$last_commit_message" != "UNCOMMIT PWEEEASE" ]; then
+        git add .
+        git commit -m "UNCOMMIT PWEEEASE"
+        echo "Changes were added and committed with the message 'UNCOMMIT PWEEEASE'."
+    else
+        echo "Last commit message matches, no action taken."
+    fi
+}
+
+# >>> mamba initialize >>>
+# !! Contents within this block are managed by 'mamba init' !!
+export MAMBA_EXE='/opt/homebrew/opt/micromamba/bin/micromamba';
+export MAMBA_ROOT_PREFIX='/Users/soumikrakshit/micromamba';
+__mamba_setup="$("$MAMBA_EXE" shell hook --shell bash --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__mamba_setup"
+else
+    alias micromamba="$MAMBA_EXE"  # Fallback on help from mamba activate
+fi
+unset __mamba_setup
+# <<< mamba initialize <<<
