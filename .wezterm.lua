@@ -2,10 +2,12 @@ local wezterm = require("wezterm")
 
 local config = wezterm.config_builder()
 
+local act = wezterm.action
+
 config.default_prog = {"/opt/homebrew/bin/bash"}
 
 config.color_scheme = 'Kanagawa (Gogh)'
-config.font = wezterm.font("Monaspace Neon Var")
+config.font = wezterm.font("Gopher Mono", {weight="Regular", italic=false})
 config.font_size = 16
 
 -- Here's the juice for the split panes functionality
@@ -24,7 +26,8 @@ config.keys = {
   -- Cycle focus between panes with CMD+]
   {key="]", mods="CMD", action=wezterm.action.ActivatePaneDirection("Next")},
 
-  {key="k", mods="CMD", action=wezterm.action{SendKey={key="L", mods="CTRL"}}},
+  -- Clear scrollback and reset viewport
+  {key="k", mods = 'CMD', action = act.ClearScrollback 'ScrollbackAndViewport'},
 }
 
 config.window_background_opacity = 0.97
