@@ -77,6 +77,7 @@ if __name__ == "__main__":
         description="create new react project, with hooks and blackjack"
     )
     ap.add_argument("title", nargs=1, help="name of project directory")
+    ap.add_argument("vitest", type=bool, action='store_true', help="install vitest", default=False)
     args = ap.parse_args()
 
     title = args.title[0]
@@ -110,3 +111,10 @@ if __name__ == "__main__":
         f.write(gitignore)
 
     run_command(cmd="npm install".split(" "), cwd=project_path)
+
+    if args.vitest:
+        print('Installing unit testing packages')
+        run_command(
+            cmd="npm install vitest @testing-library/react @testing-library/jest-dom --save-dev".split(" "),
+            cwd=project_path,
+        )

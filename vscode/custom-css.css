@@ -16,10 +16,7 @@ summary,
 .monaco-workbench,
 .publisher,
 .version {
-  font-family:
-    "Space Grotesk",
-    -apple-system,
-    sans-serif;
+  font-family: "Space Grotesk", -apple-system, sans-serif;
   font-size: 16px !important;
   letter-spacing: 0.01rem;
 }

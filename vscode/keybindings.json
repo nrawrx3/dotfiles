@@ -244,8 +244,32 @@
                 "when": "editorTextFocus && editorLangId == 'typescript'"
         },
         {
-                "key": "shift+cmd+l",
-                "command": "javascript.removeUnusedImports",
-                "when": "editorTextFocus && editorLangId == 'javascript"
-        }
+                "key": "shift+cmd+\\",
+                "command": "-workbench.action.terminal.focusTabs",
+                "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported || terminalHasBeenCreated && terminalTabsFocus || terminalProcessSupported && terminalTabsFocus"
+        },
+        {
+                "key": "shift+cmd+\\",
+                "command": "-editor.action.jumpToBracket",
+                "when": "editorTextFocus"
+        },
+        {
+                "key": "shift+cmd+\\",
+                "command": "settings.cycle.colorscheme"
+        },
+        {
+                "key": "shift+cmd+b",
+                "command": "-workbench.action.tasks.build",
+                "when": "taskCommandsRegistered"
+        },
+        {
+                "key": "shift+cmd+b",
+                "command": "editor.action.marker.next",
+                "when": "editorFocus"
+        },
+        {
+                "key": "alt+f8",
+                "command": "-editor.action.marker.next",
+                "when": "editorFocus"
+        },
 ]
