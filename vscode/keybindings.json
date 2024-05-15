@@ -238,11 +238,11 @@
                 "command": "eslint.executeAutofix",
                 "when": "editorTextFocus && editorLangId == 'typescript' || editorLangId == 'javascript'"
         },
-        {
-                "key": "shift+cmd+l",
-                "command": "typescript.removeUnusedImports",
-                "when": "editorTextFocus && editorLangId == 'typescript'"
-        },
+        // {
+        //         "key": "shift+cmd+l",
+        //         "command": "typescript.removeUnusedImports",
+        //         "when": "editorTextFocus && editorLangId == 'typescript'"
+        // },
         {
                 "key": "shift+cmd+\\",
                 "command": "-workbench.action.terminal.focusTabs",

@@ -1,5 +1,5 @@
 {
-        "editor.fontFamily": "Monaspace Xenon Var",
+        "editor.fontFamily": "Source Code Pro",
         "editor.tabSize": 8,
         "editor.detectIndentation": false,
         "editor.trimAutoWhitespace": true,
@@ -24,7 +24,6 @@
         "[graphql]": {
                 "editor.tabSize": 2,
                 "editor.insertSpaces": true,
-                "editor.defaultFormatter": "esbenp.prettier-vscode"
         },
         "[go]": {
                 "editor.insertSpaces": false,
@@ -44,7 +43,8 @@
                 "editor.insertSpaces": true
         },
         "workbench.editorAssociations": {
-                "*.mobileconfig": "default"
+                "*.mobileconfig": "default",
+                "*.svg": "editor.excalidraw"
         },
         "[python]": {
                 "editor.tabSize": 4,
@@ -54,12 +54,13 @@
                 "editor.insertSpaces": true,
                 "editor.tabSize": 2,
                 "editor.formatOnSave": true,
-                "editor.defaultFormatter": "esbenp.prettier-vscode"
+                "editor.defaultFormatter": "vscode.typescript-language-features"
         },
         "[jupyter]": {
                 "editor.tabSize": 4
         },
-        "terminal.integrated.fontFamily": "Gopher Mono",
+        "terminal.integrated.fontFamily": "Monaspace Neon Var",
+        "terminal.integrated.lineHeight": 1.4,
         "jupyter.askForKernelRestart": false,
         "terminal.integrated.fontSize": 14,
         "go.toolsManagement.autoUpdate": true,
@@ -81,214 +82,89 @@
         "python.formatting.provider": "black",
         "notebook.output.textLineLimit": 1000,
         "insertDateString.formatDate": "YYYY-MM-DDThh:mm:ss+00:00",
-        "editor.tokenColorCustomizations": {
-                "[Dainty – Nord (chroma 0, lightness 0)]": {
-                        "comments": "#AAAAF0"
-                },
-                "[Dainty – Nord (chroma 0, lightness 4)]": {
-                        "comments": "#AAAAF0"
-                },
-                "[Dainty – Nord (chroma 4, lightness 3)]": {
-                        "comments": "#AAAAF0"
-                },
-                "[Nord]": {
-                        "comments": "#AAAAF0"
-                },
-                "[Tame Light (rainglow)]": {
-                        "comments": "#AAAAF0"
-                },
-                "[paddy-yesterday-upright]": {
-                        "comments": "#00959d"
-                },
-                "[Solarized Yuki]": {
-                        "comments": "#AAAAF0"
-                },
-                "[Solarized Neue Bright]": {
-                        "comments": "#AAAAF0"
-                },
-                "[Nord Deep]": {
-                        "comments": "#AAAAF0"
-                },
-                "[Slate (rainglow)]": {
-                        "comments": "#ff80d7"
-                },
-                "[Jellybeans Theme]": {
-                        "comments": "#00959d"
-                },
-                "[Paper]": {
-                        "comments": "#00959d"
-                },
-                "[Everforest Light]": {
-                        "comments": "#ff80d7"
-                },
-                "[Catppuccin Frappé]": {
-                        "comments": "#0df6ea"
-                },
-                "[Catppuccin Macchiato]": {
-                        "comments": "#0df6ea"
-                },
-                "[Catppuccin Mocha]": {
-                        "comments": "#0df6ea"
-                },
-                "[Azure Light (rainglow)]": {
-                        "comments": "#5151ff"
-                },
-                "[Azure (rainglow)]": {
-                        "comments": "#0df6ea"
-                },
-                "[Super (rainglow)]": {
-                        "comments": "#0df6ea"
-                },
-                "[Everblush]": {
-                        "comments": "#8d5d5d"
-                },
-                "[Solarized Dark]": {
-                        "comments": "#AAAAF0"
-                },
-                "[paddy-mist]": {
-                        "comments": "#AAAAF0"
-                },
-                "[paddy-mist-upright]": {
-                        "comments": "#AAAAF0"
-                },
-                "[paddy-machine]": {
-                        "comments": "#AAAAF0"
-                },
-                "[paddy-machine-upright]": {
-                        "comments": "#AAAAF0"
-                },
-                "[firewatch]": {
-                        "comments": "#fff79f"
-                },
-                // "[Everforest Dark]": {
-                //         "comments": "#7ba100"
-                // },
-                "[Iceberg]": {
-                        "comments": "#00959d"
-                },
-                "[Iceberg Light]": {
-                        "comments": "#00959d"
-                },
-                "[Solarized Light]": {
-                        "comments": "#0c6ef7"
-                },
-                "[hackage-theme]": {
-                        "comments": "#00959d"
-                },
-                "[Solarized Dark+]": {
-                        "comments": "#AAAAF0"
-                },
-                "[paddy-citadel]": {
-                        "comments": "#00959d"
-                },
-                "[Solarized Light+]": {
-                        "comments": "#0c6ef7"
-                },
-                "textMateRules": [
-                        {
-                                "scope": [
-                                        "string.quoted.double",
-                                        "string.quoted.single",
-                                ],
-                                "settings": {
-                                        // "fontStyle": "italic",
-                                        // "foreground": "#CE9178"
-                                }
-                        }
-                ]
-        },
         "editor.minimap.showSlider": "always",
         "[jsonc]": {
                 "editor.defaultFormatter": "vscode.json-language-features"
         },
-        "better-comments.tags": [
-                {
-                        "tag": "?",
-                        "color": "#3498DB",
-                        "strikethrough": false,
-                        "underline": false,
-                        "backgroundColor": "transparent",
-                        "bold": false,
-                        "italic": false
-                },
-                {
-                        "tag": "!!",
-                        "color": "#474747",
-                        "strikethrough": true,
-                        "underline": false,
-                        "backgroundColor": "transparent",
-                        "bold": false,
-                        "italic": false
-                },
-                {
-                        "tag": "TODO",
-                        "color": "#8d5d7d",
-                        "strikethrough": false,
-                        "underline": true,
-                        "backgroundColor": "transparent",
-                        "bold": false,
-                        "italic": false
-                },
-                {
-                        "tag": "MUSTDO",
-                        "color": "#8d5d7d",
-                        "strikethrough": false,
-                        "underline": true,
-                        "backgroundColor": "transparent",
-                        "bold": false,
-                        "italic": true
-                },
-                {
-                        "tag": "^^",
-                        "color": "#fa00bf",
-                        "strikethrough": false,
-                        "underline": false,
-                        "backgroundColor": "transparent",
-                        "bold": true,
-                        "italic": false
-                },
-                {
-                        "tag": "CONT",
-                        "color": "#fe5d7d",
-                        "strikethrough": false,
-                        "underline": true,
-                        "backgroundColor": "transparent",
-                        "bold": false,
-                        "italic": true
-                },
-                {
-                        "tag": "EXPLAIN",
-                        "color": "Plum",
-                        "strikethrough": false,
-                        "underline": false,
-                        "backgroundColor": "rgba(0.5, 0.5, 0.1, 1.0)",
-                        "bold": false,
-                        "italic": false
-                },
-                {
-                        "tag": "FILTHY",
-                        "color": "Red",
-                        "strikethrough": false,
-                        "underline": false,
-                        "backgroundColor": "rgba(0.5, 0.5, 0.1, 1.0)",
-                        "bold": false,
-                        "italic": false
-                },
-                //     {
-                //       "tag": "*",
-                //       "color": "#98C379",
-                //       "strikethrough": false,
-                //       "underline": false,
-                //       "backgroundColor": "transparent",
-                //       "bold": false,
-                //       "italic": false
-                //     }
-        ],
+        // "better-comments.tags": [
+        // 	{
+        // 		"tag": "?",
+        // 		"color": "#3498DB",
+        // 		"strikethrough": false,
+        // 		"underline": false,
+        // 		"backgroundColor": "transparent",
+        // 		"bold": false,
+        // 		"italic": false
+        // 	},
+        // 	{
+        // 		"tag": "!!",
+        // 		"color": "#474747",
+        // 		"strikethrough": true,
+        // 		"underline": false,
+        // 		"backgroundColor": "transparent",
+        // 		"bold": false,
+        // 		"italic": false
+        // 	},
+        // 	{
+        // 		"tag": "TODO",
+        // 		"color": "#cc4308",
+        // 		"strikethrough": false,
+        // 		"underline": false,
+        // 		"backgroundColor": "transparent",
+        // 		"bold": false,
+        // 		"italic": false
+        // 	},
+        // 	{
+        // 		"tag": "RFCTR",
+        // 		"color": "#8d5d7d",
+        // 		"strikethrough": false,
+        // 		"underline": true,
+        // 		"backgroundColor": "transparent",
+        // 		"bold": false,
+        // 		"italic": true
+        // 	},
+        // 	{
+        // 		"tag": "^^",
+        // 		"color": "#fa00bf",
+        // 		"strikethrough": false,
+        // 		"underline": false,
+        // 		"backgroundColor": "transparent",
+        // 		"bold": true,
+        // 		"italic": false
+        // 	},
+        // 	{
+        // 		"tag": "CONT",
+        // 		"color": "#fe5d7d",
+        // 		"strikethrough": false,
+        // 		"underline": true,
+        // 		"backgroundColor": "transparent",
+        // 		"bold": false,
+        // 		"italic": true
+        // 	},
+        // 	{
+        // 		"tag": "BUG",
+        // 		"color": "indianred",
+        // 		"strikethrough": false,
+        // 		"underline": false,
+        // 		"backgroundColor": "transparent",
+        // 		"bold": false,
+        // 		"italic": false
+        // 	},
+        // 	{
+        // 		"tag": "FILTHY",
+        // 		"color": "Red",
+        // 		"strikethrough": false,
+        // 		"underline": false,
+        // 		"backgroundColor": "rgba(0.5, 0.5, 0.1, 1.0)",
+        // 		"bold": false,
+        // 		"italic": false
+        // 	},
+        // ],
         "workbench.iconTheme": "catppuccin-latte",
         //   "editor.scrollbar.verticalScrollbarSize": 5,
         "redhat.telemetry.enabled": false,
         "[typescript]": {
-                "editor.defaultFormatter": "esbenp.prettier-vscode",
+                "editor.defaultFormatter": "vscode.typescript-language-features",
                 "editor.tabSize": 2,
                 "editor.insertSpaces": true,
                 "editor.formatOnSave": true
@@ -297,6 +173,18 @@
                 "editor.defaultFormatter": "esbenp.prettier-vscode",
                 "editor.useTabStops": false,
                 "editor.tabSize": 2
+        },
+        "editor.tokenColorCustomizations": {
+                "[poimandres-noitalics]": {
+                        "textMateRules": [
+                                {
+                                        "scope": "comment",
+                                        "settings": {
+                                                "foreground": "#a1569d"
+                                        }
+                                }
+                        ],
+                },
         },
         "files.associations": {
                 "*.hujson": "hujson"
@@ -343,7 +231,7 @@
         "editor.guides.highlightActiveBracketPair": false,
         "editor.guides.bracketPairsHorizontal": false,
         "editor.guides.indentation": false,
-        "editor.renderLineHighlight": "none",
+        "editor.renderLineHighlight": "gutter",
         "editor.showFoldingControls": "never",
         "editor.minimap.maxColumn": 30,
         "editor.minimap.side": "left",
@@ -399,12 +287,7 @@
                                 {
                                         "editor.fontWeight": "400",
                                         "editor.fontFamily": "Gopher Mono",
-                                        "editor.fontSize": 15
-                                },
-                                {
-                                        "editor.fontWeight": "400",
-                                        "editor.fontFamily": "Gopher Mono",
-                                        "editor.fontSize": 16
+                                        "editor.fontSize": 15.5,
                                 },
                                 {
                                         "editor.fontWeight": "500",
@@ -413,7 +296,17 @@
                                 },
                                 {
                                         "editor.fontWeight": "400",
+                                        "editor.fontFamily": "Gopher Mono",
+                                        "editor.fontSize": 16
+                                },
+                                {
+                                        "editor.fontWeight": "400",
                                         "editor.fontFamily": "Mensch",
+                                        "editor.fontSize": 16
+                                },
+                                {
+                                        "editor.fontWeight": "400",
+                                        "editor.fontFamily": "Source Code Pro",
                                         "editor.fontSize": 16
                                 },
                                 {
@@ -437,22 +330,39 @@
                                         "editor.fontSize": 16
                                 },
                                 {
-                                        "editor.fontWeight": "400",
-                                        "editor.fontFamily": "Comic Mono",
-                                        "editor.fontSize": 15
+                                        "editor.fontWeight": "300",
+                                        "editor.fontFamily": "Cartograph CF",
+                                        "editor.fontSize": 16
                                 },
                                 {
-                                        "editor.fontWeight": "300",
-                                        "editor.fontFamily": "SF Mono",
+                                        "editor.fontWeight": "400",
+                                        "editor.fontFamily": "Droid Sans Mono Dotted",
                                         "editor.fontSize": 16
                                 },
                         ]
-                }
+                },
+                {
+                        "id": "colorscheme",
+                        "values": [
+                                {
+                                        "workbench.colorTheme": "Kanagawa",
+                                },
+                                {
+                                        "workbench.colorTheme": "Navy And Ivory",
+                                },
+                                {
+                                        "workbench.colorTheme": "poimandres-noitalics",
+                                },
+                                {
+                                        "workbench.colorTheme": "Keen (rainglow)",
+                                },
+                        ]
+                },
         ],
         "editor.lineNumbers": "on",
         "editor.glyphMargin": true,
         "[css]": {
-                "editor.defaultFormatter": "esbenp.prettier-vscode"
+                "editor.defaultFormatter": "vscode.css-language-features"
         },
         "vim.handleKeys": {
                 "<C-d>": true,
@@ -461,28 +371,37 @@
                 "<C-a>": false,
                 "<C-e>": false
         },
-        "[html]": {
-                "editor.defaultFormatter": "esbenp.prettier-vscode"
-        },
-        "workbench.colorTheme": "Kanagawa",
+        "workbench.colorTheme": "mnml dark",
         "workbench.layoutControl.enabled": false,
         "window.commandCenter": false,
         "markdown.preview.fontFamily": "Avenir Next",
         "workbench.activityBar.location": "hidden",
         "cmake.options.statusBarVisibility": "visible",
-        "typescript.updateImportsOnFileMove.enabled": "prompt",
+        "typescript.updateImportsOnFileMove.enabled": "always",
         "editor.fontSize": 16,
-        "window.dialogStyle": "native",
+        "window.dialogStyle": "custom",
         "window.titleBarStyle": "native",
-        "window.density.editorTabHeight": "compact",
+        "workbench.editor.titleScrollbarSizing": "large",
+        "fontshortcuts.defaultFontSize": 15,
+        "fontshortcuts.defaultTerminalFontSize": 15,
+        "fontshortcuts.step": 1,
+        "eslint.format.enable": true,
+        "editor.lineHeight": 0,
+        "vscode_custom_css.imports": [
+                "file:///Users/soumikrakshit/werk/dotfiles/vscode/custom-css.css"
+        ],
         "background.fullscreen": {
                 "images": [
-                        "file:///Users/soumikrakshit/Desktop/GDKRE3fbcAAF_nj_optimized.png"
+                        "file:///Users/soumikrakshit/Pictures/but_if_the_chance_remains.png",
                 ], // urls of your images
                 "opacity": 0.99, // 0.85 ~ 0.95 recommended
                 "size": "cover", // also css, `cover` to self-adaption (recommended)，or `contain`、`200px 200px`
                 "position": "center", // alias to `background-position`, default `center`
                 "interval": 0 // seconds of interval for carousel, default `0` to disabled.
         },
-        "eslint.format.enable": true
+        "editor.fontLigatures": true,
+        "files.restoreUndoStack": true,
+        "terminal.integrated.defaultProfile.osx": "bash",
+        "explorer.confirmDragAndDrop": false,
+        "go.testTimeout": "5s"
 }
