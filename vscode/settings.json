@@ -1,10 +1,10 @@
 {
-        "editor.fontFamily": "Source Code Pro",
+        "editor.fontFamily": "Gopher Mono",
         "editor.tabSize": 8,
         "editor.detectIndentation": false,
         "editor.trimAutoWhitespace": true,
         "editor.formatOnPaste": true,
-        "editor.fontWeight": "400",
+        "editor.fontWeight": "500",
         "editor.multiCursorModifier": "ctrlCmd",
         "editor.snippetSuggestions": "top",
         "workbench.editor.showTabs": "single",
@@ -34,9 +34,11 @@
                 "editor.suggest.snippetsPreventQuickSuggestions": false,
                 "editor.tabSize": 2
         },
-        "[kotlin]": {
+        "[zig]": {
+                "editor.formatOnSave": true,
                 "editor.tabSize": 4,
-                "editor.insertSpaces": true
+                "editor.defaultFormatter": "ziglang.vscode-zig",
+                "files.eol": "\n"
         },
         "[rust]": {
                 "editor.tabSize": 4,
@@ -86,81 +88,7 @@
         "[jsonc]": {
                 "editor.defaultFormatter": "vscode.json-language-features"
         },
-        // "better-comments.tags": [
-        // 	{
-        // 		"tag": "?",
-        // 		"color": "#3498DB",
-        // 		"strikethrough": false,
-        // 		"underline": false,
-        // 		"backgroundColor": "transparent",
-        // 		"bold": false,
-        // 		"italic": false
-        // 	},
-        // 	{
-        // 		"tag": "!!",
-        // 		"color": "#474747",
-        // 		"strikethrough": true,
-        // 		"underline": false,
-        // 		"backgroundColor": "transparent",
-        // 		"bold": false,
-        // 		"italic": false
-        // 	},
-        // 	{
-        // 		"tag": "TODO",
-        // 		"color": "#cc4308",
-        // 		"strikethrough": false,
-        // 		"underline": false,
-        // 		"backgroundColor": "transparent",
-        // 		"bold": false,
-        // 		"italic": false
-        // 	},
-        // 	{
-        // 		"tag": "RFCTR",
-        // 		"color": "#8d5d7d",
-        // 		"strikethrough": false,
-        // 		"underline": true,
-        // 		"backgroundColor": "transparent",
-        // 		"bold": false,
-        // 		"italic": true
-        // 	},
-        // 	{
-        // 		"tag": "^^",
-        // 		"color": "#fa00bf",
-        // 		"strikethrough": false,
-        // 		"underline": false,
-        // 		"backgroundColor": "transparent",
-        // 		"bold": true,
-        // 		"italic": false
-        // 	},
-        // 	{
-        // 		"tag": "CONT",
-        // 		"color": "#fe5d7d",
-        // 		"strikethrough": false,
-        // 		"underline": true,
-        // 		"backgroundColor": "transparent",
-        // 		"bold": false,
-        // 		"italic": true
-        // 	},
-        // 	{
-        // 		"tag": "BUG",
-        // 		"color": "indianred",
-        // 		"strikethrough": false,
-        // 		"underline": false,
-        // 		"backgroundColor": "transparent",
-        // 		"bold": false,
-        // 		"italic": false
-        // 	},
-        // 	{
-        // 		"tag": "FILTHY",
-        // 		"color": "Red",
-        // 		"strikethrough": false,
-        // 		"underline": false,
-        // 		"backgroundColor": "rgba(0.5, 0.5, 0.1, 1.0)",
-        // 		"bold": false,
-        // 		"italic": false
-        // 	},
-        // ],
-        "workbench.iconTheme": "catppuccin-latte",
+        "workbench.iconTheme": "catppuccin-macchiato",
         //   "editor.scrollbar.verticalScrollbarSize": 5,
         "redhat.telemetry.enabled": false,
         "[typescript]": {
@@ -169,18 +97,13 @@
                 "editor.insertSpaces": true,
                 "editor.formatOnSave": true
         },
-        "[yaml]": {
-                "editor.defaultFormatter": "esbenp.prettier-vscode",
-                "editor.useTabStops": false,
-                "editor.tabSize": 2
-        },
         "editor.tokenColorCustomizations": {
                 "[poimandres-noitalics]": {
                         "textMateRules": [
                                 {
                                         "scope": "comment",
                                         "settings": {
-                                                "foreground": "#a1569d"
+                                                "foreground": "#a291f9"
                                         }
                                 }
                         ],
@@ -215,13 +138,10 @@
                 "editor.tabCompletion": "onlySnippets",
                 "editor.wordBasedSuggestions": "off"
         },
-        "[dockercompose]": {
-                "editor.defaultFormatter": "esbenp.prettier-vscode"
-        },
         "workbench.editor.limit.perEditorGroup": true,
         "workbench.editor.limit.value": 20,
         "workbench.sideBar.location": "right",
-        "workbench.statusBar.visible": false,
+        "workbench.statusBar.visible": true,
         "editor.hideCursorInOverviewRuler": true,
         "editor.overviewRulerBorder": false,
         "editor.scrollbar.horizontal": "hidden",
@@ -287,21 +207,21 @@
                                 {
                                         "editor.fontWeight": "400",
                                         "editor.fontFamily": "Gopher Mono",
-                                        "editor.fontSize": 15.5,
+                                        "editor.fontSize": 14,
                                 },
                                 {
                                         "editor.fontWeight": "500",
+                                        "editor.fontFamily": "Gopher Mono",
+                                        "editor.fontSize": 14
+                                },
+                                {
+                                        "editor.fontWeight": "400",
                                         "editor.fontFamily": "Gopher Mono",
                                         "editor.fontSize": 15
                                 },
                                 {
                                         "editor.fontWeight": "400",
-                                        "editor.fontFamily": "Gopher Mono",
-                                        "editor.fontSize": 16
-                                },
-                                {
-                                        "editor.fontWeight": "400",
-                                        "editor.fontFamily": "Mensch",
+                                        "editor.fontFamily": "Menlo",
                                         "editor.fontSize": 16
                                 },
                                 {
@@ -312,32 +232,27 @@
                                 {
                                         "editor.fontWeight": "400",
                                         "editor.fontFamily": "Monaspace Argon Var",
-                                        "editor.fontSize": 16
-                                },
-                                {
-                                        "editor.fontWeight": "400",
-                                        "editor.fontFamily": "Monaspace Xenon Var",
-                                        "editor.fontSize": 16
+                                        "editor.fontSize": 15
                                 },
                                 {
                                         "editor.fontWeight": "400",
                                         "editor.fontFamily": "Monaspace Neon Var",
-                                        "editor.fontSize": 16
+                                        "editor.fontSize": 15
                                 },
                                 {
                                         "editor.fontWeight": "400",
-                                        "editor.fontFamily": "Monaspace Radon Var",
-                                        "editor.fontSize": 16
+                                        "editor.fontFamily": "Generic Mono II",
+                                        "editor.fontSize": 15
                                 },
                                 {
                                         "editor.fontWeight": "300",
-                                        "editor.fontFamily": "Cartograph CF",
+                                        "editor.fontFamily": "DejaVu Sans Mono",
                                         "editor.fontSize": 16
                                 },
                                 {
                                         "editor.fontWeight": "400",
-                                        "editor.fontFamily": "Droid Sans Mono Dotted",
-                                        "editor.fontSize": 16
+                                        "editor.fontFamily": "SF Mono",
+                                        "editor.fontSize": 15
                                 },
                         ]
                 },
@@ -348,13 +263,19 @@
                                         "workbench.colorTheme": "Kanagawa",
                                 },
                                 {
-                                        "workbench.colorTheme": "Navy And Ivory",
+                                        "workbench.colorTheme": "mnml dark",
                                 },
                                 {
                                         "workbench.colorTheme": "poimandres-noitalics",
                                 },
                                 {
-                                        "workbench.colorTheme": "Keen (rainglow)",
+                                        "workbench.colorTheme": "poimandres-noitalics-storm",
+                                },
+                                {
+                                        "workbench.colorTheme": "Tokyo Night Storm",
+                                },
+                                {
+                                        "workbench.colorTheme": "Nord",
                                 },
                         ]
                 },
@@ -371,14 +292,13 @@
                 "<C-a>": false,
                 "<C-e>": false
         },
-        "workbench.colorTheme": "mnml dark",
+        "workbench.colorTheme": "Nord",
         "workbench.layoutControl.enabled": false,
         "window.commandCenter": false,
         "markdown.preview.fontFamily": "Avenir Next",
-        "workbench.activityBar.location": "hidden",
         "cmake.options.statusBarVisibility": "visible",
         "typescript.updateImportsOnFileMove.enabled": "always",
-        "editor.fontSize": 16,
+        "editor.fontSize": 14,
         "window.dialogStyle": "custom",
         "window.titleBarStyle": "native",
         "workbench.editor.titleScrollbarSizing": "large",
@@ -394,7 +314,7 @@
                 "images": [
                         "file:///Users/soumikrakshit/Pictures/but_if_the_chance_remains.png",
                 ], // urls of your images
-                "opacity": 0.99, // 0.85 ~ 0.95 recommended
+                "opacity": 1, // 0.85 ~ 0.95 recommended
                 "size": "cover", // also css, `cover` to self-adaption (recommended)，or `contain`、`200px 200px`
                 "position": "center", // alias to `background-position`, default `center`
                 "interval": 0 // seconds of interval for carousel, default `0` to disabled.
@@ -403,5 +323,17 @@
         "files.restoreUndoStack": true,
         "terminal.integrated.defaultProfile.osx": "bash",
         "explorer.confirmDragAndDrop": false,
-        "go.testTimeout": "5s"
+        "go.testTimeout": "5s",
+        "prisma.showPrismaDataPlatformNotification": false,
+        "github.copilot.editor.enableAutoCompletions": true,
+        "zig.path": "zig",
+        "zig.zls.path": "/Users/soumikrakshit/Library/Application Support/Code/User/globalStorage/ziglang.vscode-zig/zls_install/zls",
+        "zig.initialSetupDone": true,
+        "dimloglines.opacity": 0.4,
+        "dimloglines.regExps": [
+                "\\w*LOG\\s*\\([\\s\\S]*?\\)?\\s*?;",
+                "\\w*[lL][oO][gG].*?\\.(Write|assert|debug|report|info|information|success|warning|error|fail|exception|critical)\\s*\\([\\s\\S]*?\\)?\\s*?;",
+                "\\w*[lL]og(ger)?.*?\\.(Debug|Report|Info|Success|Warning|Error|Fail|Exception|Critical|Fatal|Fatalln|Panic|Panicln|Print|Println)\\w*\\s*\\([\\s\\S]*?\\)[\\t ]*$"
+        ],
+        "editor.accessibilitySupport": "off",
 }

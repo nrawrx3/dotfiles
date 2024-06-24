@@ -272,4 +272,12 @@
                 "command": "-editor.action.marker.next",
                 "when": "editorFocus"
         },
+        {
+                "key": "shift+cmd+k shift+cmd+i",
+                "command": "dimloglines.dim"
+        },
+        {
+                "key": "shift+cmd+k shift+cmd+u",
+                "command": "dimloglines.undim"
+        },
 ]
