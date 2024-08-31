@@ -1,339 +1,378 @@
 {
-        "editor.fontFamily": "Gopher Mono",
-        "editor.tabSize": 8,
-        "editor.detectIndentation": false,
-        "editor.trimAutoWhitespace": true,
-        "editor.formatOnPaste": true,
-        "editor.fontWeight": "500",
-        "editor.multiCursorModifier": "ctrlCmd",
-        "editor.snippetSuggestions": "top",
-        "workbench.editor.showTabs": "single",
-        "workbench.editor.enablePreview": false,
-        "terminal.integrated.inheritEnv": false,
-        "workbench.startupEditor": "none",
-        "[javascript]": {
-                "editor.defaultFormatter": "vscode.typescript-language-features",
-                "editor.tabSize": 2,
-                "editor.useTabStops": false
-        },
-        "[json]": {
-                "editor.defaultFormatter": "vscode.json-language-features",
-                "editor.tabSize": 2,
-                "editor.useTabStops": false
-        },
-        "[graphql]": {
-                "editor.tabSize": 2,
-                "editor.insertSpaces": true,
-        },
-        "[go]": {
-                "editor.insertSpaces": false,
-                "editor.formatOnSave": true,
-                "editor.codeActionsOnSave": {
-                        "source.organizeImports": "explicit"
-                },
-                "editor.suggest.snippetsPreventQuickSuggestions": false,
-                "editor.tabSize": 2
-        },
-        "[zig]": {
-                "editor.formatOnSave": true,
-                "editor.tabSize": 4,
-                "editor.defaultFormatter": "ziglang.vscode-zig",
-                "files.eol": "\n"
-        },
-        "[rust]": {
-                "editor.tabSize": 4,
-                "editor.insertSpaces": true
-        },
-        "workbench.editorAssociations": {
-                "*.mobileconfig": "default",
-                "*.svg": "editor.excalidraw"
-        },
-        "[python]": {
-                "editor.tabSize": 4,
-                "editor.defaultFormatter": "ms-python.python"
-        },
-        "[typescriptreact]": {
-                "editor.insertSpaces": true,
-                "editor.tabSize": 2,
-                "editor.formatOnSave": true,
-                "editor.defaultFormatter": "vscode.typescript-language-features"
-        },
-        "[jupyter]": {
-                "editor.tabSize": 4
-        },
-        "terminal.integrated.fontFamily": "Monaspace Neon Var",
-        "terminal.integrated.lineHeight": 1.4,
-        "jupyter.askForKernelRestart": false,
-        "terminal.integrated.fontSize": 14,
-        "go.toolsManagement.autoUpdate": true,
-        "[cpp]": {
-                "editor.defaultFormatter": "ms-vscode.cpptools",
-                "editor.tabSize": 2
-        },
-        "editor.wordWrapColumn": 80,
-        "editor.wordWrap": "on",
-        "[markdown]": {
-                "editor.tabSize": 4,
-                "editor.useTabStops": false,
-                "editor.defaultFormatter": "yzhang.markdown-all-in-one"
-        },
-        "[proto3]": {
-                "editor.tabSize": 2,
-                "editor.useTabStops": false
-        },
-        "python.formatting.provider": "black",
-        "notebook.output.textLineLimit": 1000,
-        "insertDateString.formatDate": "YYYY-MM-DDThh:mm:ss+00:00",
-        "editor.minimap.showSlider": "always",
-        "[jsonc]": {
-                "editor.defaultFormatter": "vscode.json-language-features"
-        },
-        "workbench.iconTheme": "catppuccin-macchiato",
-        //   "editor.scrollbar.verticalScrollbarSize": 5,
-        "redhat.telemetry.enabled": false,
-        "[typescript]": {
-                "editor.defaultFormatter": "vscode.typescript-language-features",
-                "editor.tabSize": 2,
-                "editor.insertSpaces": true,
-                "editor.formatOnSave": true
-        },
-        "editor.tokenColorCustomizations": {
-                "[poimandres-noitalics]": {
-                        "textMateRules": [
-                                {
-                                        "scope": "comment",
-                                        "settings": {
-                                                "foreground": "#a291f9"
-                                        }
-                                }
-                        ],
-                },
-        },
-        "files.associations": {
-                "*.hujson": "hujson"
-        },
-        "[sql]": {
-                "editor.tabSize": 2,
-                "editor.insertSpaces": true,
-                "editor.defaultFormatter": "adpyke.vscode-sql-formatter"
-        },
-        "json.schemas": [
-                {
-                        "fileMatch": [
-                                "*.hujson"
-                        ],
-                        "schema": {
-                                "allowTrailingCommas": true
-                        }
-                }
+  "editor.fontFamily": "Cascadia Code",
+  "editor.tabSize": 8,
+  "editor.detectIndentation": false,
+  "editor.trimAutoWhitespace": true,
+  "editor.formatOnPaste": true,
+  "editor.fontWeight": "400",
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.snippetSuggestions": "top",
+  "workbench.editor.showTabs": "single",
+  "workbench.editor.enablePreview": false,
+  "terminal.integrated.inheritEnv": false,
+  "workbench.startupEditor": "none",
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features",
+    "editor.tabSize": 2,
+    "editor.useTabStops": false
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features",
+    "editor.tabSize": 2,
+    "editor.useTabStops": false
+  },
+  "[wgsl]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.defaultFormatter": "xaver.clang-format"
+  },
+  "[graphql]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+  },
+  "[go]": {
+    "editor.insertSpaces": false,
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    },
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "editor.tabSize": 2
+  },
+  "[github-actions-workflow]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+  },
+  "[zig]": {
+    "editor.formatOnSave": true,
+    "editor.tabSize": 4,
+    "editor.defaultFormatter": "ziglang.vscode-zig",
+    "files.eol": "\n"
+  },
+  "[rust]": {
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true
+  },
+  "workbench.editorAssociations": {
+    "*.mobileconfig": "default",
+    "*.svg": "editor.excalidraw"
+  },
+  "[python]": {
+    "editor.tabSize": 4,
+    "editor.defaultFormatter": "ms-python.python"
+  },
+  "[typescriptreact]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[jupyter]": {
+    "editor.tabSize": 4
+  },
+  "terminal.integrated.fontFamily": "Monaspace Neon Var",
+  "terminal.integrated.lineHeight": 1.4,
+  "jupyter.askForKernelRestart": false,
+  "terminal.integrated.fontSize": 14,
+  "go.toolsManagement.autoUpdate": true,
+  "[cpp]": {
+    "editor.defaultFormatter": "ms-vscode.cpptools",
+    "editor.tabSize": 2
+  },
+  "editor.wordWrapColumn": 80,
+  "editor.wordWrap": "on",
+  "[markdown]": {
+    "editor.tabSize": 4,
+    "editor.useTabStops": false,
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+  },
+  "[proto3]": {
+    "editor.tabSize": 2,
+    "editor.useTabStops": false,
+    "editor.defaultFormatter": "xaver.clang-format"
+  },
+  "python.formatting.provider": "black",
+  "notebook.output.textLineLimit": 1000,
+  "insertDateString.formatDate": "YYYY-MM-DDThh:mm:ss+00:00",
+  "editor.minimap.showSlider": "always",
+  "[jsonc]": {
+    "editor.tabSize": 2,
+    "editor.useTabStops": true,
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "workbench.iconTheme": "catppuccin-mocha",
+  "editor.scrollbar.verticalScrollbarSize": 5,
+  "redhat.telemetry.enabled": false,
+  "[typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features",
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.formatOnSave": true
+  },
+  "editor.tokenColorCustomizations": {
+    "[poimandres-noitalics]": {
+      "textMateRules": [
+        {
+          "scope": "comment",
+          "settings": {
+            "foreground": "#a291f9"
+          }
+        }
+      ],
+    },
+    "textMateRules": [
+      {
+        "scope": [
+          "comment",
+          "comment.block",
+          "comment.line",
+          "comment.block.documentation",
+          "entity.name.type.class",
+          "entity.name.type",
+          "entity.name.type.interface",
+          "entity.name.type.enum",
+          "entity.name.function",
         ],
-        "editor.inlineSuggest.enabled": true,
-        "git.openRepositoryInParentFolders": "never",
-        "[dart]": {
-                "editor.formatOnSave": true,
-                "editor.formatOnType": true,
-                "editor.selectionHighlight": false,
-                "editor.suggest.snippetsPreventQuickSuggestions": false,
-                "editor.suggestSelection": "first",
-                "editor.tabCompletion": "onlySnippets",
-                "editor.wordBasedSuggestions": "off"
+        "settings": {
+          "fontStyle": ""
+        }
+      }
+    ]
+  },
+  "files.associations": {
+    "*.hujson": "hujson"
+  },
+  "[sql]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.defaultFormatter": "adpyke.vscode-sql-formatter"
+  },
+  "json.schemas": [
+    {
+      "fileMatch": [
+        "*.hujson"
+      ],
+      "schema": {
+        "allowTrailingCommas": true
+      }
+    }
+  ],
+  "editor.inlineSuggest.enabled": true,
+  "git.openRepositoryInParentFolders": "never",
+  "[dart]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.selectionHighlight": false,
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "editor.suggestSelection": "first",
+    "editor.tabCompletion": "onlySnippets",
+    "editor.wordBasedSuggestions": "off"
+  },
+  "workbench.editor.limit.perEditorGroup": true,
+  "workbench.editor.limit.value": 20,
+  "workbench.sideBar.location": "right",
+  "workbench.statusBar.visible": true,
+  "editor.hideCursorInOverviewRuler": true,
+  "editor.overviewRulerBorder": false,
+  "editor.scrollbar.horizontal": "hidden",
+  "editor.scrollbar.vertical": "hidden",
+  "workbench.tree.renderIndentGuides": "none",
+  "editor.bracketPairColorization.enabled": false,
+  "editor.guides.highlightActiveBracketPair": false,
+  "editor.guides.bracketPairsHorizontal": false,
+  "editor.guides.indentation": false,
+  "editor.renderLineHighlight": "gutter",
+  "editor.showFoldingControls": "never",
+  "editor.minimap.maxColumn": 30,
+  "editor.minimap.side": "left",
+  "settings.cycle": [
+    {
+      "id": "lineNumbers",
+      "values": [
+        {
+          "editor.lineNumbers": "off"
         },
-        "workbench.editor.limit.perEditorGroup": true,
-        "workbench.editor.limit.value": 20,
-        "workbench.sideBar.location": "right",
-        "workbench.statusBar.visible": true,
-        "editor.hideCursorInOverviewRuler": true,
-        "editor.overviewRulerBorder": false,
-        "editor.scrollbar.horizontal": "hidden",
-        "editor.scrollbar.vertical": "hidden",
-        "workbench.tree.renderIndentGuides": "none",
-        "editor.bracketPairColorization.enabled": false,
-        "editor.guides.highlightActiveBracketPair": false,
-        "editor.guides.bracketPairsHorizontal": false,
-        "editor.guides.indentation": false,
-        "editor.renderLineHighlight": "gutter",
-        "editor.showFoldingControls": "never",
-        "editor.minimap.maxColumn": 30,
-        "editor.minimap.side": "left",
-        "settings.cycle": [
-                {
-                        "id": "lineNumbers",
-                        "values": [
-                                {
-                                        "editor.lineNumbers": "off"
-                                },
-                                {
-                                        "editor.lineNumbers": "on"
-                                },
-                                {
-                                        "editor.lineNumbers": "relative"
-                                }
-                        ]
-                },
-                {
-                        "id": "glyphMargin",
-                        "values": [
-                                {
-                                        "editor.glyphMargin": false
-                                },
-                                {
-                                        "editor.glyphMargin": true
-                                }
-                        ]
-                },
-                {
-                        "id": "fontWeight",
-                        "values": [
-                                {
-                                        "editor.fontWeight": "300"
-                                }, // Light
-                                {
-                                        "editor.fontWeight": "400"
-                                }, // Regular
-                                {
-                                        "editor.fontWeight": "450"
-                                }, // Retina !! Only works with FiraCode-VF.ttf installed, see below when using separated font files (the normal case).
-                                {
-                                        "editor.fontWeight": "500"
-                                }, // Medium
-                                {
-                                        "editor.fontWeight": "600"
-                                } // Bold
-                        ]
-                },
-                {
-                        "id": "fontCombination",
-                        "values": [
-                                {
-                                        "editor.fontWeight": "400",
-                                        "editor.fontFamily": "Gopher Mono",
-                                        "editor.fontSize": 14,
-                                },
-                                {
-                                        "editor.fontWeight": "500",
-                                        "editor.fontFamily": "Gopher Mono",
-                                        "editor.fontSize": 14
-                                },
-                                {
-                                        "editor.fontWeight": "400",
-                                        "editor.fontFamily": "Gopher Mono",
-                                        "editor.fontSize": 15
-                                },
-                                {
-                                        "editor.fontWeight": "400",
-                                        "editor.fontFamily": "Menlo",
-                                        "editor.fontSize": 16
-                                },
-                                {
-                                        "editor.fontWeight": "400",
-                                        "editor.fontFamily": "Source Code Pro",
-                                        "editor.fontSize": 16
-                                },
-                                {
-                                        "editor.fontWeight": "400",
-                                        "editor.fontFamily": "Monaspace Argon Var",
-                                        "editor.fontSize": 15
-                                },
-                                {
-                                        "editor.fontWeight": "400",
-                                        "editor.fontFamily": "Monaspace Neon Var",
-                                        "editor.fontSize": 15
-                                },
-                                {
-                                        "editor.fontWeight": "400",
-                                        "editor.fontFamily": "Generic Mono II",
-                                        "editor.fontSize": 15
-                                },
-                                {
-                                        "editor.fontWeight": "300",
-                                        "editor.fontFamily": "DejaVu Sans Mono",
-                                        "editor.fontSize": 16
-                                },
-                                {
-                                        "editor.fontWeight": "400",
-                                        "editor.fontFamily": "SF Mono",
-                                        "editor.fontSize": 15
-                                },
-                        ]
-                },
-                {
-                        "id": "colorscheme",
-                        "values": [
-                                {
-                                        "workbench.colorTheme": "Kanagawa",
-                                },
-                                {
-                                        "workbench.colorTheme": "mnml dark",
-                                },
-                                {
-                                        "workbench.colorTheme": "poimandres-noitalics",
-                                },
-                                {
-                                        "workbench.colorTheme": "poimandres-noitalics-storm",
-                                },
-                                {
-                                        "workbench.colorTheme": "Tokyo Night Storm",
-                                },
-                                {
-                                        "workbench.colorTheme": "Nord",
-                                },
-                        ]
-                },
-        ],
-        "editor.lineNumbers": "on",
-        "editor.glyphMargin": true,
-        "[css]": {
-                "editor.defaultFormatter": "vscode.css-language-features"
+        {
+          "editor.lineNumbers": "on"
         },
-        "vim.handleKeys": {
-                "<C-d>": true,
-                "<C-s>": false,
-                "<C-z>": false,
-                "<C-a>": false,
-                "<C-e>": false
+        {
+          "editor.lineNumbers": "relative"
+        }
+      ]
+    },
+    {
+      "id": "glyphMargin",
+      "values": [
+        {
+          "editor.glyphMargin": false
         },
-        "workbench.colorTheme": "Nord",
-        "workbench.layoutControl.enabled": false,
-        "window.commandCenter": false,
-        "markdown.preview.fontFamily": "Avenir Next",
-        "cmake.options.statusBarVisibility": "visible",
-        "typescript.updateImportsOnFileMove.enabled": "always",
-        "editor.fontSize": 14,
-        "window.dialogStyle": "custom",
-        "window.titleBarStyle": "native",
-        "workbench.editor.titleScrollbarSizing": "large",
-        "fontshortcuts.defaultFontSize": 15,
-        "fontshortcuts.defaultTerminalFontSize": 15,
-        "fontshortcuts.step": 1,
-        "eslint.format.enable": true,
-        "editor.lineHeight": 0,
-        "vscode_custom_css.imports": [
-                "file:///Users/soumikrakshit/werk/dotfiles/vscode/custom-css.css"
-        ],
-        "background.fullscreen": {
-                "images": [
-                        "file:///Users/soumikrakshit/Pictures/but_if_the_chance_remains.png",
-                ], // urls of your images
-                "opacity": 1, // 0.85 ~ 0.95 recommended
-                "size": "cover", // also css, `cover` to self-adaption (recommended)，or `contain`、`200px 200px`
-                "position": "center", // alias to `background-position`, default `center`
-                "interval": 0 // seconds of interval for carousel, default `0` to disabled.
+        {
+          "editor.glyphMargin": true
+        }
+      ]
+    },
+    {
+      "id": "fontWeight",
+      "values": [
+        {
+          "editor.fontWeight": "300"
+        }, // Light
+        {
+          "editor.fontWeight": "400"
+        }, // Regular
+        {
+          "editor.fontWeight": "450"
+        }, // Retina !! Only works with FiraCode-VF.ttf installed, see below when using separated font files (the normal case).
+        {
+          "editor.fontWeight": "500"
+        }, // Medium
+        {
+          "editor.fontWeight": "600"
+        } // Bold
+      ]
+    },
+    {
+      "id": "fontCombination",
+      "values": [
+        {
+          "editor.fontWeight": "400",
+          "editor.fontFamily": "Gopher Mono",
+          "editor.fontSize": 14,
         },
-        "editor.fontLigatures": true,
-        "files.restoreUndoStack": true,
-        "terminal.integrated.defaultProfile.osx": "bash",
-        "explorer.confirmDragAndDrop": false,
-        "go.testTimeout": "5s",
-        "prisma.showPrismaDataPlatformNotification": false,
-        "github.copilot.editor.enableAutoCompletions": true,
-        "zig.path": "zig",
-        "zig.zls.path": "/Users/soumikrakshit/Library/Application Support/Code/User/globalStorage/ziglang.vscode-zig/zls_install/zls",
-        "zig.initialSetupDone": true,
-        "dimloglines.opacity": 0.4,
-        "dimloglines.regExps": [
-                "\\w*LOG\\s*\\([\\s\\S]*?\\)?\\s*?;",
-                "\\w*[lL][oO][gG].*?\\.(Write|assert|debug|report|info|information|success|warning|error|fail|exception|critical)\\s*\\([\\s\\S]*?\\)?\\s*?;",
-                "\\w*[lL]og(ger)?.*?\\.(Debug|Report|Info|Success|Warning|Error|Fail|Exception|Critical|Fatal|Fatalln|Panic|Panicln|Print|Println)\\w*\\s*\\([\\s\\S]*?\\)[\\t ]*$"
-        ],
-        "editor.accessibilitySupport": "off",
+        {
+          "editor.fontWeight": "500",
+          "editor.fontFamily": "Gopher Mono",
+          "editor.fontSize": 14
+        },
+        {
+          "editor.fontWeight": "400",
+          "editor.fontFamily": "Gopher Mono",
+          "editor.fontSize": 15
+        },
+        {
+          "editor.fontWeight": "400",
+          "editor.fontFamily": "Cascadia Code",
+          "editor.fontSize": 15
+        },
+        {
+          "editor.fontWeight": "400",
+          "editor.fontFamily": "Monaspace Argon Var",
+          "editor.fontSize": 15
+        },
+        {
+          "editor.fontWeight": "400",
+          "editor.fontFamily": "Monaspace Neon Var",
+          "editor.fontSize": 15
+        },
+        {
+          "editor.fontWeight": "400",
+          "editor.fontFamily": "Courier Prime Code",
+          "editor.fontSize": 16
+        },
+        {
+          "editor.fontWeight": "400",
+          "editor.fontFamily": "Hack",
+          "editor.fontSize": 15
+        },
+        {
+          "editor.fontWeight": "400",
+          "editor.fontFamily": "SF Mono",
+          "editor.fontSize": 15
+        },
+      ]
+    },
+    {
+      "id": "colorscheme",
+      "values": [
+        {
+          "workbench.colorTheme": "Desert Night",
+        },
+        {
+          "workbench.colorTheme": "Nord",
+        },
+        {
+          "workbench.colorTheme": "poimandres-noitalics",
+        },
+        {
+          "workbench.colorTheme": "poimandres-noitalics-storm",
+        },
+        {
+          "workbench.colorTheme": "Tokyo Night Storm",
+        },
+        {
+          "workbench.colorTheme": "Allure (rainglow)",
+        },
+      ]
+    },
+  ],
+  "editor.lineNumbers": "on",
+  "editor.glyphMargin": true,
+  "[css]": {
+    "editor.defaultFormatter": "vscode.css-language-features"
+  },
+  "vim.handleKeys": {
+    "<C-d>": true,
+    "<C-s>": false,
+    "<C-z>": false,
+    "<C-a>": false,
+    "<C-e>": false
+  },
+  "workbench.colorTheme": "Desert Night",
+  "workbench.layoutControl.enabled": false,
+  "window.commandCenter": false,
+  "markdown.preview.fontFamily": "Avenir Next",
+  "cmake.options.statusBarVisibility": "visible",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "editor.fontSize": 17,
+  "window.dialogStyle": "custom",
+  "window.titleBarStyle": "native",
+  "workbench.editor.titleScrollbarSizing": "large",
+  "fontshortcuts.defaultFontSize": 15,
+  "fontshortcuts.defaultTerminalFontSize": 15,
+  "fontshortcuts.step": 1,
+  "eslint.format.enable": true,
+  "editor.lineHeight": 0,
+  "vscode_custom_css.imports": [
+    "file:///Users/soumikrakshit/werk/dotfiles/vscode/custom-css.css"
+  ],
+  "background.fullscreen": {
+    "images": [
+      "file:///Users/soumikrakshit/Pictures/but_if_the_chance_remains.png",
+    ], // urls of your images
+    "opacity": 1, // 0.85 ~ 0.95 recommended
+    "size": "cover", // also css, `cover` to self-adaption (recommended)，or `contain`、`200px 200px`
+    "position": "center", // alias to `background-position`, default `center`
+    "interval": 0 // seconds of interval for carousel, default `0` to disabled.
+  },
+  "editor.fontLigatures": true,
+  "files.restoreUndoStack": false,
+  "terminal.integrated.defaultProfile.osx": "bash",
+  "explorer.confirmDragAndDrop": false,
+  "go.testTimeout": "5s",
+  "github.copilot.editor.enableAutoCompletions": true,
+  "zig.path": "zig",
+  "zig.zls.path": "/Users/soumikrakshit/Library/Application Support/Code/User/globalStorage/ziglang.vscode-zig/zls_install/zls",
+  "zig.initialSetupDone": true,
+  "dimloglines.opacity": 0.4,
+  "dimloglines.regExps": [
+    "\\w*LOG\\s*\\([\\s\\S]*?\\)?\\s*?;",
+    "\\w*[lL][oO][gG].*?\\.(Write|assert|debug|report|info|information|success|warning|error|fail|exception|critical)\\s*\\([\\s\\S]*?\\)?\\s*?;",
+    "\\w*[lL]og(ger)?.*?\\.(Debug|Report|Info|Success|Warning|Error|Fail|Exception|Critical|Fatal|Fatalln|Panic|Panicln|Print|Println)\\w*\\s*\\([\\s\\S]*?\\)[\\t ]*$"
+  ],
+  "editor.accessibilitySupport": "off",
+  "cmake.pinnedCommands": [
+    "workbench.action.tasks.configureTaskRunner",
+    "workbench.action.tasks.runTask"
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "$"
+      ],
+      "after": [
+        "g",
+        "$"
+      ]
+    }
+  ]
 }

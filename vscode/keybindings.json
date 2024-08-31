@@ -280,4 +280,20 @@
                 "key": "shift+cmd+k shift+cmd+u",
                 "command": "dimloglines.undim"
         },
+        {
+          "key": "cmd+k cmd+h",
+          "command": "workbench.action.focusBelowGroup"
+        },
+        {
+          "key": "cmd+k cmd+down",
+          "command": "-workbench.action.focusBelowGroup"
+        },
+        {
+          "key": "cmd+k cmd+y",
+          "command": "workbench.action.focusAboveGroup"
+        },
+        {
+          "key": "cmd+k cmd+up",
+          "command": "-workbench.action.focusAboveGroup"
+        },
 ]
