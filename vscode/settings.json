@@ -5,12 +5,16 @@
   "editor.trimAutoWhitespace": true,
   "editor.formatOnPaste": true,
   "editor.fontWeight": "400",
+  "debug.console.fontFamily": "SF Mono",
+  "debug.console.fontSize": 20,
+  "debug.console.wordWrap": false,
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.snippetSuggestions": "top",
   "workbench.editor.showTabs": "single",
   "workbench.editor.enablePreview": false,
   "terminal.integrated.inheritEnv": false,
   "workbench.startupEditor": "none",
+  "rust-analyzer.checkOnSave": false,
   "[javascript]": {
     "editor.defaultFormatter": "vscode.typescript-language-features",
     "editor.tabSize": 2,
@@ -70,10 +74,10 @@
   "[jupyter]": {
     "editor.tabSize": 4
   },
-  "terminal.integrated.fontFamily": "Monaspace Neon Var",
+  "terminal.integrated.fontFamily": "Cascadia Code",
   "terminal.integrated.lineHeight": 1.4,
   "jupyter.askForKernelRestart": false,
-  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.fontSize": 21,
   "go.toolsManagement.autoUpdate": true,
   "[cpp]": {
     "editor.defaultFormatter": "ms-vscode.cpptools",
@@ -100,7 +104,7 @@
     "editor.useTabStops": true,
     "editor.defaultFormatter": "vscode.json-language-features"
   },
-  "workbench.iconTheme": "catppuccin-mocha",
+  "workbench.iconTheme": "catppuccin-latte",
   "editor.scrollbar.verticalScrollbarSize": 5,
   "redhat.telemetry.enabled": false,
   "[typescript]": {
@@ -252,7 +256,7 @@
         {
           "editor.fontWeight": "400",
           "editor.fontFamily": "Cascadia Code",
-          "editor.fontSize": 15
+          "editor.fontSize": 16
         },
         {
           "editor.fontWeight": "400",
@@ -266,13 +270,13 @@
         },
         {
           "editor.fontWeight": "400",
-          "editor.fontFamily": "Courier Prime Code",
-          "editor.fontSize": 16
+          "editor.fontFamily": "Ahamono",
+          "editor.fontSize": 23
         },
         {
           "editor.fontWeight": "400",
-          "editor.fontFamily": "Hack",
-          "editor.fontSize": 15
+          "editor.fontFamily": "Monaspace Radon Var",
+          "editor.fontSize": 23
         },
         {
           "editor.fontWeight": "400",
@@ -288,7 +292,7 @@
           "workbench.colorTheme": "Desert Night",
         },
         {
-          "workbench.colorTheme": "Nord",
+          "workbench.colorTheme": "Tokyo Night",
         },
         {
           "workbench.colorTheme": "poimandres-noitalics",
@@ -300,7 +304,7 @@
           "workbench.colorTheme": "Tokyo Night Storm",
         },
         {
-          "workbench.colorTheme": "Allure (rainglow)",
+          "workbench.colorTheme": "Gogh Theme",
         },
       ]
     },
@@ -317,14 +321,14 @@
     "<C-a>": false,
     "<C-e>": false
   },
-  "workbench.colorTheme": "Desert Night",
+  "workbench.colorTheme": "Tokyo Night Storm",
   "workbench.layoutControl.enabled": false,
   "window.commandCenter": false,
   "markdown.preview.fontFamily": "Avenir Next",
   "cmake.options.statusBarVisibility": "visible",
   "typescript.updateImportsOnFileMove.enabled": "always",
-  "editor.fontSize": 17,
-  "window.dialogStyle": "custom",
+  "editor.fontSize": 21,
+  "window.dialogStyle": "native",
   "window.titleBarStyle": "native",
   "workbench.editor.titleScrollbarSizing": "large",
   "fontshortcuts.defaultFontSize": 15,
@@ -374,5 +378,16 @@
         "$"
       ]
     }
+  ],
+  "security.workspace.trust.untrustedFiles": "open",
+  "workbench.activityBar.location": "default",
+  "cmake.showOptionsMovedNotification": false,
+  "window.zoomPerWindow": false,
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "rust-analyzer.check.extraArgs": [
+    "--target-dir",
+    "/tmp/rust-analyzer-check"
   ]
 }

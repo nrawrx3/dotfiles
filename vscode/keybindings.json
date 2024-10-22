@@ -296,4 +296,8 @@
           "key": "cmd+k cmd+up",
           "command": "-workbench.action.focusAboveGroup"
         },
+        {
+          "key": "shift+cmd+r",
+          "command": "workbench.action.tasks.runTask"
+        },
 ]
