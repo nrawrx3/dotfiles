@@ -14,7 +14,7 @@
   "workbench.editor.enablePreview": false,
   "terminal.integrated.inheritEnv": false,
   "workbench.startupEditor": "none",
-  "rust-analyzer.checkOnSave": false,
+  "rust-analyzer.checkOnSave": true,
   "[javascript]": {
     "editor.defaultFormatter": "vscode.typescript-language-features",
     "editor.tabSize": 2,
@@ -270,8 +270,8 @@
         },
         {
           "editor.fontWeight": "400",
-          "editor.fontFamily": "Ahamono",
-          "editor.fontSize": 23
+          "editor.fontFamily": "Roboto Mono",
+          "editor.fontSize": 20
         },
         {
           "editor.fontWeight": "400",
@@ -282,6 +282,48 @@
           "editor.fontWeight": "400",
           "editor.fontFamily": "SF Mono",
           "editor.fontSize": 15
+        },
+      ]
+    },
+    {
+      "id": "fontOnly",
+      "values": [
+        {
+          "editor.fontWeight": "400",
+          "editor.fontFamily": "Gopher Mono",
+        },
+        {
+          "editor.fontWeight": "500",
+          "editor.fontFamily": "Gopher Mono",
+        },
+        {
+          "editor.fontWeight": "400",
+          "editor.fontFamily": "Gopher Mono",
+        },
+        {
+          "editor.fontWeight": "400",
+          "editor.fontFamily": "Cascadia Code",
+        },
+        {
+          "editor.fontWeight": "400",
+          "editor.fontFamily": "Monaspace Argon Var",
+        },
+        {
+          "editor.fontWeight": "400",
+          "editor.fontFamily": "Monaspace Neon Var",
+
+        },
+        {
+          "editor.fontWeight": "400",
+          "editor.fontFamily": "Roboto Mono",
+        },
+        {
+          "editor.fontWeight": "400",
+          "editor.fontFamily": "Monaspace Radon Var",
+        },
+        {
+          "editor.fontWeight": "400",
+          "editor.fontFamily": "SF Mono",
         },
       ]
     },
@@ -304,7 +346,7 @@
           "workbench.colorTheme": "Tokyo Night Storm",
         },
         {
-          "workbench.colorTheme": "Gogh Theme",
+          "workbench.colorTheme": "Tokyo Night Light",
         },
       ]
     },
@@ -319,9 +361,11 @@
     "<C-s>": false,
     "<C-z>": false,
     "<C-a>": false,
-    "<C-e>": false
+    "<C-e>": false,
+    "<C-r>": false,
   },
-  "workbench.colorTheme": "Tokyo Night Storm",
+  "vim.useSystemClipboard": true,
+  "workbench.colorTheme": "poimandres-noitalics-storm",
   "workbench.layoutControl.enabled": false,
   "window.commandCenter": false,
   "markdown.preview.fontFamily": "Avenir Next",
@@ -339,15 +383,6 @@
   "vscode_custom_css.imports": [
     "file:///Users/soumikrakshit/werk/dotfiles/vscode/custom-css.css"
   ],
-  "background.fullscreen": {
-    "images": [
-      "file:///Users/soumikrakshit/Pictures/but_if_the_chance_remains.png",
-    ], // urls of your images
-    "opacity": 1, // 0.85 ~ 0.95 recommended
-    "size": "cover", // also css, `cover` to self-adaption (recommended)，or `contain`、`200px 200px`
-    "position": "center", // alias to `background-position`, default `center`
-    "interval": 0 // seconds of interval for carousel, default `0` to disabled.
-  },
   "editor.fontLigatures": true,
   "files.restoreUndoStack": false,
   "terminal.integrated.defaultProfile.osx": "bash",
@@ -386,8 +421,33 @@
   "[yaml]": {
     "editor.defaultFormatter": "redhat.vscode-yaml"
   },
+  // "background.fullscreen": {
+  //   "images": [
+  //     "file:///Users/soumikrakshit/Pictures/tetris.png",
+  //   ], // urls of your images
+  //   "opacity": 0.98, // 0.85 ~ 0.95 recommended
+  //   "size": "cover", // also css, `cover` to self-adaption (recommended)，or `contain`、`200px 200px`
+  //   "position": "center", // alias to `background-position`, default `center`
+  //   "interval": 0 // seconds of interval for carousel, default `0` to disabled.
+  // },
+  "background.fullscreen": {
+    // "images": [
+    //   "file:///Users/soumikrakshit/Pictures/tetris.png",
+    // ], // urls of your images
+    // "opacity": 0.98, // 0.85 ~ 0.95 recommended
+    // "size": "cover", // also css, `cover` to self-adaption (recommended)，or `contain`、`200px 200px`
+    // "position": "center", // alias to `background-position`, default `center`
+    // "interval": 0 // seconds of interval for carousel, default `0` to disabled.
+  },
+  // `sidebar` and `panel` have the same config as `fullscreen`
+  "background.sidebar": {},
+  "background.panel": {},
   "rust-analyzer.check.extraArgs": [
     "--target-dir",
     "/tmp/rust-analyzer-check"
+  ],
+  "cmake.preferredGenerators": [
+    "Unix Makefiles",
+    "Ninja",
   ]
 }

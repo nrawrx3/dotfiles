@@ -27,7 +27,7 @@
         },
         {
                 "key": "shift+cmd+'",
-                "command": "font-switcher.setFontSize"
+                "command": "settings.cycle.fontOnly"
         },
         {
                 "key": "shift+cmd+8",
