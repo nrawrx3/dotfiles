@@ -1,5 +1,5 @@
 {
-  "editor.fontFamily": "Cascadia Code",
+  "editor.fontFamily": "SF Mono",
   "editor.tabSize": 8,
   "editor.detectIndentation": false,
   "editor.trimAutoWhitespace": true,
@@ -63,7 +63,7 @@
   },
   "[python]": {
     "editor.tabSize": 4,
-    "editor.defaultFormatter": "ms-python.python"
+    "editor.defaultFormatter": "ms-python.black-formatter"
   },
   "[typescriptreact]": {
     "editor.insertSpaces": true,
@@ -104,7 +104,7 @@
     "editor.useTabStops": true,
     "editor.defaultFormatter": "vscode.json-language-features"
   },
-  "workbench.iconTheme": "catppuccin-latte",
+  "workbench.iconTheme": "catppuccin-mocha",
   "editor.scrollbar.verticalScrollbarSize": 5,
   "redhat.telemetry.enabled": false,
   "[typescript]": {
@@ -114,16 +114,6 @@
     "editor.formatOnSave": true
   },
   "editor.tokenColorCustomizations": {
-    "[poimandres-noitalics]": {
-      "textMateRules": [
-        {
-          "scope": "comment",
-          "settings": {
-            "foreground": "#a291f9"
-          }
-        }
-      ],
-    },
     "textMateRules": [
       {
         "scope": [
@@ -311,7 +301,6 @@
         {
           "editor.fontWeight": "400",
           "editor.fontFamily": "Monaspace Neon Var",
-
         },
         {
           "editor.fontWeight": "400",
@@ -362,16 +351,17 @@
     "<C-z>": false,
     "<C-a>": false,
     "<C-e>": false,
+    "<C-w>": false,
     "<C-r>": false,
   },
   "vim.useSystemClipboard": true,
-  "workbench.colorTheme": "poimandres-noitalics-storm",
+  "workbench.colorTheme": "Tokyo Night Storm",
   "workbench.layoutControl.enabled": false,
   "window.commandCenter": false,
   "markdown.preview.fontFamily": "Avenir Next",
   "cmake.options.statusBarVisibility": "visible",
   "typescript.updateImportsOnFileMove.enabled": "always",
-  "editor.fontSize": 21,
+  "editor.fontSize": 15,
   "window.dialogStyle": "native",
   "window.titleBarStyle": "native",
   "workbench.editor.titleScrollbarSizing": "large",
@@ -389,8 +379,6 @@
   "explorer.confirmDragAndDrop": false,
   "go.testTimeout": "5s",
   "github.copilot.editor.enableAutoCompletions": true,
-  "zig.path": "zig",
-  "zig.zls.path": "/Users/soumikrakshit/Library/Application Support/Code/User/globalStorage/ziglang.vscode-zig/zls_install/zls",
   "zig.initialSetupDone": true,
   "dimloglines.opacity": 0.4,
   "dimloglines.regExps": [
@@ -415,7 +403,6 @@
     }
   ],
   "security.workspace.trust.untrustedFiles": "open",
-  "workbench.activityBar.location": "default",
   "cmake.showOptionsMovedNotification": false,
   "window.zoomPerWindow": false,
   "[yaml]": {
@@ -449,5 +436,9 @@
   "cmake.preferredGenerators": [
     "Unix Makefiles",
     "Ninja",
-  ]
+  ],
+  "chat.editing.alwaysSaveWithGeneratedChanges": true,
+  "window.menuBarVisibility": "toggle",
+  "workbench.activityBar.location": "hidden",
+  "window.zoomLevel": -2
 }
