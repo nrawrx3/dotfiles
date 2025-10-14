@@ -1,38 +1,40 @@
 [user]
-	name = Soumik Rakshit
-	email = unset@example.com
+    name = Soumik Rakshit
+    email = s.rakshit@ext.efg.gg
 [color]
-	diff = auto
-	status = auto
-	branch = auto
-	interactive = auto
-	ui = auto
+    diff = auto
+    status = auto
+    branch = auto
+    interactive = auto
+    ui = auto
 [core]
-	editor = /usr/bin/env vim
-	autocrlf = input
-	excludesfile = ~/.gitignore
+    editor = /usr/bin/env vim
+    autocrlf = input
+    excludesfile = ~/.gitignore
 [gc]
-	auto=1
+    auto=1
 [merge]
-	summary=true
+    summary=true
 [alias]
-	cp = cherry-pick -x
-	co = checkout
-	br = branch
-	cm = commit
-	st = status
-	sm = submodule
-	cam = commit --amend
-	camno = commit --amend --no-edit
+    cp = cherry-pick -x
+    co = checkout
+    br = branch
+    cm = commit
+    st = status
+    sm = submodule
+    cam = commit --amend
+    camno = commit --amend --no-edit
 [alias]
-	b = branch -v
-	r = remote -v
-	t = tag -l
-	unstage = reset HEAD
-	uncommit = reset --soft HEAD^
+    b = branch -v
+    r = remote -v
+    t = tag -l
+    unstage = reset HEAD
+    uncommit = reset --soft HEAD^
 [http]
-	postBuffer = 1048576000
+    postBuffer = 1048576000
 [cola]
-	spellcheck = false
-[url "git@source.golabs.io:"]
-	insteadOf = https://source.golabs.io
+    spellcheck = false
+[url "ssh://git@gitlab-efg/eslfaceitgroup/"]
+    insteadOf = git@gitlab.com:eslfaceitgroup/
+    insteadOf = ssh://git@gitlab.com/eslfaceitgroup/
+    insteadOf = https://gitlab.com/eslfaceitgroup/
