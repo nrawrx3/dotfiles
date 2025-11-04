@@ -11,36 +11,6 @@ export OSH='/Users/soumikrakshit/.oh-my-bash'
 # it'll load a random theme each time that oh-my-bash is loaded.
 OSH_THEME="rana"
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_OSH_DAYS=13
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.  One of the following values can
 # be used to specify the timestamp format.
@@ -151,6 +121,13 @@ export PATH="/opt/homebrew/opt/binutils/bin:$PATH"
 # export LDFLAGS="-L/opt/homebrew/opt/node@12/lib"
 # export CPPFLAGS="-I/opt/homebrew/opt/node@12/include"
 
+# Android
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export ANDROID_NDK_ROOT=$ANDROID_HOME/ndk/29.0.14206865
+export PATH=$ANDROID_NDK_ROOT/shader-tools/darwin-x86_64:$PATH
+
 # Homebrew path
 export PATH=/opt/homebrew/bin:$PATH
 
@@ -161,8 +138,13 @@ export PATH=$GOPATH/bin:$PATH
 # ElixirLS
 export PATH=$HOME/werk/elixirls_dir:$PATH
 
+# Flutter
+export PATH="/Users/soumikrakshit/werk/flutter/bin:$PATH"
+
 # psql (keep this updated as per brew's libpq version)
 export PATH=/opt/homebrew/Cellar/libpq/15.0/bin:$PATH
+
+export PATH="$PATH:$HOME/.pub-cache/bin"
 
 # asdf
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
@@ -261,15 +243,6 @@ source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completi
 
 export ICLOUD_DIR="/Users/soumikrakshit/Library/Mobile\ Documents/com~apple~CloudDocs"
 
-# brew info openssl
-export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
-export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@3/lib/pkgconfig":$PKG_CONFIG_PATH
-export PKG_CONFIG_PATH="/opt/homebrew/Cellar/librdkafka/1.8.2/lib/pkgconfig":$PKG_CONFIG_PATH
-export PKG_CONFIG_PATH="/opt/local/lib/pkgconfig":$PKG_CONFIG_PATH
-
-# brew info libpcap
-export PATH="/opt/homebrew/opt/libpcap/bin:$PATH"
-
 export PATH="/Users/soumikrakshit/.cargo/bin:$PATH"
 
 if [ -f ~/.git-completion.bash ]; then
@@ -317,3 +290,34 @@ else
 fi
 unset __mamba_setup
 # <<< mamba initialize <<<
+. "$HOME/.cargo/env"
+
+
+alias mactivate="micromamba activate"
+alias minfo="micromamba info"
+alias mcreate="micromamba create"
+alias minstall="micromamba install"export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+export SRC_ACCESS_TOKEN="sgp_a1ecc26c7154ea77_7b4a14ee95a61b5f9e16cde1b3a7cac22d8ad285"
+export SRC_ENDPOINT="https://efg.sourcegraphcloud.com"
+alias src="/opt/homebrew/Cellar/src-cli/6.9.0/bin/src"
+
+function docker_logs() {
+        for c in $(docker ps -a --format="{{.Names}}")
+        do
+        docker logs -f $c > /tmp/$c.log 2> /tmp/$c.err &
+        done
+        tail -f /tmp/*.{log,err}
+}
+
+alias ws="windsurf"
+alias cs="cursor"
+alias nv="nvim"
+
+
+# function android_studio_jbr() {
+export PATH="/Applications/Android Studio.app/Contents/jbr/Contents/Home/bin:$PATH"
+# }
