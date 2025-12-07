@@ -1,0 +1,5 @@
+Host gitlab-efg
+    HostName gitlab.com
+    User git
+    IdentityFile ~/.ssh/id_ed25519_efg
+    IdentitiesOnly yes
