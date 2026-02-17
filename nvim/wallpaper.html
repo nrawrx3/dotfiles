@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neovim Shortcuts — Chalkboard</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #0f3b21;
+        --title: #ecfdf5;
+        --subtitle: #d1fae5;
+        --heading: #a7f3d0;
+        --text: #f1f5f9;
+        font-family: "Iosevka Custom", "Iosevka", monospace;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--bg);
+        color: var(--text);
+      }
+
+      main {
+        width: min(1080px, 92vw);
+        padding: 3rem 4vw;
+      }
+
+      .content {
+        display: flex;
+        flex-direction: column;
+        gap: 1.4rem;
+      }
+
+      .line {
+        white-space: pre-wrap;
+        min-height: 1.2em;
+      }
+
+      .line.spacer {
+        height: 1.6rem;
+      }
+
+      .title {
+        text-align: center;
+        font-size: clamp(2.8rem, 3.8vw, 4.2rem);
+        letter-spacing: 0.3rem;
+        color: var(--title);
+        margin-top: -1rem;
+      }
+
+      .subtitle {
+        text-align: center;
+        font-size: clamp(1.1rem, 2vw, 1.6rem);
+        color: var(--subtitle);
+        letter-spacing: 0.1rem;
+        margin-bottom: 1.4rem;
+      }
+
+      .section-title {
+        text-align: center;
+        font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+        letter-spacing: 0.25rem;
+        color: var(--heading);
+        font-weight: 600;
+        margin-top: 2.2rem;
+      }
+
+      .caret {
+        display: inline-block;
+        width: 0.6ch;
+        margin-left: 0.2rem;
+        background-color: transparent;
+        border-left: 3px solid var(--text);
+        animation: blink 0.9s steps(2) infinite;
+        height: 1.05em;
+        vertical-align: text-bottom;
+      }
+
+      @keyframes blink {
+        from,
+        to {
+          opacity: 0;
+        }
+        50% {
+          opacity: 1;
+        }
+      }
+
+      @media (max-width: 720px) {
+        main {
+          padding: 2rem 6vw;
+        }
+        .section-title {
+          letter-spacing: 0.15rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="content" id="typewriter"></div>
+    </main>
+
+    <script>
+      const lines = [
+        { text: "NVIM SHORTCUTS", className: "title" },
+        { text: "Leader = Space — LocalLeader = ,", className: "subtitle" },
+        { text: "NAVIGATION & JUMPS", className: "section-title" },
+        { text: "<Tab> / <S-Tab> → Cycle buffers" },
+        { text: "<leader>bd → Close current buffer" },
+        { text: "[i / ]i → Indent scope jump · s → MiniJump" },
+        { text: "", className: "spacer" },
+        { text: "FILES & SEARCH", className: "section-title" },
+        { text: "<leader>bb / <C-p> → Telescope buffers & files" },
+        { text: "<leader>ff / fs → Project files · CWD-scoped files" },
+        { text: "<leader>fg → Live grep · visual mode seeds selection" },
+        { text: "<leader>e → NvimTree toggle · <leader>n / r → Reveal / refresh" },
+        { text: "", className: "spacer" },
+        { text: "EDITING & LSP", className: "section-title" },
+        { text: "<leader>/ → Toggle comments · <C-j> / <C-k> → Move visual block" },
+        { text: "<leader>fm → Format buffer · [d / ]d → Diagnostics prev / next · <leader>e → Float" },
+        { text: "gd / gD / gr → Declaration, definition, references · <leader>rn / sh → Rename, signature" },
+        { text: "", className: "spacer" },
+        { text: "CLAUDE CODE", className: "section-title" },
+        { text: "<C-,> → Toggle panel · <leader>cC / cV → Continue / verbose modes" },
+      ];
+
+      const container = document.getElementById("typewriter");
+      const typingDelay = 28;
+      const lineDelay = 320;
+
+      function typeLine({ text, className = "" }, onComplete) {
+        const lineEl = document.createElement("div");
+        lineEl.className = `line ${className}`.trim();
+
+        const textSpan = document.createElement("span");
+        const caretSpan = document.createElement("span");
+        caretSpan.className = "caret";
+
+        lineEl.appendChild(textSpan);
+        lineEl.appendChild(caretSpan);
+        container.appendChild(lineEl);
+
+        if (text.length === 0) {
+          caretSpan.remove();
+          setTimeout(onComplete, lineDelay);
+          return;
+        }
+
+        let index = 0;
+        const interval = setInterval(() => {
+          textSpan.textContent = text.slice(0, index + 1);
+          index += 1;
+          if (index >= text.length) {
+            clearInterval(interval);
+            caretSpan.remove();
+            setTimeout(onComplete, lineDelay);
+          }
+        }, typingDelay);
+      }
+
+      function startTyping(linesToType, idx = 0) {
+        if (idx >= linesToType.length) return;
+        typeLine(linesToType[idx], () => startTyping(linesToType, idx + 1));
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        startTyping(lines);
+      });
+    </script>
+  </body>
+</html>

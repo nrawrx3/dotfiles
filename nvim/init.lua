@@ -59,6 +59,28 @@ require('packer').startup(function(use)
 	}
 
 	use {
+		'karb94/neoscroll.nvim',
+		config = function()
+			local neoscroll = require('neoscroll')
+			neoscroll.setup()
+
+			local mappings = {
+				['<C-u>'] = { 'scroll', { '-vim.wo.scroll', 'true', '80' } },
+				['<C-d>'] = { 'scroll', { 'vim.wo.scroll', 'true', '80' } },
+				['<C-b>'] = { 'scroll', { '-vim.api.nvim_win_get_height(0)', 'true', '110' } },
+				['<C-f>'] = { 'scroll', { 'vim.api.nvim_win_get_height(0)', 'true', '110' } },
+				['<C-y>'] = { 'scroll', { '-0.10', 'false', '60' } },
+				['<C-e>'] = { 'scroll', { '0.10', 'false', '60' } },
+				['zt'] = { 'zt', { '80' } },
+				['zz'] = { 'zz', { '80' } },
+				['zb'] = { 'zb', { '80' } },
+			}
+
+			require('neoscroll.config').set_mappings(mappings)
+		end
+	}
+
+	use {
 		'greggh/claude-code.nvim',
 		requires = {
 			'nvim-lua/plenary.nvim', -- Required for git operations
