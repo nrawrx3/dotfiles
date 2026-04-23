@@ -5,6 +5,7 @@ local config = wezterm.config_builder()
 local act = wezterm.action
 
 local color_schemes = {
+	"terafox",
 	"Pulp (terminal.sexy)",
 	"Selenized Dark (Gogh)",
 	"Selenized Light (Gogh)",
@@ -52,10 +53,13 @@ config.color_scheme = color_schemes[1]
 
 local font = ""
 -- font = "Iosevkiss Extended"
-font = "BlexMono Nerd Font"
+-- font = "BlexMono Nerd Font"
+-- font = "Gopher Mono"
+font = "Lucida Console 0 Fixed (DS)"
 
 config.font = wezterm.font(font, { italic = false, weight = "Medium" })
-config.font_size = 15
+config.font_size = 14
+config.line_height = 1.2
 
 -- Here's the juice for the split panes functionality
 config.keys = {
@@ -64,17 +68,17 @@ config.keys = {
 	-- Split horizontally (new pane to the bottom)
 	{ key = "d", mods = "ALT|SHIFT", action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }) },
 	-- Move focus between panes
-	{ key = "h", mods = "ALT", action = wezterm.action.ActivatePaneDirection("Left") },
-	{ key = "l", mods = "ALT", action = wezterm.action.ActivatePaneDirection("Right") },
-	{ key = "k", mods = "ALT", action = wezterm.action.ActivatePaneDirection("Up") },
-	{ key = "j", mods = "ALT", action = wezterm.action.ActivatePaneDirection("Down") },
+	-- { key = "h", mods = "ALT", action = wezterm.action.ActivatePaneDirection("Left") },
+	-- { key = "l", mods = "ALT", action = wezterm.action.ActivatePaneDirection("Right") },
+	-- { key = "k", mods = "ALT", action = wezterm.action.ActivatePaneDirection("Up") },
+	-- { key = "j", mods = "ALT", action = wezterm.action.ActivatePaneDirection("Down") },
 	-- Adjusting this to close the current pane
 	{ key = "w", mods = "ALT", action = wezterm.action.CloseCurrentPane({ confirm = true }) },
 	-- Cycle focus between panes with ALT+]
 	{ key = "]", mods = "ALT", action = wezterm.action.ActivatePaneDirection("Next") },
 
 	-- Clear scrollback and reset viewport
-	{ key = "k", mods = "ALT", action = act.ClearScrollback("ScrollbackAndViewport") },
+	{ key = "k", mods = "CTRL|SHIFT", action = act.ClearScrollback("ScrollbackAndViewport") },
 	-- Add a key binding for ALT+Shift+Backslash to cycle the color scheme
 	{
 		key = ",",
